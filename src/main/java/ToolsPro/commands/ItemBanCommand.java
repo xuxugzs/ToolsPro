@@ -11,7 +11,7 @@ import java.io.File;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class ItemBanCommand extends ToolProCommand {
+public class ItemBanCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 

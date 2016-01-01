@@ -8,7 +8,7 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class BreakCommand extends ToolProCommand {
+public class BreakCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 

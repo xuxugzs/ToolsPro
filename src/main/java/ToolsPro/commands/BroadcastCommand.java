@@ -8,7 +8,7 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class BroadcastCommand extends ToolProCommand {
+public class BroadcastCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 

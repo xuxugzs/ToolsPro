@@ -8,7 +8,7 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class FlyCommand extends ToolProCommand {
+public class FlyCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 

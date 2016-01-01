@@ -9,7 +9,7 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class BurnCommand extends ToolProCommand {
+public class BurnCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
