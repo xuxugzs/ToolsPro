@@ -1,23 +1,22 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
-import cn.nukkit.command.Command;
+import ToolsPro.util.Message;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.item.Item;
 import cn.nukkit.utils.Config;
-import cn.nukkit.utils.TextFormat;
 
 import java.io.File;
 
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class ItemBanCommand extends Command {
+public class ItemBanCommand extends ToolProCommand {
 
     private ToolsPro plugin;
 
     public ItemBanCommand(ToolsPro plugin) {
-        super("item", "Управляет списком заблокированных вещей.", "/item ban/unban <ID>");
+        super("item", Message.CMD_ITEM_DESC, "/item ban/unban <ID>");
         this.setPermission("toolspro.commands.item");
         this.plugin = plugin;
     }
@@ -31,34 +30,40 @@ public class ItemBanCommand extends Command {
             String ItemName = items.getName();
             int ItemID = items.getId();
             if (!args[1].matches("^[1-9]+\\d*$") || args[1].length() > 3 || ItemName == "Unknown") {
-                sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cПожалуйста, введите верный ID!"));
+                Message.CMD_ITEM_WRONGID.print(sender,"prefix:&7[&aBanItem&7]",'c');
+                //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cПожалуйста, введите верный ID!"));
             }else{
                 switch (args[0]) {
                     case "ban":
                         if (item.exists(ItemName)) {
-                            sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cПредет &9" + ItemName + " (ID - " + ItemID + ") &cуже заблокирован!"));
+                            Message.CMD_ITEM_ALREADYBAN.print(sender,"prefix:&7[&aBanItem&7]",'c','4',ItemName,ItemID);
+                            //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cПредет &9" + ItemName + " (ID - " + ItemID + ") &cуже заблокирован!"));
                         }else{
                             item.set(ItemName, ItemID);
                             item.save();
-                            sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &aПредет &9" + ItemName + " (ID - " + ItemID + ") &aдобавлен в список!"));
+                            Message.CMD_ITEM_ADDED.print(sender,"prefix:&7[&aBanItem&7]",'a','9',ItemName,ItemID);
+                            //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &aПредет &9" + ItemName + " (ID - " + ItemID + ") &aдобавлен в список!"));
                         }
                         return true;
                     case "unban":
                         if (!(item.exists(ItemName))) {
-                            sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cПредет &9" + ItemName + " (ID - " + ItemID + ") &cне был заблокирован!"));
+                            Message.CMD_ITEM_BAN.print(sender,"prefix:&7[&aBanItem&7]",'c','9',ItemName,ItemID);
+                            //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cПредет &9" + ItemName + " (ID - " + ItemID + ") &cне был заблокирован!"));
                         }else{
                             item.remove(ItemName);
                             item.save();
-                            sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &aПредет &9" + ItemName + " (ID - " + ItemID + ") &aудален из списка!"));
+                            Message.CMD_ITEM_REMOVED.print(sender,"prefix:&7[&aBanItem&7]",'c','9',ItemName,ItemID);
+                            //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &aПредет &9" + ItemName + " (ID - " + ItemID + ") &aудален из списка!"));
                         }
                         return true;
                     default:
-                        sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cИспользуйте /item <ban|unban> <ID>"));
-                        return true;
+                        //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cИспользуйте /item <ban|unban> <ID>"));
+                        return Message.CMD_ITEM_USAGE.print(sender,"prefix:&7[&aBanItem&7]",'c');
                 }
             }
         }else{
-            sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cИспользуйте /item <ban|unban> <ID>"));
+            return Message.CMD_ITEM_USAGE.print(sender,"prefix:&7[&aBanItem&7]",'c');
+            //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cИспользуйте /item <ban|unban> <ID>"));
         }
         return true;
     }

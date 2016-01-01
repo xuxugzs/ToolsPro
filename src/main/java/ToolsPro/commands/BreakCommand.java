@@ -1,23 +1,20 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.block.Air;
-import cn.nukkit.block.Block;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
-import cn.nukkit.event.entity.EntityDamageEvent;
-import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class BreakCommand extends Command {
+public class BreakCommand extends ToolProCommand {
 
     private ToolsPro plugin;
 
     public BreakCommand(ToolsPro plugin) {
-        super("break", "Ломает блок, который находится перед Вами..", "/break");
+        //super("break", "Ломает блок, который находится перед Вами..", "/break");
+        super("break", Message.CMD_BREAK_DESC, "/break");
         this.setPermission("toolspro.commands.break");
         this.plugin = plugin;
     }
@@ -37,7 +34,8 @@ public class BreakCommand extends Command {
             ((Player) sender).getLevel().setBlock(block, new Air(), true, true);
             */
         } else {
-            sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду в игре!"));
+            return Message.NEEDPLAYER.print(sender,'c'); // всегда возвращает true, при этом печает текст sender'у
+            //sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду в игре!"));
         }
         return true;
     }
