@@ -1,19 +1,19 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
-import cn.nukkit.command.Command;
+import ToolsPro.util.Message;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class BroadcastCommand extends Command {
+public class BroadcastCommand extends ToolProCommand {
 
     private ToolsPro plugin;
 
     public BroadcastCommand(ToolsPro plugin) {
-        super("broadcast", "Отправляет сообщение в чат.", "/broadcast <сообщение>");
+        super("broadcast",Message.CMD_BROADCAST_DESC, "/broadcast <сообщение>");
         this.setPermission("toolspro.commands.broadcast");
         this.setAliases(new String[]{"bc"});
         this.plugin = plugin;
@@ -24,8 +24,10 @@ public class BroadcastCommand extends Command {
             sender.sendMessage(this.getPermissionMessage());
         }else if (args.length != 0) {
             sender.getServer().broadcastMessage(TextFormat.colorize("&d[Broadcast] &r" + this.plugin.join (args)));
+
         }else{
-            sender.sendMessage(TextFormat.colorize("&7[&aBroadcast&7] &cИспользуйте: /broadcast <текст>"));
+            Message.CMD_BROADCAST_USAGE.print(sender,"prefix:&7[&aBroadcast&7]",'c');
+            //sender.sendMessage(TextFormat.colorize("&7[&aBroadcast&7] &cИспользуйте: /broadcast <текст>"));
         }
         return true;
     }

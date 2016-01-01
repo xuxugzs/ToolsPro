@@ -2,7 +2,7 @@ package ToolsPro;
 
 import ToolsPro.commands.*;
 import ToolsPro.listeners.*;
-import ToolsPro.listeners.EventListener;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.command.CommandSender;
@@ -12,7 +12,8 @@ import cn.nukkit.item.Tool;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ToolsPro extends PluginBase {
 
@@ -29,6 +30,7 @@ public class ToolsPro extends PluginBase {
     @Override
     public void onEnable() {
         instance = this;
+        Message.init(this);
         this.getServer().getCommandMap().register("break", new BreakCommand(this));
         this.getServer().getCommandMap().register("broadcast", new BroadcastCommand(this));
         this.getServer().getCommandMap().register("burn", new BurnCommand(this));
@@ -62,12 +64,14 @@ public class ToolsPro extends PluginBase {
         this.getServer().getPluginManager().registerEvents(new ItemBanListener(this), this);
         this.getServer().getPluginManager().registerEvents(new MessageListener(this), this);
         this.getServer().getPluginManager().registerEvents(new MuteListener(this), this);
-        this.getLogger().info(TextFormat.GREEN + "ToolsPro успешно загружен!");
+        Message.TPRO_LOADED.log();
+        //this.getLogger().info(TextFormat.GREEN + "ToolsPro успешно загружен!");
     }
 
     @Override
     public void onDisable() {
-        this.getLogger().info(TextFormat.RED + "ToolsPro успешно выключен!");
+        Message.TPRO_DISABLED.log('c'); // Цвет указывается в виде char (т.е. в одинарных кавычках): 'c' - красный, '6' - золотой.
+        //this.getLogger().info(TextFormat.RED + "ToolsPro успешно выключен!");
     }
 
     public boolean isRepairable(Item item){
