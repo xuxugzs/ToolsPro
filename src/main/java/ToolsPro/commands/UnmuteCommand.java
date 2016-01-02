@@ -28,7 +28,7 @@ public class UnmuteCommand extends ToolsProCommand {
         } else if (args.length != 0) {
             Config mute = new Config(new File(this.plugin.getDataFolder(), "mute.yml"), Config.YAML);
             Player p = this.plugin.getServer().getPlayer(args[0]);
-            if (!mute.exists(args[0].toLowerCase())){
+            if (!mute.exists(args[0].toLowerCase())) {
                 sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cУ игрока &b" + p.getName() + " &cнет мута!"));
             } else {
                 mute.remove(args[0].toLowerCase());

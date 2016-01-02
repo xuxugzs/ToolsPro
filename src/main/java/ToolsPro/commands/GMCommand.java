@@ -22,7 +22,7 @@ public class GMCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else if (sender instanceof Player) {
+        } else if (sender instanceof Player) {
             if (args.length != 0) {
                 switch (args[0]) {
                     case "0":
@@ -82,10 +82,10 @@ public class GMCommand extends ToolsProCommand {
                         sender.sendMessage(TextFormat.colorize("&7[&aGM&7] Пожалуйста, используйте &e/gm help &aдля просмотра всех игровых режимов"));
                         return true;
                 }
-            }else{
+            } else {
                 sender.sendMessage(TextFormat.colorize("&7[&aGM&7] Пожалуйста, используйте &e/gm help &aдля просмотра всех игровых режимов"));
             }
-        }else{
+        } else {
             Message.NEED_PLAYER.print(sender, "prefix:&7[&aGM&7]", 'c');
         }
         return true;

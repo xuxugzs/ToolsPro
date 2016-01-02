@@ -32,7 +32,7 @@ public class MoreCommand extends ToolsProCommand {
                 item.setCount(item.getMaxStackSize());
                 ((Player) sender).getInventory().setItem(((Player) sender).getInventory().getHeldItemIndex(), item);
                 Message.CMD_MORE_SUCCESSFULLY.print(sender, "prefix:&7[&aMore&7]", item.getCount(), 'a', 'b');
-            }else{
+            } else {
                 Message.NEED_PLAYER.print(sender, "prefix:&7[&aMore&7]", 'c');
             }
         }

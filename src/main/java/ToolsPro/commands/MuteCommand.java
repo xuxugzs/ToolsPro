@@ -27,36 +27,36 @@ public class MuteCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else {
-            if (args.length < 2){
+        } else {
+            if (args.length < 2) {
                 sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cИспользуйте /mute <ник> <время> <seconds|minutes|hours|days>"));
-            }else{
+            } else {
                 Config mute = new Config(new File(this.plugin.getDataFolder(), "mute.yml"), Config.YAML);
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (!args[1].matches("^[1-9]+\\d*$")){
+                if (!args[1].matches("^[1-9]+\\d*$")) {
                     sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cПожалуйста, введите верное число!"));
-                }else{
+                } else {
                     Double times = this.plugin.round(Integer.parseInt(args[1]), 2);
                     Double timings;
-                    if (args.length == 3){
-                        if (args[2].equalsIgnoreCase("seconds")){
+                    if (args.length == 3) {
+                        if (args[2].equalsIgnoreCase("seconds")) {
                             timings = times;
-                        }else if (args[2].equalsIgnoreCase("minutes")){
+                        } else if (args[2].equalsIgnoreCase("minutes")) {
                             timings = times * 60;
-                        }else if (args[2].equalsIgnoreCase("hours")){
+                        } else if (args[2].equalsIgnoreCase("hours")) {
                             timings = times * 3600;
-                        }else if (args[2].equalsIgnoreCase("days")){
+                        } else if (args[2].equalsIgnoreCase("days")) {
                             timings = times * 86400;
-                        }else{
+                        } else {
                             sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cУкажите верное значение времени!"));
                             return true;
                         }
-                    }else{
+                    } else {
                         timings = times * 60;
                     }
-                    if (timings > (30 * 86400)){
+                    if (timings > (30 * 86400)) {
                         sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cВы не можете замутить игрока больше чем на 30 дней!"));
-                    }else{
+                    } else {
                         mute.set(args[0].toLowerCase(), System.currentTimeMillis() + Math.round(timings * 1000d));
                         mute.save();
                         int seconds = NukkitMath.floorDouble(timings % 60);
@@ -67,7 +67,7 @@ public class MuteCommand extends ToolsProCommand {
                                 hours + " hours " +
                                 minutes + " minutes " +
                                 seconds + " seconds";
-                        if (p instanceof Player){
+                        if (p instanceof Player) {
                             p.sendMessage(TextFormat.colorize("&7[&aMute&7] &cВы получили мут на " + timemute + " и теперь не можете писать в чат"));
                         }
                         sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &b" + p.getName() + " &cбыл замучен на " + timemute));

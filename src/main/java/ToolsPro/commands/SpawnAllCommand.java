@@ -23,10 +23,10 @@ public class SpawnAllCommand extends ToolsProCommand {
         int count = this.plugin.getServer().getOnlinePlayers().size();
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else if ((count < 1) || (sender instanceof Player && count < 2)){
+        } else if ((count < 1) || (sender instanceof Player && count < 2)) {
             Message.CMD_SPAWNALL_NO_PLAYERS.print(sender, "prefix:&7[&aSpawn&7]", 'c');
-        }else{
-            for (Player player : this.plugin.getServer().getOnlinePlayers().values()){
+        } else {
+            for (Player player : this.plugin.getServer().getOnlinePlayers().values()) {
                 if (player.equals(sender)) continue;
                 player.teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));
                 Message.CMD_SPAWNALL_PLAYER_TP_TO_SPAWN.print(sender, "prefix:&7[&aSpawn&7]", 'c');

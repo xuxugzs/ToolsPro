@@ -21,7 +21,7 @@ public class FlyCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else if (args.length != 0) {
+        } else if (args.length != 0) {
             if (sender.hasPermission("toolspro.fly.other")) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
                 if (p != null) {
@@ -36,23 +36,23 @@ public class FlyCommand extends ToolsProCommand {
                         Message.CMD_FLY_PLAYER_ENABLED.print(sender, "prefix:&7[&aFly&7]", 'a', 'b', p.getName());
                         Message.CMD_FLY_PLAYER_MESSAGE_ENABLED.print(sender, "prefix:&7[&aFly&7]", 'a');
                     }
-                }else{
+                } else {
                     Message.NEED_PLAYER.print(sender,"prefix:&7[&aFly&7]",'c');
                 }
-            }else{
+            } else {
                 sender.sendMessage(this.getPermissionMessage());
             }
         }else if (sender instanceof Player) {
             if (((Player) sender).getGamemode() != 0) {
                 Message.YOU_NOT_SURVIVAL.print(sender, "prefix:&7[&aFly&7]", 'c');
-            }else if (((Player) sender).getAllowFlight()) {
+            } else if (((Player) sender).getAllowFlight()) {
                 ((Player) sender).setAllowFlight(false);
                 Message.CMD_FLY_SENDER_DISABLED.print(sender, "prefix:&7[&aFly&7]", 'a');
-            }else{
+            } else {
                 ((Player) sender).setAllowFlight(true);
                 Message.CMD_FLY_SENDER_ENABLED.print(sender, "prefix:&7[&aFly&7]", 'a');
             }
-        }else{
+        } else {
             Message.NEED_PLAYER.print(sender, "prefix:&7[&aFly&7]", 'c');
         }
         return true;

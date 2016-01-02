@@ -25,22 +25,22 @@ public class SpawnCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else if (args.length != 0){
+        } else if (args.length != 0) {
             Player p = this.plugin.getServer().getPlayer(args[0]);
-            if(!sender.hasPermission("toolspro.spawn.other")){
+            if (!sender.hasPermission("toolspro.spawn.other")) {
                 sender.sendMessage(this.getPermissionMessage());
-            }else if (p != null){
+            } else if (p != null) {
                 ((Player) p).teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));
                 Message.CMD_SPAWN_TP_PLAYER_MESSAGE.print(p, "prefix:&7[&aSpawn&7]", 'c');
                 Message.CMD_SPAWN_TP_SENDER_MESSAGE.print(sender, "prefix:&7[&aSpawn&7]", 'c');
-            }else{
+            } else {
                 Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSpawn&7]", 'c');
             }
         }
         if (sender instanceof Player) {
             ((Player) sender).teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));
             Message.CMD_SPAWN_TP_PLAYER_MESSAGE.print(sender, "prefix:&7[&aSpawn&7]", 'c');
-        }else{
+        } else {
             Message.NEED_PLAYER.print(sender, "prefix:&7[&aSpawn&7]", 'c');
         }
         return true;

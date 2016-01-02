@@ -23,7 +23,7 @@ public class JumpCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else if (sender instanceof Player) {
+        } else if (sender instanceof Player) {
             /*Block block = ((Player) sender).getTargetBlock(100, this.plugin.NON_SOLID_BLOCK);
             if(block == null){
                 sender.sendMessage(TextFormat.RED + "There isn't a reachable block");
@@ -49,7 +49,7 @@ public class JumpCommand extends ToolsProCommand {
                 ((Player) sender).teleport(block);
             }
             */
-        }else{
+        } else {
             Message.NEED_PLAYER.print(sender, "prefix:&7[&aJump&7]", 'c');
         }
         return true;

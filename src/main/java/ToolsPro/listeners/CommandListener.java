@@ -20,7 +20,8 @@ public class CommandListener implements Listener {
         Player player = event.getPlayer();
         String[] cmd = event.getMessage().split(" ");
         Player p = this.plugin.getServer().getPlayer(cmd[1]);
-        if (cmd[0].equalsIgnoreCase("/tell") && cmd[1] != null){ // :D
+        boolean TellNotice = this.plugin.getConfig().getNested("TellNotice", false);
+        if (cmd[0].equalsIgnoreCase("/tell") && cmd[1] != null && TellNotice){ // :D
             String msg = "";
             for (int i = 2; i < cmd.length; i++) {
                 msg += cmd[i] + " ";

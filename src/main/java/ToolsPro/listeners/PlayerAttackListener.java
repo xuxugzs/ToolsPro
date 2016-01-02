@@ -19,10 +19,10 @@ public class PlayerAttackListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
-    public void onEntityDamage(EntityDamageEvent event){
-        if (event instanceof EntityDamageByEntityEvent){
+    public void onEntityDamage(EntityDamageEvent event) {
+        if (event instanceof EntityDamageByEntityEvent) {
             Entity player = ((EntityDamageByEntityEvent) event).getDamager();
-            if (player instanceof Player){
+            if (player instanceof Player) {
                 if ((((Player) player).getGamemode() == 1)) {
                     ((Player) player).sendMessage(TextFormat.colorize("&cВы не можете атаковать в креативе!"));
                     event.setCancelled();
@@ -33,12 +33,12 @@ public class PlayerAttackListener implements Listener {
                     event.setCancelled();
                     return;
                 }
-                if ((this.plugin.isGodMode(((Player) player).getName()))){
+                if ((this.plugin.isGodMode(((Player) player).getName()))) {
                     ((Player) player).sendMessage(TextFormat.colorize("&cВы не можете атаковать в режиме бога!"));
                     event.setCancelled();
                     return;
                 }
-                if (this.plugin.isHide(((Player) player).getName())){
+                if (this.plugin.isHide(((Player) player).getName())) {
                     ((Player) player).sendMessage(TextFormat.colorize("&cВы не можете атаковать в невидимости!"));
                     event.setCancelled();
                     return;

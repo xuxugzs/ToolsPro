@@ -24,19 +24,19 @@ public class ItemBanCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else if (args.length == 2) {
+        } else if (args.length == 2) {
             Config item = new Config(new File(this.plugin.getDataFolder(), "item.yml"), Config.YAML);
             Item items = Item.fromString(args[1]);
             String ItemName = items.getName();
             int ItemID = items.getId();
             if (!args[1].matches("^[1-9]+\\d*$") || args[1].length() > 3 || ItemName == "Unknown") {
                 Message.CMD_ITEMBAN_WRONGID.print(sender, "prefix:&7[&aBanItem&7]", 'c');
-            }else{
+            } else {
                 switch (args[0]) {
                     case "ban":
                         if (item.exists(ItemName)) {
                             Message.CMD_ITEMBAN_ALREADYBAN.print(sender, "prefix:&7[&aBanItem&7]", 'c', '9', ItemName, ItemID);
-                        }else{
+                        } else {
                             item.set(ItemName, ItemID);
                             item.save();
                             Message.CMD_ITEMBAN_ADDED.print(sender, "prefix:&7[&aBanItem&7]", 'a', '9', ItemName, ItemID);
@@ -45,7 +45,7 @@ public class ItemBanCommand extends ToolsProCommand {
                     case "unban":
                         if (!(item.exists(ItemName))) {
                             Message.CMD_ITEMBAN_BAN.print(sender, "prefix:&7[&aBanItem&7]", 'c', '9', ItemName, ItemID);
-                        }else{
+                        } else {
                             item.remove(ItemName);
                             item.save();
                             Message.CMD_ITEMBAN_REMOVED.print(sender, "prefix:&7[&aBanItem&7]", 'a', '9', ItemName, ItemID);
@@ -55,7 +55,7 @@ public class ItemBanCommand extends ToolsProCommand {
                         return Message.CMD_ITEMBAN_USAGE.print(sender, "prefix:&7[&aBanItem&7]", 'c');
                 }
             }
-        }else{
+        } else {
             return Message.CMD_ITEMBAN_USAGE.print(sender, "prefix:&7[&aBanItem&7]", 'c');
         }
         return true;

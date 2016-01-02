@@ -22,9 +22,9 @@ public class BroadcastCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else if (args.length != 0) {
+        } else if (args.length != 0) {
             sender.getServer().broadcastMessage(TextFormat.colorize("&d[Broadcast] &r" + this.plugin.join(args)));
-        }else{
+        } else {
             Message.CMD_BROADCAST_USAGE.print(sender, "prefix:&7[&aBroadcast&7]", 'c');
         }
         return true;

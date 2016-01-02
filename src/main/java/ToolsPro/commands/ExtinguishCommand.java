@@ -24,14 +24,14 @@ public class ExtinguishCommand extends ToolsProCommand {
             sender.sendMessage(this.getPermissionMessage());
         }else if (args.length != 0) {
             Player p = this.plugin.getServer().getPlayer(args[0]);
-            if (p != null){
+            if (p != null) {
                 p.extinguish();
                 Message.CMD_EXTHINGUISH_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'a', 'b', p.getName());
                 Message.CMD_EXTHINGUISH_PLAYER_MESSAGE.print(p, "prefix:&7[&aExtinguish&7]", 'a');
-            }else{
+            } else {
                 Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
             }
-        }else{
+        } else {
             if (sender instanceof Player) {
                 ((Player) sender).extinguish();
                 Message.CMD_EXTHINGUISH_SENDER.print(sender, "prefix:&7[&aExtinguish&7]", 'a');

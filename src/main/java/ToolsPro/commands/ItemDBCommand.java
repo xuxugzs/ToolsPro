@@ -45,7 +45,7 @@ public class ItemDBCommand extends ToolsProCommand {
                     }
                 }
                 sender.sendMessage(TextFormat.colorize(m));
-            }else{
+            } else {
                 Message.NEED_PLAYER.print(sender, "prefix:&7[&aItemDB&7]", 'c');
             }
         }

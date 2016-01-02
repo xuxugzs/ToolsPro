@@ -25,23 +25,23 @@ public class RepairCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else if (sender instanceof Player) {
+        } else if (sender instanceof Player) {
             switch (args[0]) {
                 case "all":
-                    if(!sender.hasPermission("toolspro.repair.all")){
+                    if (!sender.hasPermission("toolspro.repair.all")) {
                         sender.sendMessage(TextFormat.RED + this.getPermissionMessage());
                         return false;
                     }
-                    for (Item item : ((Player) sender).getInventory().getContents().values()){
-                        if(this.plugin.isRepairable(item)){
+                    for (Item item : ((Player) sender).getInventory().getContents().values()) {
+                        if (this.plugin.isRepairable(item)) {
                            item.setDamage(0);
                             ((Player) sender).getInventory().setItemInHand(item);
                         }
                     }
                     sender.sendMessage("All the tools on your inventory were repaired!");
-                    if(sender.hasPermission("toolspro.repair.armor")){
-                        for (Item item : ((Player) sender).getInventory().getArmorContents()){
-                            if(this.plugin.isRepairable(item)){
+                    if (sender.hasPermission("toolspro.repair.armor")) {
+                        for (Item item : ((Player) sender).getInventory().getArmorContents()) {
+                            if (this.plugin.isRepairable(item)) {
                                 item.setDamage(0);
                                 ((Player) sender).getInventory().setItemInHand(item);
                             }
@@ -50,7 +50,7 @@ public class RepairCommand extends ToolsProCommand {
                     }
                     return true;
                 case "hand":
-                    if (!this.plugin.isRepairable(((Player) sender).getInventory().getItemInHand())){
+                    if (!this.plugin.isRepairable(((Player) sender).getInventory().getItemInHand())) {
                         sender.sendMessage("[Error] This item can't be repaired!");
                         return false;
                     }

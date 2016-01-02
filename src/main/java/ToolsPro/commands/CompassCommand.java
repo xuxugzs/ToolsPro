@@ -21,7 +21,7 @@ public class CompassCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        }else if (sender instanceof  Player){
+        } else if (sender instanceof  Player) {
             String direction;
             switch (((Player) sender).getDirection()) {
                 case 0:
@@ -41,7 +41,7 @@ public class CompassCommand extends ToolsProCommand {
                     return true;
             }
             Message.CMD_COMPASS_VIEW.print(sender, "prefix:&7[&aCompass&7]", 'a');
-        }else{
+        } else {
             Message.NEED_PLAYER.print(sender, "prefix:&7[&aCompass&7]", 'c');
         }
         return true;

@@ -33,7 +33,7 @@ public class HealthCommand extends ToolsProCommand {
                         p.setHealth(20);
                         Message.CMD_HEALTH_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
                         Message.CMD_HEALTH_PLAYER_MESSAGE.print(p, "prefix:&7[&aHealth&7]", 'a');
-                    }else{
+                    } else {
                         sender.sendMessage(TextFormat.colorize("&7[&aHealth&7] &cУ игрока &b" + p.getName() + " &cполные жизни, лечение не требуется!"));
                     }
                 } else {
@@ -46,10 +46,10 @@ public class HealthCommand extends ToolsProCommand {
             if (sender instanceof Player) {
                 if (((Player) sender).getGamemode() != 0) {
                     Message.YOU_NOT_SURVIVAL.print(sender, "prefix:&7[&aHealth&7]", 'c');
-                }else if (((Player) sender).getHealth() != 20) {
+                } else if (((Player) sender).getHealth() != 20) {
                     ((Player) sender).setHealth(20);
                     Message.CMD_HEALTH_SENDER.print(sender, "prefix:&7[&aHealth&7]", 'a');
-                }else{
+                } else {
                     Message.CMD_HEALTH_SENDER_MAX.print(sender, "prefix:&7[&aHealth&7]", 'a');
                 }
             } else {

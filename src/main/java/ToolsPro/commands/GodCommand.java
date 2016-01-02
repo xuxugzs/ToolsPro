@@ -32,7 +32,7 @@ public class GodCommand extends ToolsProCommand {
                         p.sendMessage(TextFormat.colorize("&7[&aGodMode&7] &aВы стали смертным!"));
                     } else if (p.getGamemode() != 0) {
                         sender.sendMessage(TextFormat.colorize("&7[&aGodMode&7] &cИгровой режим игрка &b" + p.getName() + " &cне выживание!"));
-                    }else{
+                    } else {
                         this.plugin.setGodMode(args[0]);
                         sender.sendMessage(TextFormat.colorize("&7[&aGodMode&7] &aИгрок &b" + p.getName() + " &aбессмертный!"));
                         p.sendMessage(TextFormat.colorize("&7[&aGodMode&7] &aВы стали бессметным!"));

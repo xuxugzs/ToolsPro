@@ -16,12 +16,12 @@ public class MessageListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
-    public void onJoin(PlayerJoinEvent event){
+    public void onJoin(PlayerJoinEvent event) {
         event.setJoinMessage(new TextContainer(""));
     }
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
-    public void onQuit(PlayerQuitEvent event){
+    public void onQuit(PlayerQuitEvent event) {
         event.setQuitMessage(new TextContainer(""));
     }
 }
