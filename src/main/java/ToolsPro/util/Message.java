@@ -316,12 +316,12 @@ public enum Message {
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	public static void init(PluginBase plg){
 		plugin = plg;
-        plugin.getDataFolder().mkdirs();
+        //plugin.getDataFolder().mkdirs();
 		language = plg.getConfig().getNested("general.language", "english");
-		plg.getConfig().setNested("general.language", language);
+		//plg.getConfig().setNested("general.language", language);
 		debugMode = plg.getConfig().getNested("general.debug-mode",false);
-		plg.getConfig().setNested("general.debug-mode",debugMode);
-		plg.saveConfig();
+		//plg.getConfig().setNested("general.debug-mode",debugMode);
+		//plg.saveConfig();
 		initMessages();
 		saveMessages();
 		LNG_CONFIG.debug(Message.values().length,language,true,debugMode);
