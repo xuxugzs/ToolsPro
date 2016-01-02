@@ -196,6 +196,7 @@ public enum Message {
 				continue;
             } else if (s.startsWith("prefix:")) {
                 prefix = s.replace("prefix:","");
+				continue;
 			} else if (s.equals("SKIPCOLOR")) {
 				skipDefaultColors = true;
 				continue;
