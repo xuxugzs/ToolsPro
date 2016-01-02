@@ -35,24 +35,20 @@ public class ItemBanCommand extends ToolsProCommand {
                 switch (args[0]) {
                     case "ban":
                         if (item.exists(ItemName)) {
-                            Message.CMD_ITEMBAN_ALREADYBAN.print(sender, "prefix:&7[&aBanItem&7]", 'c', '4', ItemName, ItemID);
-                            //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cПредет &9" + ItemName + " (ID - " + ItemID + ") &cуже заблокирован!"));
+                            Message.CMD_ITEMBAN_ALREADYBAN.print(sender, "prefix:&7[&aBanItem&7]", 'c', '9', ItemName, ItemID);
                         }else{
                             item.set(ItemName, ItemID);
                             item.save();
                             Message.CMD_ITEMBAN_ADDED.print(sender, "prefix:&7[&aBanItem&7]", 'a', '9', ItemName, ItemID);
-                            //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &aПредет &9" + ItemName + " (ID - " + ItemID + ") &aдобавлен в список!"));
                         }
                         return true;
                     case "unban":
                         if (!(item.exists(ItemName))) {
                             Message.CMD_ITEMBAN_BAN.print(sender, "prefix:&7[&aBanItem&7]", 'c', '9', ItemName, ItemID);
-                            //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &cПредет &9" + ItemName + " (ID - " + ItemID + ") &cне был заблокирован!"));
                         }else{
                             item.remove(ItemName);
                             item.save();
-                            Message.CMD_ITEMBAN_REMOVED.print(sender, "prefix:&7[&aBanItem&7]", 'c', '9', ItemName, ItemID);
-                            //sender.sendMessage(TextFormat.colorize("&7[&aBanItem&7] &aПредет &9" + ItemName + " (ID - " + ItemID + ") &aудален из списка!"));
+                            Message.CMD_ITEMBAN_REMOVED.print(sender, "prefix:&7[&aBanItem&7]", 'a', '9', ItemName, ItemID);
                         }
                         return true;
                     default:
