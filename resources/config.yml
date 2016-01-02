@@ -1,0 +1,7 @@
+---
+JoinSurvival: false
+TellNotice: false
+general:
+  language: russian
+  debug-mode: false
+...
