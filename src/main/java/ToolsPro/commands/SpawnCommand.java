@@ -1,6 +1,7 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
@@ -11,12 +12,12 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class SpawnCommand extends Command {
+public class SpawnCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public SpawnCommand(ToolsPro plugin) {
-        super("spawn", "Телепортирует на спавн.", "/spawn");
+        super("spawn", Message.CMD_SPAWN_DESCRIPTION, "/spawn");
         this.setPermission("toolspro.commands.spawn");
         this.plugin = plugin;
     }
@@ -38,7 +39,7 @@ public class SpawnCommand extends Command {
             ((Player) sender).teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));
             ((Player) sender).sendMessage(TextFormat.colorize("&7[&aSpawn&7] Телепортация..."));
         }else{
-            sender.sendMessage(TextFormat.colorize("&7[&aSpawn&7] &cПожалуйста, используйте эту команду только в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aSpawn&7]", 'c');
         }
         return true;
     }

@@ -1,21 +1,23 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
+import cn.nukkit.command.defaults.MeCommand;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class TopCommand extends Command {
+public class TopCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public TopCommand(ToolsPro plugin) {
-        super("top", "Teleport to the highest block above you", "/top");
+        super("top", Message.CMD_TOP_DESCRIPTION, "/top");
         this.setPermission("toolspro.commands.top");
         this.plugin = plugin;
     }
@@ -25,10 +27,10 @@ public class TopCommand extends Command {
             sender.sendMessage(this.getPermissionMessage());
         } else {
             if (sender instanceof Player) {
-                sender.sendMessage(TextFormat.colorize("&aТелепортация..."));
+                Message.CMD_TP_MESSAGE.print(sender, 'a');
                 ((Player) sender).teleport(((Player) sender).add(0, ((Player) sender).getLevel().getHighestBlockAt((int)((Player) sender).getX(), (int)((Player) sender).getZ()) + 1));
             }else{
-                sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду в игре!"));
+                Message.NEED_PLAYER.print(sender, "prefix:&7[&aTop&7]", 'c');
             }
         }
         return true;

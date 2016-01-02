@@ -1,6 +1,7 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.command.Command;
@@ -11,12 +12,12 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class JumpCommand extends Command {
+public class JumpCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public JumpCommand(ToolsPro plugin) {
-        super("jump", "Телепортирует тебя в то место, куда смотришь.", "/jump");
+        super("jump", Message.CMD_JUMP_DESCRIPTION, "/jump");
         this.setPermission("toolspro.commands.jump");
         this.plugin = plugin;
     }
@@ -51,7 +52,7 @@ public class JumpCommand extends Command {
             }
             */
         }else{
-            sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду только в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aJump&7]", 'c');
         }
         return true;
     }

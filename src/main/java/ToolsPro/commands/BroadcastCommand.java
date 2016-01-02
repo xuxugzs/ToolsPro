@@ -13,7 +13,7 @@ public class BroadcastCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public BroadcastCommand(ToolsPro plugin) {
-        super("broadcast",Message.CMD_BROADCAST_DESC, "/broadcast <сообщение>");
+        super("broadcast", Message.CMD_BROADCAST_DESCRIPTION, Message.CMD_BROADCAST_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.broadcast");
         this.setAliases(new String[]{"bc"});
         this.plugin = plugin;
@@ -23,11 +23,9 @@ public class BroadcastCommand extends ToolsProCommand {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
         }else if (args.length != 0) {
-            sender.getServer().broadcastMessage(TextFormat.colorize("&d[Broadcast] &r" + this.plugin.join (args)));
-
+            sender.getServer().broadcastMessage(TextFormat.colorize("&d[Broadcast] &r" + this.plugin.join(args)));
         }else{
-            Message.CMD_BROADCAST_USAGE.print(sender,"prefix:&7[&aBroadcast&7]",'c');
-            //sender.sendMessage(TextFormat.colorize("&7[&aBroadcast&7] &cИспользуйте: /broadcast <текст>"));
+            Message.CMD_BROADCAST_USAGE.print(sender, "prefix:&7[&aBroadcast&7]", 'c');
         }
         return true;
     }

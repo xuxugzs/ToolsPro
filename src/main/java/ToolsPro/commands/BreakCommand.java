@@ -14,7 +14,7 @@ public class BreakCommand extends ToolsProCommand {
 
     public BreakCommand(ToolsPro plugin) {
         //super("break", "Ломает блок, который находится перед Вами..", "/break");
-        super("break", Message.CMD_BREAK_DESC, "/break");
+        super("break", Message.CMD_BREAK_DESCRIPTION, "/break");
         this.setPermission("toolspro.commands.break");
         this.plugin = plugin;
     }
@@ -34,7 +34,7 @@ public class BreakCommand extends ToolsProCommand {
             ((Player) sender).getLevel().setBlock(block, new Air(), true, true);
             */
         } else {
-            return Message.NEEDPLAYER.print(sender,'c'); // всегда возвращает true, при этом печает текст sender'у
+            return Message.NEED_PLAYER.print(sender,'c'); // всегда возвращает true, при этом печает текст sender'у
             //sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду в игре!"));
         }
         return true;

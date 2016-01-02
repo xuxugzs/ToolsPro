@@ -1,6 +1,7 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
@@ -9,12 +10,12 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class SaveInvCommand extends Command {
+public class SaveInvCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public SaveInvCommand(ToolsPro plugin) {
-        super("saveinv", "Включает/выключает сохранение инвентаря.", "/saveinv или /saveinv <ник>");
+        super("saveinv", Message.CMD_SAVEINV_DESCRIPTION, "/saveinv или /saveinv <ник>");
         this.setPermission("toolspro.commands.saveinv");
         this.plugin = plugin;
     }
@@ -62,7 +63,7 @@ public class SaveInvCommand extends Command {
                     }
                 }
         }else{
-            sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
         }
         return true;
     }

@@ -13,7 +13,7 @@ public class ExtinguishCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public ExtinguishCommand(ToolsPro plugin) {
-        super("extinguish", Message.CMD_EXT_DESC, Message.CMD_EXT_DESC2.toString());
+        super("extinguish", Message.CMD_EXTHINGUISH_DESCRIPTION, Message.CMD_EXTHINGUISH_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.extinguish");
         this.setAliases(new String[] {"ext"});
         this.plugin = plugin;
@@ -25,23 +25,18 @@ public class ExtinguishCommand extends ToolsProCommand {
         }else if(args.length == 0) {
             if (sender instanceof Player) {
                 ((Player) sender).extinguish();
-                Message.CMD_EXT_SELFOK.print(sender,"prefix:&7[&aExtinguish&7]",'a');
-                //sender.sendMessage(TextFormat.colorize("&7[&aExtinguish&7] &aВы успешно потушили себя!"));
+                Message.CMD_EXTHINGUISH_SENDER.print(sender, "prefix:&7[&aExtinguish&7]", 'a');
             } else {
-                Message.NEEDPLAYER.print(sender,'c');
-                //sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду только в игре!"));
+                Message.NEED_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
             }
         }else{
             Player p = this.plugin.getServer().getPlayer(args[0]);
             if (p instanceof Player){
                 p.extinguish();
-                //p.sendMessage(TextFormat.colorize("&7[&aExtinguish&7] &aВас успешно потушили!"));
-                Message.CMD_EXT_OKYOU.print(sender,"prefix:&7[&aExtinguish&7]",'a');
-                //sender.sendMessage(TextFormat.colorize("&7[&aExtinguish&7] &aВы успешно потуишили игрока &b" + p.getName() + "&a!"));
-                Message.CMD_EXT_OK.print(sender,"prefix:&7[&aExtinguish&7]",'a','b',p.getName());
+                Message.CMD_EXTHINGUISH_PLAYER_MESSAGE.print(sender, "prefix:&7[&aExtinguish&7]", 'a');
+                Message.CMD_EXTHINGUISH_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'a', 'b', p.getName());
             }else{
-                Message.UNKNOWNPLAYER.print(sender,"&7[&aExtinguish&7]",'c');
-                //sender.sendMessage(TextFormat.colorize("&7[&aExtinguish&7] &cТакого игрока нет на сервере!"));
+                Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
             }
         }
         return true;

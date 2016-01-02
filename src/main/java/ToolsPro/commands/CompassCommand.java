@@ -13,7 +13,7 @@ public class CompassCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public CompassCommand(ToolsPro plugin) {
-        super("compass", Message.CMD_COMPASS_DESC, "/compass");
+        super("compass", Message.CMD_COMPASS_DESCRIPTION, "/compass");
         this.setPermission("toolspro.commands.compass");
         this.plugin = plugin;
     }
@@ -25,27 +25,24 @@ public class CompassCommand extends ToolsProCommand {
             String direction;
             switch (((Player) sender).getDirection()) {
                 case 0:
-                    direction = Message.SOUTH.getText('e');//"&eюг";
+                    direction = Message.SOUTH.getText('e');
                     break;
                 case 1:
-                    direction = Message.WEST.getText('d');//"&dзапад";
+                    direction = Message.WEST.getText('d');
                     break;
                 case 2:
-                    direction = Message.NORTH.getText('b');//"&bсевер";
+                    direction = Message.NORTH.getText('b');
                     break;
                 case 3:
-                    direction = Message.EAST.getText('d');//"&bсевер";
+                    direction = Message.EAST.getText('d');
                     break;
                 default:
-                    Message.CMD_COMPASS_WRONGDIR.print(sender,"prefix:&7[&aCompass&7]",'c');
-                    //sender.sendMessage(TextFormat.colorize("&7[&aCompass&7] &cПростите, но нам не удаось определить ваше местонахождение"));
+                    Message.CMD_COMPASS_WRONGDIR.print(sender, "prefix:&7[&aCompass&7]", 'c');
                     return true;
             }
-            Message.CMD_COMPASS_VIEW.print(sender,"prefix:&7[&aCompass&7]",'a');
-            //sender.sendMessage(TextFormat.colorize("&7[&aCompass&7] &aВы смотретие на " + direction));
+            Message.CMD_COMPASS_VIEW.print(sender, "prefix:&7[&aCompass&7]", 'a');
         }else{
-            Message.NEEDPLAYER.print(sender,"prefix:&7[&aCompass&7]", 'c');
-            //sender.sendMessage(TextFormat.colorize("&7[&aCompass&7] &cПожалуйста, используйте эту команду только в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aCompass&7]", 'c');
         }
         return true;
     }

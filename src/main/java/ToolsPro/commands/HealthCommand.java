@@ -1,6 +1,7 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
@@ -9,12 +10,12 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class HealthCommand extends Command {
+public class HealthCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public HealthCommand(ToolsPro plugin) {
-        super("health", "Восстанавливает жизни.", "/health или /health <ник>");
+        super("health", Message.CMD_HEALTH_DESCRIPTION, "/health или /health <ник>");
         this.setPermission("toolspro.commands.health");
         this.plugin = plugin;
     }
@@ -52,7 +53,7 @@ public class HealthCommand extends Command {
                     sender.sendMessage(TextFormat.colorize("&7[&aHealth&7] &cУ Вас полные жизни, лечение не требуется!"));
                 }
             } else {
-                sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду только в игре!"));
+                Message.NEED_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'c');
             }
         }
         return true;

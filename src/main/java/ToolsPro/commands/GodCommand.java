@@ -1,6 +1,7 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
@@ -9,12 +10,12 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class GodCommand extends Command {
+public class GodCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public GodCommand(ToolsPro plugin) {
-        super("god", "Включает/выключает бессмертие.", "/god или /god <ник>");
+        super("god", Message.CMD_GOD_DESCRIPTION, "/god или /god <ник>");
         this.setPermission("toolspro.commands.god");
         this.plugin = plugin;
     }
@@ -54,7 +55,7 @@ public class GodCommand extends Command {
                 sender.sendMessage(TextFormat.colorize("&7[&aGodMode&7] &aВы успешно включили режим бога!"));
             }
         } else {
-            sender.sendMessage(TextFormat.colorize("&7[&aGodMode&7] &cПожалуйста, используйте эту команду в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aGodMode&7]", 'c');
         }
         return true;
     }

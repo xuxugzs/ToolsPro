@@ -13,7 +13,7 @@ public class ClearInventoryCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public ClearInventoryCommand(ToolsPro plugin) {
-        super("clearinventory", Message.CMD_CI_DESC, Message.CMD_CI_DESC2.toString());
+        super("clearinventory", Message.CMD_CLEARINVENTORY_DESCRIPTION, Message.CMD_CLEARINVENTORY_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.clearinventory");
         this.setAliases(new String[]{"ci"});
         this.plugin = plugin;
@@ -25,18 +25,18 @@ public class ClearInventoryCommand extends ToolsProCommand {
         }else if (args.length != 0) {
             if (sender.hasPermission("toolspro.clearinventory.other")){
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (p !=null){
+                if (p != null){
                     if (p.getGamemode() != 0){
-                        Message.NOT_SURV.print(sender,"prefix:&7[&aClearInv&7]",'c','b');
+                        Message.PLAYER_NOT_SURVIVAL.print(sender, "prefix:&7[&aClearInv&7]", 'c', 'b');
                         //sender.sendMessage(TextFormat.colorize("&7[&aClearInv&7] &cИгровой режим игрока &b" + p.getName() + " &cне выживание!"));
 
                     } else {
                         p.getInventory().clearAll();
                         //sender.sendMessage(TextFormat.colorize("&7[&aClearInv&7] &aИнвентарь &b" + p.getName() + " &aочищен!"));
-                        Message.CMD_CI_INVCLEAR.print(sender,"prefix:&7[&aClearInv&7]",'a','b');
+                        Message.CMD_CLEARINVENTORY_PLAYER_CLEAR.print(sender, "prefix:&7[&aClearInv&7]", 'a', 'b');
                     }
                 }else{
-                    Message.UNKNOWNPLAYER.print(sender,"prefix:&7[&aClearInv&7]", 'c');
+                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'c');
                     //sender.sendMessage(TextFormat.colorize("&7[&aClearInv&7] &cТакого игрока нет на сервере"));
                 }
             }else{
@@ -44,17 +44,16 @@ public class ClearInventoryCommand extends ToolsProCommand {
             }
         }else if (sender instanceof Player){
             if(((Player) sender).getGamemode() != 0){
-                Message.YOU_NOT_SURV.print(sender,"prefix:&7[&aClearInv&7]",'c');
+                Message.YOU_NOT_SURVIVAL.print(sender, "prefix:&7[&aClearInv&7]", 'c');
                 //sender.sendMessage(TextFormat.colorize("&7[&aClearInv&7] &cВаш игрокой режим не выживание!"));
 
             }else{
                 ((Player) sender).getInventory().clearAll();
-                Message.CMD_CI_YINVCLEAR.print(sender,"prefix:&7[&aClearInv&7]", 'a');
+                Message.CMD_CLEARINVENTORY_SENDER_CLEAR.print(sender, "prefix:&7[&aClearInv&7]", 'a');
                 //sender.sendMessage(TextFormat.colorize("&7[&aClearInv&7] &aВаш инвентарь был успешно очищен!"));
             }
         }else{
-            Message.NEEDPLAYER.print(sender,"prefix:&7[&aClearInv&7]",'c');
-            //sender.sendMessage(TextFormat.colorize("&7[&aClearInv&7] &cПожалуйста, используйте эту команду только в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'c');
         }
         return true;
     }

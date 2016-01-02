@@ -1,6 +1,7 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
@@ -10,12 +11,12 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class SpeedCommand extends Command {
+public class SpeedCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public SpeedCommand(ToolsPro plugin) {
-        super("speed", "Позволяет управлять скоростью игрока.", "/speed или /speed <число>");
+        super("speed", Message.CMD_SPEED_DESCRIPTION, "/speed or /speed <number>");
         this.setPermission("toolspro.commands.speed");
         this.plugin = plugin;
     }
@@ -33,10 +34,10 @@ public class SpeedCommand extends Command {
                 }
             }else{
                 ((Player) sender).removeEffect(Effect.SPEED);
-                sender.sendMessage("&7[&aSpeed&7] &aВы успешно сбросили скорость на стандартную!");
+                Message.CMD_SPEED_NORMAL.print(sender,"prefix:&7[&aSpeed&7]", 'a');
             }
         }else{
-            sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду только в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aSpeed&7]", 'c');
         }
         return true;
     }

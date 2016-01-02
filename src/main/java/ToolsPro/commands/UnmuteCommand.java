@@ -1,6 +1,7 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
@@ -12,12 +13,12 @@ import java.io.File;
 /**
  * Created by Pub4Game on 21.12.2015.
  */
-public class UnmuteCommand extends Command {
+public class UnmuteCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public UnmuteCommand(ToolsPro plugin) {
-        super("unmute", "Позволяет управлять скоростью персонажа.", "/unmute <ник>");
+        super("unmute", Message.CMD_UNMUTE_DESCRIPTION, "/unmute <ник>");
         this.setPermission("toolspro.commands.unmute");
         this.plugin = plugin;
     }
