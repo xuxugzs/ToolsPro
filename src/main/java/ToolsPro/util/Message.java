@@ -144,8 +144,6 @@ public enum Message {
 	private static char c1 = 'a';
 	private static char c2 = '2';
 
-
-
 	/**
 	 * This is my favorite debug routine :) I use it everywhere to print out variable values
 	 * @param s - array of any object that you need to print out.
@@ -162,8 +160,6 @@ public enum Message {
 			sb.append(str.toString()).append(" ");
 		plugin.getServer().broadcastMessage(TextFormat.colorize(sb.toString().trim()));
 	}
-
-
 
 	/**
 	 * Send current message to log files
@@ -239,7 +235,6 @@ public enum Message {
 		return true;
 	}
 
-
 	/**
 	 * Get formated text.
 	 * @param keys
@@ -299,7 +294,6 @@ public enum Message {
 	Message(String msg){
 		message = msg;
 	}
-
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	public static void init(PluginBase plg){

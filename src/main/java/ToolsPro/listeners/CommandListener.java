@@ -6,7 +6,6 @@ import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerCommandPreprocessEvent;
-import cn.nukkit.utils.TextFormat;
 
 public class CommandListener implements Listener {
 

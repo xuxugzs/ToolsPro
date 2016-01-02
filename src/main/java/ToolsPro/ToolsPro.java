@@ -1,8 +1,5 @@
 package ToolsPro;
 
-import ToolsPro.commands.*;
-import ToolsPro.listeners.*;
-import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.command.CommandSender;
@@ -11,6 +8,10 @@ import cn.nukkit.item.Item;
 import cn.nukkit.item.Tool;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
+
+import ToolsPro.commands.*;
+import ToolsPro.listeners.*;
+import ToolsPro.util.Message;
 
 import java.util.HashSet;
 import java.util.Set;
