@@ -1,8 +1,8 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.math.NukkitMath;
 import cn.nukkit.utils.Config;
@@ -14,12 +14,12 @@ import java.io.File;
  * Created by Pub4Game on 21.12.2015.
  */
 
-public class MuteCommand extends Command {
+public class MuteCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public MuteCommand(ToolsPro plugin) {
-        super("mute", "Блокирвет чат определенному игроку на время.", "/mute <ник> <время> <seconds|minutes|hours|days>");
+        super("mute", Message.CMD_MUTE_DESCRIPTION, Message.CMD_MUTE_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.mute");
         this.plugin = plugin;
     }

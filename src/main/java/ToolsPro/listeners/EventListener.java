@@ -63,7 +63,7 @@ public class EventListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
-    public void onPlayerDeath(PlayerDeathEvent event){
+    public void onPlayerDeath(PlayerDeathEvent event) {
         Entity entity = event.getEntity();
         String name = event.getEntity().getName();
         if (entity instanceof Player){

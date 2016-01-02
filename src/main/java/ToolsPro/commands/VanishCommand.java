@@ -1,8 +1,8 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.entity.Effect;
 import cn.nukkit.inventory.Inventory;
@@ -11,12 +11,12 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class VanishCommand extends Command {
+public class VanishCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public VanishCommand(ToolsPro plugin) {
-        super("vanish", "Включает/выключает невидимость.", "/vanish или /vanish <ник>");
+        super("vanish", Message.CMD_VANISH_DESCRIPTION, Message.CMD_VANISH_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.vanish");
         this.setAliases(new String[]{"v"});
         this.plugin = plugin;
@@ -70,7 +70,7 @@ public class VanishCommand extends Command {
                 this.plugin.info(sender, "&7[Vanish] " + sender.getName() + " включил невидимость!");
             }
         }else{
-            sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aVanish&7]", 'c');
         }
         return true;
     }

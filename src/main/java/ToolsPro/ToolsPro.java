@@ -1,8 +1,5 @@
 package ToolsPro;
 
-import ToolsPro.commands.*;
-import ToolsPro.listeners.*;
-import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.command.CommandSender;
@@ -11,6 +8,10 @@ import cn.nukkit.item.Item;
 import cn.nukkit.item.Tool;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
+
+import ToolsPro.commands.*;
+import ToolsPro.listeners.*;
+import ToolsPro.util.Message;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -64,14 +65,12 @@ public class ToolsPro extends PluginBase {
         this.getServer().getPluginManager().registerEvents(new ItemBanListener(this), this);
         this.getServer().getPluginManager().registerEvents(new MessageListener(this), this);
         this.getServer().getPluginManager().registerEvents(new MuteListener(this), this);
-        Message.TPRO_LOADED.log();
-        //this.getLogger().info(TextFormat.GREEN + "ToolsPro успешно загружен!");
+        Message.TOOLSPRO_LOADED.log();
     }
 
     @Override
     public void onDisable() {
-        Message.TPRO_DISABLED.log('c'); // Цвет указывается в виде char (т.е. в одинарных кавычках): 'c' - красный, '6' - золотой.
-        //this.getLogger().info(TextFormat.RED + "ToolsPro успешно выключен!");
+        Message.TOOLSPRO_DISABLED.log('c');
     }
 
     public boolean isRepairable(Item item){
@@ -122,10 +121,6 @@ public class ToolsPro extends PluginBase {
         }
     }
 
-    public static final int [] NON_SOLID_BLOCK ={Block.SAPLING, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA, Block.COBWEB, Block.TALL_GRASS, Block.BUSH, Block.DANDELION,
-            Block.POPPY, Block.BROWN_MUSHROOM, Block.RED_MUSHROOM, Block.TORCH, Block.FIRE, Block.WHEAT_BLOCK, Block.SIGN_POST, Block.WALL_SIGN, Block.SUGARCANE_BLOCK,
-            Block.PUMPKIN_STEM, Block.MELON_STEM, Block.VINE, Block.CARROT_BLOCK, Block.POTATO_BLOCK, Block.DOUBLE_PLANT};
-
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
@@ -143,4 +138,8 @@ public class ToolsPro extends PluginBase {
         }
         return sb.toString();
     }
+
+    public static final int [] NON_SOLID_BLOCK ={Block.SAPLING, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA, Block.COBWEB, Block.TALL_GRASS, Block.BUSH, Block.DANDELION,
+            Block.POPPY, Block.BROWN_MUSHROOM, Block.RED_MUSHROOM, Block.TORCH, Block.FIRE, Block.WHEAT_BLOCK, Block.SIGN_POST, Block.WALL_SIGN, Block.SUGARCANE_BLOCK,
+            Block.PUMPKIN_STEM, Block.MELON_STEM, Block.VINE, Block.CARROT_BLOCK, Block.POTATO_BLOCK, Block.DOUBLE_PLANT};
 }

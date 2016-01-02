@@ -1,11 +1,9 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
-import cn.nukkit.entity.Effect;
-import cn.nukkit.inventory.Inventory;
 import cn.nukkit.item.Item;
 import cn.nukkit.utils.TextFormat;
 
@@ -14,12 +12,12 @@ import java.util.Map;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class RepairCommand extends Command {
+public class RepairCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public RepairCommand(ToolsPro plugin) {
-        super("repair", "Позволяет управлять скоростью персонажа.", "/repair");
+        super("repair", Message.CMD_REPAIR_DESCRIPTION, "/repair");
         this.setPermission("toolspro.commands.repair");
         this.plugin = plugin;
     }
@@ -63,7 +61,7 @@ public class RepairCommand extends Command {
                     return true;
                 }
         }else{
-            sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду только в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aRepair&7]", 'c');
         }
         return true;
     }

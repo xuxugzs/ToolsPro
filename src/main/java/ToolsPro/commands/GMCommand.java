@@ -1,20 +1,20 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class GMCommand extends Command {
+public class GMCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public GMCommand(ToolsPro plugin) {
-        super("gm", "Изменияет игровой режим.", "/gm <игрокой режим>");
+        super("gm", Message.CMD_GAMEMODE_DESCRIPTION, Message.CMD_GAMEMODE_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.gamemode");
         this.plugin = plugin;
     }
@@ -86,7 +86,7 @@ public class GMCommand extends Command {
                 sender.sendMessage(TextFormat.colorize("&7[&aGM&7] Пожалуйста, используйте &e/gm help &aдля просмотра всех игровых режимов"));
             }
         }else{
-            sender.sendMessage(TextFormat.colorize("&7[&aGM&7] &cПожалуйста, используйте эту команду в игре!"));
+            Message.NEED_PLAYER.print(sender, "prefix:&7[&aGM&7]", 'c');
         }
         return true;
     }

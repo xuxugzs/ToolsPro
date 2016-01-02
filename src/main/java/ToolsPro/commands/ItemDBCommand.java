@@ -1,8 +1,8 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.item.Item;
 import cn.nukkit.utils.TextFormat;
@@ -10,12 +10,12 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class ItemDBCommand extends Command {
+public class ItemDBCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public ItemDBCommand(ToolsPro plugin) {
-        super("itemdb", "Показывает информацию о предмете, который Вы держите в руке.", "/itemdb");
+        super("itemdb", Message.CMD_ITEMDB_DESCRIPTION, "/itemdb");
         this.setPermission("toolspro.commands.itemdb");
         this.plugin = plugin;
     }
@@ -46,7 +46,7 @@ public class ItemDBCommand extends Command {
                 }
                 sender.sendMessage(TextFormat.colorize(m));
             }else{
-                sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду в игре!"));
+                Message.NEED_PLAYER.print(sender, "prefix:&7[&aItemDB&7]", 'c');
             }
         }
         return true;

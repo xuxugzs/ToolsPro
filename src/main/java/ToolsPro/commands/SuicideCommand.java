@@ -1,21 +1,20 @@
 package ToolsPro.commands;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.event.entity.EntityDamageEvent;
-import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class SuicideCommand extends Command {
+public class SuicideCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public SuicideCommand(ToolsPro plugin) {
-        super("suicide", "Вы закончите жизнь самоубийством.", "/suicide");
+        super("suicide", Message.CMD_SUICIDE_DESCRIPTION, "/suicide");
         this.setPermission("toolspro.commands.suicide");
         this.plugin = plugin;
     }
@@ -32,9 +31,9 @@ public class SuicideCommand extends Command {
                 }
                 ((Player) sender).setLastDamageCause(ev);
                 ((Player) sender).setHealth(0);
-                sender.sendMessage(TextFormat.colorize("&7[&aSuicide&7] &aВы покончили жизнь самоубийством!"));
+                Message.CMD_SUICIDE_MESSAGE.print(sender, "prefix:&7[&aSuicide&7]", 'a');
             }else{
-                sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду в игре!"));
+                Message.NEED_PLAYER.print(sender, "prefix:&7[&aSuicide&7]", 'c');
             }
         }
         return true;

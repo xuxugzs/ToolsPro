@@ -8,13 +8,12 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class BreakCommand extends ToolProCommand {
+public class BreakCommand extends ToolsProCommand {
 
     private ToolsPro plugin;
 
     public BreakCommand(ToolsPro plugin) {
-        //super("break", "Ломает блок, который находится перед Вами..", "/break");
-        super("break", Message.CMD_BREAK_DESC, "/break");
+        super("break", Message.CMD_BREAK_DESCRIPTION, "/break");
         this.setPermission("toolspro.commands.break");
         this.plugin = plugin;
     }
@@ -34,8 +33,7 @@ public class BreakCommand extends ToolProCommand {
             ((Player) sender).getLevel().setBlock(block, new Air(), true, true);
             */
         } else {
-            return Message.NEEDPLAYER.print(sender,'c'); // всегда возвращает true, при этом печает текст sender'у
-            //sender.sendMessage(TextFormat.colorize("&cПожалуйста, используйте эту команду в игре!"));
+            return Message.NEED_PLAYER.print(sender, 'c');
         }
         return true;
     }

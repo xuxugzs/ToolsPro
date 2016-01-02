@@ -3,8 +3,8 @@
     <output-path>C:/Nukkit-Server/plugins</output-path>
     <root id="archive" name="ToolsPro.jar">
       <element id="module-output" name="ToolsPro" />
-      <element id="file-copy" path="$PROJECT_DIR$/resources/plugin.yml" />
       <element id="dir-copy" path="$PROJECT_DIR$/src" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
     </root>
   </artifact>
 </component>
