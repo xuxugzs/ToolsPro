@@ -25,16 +25,15 @@ public class ClearHotBarCommand extends ToolsProCommand {
         }else if (args.length != 0){
             if (sender.hasPermission("toolspro.clearhotbar.other")){
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (p == null){
-                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'c');
-                    //sender.sendMessage(TextFormat.colorize("&7[&aClearHotBar&7] &cТакого игрока нет на сервере!"));
-                }else{
-                    for (int i = 0; i<p.getInventory().getHotbarSize(); i++){
+                if (p != null) {
+                    for (int i = 0; i < p.getInventory().getHotbarSize(); i++) {
                         p.getInventory().setHotbarSlotIndex(i, -1);
                     }
                     Message.CMD_CLEARHOTBAR_PLAYER_CLEAR.print(sender, "prefix:&7[&aClearHotBar&7]", 'a', 'b', p.getName());
                     Message.CMD_CLEARHOTBAR_PLAYER_CLEAR_LOG.log("prefix:&7[ClearHotBar]", sender.getName(), p.getName());
                     //this.plugin.info(sender, "&7[ClearHotBar] " + sender.getName() +  " очистил хот бар игроку " + p.getName() + "!");
+                }else{
+                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'c');
                 }
             }else{
                 sender.sendMessage(this.getPermissionMessage());

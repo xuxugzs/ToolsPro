@@ -3,7 +3,6 @@ package ToolsPro.commands;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.utils.TextFormat;
 
@@ -15,7 +14,7 @@ public class GMCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public GMCommand(ToolsPro plugin) {
-        super("gm", Message.CMD_GAMEMODE_DESCRIPTION, "/gm <игрокой режим>");
+        super("gm", Message.CMD_GAMEMODE_DESCRIPTION, Message.CMD_GAMEMODE_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.gamemode");
         this.plugin = plugin;
     }

@@ -29,7 +29,6 @@ public class ClearInventoryCommand extends ToolsProCommand {
                     if (p.getGamemode() != 0){
                         Message.PLAYER_NOT_SURVIVAL.print(sender, "prefix:&7[&aClearInv&7]", 'c', 'b');
                         //sender.sendMessage(TextFormat.colorize("&7[&aClearInv&7] &cИгровой режим игрока &b" + p.getName() + " &cне выживание!"));
-
                     } else {
                         p.getInventory().clearAll();
                         //sender.sendMessage(TextFormat.colorize("&7[&aClearInv&7] &aИнвентарь &b" + p.getName() + " &aочищен!"));

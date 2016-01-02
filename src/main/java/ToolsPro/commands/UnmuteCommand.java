@@ -3,7 +3,6 @@ package ToolsPro.commands;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
@@ -18,7 +17,7 @@ public class UnmuteCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public UnmuteCommand(ToolsPro plugin) {
-        super("unmute", Message.CMD_UNMUTE_DESCRIPTION, "/unmute <ник>");
+        super("unmute", Message.CMD_UNMUTE_DESCRIPTION, Message.CMD_UNMUTE_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.unmute");
         this.plugin = plugin;
     }

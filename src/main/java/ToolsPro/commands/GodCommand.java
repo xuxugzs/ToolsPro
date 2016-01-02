@@ -3,7 +3,6 @@ package ToolsPro.commands;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.utils.TextFormat;
 
@@ -15,7 +14,7 @@ public class GodCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public GodCommand(ToolsPro plugin) {
-        super("god", Message.CMD_GOD_DESCRIPTION, "/god или /god <ник>");
+        super("god", Message.CMD_GOD_DESCRIPTION, Message.CMD_GOD_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.god");
         this.plugin = plugin;
     }
@@ -26,7 +25,7 @@ public class GodCommand extends ToolsProCommand {
         } else if (args.length != 0) {
             if (sender.hasPermission("toolspro.god.other")) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (p instanceof Player) {
+                if (p != null) {
                     if (this.plugin.isGodMode(args[0])) {
                         this.plugin.removeGodMode(args[0]);
                         sender.sendMessage(TextFormat.colorize("&7[&aGodMode&7] &aИгрок &b" + p.getName() + " &aснова смертный!"));
@@ -39,7 +38,7 @@ public class GodCommand extends ToolsProCommand {
                         p.sendMessage(TextFormat.colorize("&7[&aGodMode&7] &aВы стали бессметным!"));
                     }
                 } else {
-                    sender.sendMessage(TextFormat.colorize("&7[&aGodMode&] &cТакого игрока нет на сервере!"));
+                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGodMode&7]", 'c');
                 }
             } else {
                 sender.sendMessage(this.getPermissionMessage());

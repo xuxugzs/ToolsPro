@@ -4,7 +4,6 @@ import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
-import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
@@ -24,11 +23,10 @@ public class BurnCommand extends ToolsProCommand {
             sender.sendMessage(this.getPermissionMessage());
         }else if (args.length == 2) {
             Player p = this.plugin.getServer().getPlayer(args[0]);
-            if (p instanceof Player) {
+            if (p != null) {
                 if (args[1].matches("^[1-9]+\\d*$")) {
                     p.setOnFire(Integer.parseInt(args[1]));
                     Message.CMD_BURN_PLAYER.print(sender, 'a', 'b', p.getName(), "prefix:&7[&aBurn&7]");
-                    //sender.sendMessage(TextFormat.colorize("&7[&aBurn&7] &aВы подожгли игрока &b" + p.getName()));
                 } else {
                     Message.NOT_NUMBER.print(sender, "prefix:&7[&aBurn&7]", 'c');
                 }

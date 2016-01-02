@@ -3,7 +3,6 @@ package ToolsPro.commands;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.entity.Effect;
 import cn.nukkit.utils.TextFormat;
@@ -16,7 +15,7 @@ public class SpeedCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public SpeedCommand(ToolsPro plugin) {
-        super("speed", Message.CMD_SPEED_DESCRIPTION, "/speed or /speed <number>");
+        super("speed", Message.CMD_SPEED_DESCRIPTION, Message.CMD_SPEED_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.speed");
         this.plugin = plugin;
     }

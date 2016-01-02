@@ -3,7 +3,6 @@ package ToolsPro.commands;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.math.NukkitMath;
 import cn.nukkit.utils.Config;
@@ -20,7 +19,7 @@ public class MuteCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public MuteCommand(ToolsPro plugin) {
-        super("mute", Message.CMD_MUTE_DESCRIPTION, "/mute <ник> <время> <seconds|minutes|hours|days>");
+        super("mute", Message.CMD_MUTE_DESCRIPTION, Message.CMD_MUTE_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.mute");
         this.plugin = plugin;
     }

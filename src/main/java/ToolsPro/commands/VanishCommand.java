@@ -3,7 +3,6 @@ package ToolsPro.commands;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.entity.Effect;
 import cn.nukkit.inventory.Inventory;
@@ -17,7 +16,7 @@ public class VanishCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public VanishCommand(ToolsPro plugin) {
-        super("vanish", Message.CMD_VANISH_DESCRIPTION, "/vanish или /vanish <ник>");
+        super("vanish", Message.CMD_VANISH_DESCRIPTION, Message.CMD_VANISH_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.vanish");
         this.setAliases(new String[]{"v"});
         this.plugin = plugin;

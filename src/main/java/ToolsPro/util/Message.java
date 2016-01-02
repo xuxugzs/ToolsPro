@@ -78,11 +78,18 @@ public enum Message {
     CMD_FLY_SENDER_ENABLED("Вы успешно включили режим полета!"),
     CMD_FLY_SENDER_DISABLED("Вы успешно выключили режим полета!"),
     //Gamemode Command
-    CMD_GAMEMODE_DESCRIPTION(""),
+    CMD_GAMEMODE_DESCRIPTION("Изменияет игровой режим."),
+	CMD_GAMEMODE_DESCRIPTION2("/gm <игрокой режим>"),
     //God Command
-    CMD_GOD_DESCRIPTION(""),
+    CMD_GOD_DESCRIPTION("Включает/выключает режим бога"),
+	CMD_GOD_DESCRIPTION2("/god или /god <ник>"),
     //Health Command
-    CMD_HEALTH_DESCRIPTION(""),
+    CMD_HEALTH_DESCRIPTION("Восстанавливает жизни."),
+	CMD_HEALTH_DESCRIPTION2("/health или /health <ник>"),
+	CMD_HEALTH_SENDER("Вы успешно вылечили себя!"),
+	CMD_HEALTH_SENDER_MAX("У Вас полные жизни, лечение не требуется!"),
+	CMD_HEALTH_PLAYER("Вы успешно вылечили игрока %1%!"),
+	CMD_HEALTH_PLAYER_MESSAGE("Вас успешно вылечили!"),
     //ItemBan Command
     CMD_ITEMBAN_DESCRIPTION("Управляет списком заблокированных вещей"),
     CMD_ITEMBAN_WRONGID("Пожалуйста, введите верный ID!"),
@@ -107,30 +114,40 @@ public enum Message {
     CMD_MORE_SUCCESSFULLY("Вы успешно увеличили предмет в руке до"),
     //Mute Command
     CMD_MUTE_DESCRIPTION(""),
+	CMD_MUTE_DESCRIPTION2("/mute <ник> <время> <seconds|minutes|hours|days>"),
     //Repair Command
     CMD_REPAIR_DESCRIPTION("Починит инструмент, броню, зачарованный предмет."),
     //SaveInv Command
-    CMD_SAVEINV_DESCRIPTION(""),
+    CMD_SAVEINV_DESCRIPTION("Включает/выключает сохранение инвентаря."),
+	CMD_SAVEINV_DESCRIPTION2("/saveinv или /saveinv <ник>"),
     //SetSpawn Command
     CMD_SETSPAWN_DESCRIPTION("Устанавливает спавн в данной локации"),
+	CMD_SETSPAWN("Точка спавна игроков успешно установлена!"),
+	CMD_SETSPAWN_LOG(""),
     //SpawnAll Command
     CMD_SPAWNALL_DESCRIPTION("Телепортирует всех игроков на спавн."),
-    CMD_TP_TO_SPAWN("Вы были телепортированы на спавн!"),
+	CMD_SPAWNALL_NO_PLAYERS("На сервере нет ни одного игрока!"),
+    CMD_SPAWNALL_PLAYER_TP_TO_SPAWN("Вы были телепортированы на спавн!"),
     //Spawn Command
     CMD_SPAWN_DESCRIPTION("Телепортирует на спавн."),
+	CMD_SPAWN_TP_PLAYER_MESSAGE("Телепортация..."),
+	CMD_SPAWN_TP_SENDER_MESSAGE("Вы успешно телепортировали игрока %1% на спавн!"),
     //Speed Command
     CMD_SPEED_DESCRIPTION("Меняет скорость движения игрока."),
+	CMD_SPEED_DESCRIPTION2("/speed или /speed <число>"),
     CMD_SPEED_NORMAL("Вы успешно сбросили скорость на стандартную!"),
     //Suicide Command
     CMD_SUICIDE_DESCRIPTION("Совершает самоубийство."),
     CMD_SUICIDE_MESSAGE("Вы покончили жизнь самоубийством!"),
     //Top Command
     CMD_TOP_DESCRIPTION("Телепортирует вас на самый верхний блок над вашей позицией"),
-    CMD_TP_MESSAGE("Телепортация..."),
+    CMD_TOP_TP_MESSAGE("Телепортация..."),
     //Unmute Command
     CMD_UNMUTE_DESCRIPTION(""),
+	CMD_UNMUTE_DESCRIPTION2("/unmute <ник>"),
     //Vanish Command
     CMD_VANISH_DESCRIPTION(""),
+	CMD_VANISH_DESCRIPTION2("/vanish или /vanish <ник>"),
     //Directions
     SOUTH("Юг"),
     NORTH("Север"),

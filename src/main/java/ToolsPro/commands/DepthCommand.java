@@ -13,7 +13,7 @@ public class DepthCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public DepthCommand(ToolsPro plugin) {
-        super("depth",Message.CMD_DEPTH_DESCRIPTION, "/depth");
+        super("depth", Message.CMD_DEPTH_DESCRIPTION, "/depth");
         this.setPermission("toolspro.commands.depth");
         this.plugin = plugin;
     }
