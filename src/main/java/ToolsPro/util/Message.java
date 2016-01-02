@@ -299,7 +299,7 @@ public enum Message {
 			str = str.replace(from, to);
 			count++;
 		}
-		str = TextFormat.colorize(prefix.isEmpty() ?"" : prefix+" " +"&"+colors[0]+str);
+		str = TextFormat.colorize(prefix.isEmpty() ? "&"+colors[0]+str : prefix+" " +"&"+colors[0]+str);
 		if (noColors) str = TextFormat.clean(str);
 		return str;
 	}
@@ -310,7 +310,7 @@ public enum Message {
 
 	private String message;
 	Message(String msg){
-		message = msg;
+		this.message = msg;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////

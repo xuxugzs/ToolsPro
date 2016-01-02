@@ -30,7 +30,7 @@ public class ClearHotBarCommand extends ToolsProCommand {
                         p.getInventory().setHotbarSlotIndex(i, -1);
                     }
                     Message.CMD_CLEARHOTBAR_PLAYER_CLEAR.print(sender, "prefix:&7[&aClearHotBar&7]", 'a', 'b', p.getName());
-                    Message.CMD_CLEARHOTBAR_PLAYER_CLEAR_LOG.log("prefix:&7[ClearHotBar]", sender.getName(), p.getName());
+                    this.plugin.info(sender,Message.CMD_CLEARHOTBAR_PLAYER_CLEAR_LOG.getText("prefix:&7[ClearHotBar]", sender.getName(), p.getName()));
                     //this.plugin.info(sender, "&7[ClearHotBar] " + sender.getName() +  " очистил хот бар игроку " + p.getName() + "!");
                 }else{
                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'c');
@@ -48,7 +48,7 @@ public class ClearHotBarCommand extends ToolsProCommand {
 
             //sender.sendMessage(TextFormat.colorize("&7[&aClearHotBar&7] &aВаш хот бар был успешно очищен!"));
             Message.CMD_CLEARHOTBAR_SENDER_CLEAR.print(sender, "prefix:&7[&aClearHotBar&7]", 'a');
-            Message.CMD_CLEARHOTBAR_SENDER_CLEAR_LOG.log("prefix:&7[ClearHotBar]");
+            this.plugin.info(sender,Message.CMD_CLEARHOTBAR_SENDER_CLEAR_LOG.getText("prefix:&7[ClearHotBar]"));
             //this.plugin.info(sender, "&7[ClearHotBar] " + sender.getName() + " очистил себе хот бар!");
         }
         return true;
