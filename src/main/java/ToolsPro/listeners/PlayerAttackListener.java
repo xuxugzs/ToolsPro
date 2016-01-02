@@ -1,6 +1,7 @@
 package ToolsPro.listeners;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
@@ -24,22 +25,22 @@ public class PlayerAttackListener implements Listener {
             Entity player = ((EntityDamageByEntityEvent) event).getDamager();
             if (player instanceof Player) {
                 if ((((Player) player).getGamemode() == 1)) {
-                    ((Player) player).sendMessage(TextFormat.colorize("&cВы не можете атаковать в креативе!"));
+                    Message.BLOCK_DAMAGE_CREATIVE.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
                 if ((((Player) player).getAllowFlight() == true)) {
-                    ((Player) player).sendMessage(TextFormat.colorize("&cВы не можете атаковать с флаем!"));
+                    Message.BLOCK_DAMAGE_FLY.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
                 if ((this.plugin.isGodMode(((Player) player).getName()))) {
-                    ((Player) player).sendMessage(TextFormat.colorize("&cВы не можете атаковать в режиме бога!"));
+                    Message.BLOCK_DAMAGE_GOD.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
                 if (this.plugin.isHide(((Player) player).getName())) {
-                    ((Player) player).sendMessage(TextFormat.colorize("&cВы не можете атаковать в невидимости!"));
+                    Message.BLOCK_DAMAGE_VANSIH.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }

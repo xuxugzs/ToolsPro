@@ -1,6 +1,7 @@
 package ToolsPro.listeners;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;

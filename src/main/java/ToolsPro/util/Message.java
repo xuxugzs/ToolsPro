@@ -152,7 +152,12 @@ public enum Message {
 	SOUTH("Юг"),
 	NORTH("Север"),
 	WEST("Запад"),
-	EAST("Восток");
+	EAST("Восток"),
+	//Player Attack Listener
+	BLOCK_DAMAGE_CREATIVE("Вы не можете атаковать в креативе!"),
+	BLOCK_DAMAGE_FLY("Вы не можете атаковать в режиме полета!"),
+	BLOCK_DAMAGE_GOD("Вы не можете атаковать в режиме бога!"),
+	BLOCK_DAMAGE_VANSIH("Вы не можете атаковать в режиме невидимости!");
 
 	private static PluginBase plugin = null;
 	private static boolean debugMode = false;
@@ -170,7 +175,6 @@ public enum Message {
 	public static void BC(Object... s){
 		if (!debugMode) return;
 		if (s.length == 0) return;
-
 
 		StringBuilder sb = new StringBuilder("&3[").append(plugin.getDescription().getName()).append("]&f ");
 		for (Object str : s)

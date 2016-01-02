@@ -24,7 +24,7 @@ public class JumpCommand extends ToolsProCommand {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
         } else if (sender instanceof Player) {
-            /*Block block = ((Player) sender).getTargetBlock(100, this.plugin.NON_SOLID_BLOCK);
+            /*Block block = ((Player) sender).getTargetBlock(100, this.plugin.NON_SOLID_BLOCKS);
             if(block == null){
                 sender.sendMessage(TextFormat.RED + "There isn't a reachable block");
                 return false;

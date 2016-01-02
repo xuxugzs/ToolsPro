@@ -32,15 +32,14 @@ public class EventListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPlayerJoin(PlayerJoinEvent event) {
+        boolean JoinSurvival = this.plugin.getConfig().getNested("JoinSurvival", false);
         String name = event.getPlayer().getName();
         Player p = this.plugin.getServer().getPlayer(name);
-        if (event.getPlayer().hasPermission("toolspro.inv.save")) {
-            if (!(this.plugin.isSaveInv(name))) {
-                this.plugin.setSaveInv(name);
-                event.getPlayer().sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &aСохранение инвентаря успешно включено!"));
-            }
+        if (event.getPlayer().hasPermission("toolspro.inv.save") && !this.plugin.isSaveInv(name)) {
+            this.plugin.setSaveInv(name);
+            event.getPlayer().sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &aСохранение инвентаря успешно включено!"));
         }
-        if (!(event.getPlayer().hasPermission("toolspro.savegamemode")) && (event.getPlayer().getGamemode() != 0)) {
+        if (!event.getPlayer().hasPermission("toolspro.savegamemode") && event.getPlayer().getGamemode() != 0 && JoinSurvival) {
             event.getPlayer().setGamemode(0);
             event.getPlayer().sendMessage(TextFormat.colorize("&7[&aGM&7] &aВаш игровой режим был изменен на выживание!"));
         }

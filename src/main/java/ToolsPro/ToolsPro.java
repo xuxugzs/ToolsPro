@@ -76,15 +76,15 @@ public class ToolsPro extends PluginBase {
         Message.TOOLSPRO_DISABLED.log('c');
     }
 
-    public boolean isRepairable(Item item){
+    public boolean isRepairable(Item item) {
         return item instanceof Tool || item instanceof Armor;
     }
 
-    public boolean isHide(String name){
+    public boolean isHide(String name) {
         return HidePlayers.contains(name.toLowerCase());
     }
 
-    public void setHide(String name){
+    public void setHide(String name) {
         HidePlayers.add(name.toLowerCase());
     }
 
@@ -92,11 +92,11 @@ public class ToolsPro extends PluginBase {
         if (HidePlayers.contains(name.toLowerCase())) HidePlayers.remove(name.toLowerCase());
     }
 
-    public boolean isSaveInv(String name){
+    public boolean isSaveInv(String name) {
         return SaveInvPlayers.contains(name.toLowerCase());
     }
 
-    public void setSaveInv(String name){
+    public void setSaveInv(String name) {
         SaveInvPlayers.add(name.toLowerCase());
     }
 
@@ -104,11 +104,11 @@ public class ToolsPro extends PluginBase {
         if (SaveInvPlayers.contains(name.toLowerCase())) SaveInvPlayers.remove(name.toLowerCase());
     }
 
-    public boolean isGodMode(String name){
+    public boolean isGodMode(String name) {
         return GodPlayers.contains(name.toLowerCase());
     }
 
-    public void setGodMode(String name){
+    public void setGodMode(String name) {
         GodPlayers.add(name.toLowerCase());
     }
 
@@ -119,7 +119,7 @@ public class ToolsPro extends PluginBase {
     public void info(CommandSender sender, String message) {
         for (Player player : this.getServer().getOnlinePlayers().values()) {
             if (player.hasPermission("toolspro.notice") && player != sender) {
-                player.sendMessage(TextFormat.colorize(message));
+                player.sendMessage(TextFormat.GRAY + (message));
             }
         }
     }
@@ -142,7 +142,7 @@ public class ToolsPro extends PluginBase {
         return sb.toString();
     }
 
-    public static final int [] NON_SOLID_BLOCK = {Block.SAPLING, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA, Block.COBWEB, Block.TALL_GRASS, Block.BUSH, Block.DANDELION,
+    public static final int [] NON_SOLID_BLOCKS = {Block.SAPLING, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA, Block.COBWEB, Block.TALL_GRASS, Block.BUSH, Block.DANDELION,
             Block.POPPY, Block.BROWN_MUSHROOM, Block.RED_MUSHROOM, Block.TORCH, Block.FIRE, Block.WHEAT_BLOCK, Block.SIGN_POST, Block.WALL_SIGN, Block.SUGARCANE_BLOCK,
             Block.PUMPKIN_STEM, Block.MELON_STEM, Block.VINE, Block.CARROT_BLOCK, Block.POTATO_BLOCK, Block.DOUBLE_PLANT};
 }

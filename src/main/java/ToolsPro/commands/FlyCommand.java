@@ -37,7 +37,7 @@ public class FlyCommand extends ToolsProCommand {
                         Message.CMD_FLY_PLAYER_MESSAGE_ENABLED.print(sender, "prefix:&7[&aFly&7]", 'a');
                     }
                 } else {
-                    Message.NEED_PLAYER.print(sender,"prefix:&7[&aFly&7]",'c');
+                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aFly&7]", 'c');
                 }
             } else {
                 sender.sendMessage(this.getPermissionMessage());
