@@ -31,18 +31,13 @@ public class VanishCommand extends ToolsProCommand {
                 if (p instanceof Player) {
                     if (this.plugin.isHide(p.getName())) {
                         this.plugin.removeHide(p.getName());
-                        ((Player) p).removeEffect(14);
+                        p.showPlayer(this.plugin.getServer().getPlayer(p.getName()));
                         sender.sendMessage(TextFormat.colorize("&7[&aVanish&7] &aИгрок &b" + p.getName() + " &aснова видимый!"));
                         p.sendMessage(TextFormat.colorize("&7[&aVanish&7] &aВы стали видимыми!"));
                         this.plugin.info(p, "&7[&aVanish&7] " + sender.getName() + " выключил невидимость " + p.getName() + "!");
                     } else {
                         this.plugin.setHide(p.getName());
-                        p.addEffect(Effect.getEffect(14).setVisible(false).setDuration(Integer.MAX_VALUE).setAmplifier(1));
-                        Inventory inv = p.getInventory();
-                        for (int i = 0; i < p.getInventory().getHotbarSize(); i++) {
-                            p.getInventory().setHotbarSlotIndex(i, -1);
-                        }
-                        p.getInventory().sendContents(p);
+                        p.hidePlayer(this.plugin.getServer().getPlayer(p.getName()));
                         sender.sendMessage(TextFormat.colorize("&7[&aVanish&7] &aИгрок &b" + p.getName() + " &aневидимый!"));
                         p.sendMessage(TextFormat.colorize("&7[&aVanish&7] &aВы стали невидимыми!"));
                         this.plugin.info(p, "&7[Vanish] " + sender.getName() + " включил невидимость " + p.getName() + "!");
@@ -56,16 +51,12 @@ public class VanishCommand extends ToolsProCommand {
         } else if (sender instanceof Player) {
             if (this.plugin.isHide(sender.getName())) {
                 this.plugin.removeHide(sender.getName());
-                ((Player) sender).removeEffect(14);
+                ((Player) sender).showPlayer(this.plugin.getServer().getPlayer(sender.getName()));
                 sender.sendMessage(TextFormat.colorize("&7[&aVanish&7] &aВы успешно выключили невидимость!"));
                 this.plugin.info(sender, "&7[Vanish] " + sender.getName() + " выключил невидимость!");
             } else {
                 this.plugin.setHide(sender.getName());
-                ((Player) sender).addEffect(Effect.getEffect(14).setVisible(false).setDuration(Integer.MAX_VALUE).setAmplifier(1));
-                for (int i = 0; i < ((Player) sender).getInventory().getHotbarSize(); i++){
-                    ((Player) sender).getInventory().setHotbarSlotIndex(i, -1);
-                }
-                ((Player) sender).getInventory().sendContents(this.plugin.getServer().getPlayer(sender.getName()));
+                ((Player) sender).hidePlayer(this.plugin.getServer().getPlayer(sender.getName()));
                 sender.sendMessage(TextFormat.colorize("&7[&aVanish&7] &aВы успешно включили невидимость!"));
                 this.plugin.info(sender, "&7[Vanish] " + sender.getName() + " включил невидимость!");
             }
