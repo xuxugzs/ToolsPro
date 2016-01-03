@@ -32,7 +32,6 @@ public class ToolsPro extends PluginBase {
     public void onEnable() {
         instance = this;
         this.saveResource("config.yml", false);
-        //this.saveDefaultConfig();
         this.reloadConfig();
         Message.init(this);
         this.getServer().getCommandMap().register("break", new BreakCommand(this));
