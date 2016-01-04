@@ -23,15 +23,17 @@ public class KickAllCommand extends ToolsProCommand {
         int count = this.plugin.getServer().getOnlinePlayers().size();
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        } else if ((count < 1) || (sender instanceof Player && count < 2)) {
-            Message.CMD_KICKALL_NO_PLAYERS.print(sender, "prefix:&7[&aKickAll&7]", 'c');
         } else {
-            for (Player player : this.plugin.getServer().getOnlinePlayers().values()) {
-                if (player.equals(sender)) continue;
-                String reason = args.length == 0 ? Message.CMD_KICKALL_NO_REASON.toString() : TextFormat.colorize(this.plugin.join (args));
-                player.kick(reason, false);
+            if ((count < 1) || (sender instanceof Player && count < 2)) {
+                Message.CMD_KICKALL_NO_PLAYERS.print(sender, "prefix:&7[&aKickAll&7]", 'c');
+            } else {
+                for (Player player : this.plugin.getServer().getOnlinePlayers().values()) {
+                    if (player.equals(sender)) continue;
+                    String reason = args.length == 0 ? Message.CMD_KICKALL_NO_REASON.toString() : TextFormat.colorize(this.plugin.join(args));
+                    player.kick(reason, false);
+                }
+                return Message.CMD_KICKALL_ALL_SUCCESSFULLY_KICKED.print(sender, "prefix:&7[&aKickAll&7]", 'a');
             }
-            Message.CMD_KICKALL_ALL_SUCCESSFULLY_KICKED.print(sender, "prefix:&7[&aKickAll&7]", 'c');
         }
         return true;
     }

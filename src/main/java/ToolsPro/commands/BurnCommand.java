@@ -21,20 +21,22 @@ public class BurnCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        } else if (args.length == 2) {
-            Player p = this.plugin.getServer().getPlayer(args[0]);
-            if (p != null) {
-                if (args[1].matches("^[1-9]+\\d*$")) {
-                    p.setOnFire(Integer.parseInt(args[1]));
-                    Message.CMD_BURN_PLAYER.print(sender, 'a', 'b', p.getName(), "prefix:&7[&aBurn&7]");
+        } else {
+            if (args.length == 2) {
+                Player p = this.plugin.getServer().getPlayer(args[0]);
+                if (p != null) {
+                    if (args[1].matches("^[1-9]+\\d*$")) {
+                        p.setOnFire(Integer.parseInt(args[1]));
+                        Message.CMD_BURN_PLAYER.print(sender, 'a', 'b', p.getName(), "prefix:&7[&aBurn&7]");
+                    } else {
+                        Message.NOT_NUMBER.print(sender, "prefix:&7[&aBurn&7]", 'c');
+                    }
                 } else {
-                    Message.NOT_NUMBER.print(sender, "prefix:&7[&aBurn&7]", 'c');
+                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aBurn&7]", 'c');
                 }
             } else {
-                Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aBurn&7]", 'c');
+                Message.CMD_BURN_USAGE.print(sender, "prefix:&7[&aBurn&7]", 'c');
             }
-        } else {
-            Message.CMD_BURN_USAGE.print(sender, "prefix:&7[&aBurn&7]", 'c');
         }
         return true;
     }

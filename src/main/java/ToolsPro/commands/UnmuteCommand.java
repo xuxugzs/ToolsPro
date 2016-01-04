@@ -25,22 +25,24 @@ public class UnmuteCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        } else if (args.length != 0) {
-            Config mute = new Config(new File(this.plugin.getDataFolder(), "mute.yml"), Config.YAML);
-            Player p = this.plugin.getServer().getPlayer(args[0]);
-            if (!mute.exists(args[0].toLowerCase())) {
-                sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cУ игрока &b" + p.getName() + " &cнет мута!"));
-            } else {
-                mute.remove(args[0].toLowerCase());
-                mute.save();
-                if (p instanceof Player) {
-                    p.sendMessage(TextFormat.colorize("&7[&aMute&7] &aВас размутили в чате и теперь можете писать в чат"));
-                }
-                sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &aВы успешно размутили игрока &b" + p.getName()));
-                this.plugin.info(p, "&7[Mute] " + sender.getName() + " размутил игрока " + p.getName() + "!");
-            }
         } else {
-            sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cИспользуйте /unmute <ник>"));
+            if (args.length != 0) {
+                Config mute = new Config(new File(this.plugin.getDataFolder(), "mute.yml"), Config.YAML);
+                Player p = this.plugin.getServer().getPlayer(args[0]);
+                if (!mute.exists(args[0].toLowerCase())) {
+                    sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cУ игрока &b" + p.getName() + " &cнет мута!"));
+                } else {
+                    mute.remove(args[0].toLowerCase());
+                    mute.save();
+                    if (p instanceof Player) {
+                        p.sendMessage(TextFormat.colorize("&7[&aMute&7] &aВас размутили в чате и теперь можете писать в чат"));
+                    }
+                    sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &aВы успешно размутили игрока &b" + p.getName()));
+                    this.plugin.info(p, "&7[Mute] " + sender.getName() + " размутил игрока " + p.getName() + "!");
+                }
+            } else {
+                return Message.CMD_UNMUTE_USAGE.print(sender, "prefix:&7[&aMute&7]", 'c');
+            }
         }
         return true;
     }

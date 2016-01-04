@@ -1,6 +1,7 @@
 package ToolsPro.listeners;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
@@ -31,10 +32,10 @@ public class MuteListener implements Listener {
                 int minutes = NukkitMath.floorDouble((time % 3600) / 60);
                 int hours = NukkitMath.floorDouble(time % (3600 * 24) / 3600);
                 int days = NukkitMath.floorDouble(time / (3600 * 24));
-                String timemute = days + " days " +
-                        hours + " hours " +
-                        minutes + " minutes " +
-                        seconds + " seconds";
+                String timemute = days + Message.DAYS.getText('c') +
+                        hours + Message.HOURS.getText('c') +
+                        minutes + Message.MINUTES.getText('c') +
+                        seconds + Message.SECONDS.getText('c');
                 player.sendMessage(TextFormat.colorize("&7[&aMute&7] &cВы были замучены за нарушение правил чата!\n&7[&aMute&7] &cРазмут через " + timemute));
                 event.setCancelled();
             } else {

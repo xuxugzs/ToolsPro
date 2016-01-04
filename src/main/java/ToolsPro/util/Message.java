@@ -23,16 +23,20 @@ public enum Message {
 	DISABLED("disabled"),
 	WORD_UNKNOWN("Unknown"),
 
+	//Default (plugin) message
 	TOOLSPRO_LOADED("ToolsPro успешно загружен!"),
 	TOOLSPRO_DISABLED("ToolsPro успешно выключен!"),
+	//Error
 	UNKNOWN_PLAYER("Такого игрока нет на сервере!"),
-	NEED_PLAYER("Пожалуйста, используйте эту команду в игре!"),
 	YOU_NOT_SURVIVAL("Ваш игрокой режим не выживание!"),
 	PLAYER_NOT_SURVIVAL("Игровой режим игрока %1% не выживание!"),
-	NOT_NUMBER("Пожалуйста, используйте число!"),
-
+	NEED_PLAYER("Пожалуйста, используйте эту команду в игре!"),
+	NOT_NUMBER("Пожалуйста, введите верное число!"),
+	BLOCKED_NICK("Пожалуйста, измените ник и перезайдите на сервер!"),
 	//Break Command
 	CMD_BREAK_DESCRIPTION("Разрушает блок на который вы смотрите."),
+	CMD_BREAK_NO_BREAK_BEDROCK("Вы не можете сломать бедрок!"),
+	CMD_BREAK_IS_NOT_A_REACHABLE_BLOCK("Блок, который необходимо сломать не найден!"),
 	//Broadcast Command
 	CMD_BROADCAST_DESCRIPTION("Отправляет объявление всем игрокам на сервере."),
 	CMD_BROADCAST_DESCRIPTION2("/broadcast <сообщение>"),
@@ -71,24 +75,59 @@ public enum Message {
 	//Fly Command
 	CMD_FLY_DESCRIPTION("Включает/выключает полет"),
 	CMD_FLY_DESCRIPTION2("/fly или /fly <ник>"),
-	CMD_FLY_PLAYER_ENABLED("Флай игроку %1% успешно включен!"),
-	CMD_FLY_PLAYER_DISABLED("Флай игроку %1% успешно выключен!"),
-	CMD_FLY_PLAYER_MESSAGE_ENABLED("Вам включили режим полета!"),
-	CMD_FLY_PLAYER_MESSAGE_DISABLED("Вам выключили режим полета!"),
-	CMD_FLY_SENDER_ENABLED("Вы успешно включили режим полета!"),
-	CMD_FLY_SENDER_DISABLED("Вы успешно выключили режим полета!"),
+	CMD_FLY_SENDER_ENABLE("Вы успешно включили режим полета!"),
+	CMD_FLY_SENDER_DISABLE("Вы успешно выключили режим полета!"),
+	CMD_FLY_SENDER_ENABLE_INFO("%1% включил себе флай!"),
+	CMD_FLY_SENDER_DISABLE_INFO("%1% выключил себе флай!"),
+	CMD_FLY_PLAYER_ENABLE("Флай игроку %1% успешно включен!"),
+	CMD_FLY_PLAYER_DISABLE("Флай игроку %1% успешно выключен!"),
+	CMD_FLY_PLAYER_ENABLE_INFO("%1% включил флай игроку %2%!"),
+	CMD_FLY_PLAYER_DISABLE_INFO("%1% выключил флай игроку %2%!"),
+	CMD_FLY_PLAYER_ENABLE_MESSAGE("Вам включили режим полета!"),
+	CMD_FLY_PLAYER_DISABLE_MESSAGE("Вам выключили режим полета!"),
 	//Gamemode Command
 	CMD_GAMEMODE_DESCRIPTION("Изменияет игровой режим."),
 	CMD_GAMEMODE_DESCRIPTION2("/gm <игрокой режим>"),
+	CMD_GAMEMODE_YOU_ALREADY_IN_SURVIVAL_MODE("Вы уже в режиме выживания!"),
+	CMD_GAMEMODE_YOU_ALREADY_IN_CREATIVE_MODE("Вы уже в креативе!"),
+	CMD_GAMEMODE_YOU_ALREADY_IN_ADVENTURE_MODE("Вы уже в режиме приключения!"),
+	CMD_GAMEMODE_YOU_ALREADY_IN_SPECTATOR_MODE("Вы уже в режиме наблюдения!"),
+	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SURVIVAL("Вы успешно изменили игровой режим на выживание!"),
+	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_CREATIVE("Вы успешно изменили игровой режим на креатив!"),
+	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_ADVENTURE("Вы успешно изменили игровой режим на режим приключения!"),
+	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SPECTATOR("Вы успешно изменили игровой режим на режим наблюдения!"),
+	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO("%1% изменил свой игровой режим на выживание!"),
+	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO("%1% изменил свой игровой режим на креатив!"),
+	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO("%1% изменил свой игровой режим на режим приключений!"),
+	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO("%1% изменил свой игровой режим на режим наблюдения!"),
+	CMD_GAMEMODE_USAGE(""),
+	CMD_GAMEMODE_HELP1(""),
+	CMD_GAMEMODE_HELP2(""),
+	CMD_GAMEMODE_HELP3(""),
+	CMD_GAMEMODE_HELP4(""),
+	CMD_GAMEMODE_HELP5(""),
+	//Gamemode Listener
+	LISTENER_JOIN_SURVIVAL("Ваш игровой режим был изменен на выживание!"),
 	//God Command
 	CMD_GOD_DESCRIPTION("Включает/выключает режим бога"),
 	CMD_GOD_DESCRIPTION2("/god или /god <ник>"),
+	CMD_GOD_SENDER_ENABLE("Вы успешно включили режим бога!"),
+	CMD_GOD_SENDER_DISABLE("Вы успешно выключили режим бога!"),
+	CMD_GOD_SENDER_ENABLE_INFO("%1% включил себе режим бога!"),
+	CMD_GOD_SENDER_DISABLE_INFO("%1% выключил себе режим бога!"),
+	CMD_GOD_PLAYER_ENABLE("Режим бога игроку %1% успешно включен!"),
+	CMD_GOD_PLAYER_DISABLE("Режим бога игроку %1% успешно выключен!"),
+	CMD_GOD_PLAYER_ENABLE_INFO("%1% включил режим бога игроку %2%!"),
+	CMD_GOD_PLAYER_DISABLE_INFO("%1% выключил режим бога игроку %2%!"),
+	CMD_GOD_PLAYER_ENABLE_MESSAGE("Вам включили режим бога!"),
+	CMD_GOD_PLAYER_DISABLE_MESSAGE("Вам выключили режим бога!"),
 	//Health Command
 	CMD_HEALTH_DESCRIPTION("Восстанавливает жизни."),
 	CMD_HEALTH_DESCRIPTION2("/health или /health <ник>"),
 	CMD_HEALTH_SENDER("Вы успешно вылечили себя!"),
 	CMD_HEALTH_SENDER_MAX("У Вас полные жизни, лечение не требуется!"),
 	CMD_HEALTH_PLAYER("Вы успешно вылечили игрока %1%!"),
+	CMD_HEALTH_PLAYER_MAX("У игрока %1% полные жизни, лечение не требуется!"),
 	CMD_HEALTH_PLAYER_MESSAGE("Вас успешно вылечили!"),
 	//ItemBan Command
 	CMD_ITEMBAN_DESCRIPTION("Управляет списком заблокированных вещей"),
@@ -97,11 +136,17 @@ public enum Message {
 	CMD_ITEMBAN_ADDED("Предмет %1% (ID - %2%) добавлен в список"),
 	CMD_ITEMBAN_BAN("Предмет %1% (ID - %2%) заблокирован!"),
 	CMD_ITEMBAN_REMOVED("Предмет %1% (ID - %2%) удален из списка!"),
-	CMD_ITEMBAN_USAGE("Используйте /item <ban|unban> <ID>"),
+	CMD_ITEMBAN_USAGE("Используйте: /item <ban|unban> <ID>"),
+	//ItemBan Listener
+	LISTENER_ITEMBAN_TOUCH("Вы не можете использовать этот предмет!"),
+	LISTENER_ITEMBAN_EAT("Вы не можете это съесть!"),
+	LISTENER_ITEMBAN_PLACE("Вы не можете ставить этот блок!"),
+	LISTENER_ITEMBAN_BREAK("Вы не можете сломать этот блок!"),
 	//ItemDB Command
 	CMD_ITEMDB_DESCRIPTION(""),
 	//Jump Command
 	CMD_JUMP_DESCRIPTION("Телепортирует вас на место которое вы укажите"),
+	CMD_JUMP_IS_NOT_A_REACHABLE_BLOCK("Блок, на который необходимо прыгнуть не найден!"),
 	//KickAll Command
 	CMD_KICKALL_DESCRIPTION("Кикнает всех игроков с сервера."),
 	CMD_KICKALL_DESCRIPTION2("/kickall или /kickall <причина>"),
@@ -120,6 +165,19 @@ public enum Message {
 	//SaveInv Command
 	CMD_SAVEINV_DESCRIPTION("Включает/выключает сохранение инвентаря."),
 	CMD_SAVEINV_DESCRIPTION2("/saveinv или /saveinv <ник>"),
+	CMD_SAVEINV_SENDER_ENABLE("Вы успешно включили сохранение инвентаря!"),
+	CMD_SAVEINV_SENDER_DISABLE("Вы успешно выключили сохранение инвентаря!"),
+	CMD_SAVEINV_SENDER_ENABLE_INFO("%1% включил себе сохранение инвентаря!"),
+	CMD_SAVEINV_SENDER_DISABLE_INFO("%1% выключил себе сохранение инвентаря!"),
+	CMD_SAVEINV_PLAYER_ENABLE("Вы успешно включили сохранение инвентаря игроку %1%!"),
+	CMD_SAVEINV_PLAYER_DISABLE("Вы успешно выключили сохранение инвентаря игроку %1%!"),
+	CMD_SAVEINV_PLAYER_ENABLE_INFO("%1% включил сохранение инвентаря игроку %2%!"),
+	CMD_SAVEINV_PLAYER_DISABLE_INFO("%1% выключил сохранение инвентаря игроку %2%!"),
+	CMD_SAVEINV_PLAYER_ENABLE_MESSAGE("Вам включили сохранение инвентаря!"),
+	CMD_SAVEINV_PLAYER_DISABLE_MESSAGE("Вам выключили сохранение инвентаря!"),
+	//SaveInv Listener
+	LISTENER_SAVEINV_JOIN_TO_SERVER("Сохранение инвентаря успешно включено!"),
+	LISTENER_SAVEINV_DEATH("Все ваши вещи были успешно сохранены!"),
 	//SetSpawn Command
 	CMD_SETSPAWN_DESCRIPTION("Устанавливает спавн в данной локации"),
 	CMD_SETSPAWN("Точка спавна игроков успешно установлена!"),
@@ -130,8 +188,8 @@ public enum Message {
 	CMD_SPAWNALL_PLAYER_TP_TO_SPAWN("Вы были телепортированы на спавн!"),
 	//Spawn Command
 	CMD_SPAWN_DESCRIPTION("Телепортирует на спавн."),
+	CMD_SPAWN_TP_SENDER("Вы успешно телепортировали игрока %1% на спавн!"),
 	CMD_SPAWN_TP_PLAYER_MESSAGE("Телепортация..."),
-	CMD_SPAWN_TP_SENDER_MESSAGE("Вы успешно телепортировали игрока %1% на спавн!"),
 	//Speed Command
 	CMD_SPEED_DESCRIPTION("Меняет скорость движения игрока."),
 	CMD_SPEED_DESCRIPTION2("/speed или /speed <число>"),
@@ -145,6 +203,7 @@ public enum Message {
 	//Unmute Command
 	CMD_UNMUTE_DESCRIPTION(""),
 	CMD_UNMUTE_DESCRIPTION2("/unmute <ник>"),
+	CMD_UNMUTE_USAGE("Используйте: /unmute <ник>"),
 	//Vanish Command
 	CMD_VANISH_DESCRIPTION(""),
 	CMD_VANISH_DESCRIPTION2("/vanish или /vanish <ник>"),
@@ -153,6 +212,12 @@ public enum Message {
 	NORTH("Север"),
 	WEST("Запад"),
 	EAST("Восток"),
+	//Time
+	SECONDS(" секунд"),
+	MINUTES(" минут "),
+	HOURS(" часов "),
+	DAYS(" дней "),
+	WEEKS(" недель "),
 	//Player Attack Listener
 	BLOCK_DAMAGE_CREATIVE("Вы не можете атаковать в креативе!"),
 	BLOCK_DAMAGE_FLY("Вы не можете атаковать в режиме полета!"),

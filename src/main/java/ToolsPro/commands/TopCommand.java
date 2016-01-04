@@ -26,7 +26,7 @@ public class TopCommand extends ToolsProCommand {
                 Message.CMD_TOP_TP_MESSAGE.print(sender, 'a');
                 ((Player) sender).teleport(((Player) sender).add(0, ((Player) sender).getLevel().getHighestBlockAt((int)((Player) sender).getX(), (int)((Player) sender).getZ()) + 1));
             } else {
-                Message.NEED_PLAYER.print(sender, "prefix:&7[&aTop&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aTop&7]", 'c');
             }
         }
         return true;
