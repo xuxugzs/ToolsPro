@@ -32,7 +32,7 @@ public enum Message {
 	PLAYER_NOT_SURVIVAL("Игровой режим игрока %1% не выживание!"),
 	NEED_PLAYER("Пожалуйста, используйте эту команду в игре!"),
 	NOT_NUMBER("Пожалуйста, введите верное число!"),
-	NOT_TIME("Укажите верное значение времени!"),
+	NOT_TIME("Пожалуйста, укажите верное значение времени!"),
 	BLOCKED_NICK("Пожалуйста, измените ник и перезайдите на сервер!"),
 	//Break Command
 	CMD_BREAK_DESCRIPTION("Разрушает блок на который вы смотрите."),
@@ -145,6 +145,11 @@ public enum Message {
 	LISTENER_ITEMBAN_BREAK("Вы не можете сломать этот блок!"),
 	//ItemDB Command
 	CMD_ITEMDB_DESCRIPTION(""),
+	CMD_ITEMDB_DESCRIPTION2("/item db или /itemdb <name|id|metadata>"),
+	CMD_ITEMDB_REPAIRABLE("Количество очков повреждения у предмета: %1%"),
+	CMD_ITEMDB_DATA("Значение meta-data у этого предмета: %1%"),
+	CMD_ITEMDB_NAMED("Название этого предмета: %1%"),
+	CMD_ITEMDB_ID("Идентификатор этого предмета: %1%"),
 	//Jump Command
 	CMD_JUMP_DESCRIPTION("Телепортирует вас на место которое вы укажите"),
 	CMD_JUMP_IS_NOT_A_REACHABLE_BLOCK("Блок, на который необходимо прыгнуть не найден!"),
@@ -161,6 +166,14 @@ public enum Message {
 	//Mute Command
 	CMD_MUTE_DESCRIPTION(""),
 	CMD_MUTE_DESCRIPTION2("/mute <ник> <время> <seconds|minutes|hours|days>"),
+	CMD_MUTE_USAGE("Используйте: /mute <ник> <время> <seconds|minutes|hours|days>"),
+	CMD_MUTE_NO_MORE_30_DAY("Вы не можете замутить игрока больше чем на 30 дней!"),
+	CMD_MUTE_SENDER("%1% был замучен на %2%"),
+	CMD_MUTE_PLAYER_INFO("%1% замутил игрока %2% на %3%!"),
+	CMD_MUTE_PLAYER_MESSAGE("Вы получили мут на %1% и теперь не можете писать в чат"),
+	//Mute Listener
+	LISTENER_MUTE_LINE1("Вы были замучены за нарушение правил чата!"),
+	LISTENER_MUTE_LINE2("Размут через %1%"),
 	//Repair Command
 	CMD_REPAIR_DESCRIPTION("Починит инструмент, броню, зачарованный предмет."),
 	//SaveInv Command
@@ -223,21 +236,7 @@ public enum Message {
 	BLOCK_DAMAGE_CREATIVE("Вы не можете атаковать в креативе!"),
 	BLOCK_DAMAGE_FLY("Вы не можете атаковать в режиме полета!"),
 	BLOCK_DAMAGE_GOD("Вы не можете атаковать в режиме бога!"),
-	BLOCK_DAMAGE_VANSIH("Вы не можете атаковать в режиме невидимости!"),
-
-	CMD_ITEMDB_REPAIRABLE("Количество очков повреждения у предмета: %1%"),
-	CMD_ITEMDB_DATA("Значение meta-data у этого предмета: %1%"),
-	CMD_ITEMDB_NAMED("Название этого предмета: %1%"),
-	CMD_ITEMDB_ID("Идентификатор этого предмета: %1%"),
-	LSTN_STEVE_KICK("Пожалуйста, измените ник и перезайдите на сервер!"),
-	LSTN_MUTE_LINE1("Вы были замучены за нарушение правил чата!"),
-	LSTN_MUTE_LINE2("Размут через %1%"),
-
-	CMD_MUTE_USAGE("Используйте /mute <ник> <время> <seconds|minutes|hours|days>"),
-	CMD_MUTE_MORE30DAY("Вы не можете замутить игрока больше чем на 30 дней!"),
-	CMD_MUTE_MUTED("Вы получили мут на %1% и теперь не можете писать в чат"),
-	CMD_MUTE_MUTEDBYU("%1% был замучен на %2%"),
-	CMD_MUTE_MUTEINFO("%1% замутил игрока %2% на %3%!");
+	BLOCK_DAMAGE_VANSIH("Вы не можете атаковать в режиме невидимости!");
 
 	private static PluginBase plugin = null;
 	private static boolean debugMode = false;

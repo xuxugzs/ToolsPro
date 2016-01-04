@@ -15,7 +15,7 @@ public class ItemDBCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public ItemDBCommand(ToolsPro plugin) {
-        super("itemdb", Message.CMD_ITEMDB_DESCRIPTION, "/itemdb");
+        super("itemdb", Message.CMD_ITEMDB_DESCRIPTION, Message.CMD_ITEMDB_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.itemdb");
         this.plugin = plugin;
     }
