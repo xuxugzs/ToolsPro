@@ -181,7 +181,7 @@ public enum Message {
 	//SetSpawn Command
 	CMD_SETSPAWN_DESCRIPTION("Устанавливает спавн в данной локации"),
 	CMD_SETSPAWN("Точка спавна игроков успешно установлена!"),
-	CMD_SETSPAWN_LOG(""),
+	CMD_SETSPAWN_LOG("Игроком %1% задана новая точка спавна: %2% "),
 	//SpawnAll Command
 	CMD_SPAWNALL_DESCRIPTION("Телепортирует всех игроков на спавн."),
 	CMD_SPAWNALL_NO_PLAYERS("На сервере нет ни одного игрока!"),
