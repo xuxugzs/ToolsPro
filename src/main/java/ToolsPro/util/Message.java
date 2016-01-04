@@ -32,6 +32,7 @@ public enum Message {
 	PLAYER_NOT_SURVIVAL("Игровой режим игрока %1% не выживание!"),
 	NEED_PLAYER("Пожалуйста, используйте эту команду в игре!"),
 	NOT_NUMBER("Пожалуйста, введите верное число!"),
+    NOT_TIME("Укажите верное значение времени!"),
 	BLOCKED_NICK("Пожалуйста, измените ник и перезайдите на сервер!"),
 	//Break Command
 	CMD_BREAK_DESCRIPTION("Разрушает блок на который вы смотрите."),
@@ -230,7 +231,13 @@ public enum Message {
     CMD_ITEMDB_ID("Идентификатор этого предмета: %1%"),
     LSTN_STEVE_KICK("Пожалуйста, измените ник и перезайдите на сервер!"),
     LSTN_MUTE_LINE1("Вы были замучены за нарушение правил чата!"),
-    LSTN_MUTE_LINE2("Размут через %1%");
+    LSTN_MUTE_LINE2("Размут через %1%"),
+
+    CMD_MUTE_USAGE("Используйте /mute <ник> <время> <seconds|minutes|hours|days>"),
+    CMD_MUTE_MORE30DAY("Вы не можете замутить игрока больше чем на 30 дней!"),
+    CMD_MUTE_MUTED("Вы получили мут на %1% и теперь не можете писать в чат"),
+    CMD_MUTE_MUTEDBYU("%1% был замучен на %2%"),
+    CMD_MUTE_MUTEINFO("%1% замутил игрока %2% на %3%!");
 
 	private static PluginBase plugin = null;
 	private static boolean debugMode = false;
