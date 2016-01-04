@@ -48,16 +48,18 @@ public class GodCommand extends ToolsProCommand {
                 }
             } else {
                 if (sender instanceof Player) {
-                    if (this.plugin.isGodMode(sender.getName())) {
-                        this.plugin.removeGodMode(sender.getName());
-                        Message.CMD_GOD_SENDER_DISABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a');
-                        this.plugin.info(sender, Message.CMD_GOD_SENDER_DISABLE_INFO.getText("prefix:&7[GodMode]"));
-                    } else if (((Player) sender).getGamemode() != 0) {
-                        Message.YOU_NOT_SURVIVAL.print(sender, 'c');
+                    if (((Player) sender).getGamemode() != 0) {
+                        Message.YOU_NOT_SURVIVAL.print(sender, "prefix:&7[&aGodMode&7]", 'c');
                     } else {
-                        this.plugin.setGodMode(sender.getName());
-                        Message.CMD_GOD_SENDER_ENABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a');
-                        this.plugin.info(sender, Message.CMD_GOD_SENDER_ENABLE_INFO.getText("prefix:&7[GodMode]"));
+                        if (this.plugin.isGodMode(sender.getName())) {
+                            this.plugin.removeGodMode(sender.getName());
+                            Message.CMD_GOD_SENDER_DISABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a');
+                            this.plugin.info(sender, Message.CMD_GOD_SENDER_DISABLE_INFO.getText("prefix:&7[GodMode]"));
+                        } else {
+                            this.plugin.setGodMode(sender.getName());
+                            Message.CMD_GOD_SENDER_ENABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a');
+                            this.plugin.info(sender, Message.CMD_GOD_SENDER_ENABLE_INFO.getText("prefix:&7[GodMode]"));
+                        }
                     }
                 } else {
                     return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGodMode&7]", 'c');

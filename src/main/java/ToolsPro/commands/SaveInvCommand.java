@@ -29,38 +29,38 @@ public class SaveInvCommand extends ToolsProCommand {
                     if (p instanceof Player) {
                         if (this.plugin.isSaveInv(args[0])) {
                             this.plugin.removeSaveInv(args[0]);
-                            sender.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &aВы успешно выключили сохранение инвентаря игроку &b" + p.getName() + "&a!"));
-                            p.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &aВам выключили сохранение инвентаря!"));
-                            this.plugin.info(p, "&7[SaveInv] " + sender.getName() + " выключил сохранение инвентаря " + p.getName());
+                            Message.CMD_SAVEINV_PLAYER_DISABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a', 'b', p.getName());
+                            Message.CMD_SAVEINV_PLAYER_DISABLE_MESSAGE.print(p, "prefix:&7[&aSaveInv&7]", 'a');
+                            this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_DISABLE_INFO.getText("prefix:&7[SaveInv]", sender.getName(), p.getName()));
                         } else {
                             if (p.getGamemode() != 0) {
                                 sender.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &cИгровой режим игрока &b" + p.getName() + " &cне выживание!"));
                             } else {
                                 this.plugin.setSaveInv(args[0]);
-                                p.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &aВам включили сохранение инвентаря!"));
-                                sender.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &aВы успешно включили сохранение инвентаря игроку &b" + p.getName() + "&a!"));
-                                this.plugin.info(p, "&7[SaveInv] " + sender.getName() + " включил сохранение инвентаря " + p.getName());
+                                Message.CMD_SAVEINV_PLAYER_ENABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a', 'b', p.getName());
+                                Message.CMD_SAVEINV_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aSaveInv&7]", 'a');
+                                this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_ENABLE_INFO.getText("prefix:&7[SaveInv]", sender.getName(), p.getName()));
                             }
                         }
                     } else {
-                        sender.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &cТакого игрока нет на сервере!"));
+                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
                     }
                 } else {
                     sender.sendMessage(this.getPermissionMessage());
                 }
             } else {
-                if (sender instanceof Player) {
-                    if (this.plugin.isSaveInv(sender.getName())) {
-                        this.plugin.removeSaveInv(sender.getName());
-                        sender.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &aВы успешно выключили сохранение инвентаря!"));
-                        this.plugin.info(sender, "&7[SaveInv] " + sender.getName() + " выключил сохранение инвентаря!");
+                if (sender instanceof Player){
+                    if (((Player) sender).getGamemode() != 0) {
+                        Message.YOU_NOT_SURVIVAL.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
                     } else {
-                        if (((Player) sender).getGamemode() != 0) {
-                            sender.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &cВаш игровой режим не выживание!"));
+                        if (this.plugin.isSaveInv(sender.getName())) {
+                            this.plugin.removeSaveInv(sender.getName());
+                            Message.CMD_SAVEINV_SENDER_DISABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a');
+                            this.plugin.info(sender, Message.CMD_SAVEINV_SENDER_DISABLE_INFO.getText("prefix:&7[SaveInv]"));
                         } else {
                             this.plugin.setSaveInv(sender.getName());
-                            sender.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &aВы успешно включили сохранение инвентаря!"));
-                            this.plugin.info(sender, "&7[SaveInv] " + sender.getName() + " включил сохранение инвентаря!");
+                            Message.CMD_SAVEINV_SENDER_ENABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a');
+                            this.plugin.info(sender, Message.CMD_SAVEINV_SENDER_ENABLE_INFO.getText("prefix:&7[SaveInv]"));
                         }
                     }
                 } else {
