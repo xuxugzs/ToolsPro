@@ -49,7 +49,7 @@ public class ClearHotBarCommand extends ToolsProCommand {
                     this.plugin.info(sender, Message.CMD_CLEARHOTBAR_SENDER_CLEAR_LOG.getText("prefix:&7[ClearHotBar]"));
                     //this.plugin.info(sender, "&7[ClearHotBar] " + sender.getName() + " очистил себе хот бар!");
                 } else {
-                    Message.NEED_PLAYER.print(sender, 'c');
+                    return Message.NEED_PLAYER.print(sender, 'c');
                 }
             }
         }

@@ -51,7 +51,7 @@ public class JumpCommand extends ToolsProCommand {
                 }
                 */
             } else {
-                Message.NEED_PLAYER.print(sender, "prefix:&7[&aJump&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aJump&7]", 'c');
             }
         }
         return true;

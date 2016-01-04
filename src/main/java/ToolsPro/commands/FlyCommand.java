@@ -55,7 +55,7 @@ public class FlyCommand extends ToolsProCommand {
                         Message.CMD_FLY_SENDER_ENABLED.print(sender, "prefix:&7[&aFly&7]", 'a');
                     }
                 } else {
-                    Message.NEED_PLAYER.print(sender, "prefix:&7[&aFly&7]", 'c');
+                    return Message.NEED_PLAYER.print(sender, "prefix:&7[&aFly&7]", 'c');
                 }
             }
         }

@@ -62,7 +62,7 @@ public class RepairCommand extends ToolsProCommand {
                         return true;
                 }
             } else {
-                Message.NEED_PLAYER.print(sender, "prefix:&7[&aRepair&7]", 'c');
+               return Message.NEED_PLAYER.print(sender, "prefix:&7[&aRepair&7]", 'c');
             }
         }
         return true;

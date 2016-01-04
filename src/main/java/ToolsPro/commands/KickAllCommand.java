@@ -32,7 +32,7 @@ public class KickAllCommand extends ToolsProCommand {
                     String reason = args.length == 0 ? Message.CMD_KICKALL_NO_REASON.toString() : TextFormat.colorize(this.plugin.join(args));
                     player.kick(reason, false);
                 }
-                Message.CMD_KICKALL_ALL_SUCCESSFULLY_KICKED.print(sender, "prefix:&7[&aKickAll&7]", 'a');
+                return Message.CMD_KICKALL_ALL_SUCCESSFULLY_KICKED.print(sender, "prefix:&7[&aKickAll&7]", 'a');
             }
         }
         return true;

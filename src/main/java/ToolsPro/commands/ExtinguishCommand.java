@@ -37,7 +37,7 @@ public class ExtinguishCommand extends ToolsProCommand {
                     ((Player) sender).extinguish();
                     Message.CMD_EXTHINGUISH_SENDER.print(sender, "prefix:&7[&aExtinguish&7]", 'a');
                 } else {
-                    Message.NEED_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
+                    return Message.NEED_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
                 }
             }
         }

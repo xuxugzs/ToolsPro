@@ -72,7 +72,7 @@ public class VanishCommand extends ToolsProCommand {
                         this.plugin.info(sender, "&7[Vanish] " + sender.getName() + " включил невидимость!");
                     }
                 } else {
-                    Message.NEED_PLAYER.print(sender, "prefix:&7[&aVanish&7]", 'c');
+                   return Message.NEED_PLAYER.print(sender, "prefix:&7[&aVanish&7]", 'c');
                 }
             }
         }

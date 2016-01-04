@@ -33,7 +33,7 @@ public class MoreCommand extends ToolsProCommand {
                 ((Player) sender).getInventory().setItem(((Player) sender).getInventory().getHeldItemIndex(), item);
                 Message.CMD_MORE_SUCCESSFULLY.print(sender, "prefix:&7[&aMore&7]", item.getCount(), 'a', 'b');
             } else {
-                Message.NEED_PLAYER.print(sender, "prefix:&7[&aMore&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aMore&7]", 'c');
             }
         }
         return true;

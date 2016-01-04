@@ -87,7 +87,7 @@ public class GMCommand extends ToolsProCommand {
                     sender.sendMessage(TextFormat.colorize("&7[&aGM&7] Пожалуйста, используйте &e/gm help &aдля просмотра всех игровых режимов"));
                 }
             } else {
-                Message.NEED_PLAYER.print(sender, "prefix:&7[&aGM&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGM&7]", 'c');
             }
         }
         return true;

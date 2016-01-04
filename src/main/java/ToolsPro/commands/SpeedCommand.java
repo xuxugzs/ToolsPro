@@ -37,7 +37,7 @@ public class SpeedCommand extends ToolsProCommand {
                     Message.CMD_SPEED_NORMAL.print(sender, "prefix:&7[&aSpeed&7]", 'a');
                 }
             } else {
-                Message.NEED_PLAYER.print(sender, "prefix:&7[&aSpeed&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aSpeed&7]", 'c');
             }
         }
         return true;

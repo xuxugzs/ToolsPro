@@ -41,7 +41,7 @@ public class UnmuteCommand extends ToolsProCommand {
                     this.plugin.info(p, "&7[Mute] " + sender.getName() + " размутил игрока " + p.getName() + "!");
                 }
             } else {
-                sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cИспользуйте /unmute <ник>"));
+                return Message.CMD_UNMUTE_USAGE.print(sender, "prefix:&7[&aMute&7]", 'c');
             }
         }
         return true;

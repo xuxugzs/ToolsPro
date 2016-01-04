@@ -37,7 +37,7 @@ public class BreakCommand extends ToolsProCommand {
             ((Player) sender).getLevel().setBlock(block, new Air(), true, true);
             */
             } else {
-                Message.NEED_PLAYER.print(sender, 'c');
+                return Message.NEED_PLAYER.print(sender, 'c');
             }
         }
         return true;

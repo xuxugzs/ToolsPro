@@ -43,7 +43,7 @@ public class CompassCommand extends ToolsProCommand {
                 }
                 Message.CMD_COMPASS_VIEW.print(sender, "prefix:&7[&aCompass&7]", 'a');
             } else {
-                Message.NEED_PLAYER.print(sender, "prefix:&7[&aCompass&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aCompass&7]", 'c');
             }
         }
         return true;

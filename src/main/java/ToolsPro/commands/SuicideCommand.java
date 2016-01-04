@@ -33,7 +33,7 @@ public class SuicideCommand extends ToolsProCommand {
                 ((Player) sender).setHealth(0);
                 Message.CMD_SUICIDE_MESSAGE.print(sender, "prefix:&7[&aSuicide&7]", 'a');
             } else {
-                Message.NEED_PLAYER.print(sender, "prefix:&7[&aSuicide&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aSuicide&7]", 'c');
             }
         }
         return true;

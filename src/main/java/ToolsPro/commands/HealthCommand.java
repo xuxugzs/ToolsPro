@@ -55,7 +55,7 @@ public class HealthCommand extends ToolsProCommand {
                         Message.CMD_HEALTH_SENDER_MAX.print(sender, "prefix:&7[&aHealth&7]", 'a');
                     }
                 } else {
-                    Message.NEED_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'c');
+                    return Message.NEED_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'c');
                 }
             }
         }

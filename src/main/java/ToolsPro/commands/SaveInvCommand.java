@@ -64,7 +64,7 @@ public class SaveInvCommand extends ToolsProCommand {
                         }
                     }
                 } else {
-                    Message.NEED_PLAYER.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
+                    return Message.NEED_PLAYER.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
                 }
             }
         }

@@ -60,7 +60,7 @@ public class GodCommand extends ToolsProCommand {
                         this.plugin.info(sender, Message.CMD_GOD_SENDER_ENABLE_INFO.getText("prefix:&7[GodMode]"));
                     }
                 } else {
-                    Message.NEED_PLAYER.print(sender, "prefix:&7[&aGodMode&7]", 'c');
+                    return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGodMode&7]", 'c');
                 }
             }
         }
