@@ -22,13 +22,15 @@ public class SetSpawnCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        } else if (sender instanceof Player) {
-            ((Player) sender).getLevel().setSpawnLocation(((Player) sender));
-            ((Player) sender).getServer().setDefaultLevel(((Player) sender).getLevel());
-            Message.CMD_SETSPAWN.print(sender, "prefix:&7[&aSpawn&7]", 'c');
-            this.plugin.getServer().getLogger().info("Server's spawn point set to " + ((Player) sender).getLevel().getName() + " by " + ((Player) sender).getName());
         } else {
-            Message.NEED_PLAYER.print(sender, "prefix:&7[&aSpawn&7]", 'c');
+            if (sender instanceof Player) {
+                ((Player) sender).getLevel().setSpawnLocation(((Player) sender));
+                ((Player) sender).getServer().setDefaultLevel(((Player) sender).getLevel());
+                Message.CMD_SETSPAWN.print(sender, "prefix:&7[&aSpawn&7]", 'a');
+                this.plugin.getServer().getLogger().info("Server's spawn point set to " + ((Player) sender).getLevel().getName() + " by " + ((Player) sender).getName());
+            } else {
+                Message.NEED_PLAYER.print(sender, "prefix:&7[&aSpawn&7]", 'c');
+            }
         }
         return true;
     }

@@ -23,16 +23,19 @@ public enum Message {
 	DISABLED("disabled"),
 	WORD_UNKNOWN("Unknown"),
 
+	//Default (plugin) message
 	TOOLSPRO_LOADED("ToolsPro успешно загружен!"),
 	TOOLSPRO_DISABLED("ToolsPro успешно выключен!"),
+	//Error
 	UNKNOWN_PLAYER("Такого игрока нет на сервере!"),
 	NEED_PLAYER("Пожалуйста, используйте эту команду в игре!"),
 	YOU_NOT_SURVIVAL("Ваш игрокой режим не выживание!"),
 	PLAYER_NOT_SURVIVAL("Игровой режим игрока %1% не выживание!"),
-	NOT_NUMBER("Пожалуйста, используйте число!"),
-
+	NOT_NUMBER("Пожалуйста, введите верное число!"),
 	//Break Command
 	CMD_BREAK_DESCRIPTION("Разрушает блок на который вы смотрите."),
+	CMD_BREAK_NO_BREAK_BEDROCK("Вы не можете сломать бедрок!"),
+	CMD_BREAK_IS_NOT_A_REACHABLE_BLOCK("Блок, который необходимо сломать не найден!"),
 	//Broadcast Command
 	CMD_BROADCAST_DESCRIPTION("Отправляет объявление всем игрокам на сервере."),
 	CMD_BROADCAST_DESCRIPTION2("/broadcast <сообщение>"),
@@ -80,15 +83,44 @@ public enum Message {
 	//Gamemode Command
 	CMD_GAMEMODE_DESCRIPTION("Изменияет игровой режим."),
 	CMD_GAMEMODE_DESCRIPTION2("/gm <игрокой режим>"),
+    CMD_GAMEMODE_YOU_ALREADY_IN_SURVIVAL_MODE("Вы уже в режиме выживания!"),
+    CMD_GAMEMODE_YOU_ALREADY_IN_CREATIVE_MODE("Вы уже в креативе!"),
+    CMD_GAMEMODE_YOU_ALREADY_IN_ADVENTURE_MODE("Вы уже в режиме приключения!"),
+    CMD_GAMEMODE_YOU_ALREADY_IN_SPECTATOR_MODE("Вы уже в режиме наблюдения!"),
+    CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SURVIVAL("Вы успешно изменили игровой режим на выживание!"),
+    CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_CREATIVE("Вы успешно изменили игровой режим на креатив!"),
+    CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_ADVENTURE("Вы успешно изменили игровой режим на режим приключения!"),
+    CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SPECTATOR("Вы успешно изменили игровой режим на режим наблюдения!"),
+    CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO("%1% изменил свой игровой режим на выживание!"),
+    CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO("%1% изменил свой игровой режим на креатив!"),
+    CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO("%1% изменил свой игровой режим на режим приключений!"),
+    CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO("%1% изменил свой игровой режим на режим наблюдения!"),
+    CMD_GAMEMODE_USAGE(""),
+    CMD_GAMEMODE_HELP1(""),
+    CMD_GAMEMODE_HELP2(""),
+    CMD_GAMEMODE_HELP3(""),
+    CMD_GAMEMODE_HELP4(""),
+    CMD_GAMEMODE_HELP5(""),
 	//God Command
 	CMD_GOD_DESCRIPTION("Включает/выключает режим бога"),
 	CMD_GOD_DESCRIPTION2("/god или /god <ник>"),
+    CMD_GOD_SENDER_ENABLE("Вы успешно включили бессмерите!"),
+    CMD_GOD_SENDER_ENABLE_INFO("%1% включил себе бессмертие!"),
+    CMD_GOD_SENDER_DISABLE("Вы успешно выключили бессмерите!"),
+    CMD_GOD_SENDER_DISABLE_INFO("%1% выключил себе бессмертие!"),
+    CMD_GOD_PLAYER_ENABLE("Бессмертие игроку %1% успешно включено!"),
+    CMD_GOD_PLAYER_ENABLE_MESSAGE("Вам включили бессмертие!"),
+    CMD_GOD_PLAYER_ENABLE_INFO("%1% включил бессмертие игроку %2%!"),
+    CMD_GOD_PLAYER_DISABLE("Бессмертие игроку %1% успешно выключено!"),
+    CMD_GOD_PLAYER_DISABLE_MESSAGE("Вам выключили бессмерите!"),
+    CMD_GOD_PLAYER_DISABLE_INFO("%1% выключил бессмертие игроку %2%!"),
 	//Health Command
 	CMD_HEALTH_DESCRIPTION("Восстанавливает жизни."),
 	CMD_HEALTH_DESCRIPTION2("/health или /health <ник>"),
 	CMD_HEALTH_SENDER("Вы успешно вылечили себя!"),
 	CMD_HEALTH_SENDER_MAX("У Вас полные жизни, лечение не требуется!"),
 	CMD_HEALTH_PLAYER("Вы успешно вылечили игрока %1%!"),
+    CMD_HEALTH_PLAYER_MAX("У игрока %1% полные жизни, лечение не требуется!"),
 	CMD_HEALTH_PLAYER_MESSAGE("Вас успешно вылечили!"),
 	//ItemBan Command
 	CMD_ITEMBAN_DESCRIPTION("Управляет списком заблокированных вещей"),
@@ -102,6 +134,7 @@ public enum Message {
 	CMD_ITEMDB_DESCRIPTION(""),
 	//Jump Command
 	CMD_JUMP_DESCRIPTION("Телепортирует вас на место которое вы укажите"),
+    CMD_JUMP_IS_NOT_A_REACHABLE_BLOCK("Блок, на который необходимо прыгнуть не найден!"),
 	//KickAll Command
 	CMD_KICKALL_DESCRIPTION("Кикнает всех игроков с сервера."),
 	CMD_KICKALL_DESCRIPTION2("/kickall или /kickall <причина>"),
@@ -130,8 +163,8 @@ public enum Message {
 	CMD_SPAWNALL_PLAYER_TP_TO_SPAWN("Вы были телепортированы на спавн!"),
 	//Spawn Command
 	CMD_SPAWN_DESCRIPTION("Телепортирует на спавн."),
+    CMD_SPAWN_TP_SENDER("Вы успешно телепортировали игрока %1% на спавн!"),
 	CMD_SPAWN_TP_PLAYER_MESSAGE("Телепортация..."),
-	CMD_SPAWN_TP_SENDER_MESSAGE("Вы успешно телепортировали игрока %1% на спавн!"),
 	//Speed Command
 	CMD_SPEED_DESCRIPTION("Меняет скорость движения игрока."),
 	CMD_SPEED_DESCRIPTION2("/speed или /speed <число>"),

@@ -21,12 +21,14 @@ public class DepthCommand extends ToolsProCommand {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(this.getPermissionMessage());
-        } else if (sender instanceof Player) {
-            int pos = ((Player) sender).getFloorY() - 63;
-            if (pos > 0) Message.CMD_DEPTH_ABOVE.print(sender,Math.abs(pos));
-            else Message.CMD_DEPTH_BELOW.print(sender,Math.abs(pos));
         } else {
-            Message.NEED_PLAYER.print(sender, "prefix:&7[&aDepth&7]", 'c');
+            if (sender instanceof Player) {
+                int pos = ((Player) sender).getFloorY() - 63;
+                if (pos > 0) Message.CMD_DEPTH_ABOVE.print(sender, Math.abs(pos));
+                else Message.CMD_DEPTH_BELOW.print(sender, Math.abs(pos));
+            } else {
+                Message.NEED_PLAYER.print(sender, "prefix:&7[&aDepth&7]", 'c');
+            }
         }
         return true;
     }

@@ -28,8 +28,8 @@ public class ItemDBCommand extends ToolsProCommand {
                 Item item = ((Player) sender).getInventory().getItemInHand();
                 String m;
                 m = "&bThis item " + (this.plugin.isRepairable(item) ? "has &c" + item.getDamage() + "&b" + " points of damage" : "metadata is &c" + item.getDamage());
-                if(args.length >= 1){
-                    switch(args[0].toLowerCase()){
+                if (args.length >= 1) {
+                    switch (args[0]) {
                         case "name":
                             m = "&bThis item is named: &c" + item.getName();
                             break;
@@ -46,7 +46,7 @@ public class ItemDBCommand extends ToolsProCommand {
                 }
                 sender.sendMessage(TextFormat.colorize(m));
             } else {
-                Message.NEED_PLAYER.print(sender, "prefix:&7[&aItemDB&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aItemDB&7]", 'c');
             }
         }
         return true;
