@@ -63,15 +63,15 @@ public class MuteCommand extends ToolsProCommand {
                         int minutes = NukkitMath.floorDouble((timings % 3600) / 60);
                         int hours = NukkitMath.floorDouble(timings % (3600 * 24) / 3600);
                         int days = NukkitMath.floorDouble(timings / (3600 * 24));
-                        String timemute = days + " days " +
-                                hours + " hours " +
-                                minutes + " minutes " +
-                                seconds + " seconds";
+                        String timemute = days + Message.DAYS.getText('c') +
+                                hours + Message.HOURS.getText('c') +
+                                minutes + Message.MINUTES.getText('c') +
+                                seconds + Message.SECONDS.getText('c');
                         if (p instanceof Player) {
                             p.sendMessage(TextFormat.colorize("&7[&aMute&7] &cВы получили мут на " + timemute + " и теперь не можете писать в чат"));
                         }
-                        sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &b" + p.getName() + " &cбыл замучен на " + timemute));
-                        this.plugin.info(p, "&7[Mute] " + sender.getName() + " замутил игрока " + p.getName() + " на " + timemute + "!");
+                        sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &b" + args[0].toLowerCase() + " &cбыл замучен на " + timemute));
+                        this.plugin.info(sender, "&7[Mute] " + sender.getName() + " замутил игрока " + args[0].toLowerCase() + " на " + timemute + "!");
                     }
                 }
             }
