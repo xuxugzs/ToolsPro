@@ -30,16 +30,18 @@ public class HealthCommand extends ToolsProCommand {
                     if (p != null) {
                         if (p.getGamemode() != 0) {
                             Message.PLAYER_NOT_SURVIVAL.print(sender, "prefix:&7[&aHealth&7]", 'c', 'b');
-                        } else if (p.getHealth() != 20) {
-                            p.setHealth(20);
-                            Message.CMD_HEALTH_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
-                            Message.CMD_HEALTH_PLAYER_MESSAGE.print(p, "prefix:&7[&aHealth&7]", 'a');
                         } else {
-                            //sender.sendMessage(TextFormat.colorize("&7[&aHealth&7] &cУ игрока &b" + p.getName() + " &cполные жизни, лечение не требуется!"));
-                            Message.CMD_HEALTH_PLAYER_MAX.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName()); // !?
+                            if (p.getHealth() != 20) {
+                                p.setHealth(20);
+                                Message.CMD_HEALTH_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
+                                Message.CMD_HEALTH_PLAYER_MESSAGE.print(p, "prefix:&7[&aHealth&7]", 'a');
+                            } else {
+                                //sender.sendMessage(TextFormat.colorize("&7[&aHealth&7] &cУ игрока &b" + p.getName() + " &cполные жизни, лечение не требуется!"));
+                                Message.CMD_HEALTH_PLAYER_MAX.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName()); // !?
+                            }
                         }
                     } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'c');
+                       Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'c');
                     }
                 } else {
                     sender.sendMessage(this.getPermissionMessage());

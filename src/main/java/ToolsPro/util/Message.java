@@ -28,10 +28,11 @@ public enum Message {
 	TOOLSPRO_DISABLED("ToolsPro успешно выключен!"),
 	//Error
 	UNKNOWN_PLAYER("Такого игрока нет на сервере!"),
-	NEED_PLAYER("Пожалуйста, используйте эту команду в игре!"),
 	YOU_NOT_SURVIVAL("Ваш игрокой режим не выживание!"),
 	PLAYER_NOT_SURVIVAL("Игровой режим игрока %1% не выживание!"),
+	NEED_PLAYER("Пожалуйста, используйте эту команду в игре!"),
 	NOT_NUMBER("Пожалуйста, введите верное число!"),
+	BLOCKED_NICK("Пожалуйста, измените ник и перезайдите на сервер!"),
 	//Break Command
 	CMD_BREAK_DESCRIPTION("Разрушает блок на который вы смотрите."),
 	CMD_BREAK_NO_BREAK_BEDROCK("Вы не можете сломать бедрок!"),
@@ -82,7 +83,7 @@ public enum Message {
 	CMD_FLY_PLAYER_DISABLE("Флай игроку %1% успешно выключен!"),
 	CMD_FLY_PLAYER_ENABLE_INFO("%1% включил флай игроку %2%!"),
 	CMD_FLY_PLAYER_DISABLE_INFO("%1% выключил флай игроку %2%!"),
-	CMD_FLY_PLAYER_ENABLE_MESSAGE("Вам включили режим F!"),
+	CMD_FLY_PLAYER_ENABLE_MESSAGE("Вам включили режим полета!"),
 	CMD_FLY_PLAYER_DISABLE_MESSAGE("Вам выключили режим полета!"),
 	//Gamemode Command
 	CMD_GAMEMODE_DESCRIPTION("Изменияет игровой режим."),
@@ -105,6 +106,8 @@ public enum Message {
 	CMD_GAMEMODE_HELP3(""),
 	CMD_GAMEMODE_HELP4(""),
 	CMD_GAMEMODE_HELP5(""),
+	//Gamemode Listener
+	LISTENER_JOIN_SURVIVAL("Ваш игровой режим был изменен на выживание!"),
 	//God Command
 	CMD_GOD_DESCRIPTION("Включает/выключает режим бога"),
 	CMD_GOD_DESCRIPTION2("/god или /god <ник>"),
@@ -134,6 +137,11 @@ public enum Message {
 	CMD_ITEMBAN_BAN("Предмет %1% (ID - %2%) заблокирован!"),
 	CMD_ITEMBAN_REMOVED("Предмет %1% (ID - %2%) удален из списка!"),
 	CMD_ITEMBAN_USAGE("Используйте: /item <ban|unban> <ID>"),
+	//ItemBan Listener
+	LISTENER_ITEMBAN_TOUCH("Вы не можете использовать этот предмет!"),
+	LISTENER_ITEMBAN_EAT("Вы не можете это съесть!"),
+	LISTENER_ITEMBAN_PLACE("Вы не можете ставить этот блок!"),
+	LISTENER_ITEMBAN_BREAK("Вы не можете сломать этот блок!"),
 	//ItemDB Command
 	CMD_ITEMDB_DESCRIPTION(""),
 	//Jump Command
@@ -167,6 +175,9 @@ public enum Message {
 	CMD_SAVEINV_PLAYER_DISABLE_INFO("%1% выключил сохранение инвентаря игроку %2%!"),
 	CMD_SAVEINV_PLAYER_ENABLE_MESSAGE("Вам включили сохранение инвентаря!"),
 	CMD_SAVEINV_PLAYER_DISABLE_MESSAGE("Вам выключили сохранение инвентаря!"),
+	//SaveInv Listener
+	LISTENER_SAVEINV_JOIN_TO_SERVER("Сохранение инвентаря успешно включено!"),
+	LISTENER_SAVEINV_DEATH("Все ваши вещи были успешно сохранены!"),
 	//SetSpawn Command
 	CMD_SETSPAWN_DESCRIPTION("Устанавливает спавн в данной локации"),
 	CMD_SETSPAWN("Точка спавна игроков успешно установлена!"),

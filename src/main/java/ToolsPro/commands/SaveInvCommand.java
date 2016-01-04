@@ -26,24 +26,24 @@ public class SaveInvCommand extends ToolsProCommand {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.saveinv.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
-                    if (p instanceof Player) {
-                        if (this.plugin.isSaveInv(args[0])) {
-                            this.plugin.removeSaveInv(args[0]);
-                            Message.CMD_SAVEINV_PLAYER_DISABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a', 'b', p.getName());
-                            Message.CMD_SAVEINV_PLAYER_DISABLE_MESSAGE.print(p, "prefix:&7[&aSaveInv&7]", 'a');
-                            this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_DISABLE_INFO.getText("prefix:&7[SaveInv]", sender.getName(), p.getName()));
-                        } else {
+                        if (p != null) {
                             if (p.getGamemode() != 0) {
-                                sender.sendMessage(TextFormat.colorize("&7[&aSaveInv&7] &cИгровой режим игрока &b" + p.getName() + " &cне выживание!"));
+                                Message.PLAYER_NOT_SURVIVAL.print(sender, "prefix:&7[&aSaveInv&7]", 'c', 'b');
                             } else {
-                                this.plugin.setSaveInv(args[0]);
-                                Message.CMD_SAVEINV_PLAYER_ENABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a', 'b', p.getName());
-                                Message.CMD_SAVEINV_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aSaveInv&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_ENABLE_INFO.getText("prefix:&7[SaveInv]", sender.getName(), p.getName()));
+                                if (this.plugin.isSaveInv(args[0])) {
+                                    this.plugin.removeSaveInv(args[0]);
+                                    Message.CMD_SAVEINV_PLAYER_DISABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a', 'b', p.getName());
+                                    Message.CMD_SAVEINV_PLAYER_DISABLE_MESSAGE.print(p, "prefix:&7[&aSaveInv&7]", 'a');
+                                    this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_DISABLE_INFO.getText("prefix:&7[SaveInv]", sender.getName(), p.getName()));
+                                } else {
+                                    this.plugin.setSaveInv(args[0]);
+                                    Message.CMD_SAVEINV_PLAYER_ENABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a', 'b', p.getName());
+                                    Message.CMD_SAVEINV_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aSaveInv&7]", 'a');
+                                    this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_ENABLE_INFO.getText("prefix:&7[SaveInv]", sender.getName(), p.getName()));
+                                }
                             }
-                        }
-                    } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
+                        } else {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
                     }
                 } else {
                     sender.sendMessage(this.getPermissionMessage());
