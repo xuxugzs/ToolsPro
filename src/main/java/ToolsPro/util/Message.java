@@ -222,7 +222,15 @@ public enum Message {
 	BLOCK_DAMAGE_CREATIVE("Вы не можете атаковать в креативе!"),
 	BLOCK_DAMAGE_FLY("Вы не можете атаковать в режиме полета!"),
 	BLOCK_DAMAGE_GOD("Вы не можете атаковать в режиме бога!"),
-	BLOCK_DAMAGE_VANSIH("Вы не можете атаковать в режиме невидимости!");
+	BLOCK_DAMAGE_VANSIH("Вы не можете атаковать в режиме невидимости!"),
+
+	CMD_ITEMDB_REPAIRABLE("Количество очков повреждения у предмета: %1%"),
+    CMD_ITEMDB_DATA("Значение meta-data у этого предмета: %1%"),
+    CMD_ITEMDB_NAMED("Название этого предмета: %1%"),
+    CMD_ITEMDB_ID("Идентификатор этого предмета: %1%"),
+    LSTN_STEVE_KICK("Пожалуйста, измените ник и перезайдите на сервер!"),
+    LSTN_MUTE_LINE1("Вы были замучены за нарушение правил чата!"),
+    LSTN_MUTE_LINE2("Размут через %1%");
 
 	private static PluginBase plugin = null;
 	private static boolean debugMode = false;

@@ -6,10 +6,9 @@ import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
-import cn.nukkit.event.player.*;
+import cn.nukkit.event.player.PlayerChatEvent;
 import cn.nukkit.math.NukkitMath;
 import cn.nukkit.utils.Config;
-import cn.nukkit.utils.TextFormat;
 
 import java.io.File;
 
@@ -36,7 +35,9 @@ public class MuteListener implements Listener {
                         hours + Message.HOURS.getText('c') +
                         minutes + Message.MINUTES.getText('c') +
                         seconds + Message.SECONDS.getText('c');
-                player.sendMessage(TextFormat.colorize("&7[&aMute&7] &cВы были замучены за нарушение правил чата!\n&7[&aMute&7] &cРазмут через " + timemute));
+                Message.LSTN_MUTE_LINE1.print(player,"prefix:&7[&aMute&7]",'c');
+                Message.LSTN_MUTE_LINE2.print(player,"prefix:&7[&aMute&7]",'c','4',timemute);
+                //player.sendMessage(TextFormat.colorize("&7[&aMute&7] &cВы были замучены за нарушение правил чата!\n&7[&aMute&7] &cРазмут через " + timemute));
                 event.setCancelled();
             } else {
                 mute.remove(player.getName().toLowerCase());

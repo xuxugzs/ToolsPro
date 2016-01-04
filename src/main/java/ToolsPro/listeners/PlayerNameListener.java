@@ -1,11 +1,11 @@
 package ToolsPro.listeners;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.util.Message;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerPreLoginEvent;
-import cn.nukkit.utils.TextFormat;
 
 public class PlayerNameListener implements Listener {
 
@@ -19,7 +19,8 @@ public class PlayerNameListener implements Listener {
     public void onPreLogin(PlayerPreLoginEvent event) {
         String name = event.getPlayer().getName();
         if (name.equalsIgnoreCase("steve")) {
-            event.setKickMessage(TextFormat.colorize("&cПожалуйста, измените ник и перезайдите на сервер!"));
+            event.setKickMessage(Message.LSTN_STEVE_KICK.getText('c'));
+            //event.setKickMessage(TextFormat.colorize("&cПожалуйста, измените ник и перезайдите на сервер!"));
             event.setCancelled();
         }
     }
