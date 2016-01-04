@@ -30,7 +30,7 @@ public class ItemBanCommand extends ToolsProCommand {
                 Item items = Item.fromString(args[1]);
                 String ItemName = items.getName();
                 int ItemID = items.getId();
-                if (!args[1].matches("^[1-9]+\\d*$") || args[1].length() > 3 || ItemName == "Unknown") {
+                if (!args[1].matches("^[1-9]+\\d*$") || args[1].length() > 3 || ItemName.equals("Unknown")) {
                     Message.CMD_ITEMBAN_WRONGID.print(sender, "prefix:&7[&aBanItem&7]", 'c');
                 } else {
                     switch (args[0]) {
