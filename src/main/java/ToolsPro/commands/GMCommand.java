@@ -4,7 +4,6 @@ import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
-import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
@@ -71,20 +70,27 @@ public class GMCommand extends ToolsProCommand {
                             }
                             return true;
                         case "help":
-                            sender.sendMessage(TextFormat.colorize("&7[&aGM&7] &9Список игровых режимов&7:"));
-                            sender.sendMessage(TextFormat.colorize("&e/gm 0 &7- &aИзменяет ваш игровой режим на выживание"));
-                            sender.sendMessage(TextFormat.colorize("&e/gm 1 &7- &aИзменяет ваш игровой режим на креатив"));
+                            Message.CMD_GAMEMODE_HELP1.print(sender,"prefix:&7[&aGM&7]",'9');
+                            //sender.sendMessage(TextFormat.colorize("&7[&aGM&7] &9Список игровых режимов&7:"));
+                            Message.CMD_GAMEMODE_HELP2.print(sender,"prefix:&e/gm 0 &7-",'a');
+                            //sender.sendMessage(TextFormat.colorize("&e/gm 0 &7- &aИзменяет ваш игровой режим на выживание"));
+                            Message.CMD_GAMEMODE_HELP3.print(sender,"prefix:&e/gm 1 &7-",'a');
+                            //sender.sendMessage(TextFormat.colorize("&e/gm 1 &7- &aИзменяет ваш игровой режим на креатив"));
                             if (sender.hasPermission("toolspro.gamemode.other")) {
-                                sender.sendMessage(TextFormat.colorize("&e/gm 2 &7- &aИзменяет ваш игровой режим на режим приключений"));
-                                sender.sendMessage(TextFormat.colorize("&e/gm 3 &7- &aИзменяет ваш игровой режим на режим наблюдения"));
+                                Message.CMD_GAMEMODE_HELP4.print(sender,"prefix:&e/gm 2 &7-",'a');
+                                //sender.sendMessage(TextFormat.colorize("&e/gm 2 &7- &aИзменяет ваш игровой режим на режим приключений"));
+                                Message.CMD_GAMEMODE_HELP4.print(sender,"prefix:&e/gm 3 &7-",'a');
+                                //sender.sendMessage(TextFormat.colorize("&e/gm 3 &7- &aИзменяет ваш игровой режим на режим наблюдения"));
                             }
                             return true;
                         default:
-                            sender.sendMessage(TextFormat.colorize("&7[&aGM&7] Пожалуйста, используйте &e/gm help &aдля просмотра всех игровых режимов"));
+                            Message.CMD_GAMEMODE_TYPE_HELP.print(sender,"prefix:&7[&aGM&7]",'a','e',"/gm help");
+                            //sender.sendMessage(TextFormat.colorize("&7[&aGM&7] Пожалуйста, используйте &e/gm help &aдля просмотра всех игровых режимов"));
                             return true;
                     }
                 } else {
-                    sender.sendMessage(TextFormat.colorize("&7[&aGM&7] Пожалуйста, используйте &e/gm help &aдля просмотра всех игровых режимов"));
+                    Message.CMD_GAMEMODE_TYPE_HELP.print(sender,"prefix:&7[&aGM&7]",'a','e',"/gm help");
+                    //sender.sendMessage(TextFormat.colorize("&7[&aGM&7] Пожалуйста, используйте &e/gm help &aдля просмотра всех игровых режимов"));
                 }
             } else {
                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGM&7]", 'c');
