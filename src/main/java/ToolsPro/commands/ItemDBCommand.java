@@ -5,7 +5,6 @@ import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.item.Item;
-import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
@@ -48,7 +47,7 @@ public class ItemDBCommand extends ToolsProCommand {
                             break;
                     }
                 }
-                sender.sendMessage(TextFormat.colorize(m));
+                sender.sendMessage(m);
             } else {
                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aItemDB&7]", 'c');
             }
