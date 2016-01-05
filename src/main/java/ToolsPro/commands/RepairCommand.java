@@ -15,7 +15,7 @@ public class RepairCommand extends ToolsProCommand {
     private ToolsPro plugin;
 
     public RepairCommand(ToolsPro plugin) {
-        super("repair", Message.CMD_REPAIR_DESCRIPTION, "/repair");
+        super("repair", Message.CMD_REPAIR_DESCRIPTION, "/repair <all|hand>");
         this.setPermission("toolspro.commands.repair");
         this.plugin = plugin;
     }
@@ -27,17 +27,17 @@ public class RepairCommand extends ToolsProCommand {
             if (sender instanceof Player) {
                 switch (args[0]) {
                     case "all":
-                        if (!sender.hasPermission("toolspro.repair.all")) {
-                            sender.sendMessage(TextFormat.RED + this.getPermissionMessage());
-                            return false;
-                        }
-                        for (Item item : ((Player) sender).getInventory().getContents().values()) {
-                            if (this.plugin.isRepairable(item)) {
-                                item.setDamage(0);
-                                ((Player) sender).getInventory().setItemInHand(item);
+                        if (sender.hasPermission("toolspro.repair.all")) {
+                            for (Item item : ((Player) sender).getInventory().getContents().values()) {
+                                if (this.plugin.isRepairable(item)) {
+                                    item.setDamage(0);
+                                    ((Player) sender).getInventory().setItemInHand(item);
+                                }
                             }
+                        }else{
+                            sender.sendMessage(this.getPermissionMessage());
                         }
-                        sender.sendMessage("All the tools on your inventory were repaired!");
+                        Message.CMD_REPAIR_ALL_SUCCESSFULLY_REPAIRED.print(sender, "prefix:&7[&aRepair&7]", 'a');
                         if (sender.hasPermission("toolspro.repair.armor")) {
                             for (Item item : ((Player) sender).getInventory().getArmorContents()) {
                                 if (this.plugin.isRepairable(item)) {
@@ -45,18 +45,19 @@ public class RepairCommand extends ToolsProCommand {
                                     ((Player) sender).getInventory().setItemInHand(item);
                                 }
                             }
-                            sender.sendMessage("(Including the equipped Armor)");
+                            Message.CMD_REPAIR_SUCCESSFULLY_REPAIRED_INCLUDING_ARMOR.print(sender, "prefix:&7[&aRepair&7]", 'a');
                         }
                         return true;
+                    default:
                     case "hand":
                         if (!this.plugin.isRepairable(((Player) sender).getInventory().getItemInHand())) {
-                            sender.sendMessage("[Error] This item can't be repaired!");
+                            Message.CMD_REPAIR_ERROR.print(sender, "prefix:&7[&aRepair&7]", 'a');
                             return false;
                         }
                         Item fixedItem = ((Player) sender).getInventory().getItemInHand();
                         fixedItem.setDamage(0);
                         ((Player) sender).getInventory().setItemInHand(fixedItem);
-                        sender.sendMessage("Item successfully repaired!");
+                        Message.CMD_REPAIR_SUCCESSFULLY_REPAIRED.print(sender, "prefix:&7[&aRepair&7]", 'a');
                         return true;
                 }
             } else {

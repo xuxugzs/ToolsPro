@@ -70,9 +70,7 @@ public class MuteCommand extends ToolsProCommand {
                             Message.CMD_MUTE_PLAYER_MESSAGE.print(p, "prefix:&7[&aMute&7]", 'c', timemute);
                         }
                         Message.CMD_MUTE_SENDER.print(sender, "prefix:&7[&aMute&7]", 'a', 'b', args[0].toLowerCase(), timemute);
-                        //sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &b" + args[0].toLowerCase() + " &cбыл замучен на " + timemute));
                         this.plugin.info(sender, Message.CMD_MUTE_PLAYER_INFO.getText("prefix:&7[Mute]", sender.getName(), args[0].toLowerCase(), timemute));
-                        //this.plugin.info(sender, "&7[Mute] " + sender.getName() + " замутил игрока " + args[0].toLowerCase() + " на " + timemute + "!");
                     }
                 }
             }

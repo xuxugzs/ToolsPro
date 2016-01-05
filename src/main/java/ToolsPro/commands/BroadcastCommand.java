@@ -25,7 +25,7 @@ public class BroadcastCommand extends ToolsProCommand {
         } else if (args.length != 0) {
             sender.getServer().broadcastMessage(TextFormat.colorize("&d[Broadcast] &r" + this.plugin.join(args)));
         } else {
-            Message.CMD_BROADCAST_USAGE.print(sender, "prefix:&7[&aBroadcast&7]", 'c');
+            return Message.CMD_BROADCAST_USAGE.print(sender, "prefix:&7[&aBroadcast&7]", 'c');
         }
         return true;
     }
