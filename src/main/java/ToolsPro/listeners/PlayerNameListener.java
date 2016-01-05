@@ -18,9 +18,11 @@ public class PlayerNameListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPreLogin(PlayerPreLoginEvent event) {
         String name = event.getPlayer().getName();
-        if (name.equalsIgnoreCase("steve")) { //To-Do add more names in config
-            event.setKickMessage(Message.BLOCKED_NICK.getText('c'));
-            event.setCancelled();
-        }
+        for (String s : plugin.forbiddenNames)
+            if (s.equalsIgnoreCase(name)) {
+                event.setKickMessage(Message.BLOCKED_NICK.getText('c'));
+                event.setCancelled();
+                break;
+            }
     }
 }

@@ -4,4 +4,7 @@ TellNotice: false
 general:
   language: russian
   debug-mode: false
+fordbidden-player-names:
+  - Steve
+  - Notch
 ...
