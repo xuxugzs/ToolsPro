@@ -35,9 +35,8 @@ public class MuteListener implements Listener {
                         hours + Message.HOURS.getText('c') +
                         minutes + Message.MINUTES.getText('c') +
                         seconds + Message.SECONDS.getText('c');
-                Message.LSTN_MUTE_LINE1.print(player,"prefix:&7[&aMute&7]",'c');
-                Message.LSTN_MUTE_LINE2.print(player,"prefix:&7[&aMute&7]",'c','4',timemute);
-                //player.sendMessage(TextFormat.colorize("&7[&aMute&7] &cВы были замучены за нарушение правил чата!\n&7[&aMute&7] &cРазмут через " + timemute));
+                Message.LISTENER_MUTE_LINE1.print(player, "prefix:&7[&aMute&7]", 'c');
+                Message.LISTENER_MUTE_LINE2.print(player, "prefix:&7[&aMute&7]", 'c', '4', timemute);
                 event.setCancelled();
             } else {
                 mute.remove(player.getName().toLowerCase());

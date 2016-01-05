@@ -30,9 +30,8 @@ public class ClearHotBarCommand extends ToolsProCommand {
                         for (int i = 0; i < p.getInventory().getHotbarSize(); i++) {
                             p.getInventory().setHotbarSlotIndex(i, -1);
                         }
-                        Message.CMD_CLEARHOTBAR_PLAYER_CLEAR.print(sender, "prefix:&7[&aClearHotBar&7]", 'a', 'b', p.getName());
-                        this.plugin.info(sender, Message.CMD_CLEARHOTBAR_PLAYER_CLEAR_LOG.getText("prefix:&7[ClearHotBar]", sender.getName(), p.getName()));
-                        //this.plugin.info(sender, "&7[ClearHotBar] " + sender.getName() +  " очистил хот бар игроку " + p.getName() + "!");
+                        Message.CMD_CLEARHOTBAR_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'a', 'b', p.getName());
+                        this.plugin.info(sender, Message.CMD_CLEARHOTBAR_PLAYER_INFO.getText("prefix:&7[ClearHotBar]", sender.getName(), p.getName()));
                     } else {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'c');
                     }
@@ -45,9 +44,8 @@ public class ClearHotBarCommand extends ToolsProCommand {
                         ((Player) sender).getInventory().setHotbarSlotIndex(i, -1);
                     }
                     ((Player) sender).getInventory().sendContents(this.plugin.getServer().getPlayer(sender.getName()));
-                    Message.CMD_CLEARHOTBAR_SENDER_CLEAR.print(sender, "prefix:&7[&aClearHotBar&7]", 'a');
-                    this.plugin.info(sender, Message.CMD_CLEARHOTBAR_SENDER_CLEAR_LOG.getText("prefix:&7[ClearHotBar]"));
-                    //this.plugin.info(sender, "&7[ClearHotBar] " + sender.getName() + " очистил себе хот бар!");
+                    Message.CMD_CLEARHOTBAR_SENDER.print(sender, "prefix:&7[&aClearHotBar&7]", 'a');
+                    this.plugin.info(sender, Message.CMD_CLEARHOTBAR_SENDER_INFO.getText("prefix:&7[ClearHotBar]"));
                 } else {
                     return Message.NEED_PLAYER.print(sender, 'c');
                 }

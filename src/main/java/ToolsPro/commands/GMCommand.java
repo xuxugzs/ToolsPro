@@ -31,18 +31,18 @@ public class GMCommand extends ToolsProCommand {
                                 Message.CMD_GAMEMODE_YOU_ALREADY_IN_SURVIVAL_MODE.print(sender, "prefix:&7[&aGM&7]", 'c');
                                 return false;
                             }
-                            this.plugin.info(sender, Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO.getText("prefix:&7[GM]"));
-                            Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SURVIVAL.print(sender, "prefix:&7[&aGM&7]", 'a');
                             ((Player) sender).setGamemode(0);
+                            Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SURVIVAL.print(sender, "prefix:&7[&aGM&7]", 'a');
+                            this.plugin.info(sender, Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO.getText("prefix:&7[GM]"));
                             return true;
                         case "1":
                             if (((Player) sender).getGamemode() == 1) {
                                 Message.CMD_GAMEMODE_YOU_ALREADY_IN_CREATIVE_MODE.print(sender, "prefix:&7[&aGM&7]", 'c');
                                 return false;
                             }
-                            this.plugin.info(sender, Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO.getText("prefix:&7[GM]"));
-                            Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_CREATIVE.print(sender, "prefix:&7[&aGM&7]", 'a');
                             ((Player) sender).setGamemode(1);
+                            Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_CREATIVE.print(sender, "prefix:&7[&aGM&7]", 'a');
+                            this.plugin.info(sender, Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO.getText("prefix:&7[GM]"));
                             return true;
                         case "2":
                             if (sender.hasPermission("toolspro.gamemode.other")) {
@@ -50,9 +50,9 @@ public class GMCommand extends ToolsProCommand {
                                     Message.CMD_GAMEMODE_YOU_ALREADY_IN_ADVENTURE_MODE.print(sender, "prefix:&7[&aGM&7]", 'c');
                                     return false;
                                 }
-                                this.plugin.info(sender, Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO.getText("prefix:&7[GM]"));
-                                Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_ADVENTURE.print(sender, "prefix:&7[&aGM&7]", 'a');
                                 ((Player) sender).setGamemode(2);
+                                Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_ADVENTURE.print(sender, "prefix:&7[&aGM&7]", 'a');
+                                this.plugin.info(sender, Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO.getText("prefix:&7[GM]"));
                             } else {
                                 sender.sendMessage(this.getPermissionMessage());
                             }
@@ -63,9 +63,9 @@ public class GMCommand extends ToolsProCommand {
                                     Message.CMD_GAMEMODE_YOU_ALREADY_IN_SPECTATOR_MODE.print(sender, "prefix:&7[&aGM&7]", 'c');
                                     return false;
                                 }
-                                this.plugin.info(sender, Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO.getText("prefix:&7[GM]"));
-                                Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SPECTATOR.print(sender, "prefix:&7[&aGM&7]", 'a');
                                 ((Player) sender).setGamemode(3);
+                                Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SPECTATOR.print(sender, "prefix:&7[&aGM&7]", 'a');
+                                this.plugin.info(sender, Message.CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO.getText("prefix:&7[GM]"));
                             } else {
                                 sender.sendMessage(this.getPermissionMessage());
                             }

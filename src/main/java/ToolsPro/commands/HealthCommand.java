@@ -3,9 +3,7 @@ package ToolsPro.commands;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
-import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
@@ -35,9 +33,9 @@ public class HealthCommand extends ToolsProCommand {
                                 p.setHealth(20);
                                 Message.CMD_HEALTH_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
                                 Message.CMD_HEALTH_PLAYER_MESSAGE.print(p, "prefix:&7[&aHealth&7]", 'a');
+                                this.plugin.info(sender, Message.CMD_HEALTH_PLAYER_INFO.getText("prefix:&7[Health]", sender.getName(), p.getName()));
                             } else {
-                                //sender.sendMessage(TextFormat.colorize("&7[&aHealth&7] &cУ игрока &b" + p.getName() + " &cполные жизни, лечение не требуется!"));
-                                Message.CMD_HEALTH_PLAYER_MAX.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName()); // !?
+                                Message.CMD_HEALTH_PLAYER_MAX.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
                             }
                         }
                     } else {
@@ -53,6 +51,7 @@ public class HealthCommand extends ToolsProCommand {
                     } else if (((Player) sender).getHealth() != 20) {
                         ((Player) sender).setHealth(20);
                         Message.CMD_HEALTH_SENDER.print(sender, "prefix:&7[&aHealth&7]", 'a');
+                        this.plugin.info(sender, Message.CMD_HEALTH_SENDER_INFO.getText("prefix:&7[Health]"));
                     } else {
                         Message.CMD_HEALTH_SENDER_MAX.print(sender, "prefix:&7[&aHealth&7]", 'a');
                     }

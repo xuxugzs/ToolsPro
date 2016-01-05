@@ -30,15 +30,15 @@ public class UnmuteCommand extends ToolsProCommand {
                 Config mute = new Config(new File(this.plugin.getDataFolder(), "mute.yml"), Config.YAML);
                 Player p = this.plugin.getServer().getPlayer(args[0]);
                 if (!mute.exists(args[0].toLowerCase())) {
-                    sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &cУ игрока &b" + p.getName() + " &cнет мута!"));
+                    Message.CMD_UNMUTE_PLAYER_NOT_MUTED.print(sender, "prefix:&7[&aMute&7]", 'a', 'b', p.getName());
                 } else {
                     mute.remove(args[0].toLowerCase());
                     mute.save();
                     if (p instanceof Player) {
-                        p.sendMessage(TextFormat.colorize("&7[&aMute&7] &aВас размутили в чате и теперь можете писать в чат"));
+                        Message.CMD_UNMUTE_PLAYER_MESSAGE.print(p, "prefix:&7[&aMute&7]", 'c');
                     }
-                    sender.sendMessage(TextFormat.colorize("&7[&aMute&7] &aВы успешно размутили игрока &b" + p.getName()));
-                    this.plugin.info(p, "&7[Mute] " + sender.getName() + " размутил игрока " + p.getName() + "!");
+                    Message.CMD_UNMUTE_SENDER.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
+                    this.plugin.info(sender, Message.CMD_UNMUTE_PLAYER_INFO.getText("prefix:&7[Mute]", sender.getName(), p.getName()));
                 }
             } else {
                 return Message.CMD_UNMUTE_USAGE.print(sender, "prefix:&7[&aMute&7]", 'c');

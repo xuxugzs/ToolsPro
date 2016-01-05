@@ -9,7 +9,6 @@ import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
-import cn.nukkit.utils.TextFormat;
 
 public class PlayerAttackListener implements Listener {
 

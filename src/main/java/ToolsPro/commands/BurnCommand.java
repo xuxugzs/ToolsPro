@@ -28,6 +28,7 @@ public class BurnCommand extends ToolsProCommand {
                     if (args[1].matches("^[1-9]+\\d*$")) {
                         p.setOnFire(Integer.parseInt(args[1]));
                         Message.CMD_BURN_PLAYER.print(sender, 'a', 'b', p.getName(), "prefix:&7[&aBurn&7]");
+                        this.plugin.info(sender, Message.CMD_BURN_PLAYER_INFO.getText("prefix:&7[Burn]", sender.getName(), p.getName()));
                     } else {
                         Message.NOT_NUMBER.print(sender, "prefix:&7[&aBurn&7]", 'c');
                     }
