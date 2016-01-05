@@ -1,5 +1,8 @@
 package ToolsPro;
 
+import ToolsPro.commands.*;
+import ToolsPro.listeners.*;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.command.CommandSender;
@@ -9,11 +12,9 @@ import cn.nukkit.item.Tool;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
 
-import ToolsPro.commands.*;
-import ToolsPro.listeners.*;
-import ToolsPro.util.Message;
-
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ToolsPro extends PluginBase {
@@ -27,12 +28,14 @@ public class ToolsPro extends PluginBase {
     Set<String> GodPlayers = new HashSet<String>();
     Set<String> SaveInvPlayers = new HashSet<String>();
     Set<String> HidePlayers = new HashSet<String>();
+    public List<String> forbiddenNames;
 
     @Override
     public void onEnable() {
         instance = this;
         this.saveResource("config.yml", false);
         this.reloadConfig();
+        loadCfg();
         Message.init(this);
         this.getServer().getCommandMap().register("break", new BreakCommand(this));
         this.getServer().getCommandMap().register("broadcast", new BroadcastCommand(this));
@@ -70,9 +73,19 @@ public class ToolsPro extends PluginBase {
         Message.TOOLSPRO_LOADED.log();
     }
 
+
     @Override
     public void onDisable() {
         Message.TOOLSPRO_DISABLED.log('c');
+    }
+
+    private void loadCfg(){
+        //Сюда можно будет добавлять остальные считывания переменных из конфига
+        try {
+            this.forbiddenNames = this.getConfig().getNestedAs("fordbidden-player-names", List.class);
+        } catch (Exception e){
+            this.forbiddenNames = new ArrayList<String>();
+        }
     }
 
     public boolean isRepairable(Item item) {
