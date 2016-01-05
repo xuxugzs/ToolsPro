@@ -107,11 +107,11 @@ public enum Message {
 	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO("Игрок %1% изменил свой игровой режим на режим приключений!"),
 	CMD_GAMEMODE_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO("Игрок %1% изменил свой игровой режим на режим наблюдения!"),
 	CMD_GAMEMODE_USAGE(""),
-	CMD_GAMEMODE_HELP1(""),
-	CMD_GAMEMODE_HELP2(""),
-	CMD_GAMEMODE_HELP3(""),
-	CMD_GAMEMODE_HELP4(""),
-	CMD_GAMEMODE_HELP5(""),
+	CMD_GAMEMODE_HELP1("Список игровых режимов&7"),
+	CMD_GAMEMODE_HELP2("Изменяет ваш игровой режим на выживание"),
+	CMD_GAMEMODE_HELP3("Изменяет ваш игровой режим на креатив"),
+	CMD_GAMEMODE_HELP4("Изменяет ваш игровой режим на режим приключений"),
+	CMD_GAMEMODE_HELP5("Изменяет ваш игровой режим на режим наблюдения"),
 	//Gamemode Listener
 	LISTENER_JOIN_SURVIVAL("Ваш игровой режим был изменен на выживание!"),
 	//God Command
@@ -252,7 +252,8 @@ public enum Message {
 	BLOCK_DAMAGE_CREATIVE("Вы не можете атаковать в креативе!"),
 	BLOCK_DAMAGE_FLY("Вы не можете атаковать в режиме полета!"),
 	BLOCK_DAMAGE_GOD("Вы не можете атаковать в режиме бога!"),
-	BLOCK_DAMAGE_VANSIH("Вы не можете атаковать в режиме невидимости!");
+	BLOCK_DAMAGE_VANSIH("Вы не можете атаковать в режиме невидимости!"),
+	CMD_GAMEMODE_TYPE_HELP("Пожалуйста, используйте %1% для просмотра всех игровых режимов");
 
 	private static PluginBase plugin = null;
 	private static boolean debugMode = false;
