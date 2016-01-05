@@ -115,7 +115,7 @@ public enum Message {
 	//Gamemode Listener
 	LISTENER_JOIN_SURVIVAL("Ваш игровой режим был изменен на выживание!"),
 	//God Command
-	CMD_GOD_DESCRIPTION("Включает/выключает режим бога"),
+	CMD_GOD_DESCRIPTION("Включает/выключает режим бога."),
 	CMD_GOD_DESCRIPTION2("/god или /god <ник>"),
 	CMD_GOD_SENDER_ENABLE("Вы успешно включили режим бога!"),
 	CMD_GOD_SENDER_DISABLE("Вы успешно выключили режим бога!"),
@@ -138,7 +138,7 @@ public enum Message {
 	CMD_HEALTH_PLAYER_INFO("Игрок %1% вылечил игрока %2%!"),
 	CMD_HEALTH_PLAYER_MESSAGE("Вас успешно вылечили!"),
 	//ItemBan Command
-	CMD_ITEMBAN_DESCRIPTION("Управляет списком заблокированных вещей"),
+	CMD_ITEMBAN_DESCRIPTION("Управляет списком заблокированных вещей."),
 	CMD_ITEMBAN_WRONGID("Пожалуйста, введите верный ID!"),
 	CMD_ITEMBAN_ALREADYBAN("Предмет %1% (ID - %2%) уже заблокирован!"),
 	CMD_ITEMBAN_ADDED("Предмет %1% (ID - %2%) добавлен в список"),
@@ -151,14 +151,14 @@ public enum Message {
 	LISTENER_ITEMBAN_PLACE("Вы не можете ставить этот блок!"),
 	LISTENER_ITEMBAN_BREAK("Вы не можете сломать этот блок!"),
 	//ItemDB Command
-	CMD_ITEMDB_DESCRIPTION(""),
+	CMD_ITEMDB_DESCRIPTION("Отображает информацию о предмете, который находится в ваших руках."),
 	CMD_ITEMDB_DESCRIPTION2("/item db или /itemdb <name|id|metadata>"),
 	CMD_ITEMDB_REPAIRABLE("Количество очков повреждения у предмета: %1%"),
 	CMD_ITEMDB_DATA("Значение meta-data у этого предмета: %1%"),
 	CMD_ITEMDB_NAMED("Название этого предмета: %1%"),
 	CMD_ITEMDB_ID("Идентификатор этого предмета: %1%"),
 	//Jump Command
-	CMD_JUMP_DESCRIPTION("Телепортирует вас на место которое вы укажите"),
+	CMD_JUMP_DESCRIPTION("Телепортирует вас на место которое вы укажите."),
 	CMD_JUMP_IS_NOT_A_REACHABLE_BLOCK("Блок, на который необходимо прыгнуть не найден!"),
 	//KickAll Command
 	CMD_KICKALL_DESCRIPTION("Кикнает всех игроков с сервера."),
@@ -171,7 +171,7 @@ public enum Message {
 	CMD_MORE_NO_AIR("Вы не можете использовать воздух!"),
 	CMD_MORE_SUCCESSFULLY("Вы успешно увеличили предмет в руке до"),
 	//Mute Command
-	CMD_MUTE_DESCRIPTION(""),
+	CMD_MUTE_DESCRIPTION("Блокирует чат игроку на определенное время."),
 	CMD_MUTE_DESCRIPTION2("/mute <ник> <время> <seconds|minutes|hours|days>"),
 	CMD_MUTE_USAGE("Используйте: /mute <ник> <время> <seconds|minutes|hours|days>"),
 	CMD_MUTE_NO_MORE_30_DAY("Вы не можете замутить игрока больше чем на 30 дней!"),
@@ -204,7 +204,7 @@ public enum Message {
 	LISTENER_SAVEINV_JOIN_TO_SERVER("Сохранение инвентаря успешно включено!"),
 	LISTENER_SAVEINV_DEATH("Все ваши вещи были успешно сохранены!"),
 	//SetSpawn Command
-	CMD_SETSPAWN_DESCRIPTION("Устанавливает спавн в данной локации"),
+	CMD_SETSPAWN_DESCRIPTION("Устанавливает спавн в данной локации."),
 	CMD_SETSPAWN("Точка спавна игроков успешно установлена!"),
 	CMD_SETSPAWN_LOG("Игроком %1% задана новая точка спавна: %2% "),
 	//SpawnAll Command
@@ -224,10 +224,10 @@ public enum Message {
 	CMD_SUICIDE_DESCRIPTION("Совершает самоубийство."),
 	CMD_SUICIDE_MESSAGE("Вы покончили жизнь самоубийством!"),
 	//Top Command
-	CMD_TOP_DESCRIPTION("Телепортирует вас на самый верхний блок над вашей позицией"),
+	CMD_TOP_DESCRIPTION("Телепортирует вас на самый верхний блок над вашей позицией."),
 	CMD_TOP_TP_MESSAGE("Телепортация..."),
 	//Unmute Command
-	CMD_UNMUTE_DESCRIPTION(""),
+	CMD_UNMUTE_DESCRIPTION("Убирает блокировку чата."),
 	CMD_UNMUTE_DESCRIPTION2("/unmute <ник>"),
 	CMD_UNMUTE_USAGE("Используйте: /unmute <ник>"),
 	CMD_UNMUTE_SENDER("Вы успешно размутили игрока %1%!"),
@@ -235,7 +235,7 @@ public enum Message {
 	CMD_UNMUTE_PLAYER_MESSAGE("Вас размутили в чате и теперь можете писать в чат!"),
 	CMD_UNMUTE_PLAYER_NOT_MUTED("Игрок %1% не был замучен!"),
 	//Vanish Command
-	CMD_VANISH_DESCRIPTION(""),
+	CMD_VANISH_DESCRIPTION("Включает/выключает невидимость."),
 	CMD_VANISH_DESCRIPTION2("/vanish или /vanish <ник>"),
 	//Directions
 	SOUTH("Юг"),
