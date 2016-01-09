@@ -68,7 +68,6 @@ public class ToolsPro extends PluginBase {
         this.getServer().getPluginManager().registerEvents(new PlayerNameListener(this), this);
         this.getServer().getPluginManager().registerEvents(new EventListener(this), this);
         this.getServer().getPluginManager().registerEvents(new ItemBanListener(this), this);
-        this.getServer().getPluginManager().registerEvents(new MessageListener(this), this);
         this.getServer().getPluginManager().registerEvents(new MuteListener(this), this);
         Message.TOOLSPRO_LOADED.log();
     }
