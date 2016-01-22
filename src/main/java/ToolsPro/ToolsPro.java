@@ -35,7 +35,7 @@ public class ToolsPro extends PluginBase {
         instance = this;
         this.saveResource("config.yml", false);
         this.reloadConfig();
-        loadCfg();
+        this.loadConfig();
         Message.init(this);
         this.getServer().getCommandMap().register("break", new BreakCommand(this));
         this.getServer().getCommandMap().register("broadcast", new BroadcastCommand(this));
@@ -65,7 +65,6 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("unmute", new UnmuteCommand(this));
         this.getServer().getCommandMap().register("vanish", new VanishCommand(this));
         this.getServer().getPluginManager().registerEvents(new PlayerAttackListener(this), this);
-        this.getServer().getPluginManager().registerEvents(new PlayerNameListener(this), this);
         this.getServer().getPluginManager().registerEvents(new EventListener(this), this);
         this.getServer().getPluginManager().registerEvents(new ItemBanListener(this), this);
         this.getServer().getPluginManager().registerEvents(new MuteListener(this), this);
@@ -78,8 +77,7 @@ public class ToolsPro extends PluginBase {
         Message.TOOLSPRO_DISABLED.log('c');
     }
 
-    private void loadCfg(){
-        //Сюда можно будет добавлять остальные считывания переменных из конфига
+    private void loadConfig(){
         try {
             this.forbiddenNames = this.getConfig().getNestedAs("fordbidden-player-names", List.class);
         } catch (Exception e){
@@ -91,6 +89,7 @@ public class ToolsPro extends PluginBase {
         return item instanceof Tool || item instanceof Armor;
     }
 
+    //Hide
     public boolean isHide(String name) {
         return HidePlayers.contains(name.toLowerCase());
     }
@@ -103,6 +102,7 @@ public class ToolsPro extends PluginBase {
         if (HidePlayers.contains(name.toLowerCase())) HidePlayers.remove(name.toLowerCase());
     }
 
+    //SaveInv
     public boolean isSaveInv(String name) {
         return SaveInvPlayers.contains(name.toLowerCase());
     }
@@ -115,6 +115,7 @@ public class ToolsPro extends PluginBase {
         if (SaveInvPlayers.contains(name.toLowerCase())) SaveInvPlayers.remove(name.toLowerCase());
     }
 
+    //GodMode
     public boolean isGodMode(String name) {
         return GodPlayers.contains(name.toLowerCase());
     }

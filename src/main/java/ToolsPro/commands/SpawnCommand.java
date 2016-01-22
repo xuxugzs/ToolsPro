@@ -30,7 +30,7 @@ public class SpawnCommand extends ToolsProCommand {
                 } else if (p != null) {
                     ((Player) p).teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));
                     Message.CMD_SPAWN_TP_PLAYER_MESSAGE.print(p, "prefix:&7[&aSpawn&7]", 'a');
-                    Message.CMD_SPAWN_TP_SENDER.print(sender, "prefix:&7[&aSpawn&7]", 'a');
+                    Message.CMD_SPAWN_TP_SENDER.print(sender, "prefix:&7[&aSpawn&7]", 'a', 'b', p.getName());
                 } else {
                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSpawn&7]", 'c');
                 }

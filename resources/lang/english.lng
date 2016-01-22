@@ -1,245 +1,245 @@
-TOOLSPRO_LOADED: ToolsPro successfully enabled!
-TOOLSPRO_DISABLED: ToolsPro successfully disabled!
+toolspro_loaded: ToolsPro successfully enabled!
+toolspro_disabled: ToolsPro successfully disabled!
 
-UNKNOWN_PLAYER: Такого игрока нет на сервере!
-YOU_NOT_SURVIVAL: Ваш игрокой режим не выживание!
-PLAYER_NOT_SURVIVAL: Игровой режим игрока %1% не выживание!
-NEED_PLAYER: Пожалуйста, используйте эту команду в игре!
-NOT_NUMBER: Пожалуйста, введите верное число!
-NOT_TIME: Пожалуйста, укажите верное значение времени!
-BLOCKED_NICK: Пожалуйста, измените ник и перезайдите на сервер!
+unknown_player: Такого игрока нет на сервере!
+you_not_survival: Your game mode is not survival!
+player_not_survival: Game mode player %1% not survival!
+need_player: Please run this command in game!
+not_number: Пожалуйста, введите верное число!
+not_time: Пожалуйста, укажите верное значение времени!
+blocked_nick: Пожалуйста, измените ник и перезайдите на сервер!
 
-CMD_BREAK_DESCRIPTION: Разрушает блок на который вы смотрите.
-CMD_BREAK_NO_BREAK_BEDROCK: Вы не можете сломать бедрок!
-CMD_BREAK_IS_NOT_A_REACHABLE_BLOCK: Блок, который необходимо сломать не найден!
+cmd_break_description: Breaks the block you're looking at.
+cmd_break_no_break_bedrock: You can't break bedrock
+cmd_break_is_not_a_reachable_block: There isn't a reachable block
 
-CMD_BROADCAST_DESCRIPTION: Отправляет объявление всем игрокам на сервере.
-CMD_BROADCAST_DESCRIPTION2: /broadcast <сообщение>
-CMD_BROADCAST_USAGE: 'Используйте: /broadcast <текст>'
+cmd_broadcast_description: Broadcast a message.
+cmd_broadcast_description2: /broadcast <message>
+cmd_broadcast_usage: 'Usage: /broadcast <message>'
 
-CMD_BURN_DESCRIPTION: Поджигает определенного игрока
-CMD_BURN_DESCRIPTION2: /burn <ник> <время>
-CMD_BURN_PLAYER: Вы подожгли игрока %1%
-CMD_BURN_PLAYER_INFO: Игрок %1% поджег игрока %2%!
-CMD_BURN_USAGE: 'Используйте: /burn <ник> <время>'
+cmd_burn_description: Set a player on fire.
+cmd_burn_description2: /burn <player> <seconds>
+cmd_burn_player: You set fire to the player %1%
+cmd_burn_player_info: Player %1% set fire to %2%!
+cmd_burn_usage: 'Usage: /burn <player> <seconds>'
 
-CMD_CLEARHOTBAR_DESCRIPTION: Очищает хот-бар.
-CMD_CLEARHOTBAR_DESCRIPTION2: /clearhotbar или /clearhotbar <ник>
-CMD_CLEARHOTBAR_SENDER: Ваш хот-бар был успешно очищен!
-CMD_CLEARHOTBAR_SENDER_INFO: Игрок %1% очистил себе хот бар!
-CMD_CLEARHOTBAR_PLAYER: Хот-бар игрока %1% очищен!
-CMD_CLEARHOTBAR_PLAYER_INFO: Игрок %1% очистил хот бар игроку %2%!
+cmd_clearhotbar_description: Очищает хот-бар.
+cmd_clearhotbar_description2: /clearhotbar or /clearhotbar <player>
+cmd_clearhotbar_sender: Ваш хот-бар был успешно очищен!
+cmd_clearhotbar_sender_info: Игрок %1% очистил себе хот бар!
+cmd_clearhotbar_player: Хот-бар игрока %1% очищен!
+cmd_clearhotbar_player_info: Игрок %1% очистил хот бар игроку %2%!
 
-CMD_CLEARINVENTORY_DESCRIPTION: Очищает инвентарь.
-CMD_CLEARINVENTORY_DESCRIPTION2: /clearinventory или /clearinventory <ник>
-CMD_CLEARINVENTORY_SENDER: Ваш инвентарь был успешно очищен!
-CMD_CLEARINVENTORY_SENDER_INFO: Игрок %1% очистил себе инвентарь!
-CMD_CLEARINVENTORY_PLAYER: Инвентарь игрока %1% очищен!
-CMD_CLEARINVENTORY_PLAYER_INFO: Игрок %1% очистил инвентарь игроку %2%!
+cmd_clearinventory_description: Clear your/other's inventory.
+cmd_clearinventory_description2: /clearinventory or /clearinventory <player>
+cmd_clearinventory_sender: Your inventory was cleared!
+cmd_clearinventory_sender_info: Игрок %1% очистил себе инвентарь!
+cmd_clearinventory_player: Инвентарь игрока %1% очищен!
+cmd_clearinventory_player_info: Игрок %1% очистил инвентарь игроку %2%!
 
-CMD_COMPASS_DESCRIPTION: Показывает ваше текущее направление.
-CMD_COMPASS_WRONGDIR: Простите, но нам не удаось определить ваше местонахождение
-CMD_COMPASS_VIEW: Вы смотрите на %1%
+cmd_compass_description: Display your current bearing direction.
+cmd_compass_wrongdir: Oops, there was an error while getting your face direction
+cmd_compass_view: You're facing %1%
 
-CMD_DEPTH_DESCRIPTION: Показывает ваше текущее направление.
-CMD_DEPTH_ABOVE: Вы находитесь на высоте %1% выше уровня моря
-CMD_DEPTH_BELOW: Вы находитесь на высоте %1% ниже уровня моря
+cmd_depth_description: Display your depth related to sea-level.
+cmd_depth_above: You're at %1% meters above the sea level.
+cmd_depth_below: You're at %1% meters below the sea level.
 
-CMD_EXTHINGUISH_DESCRIPTION: Тушит горящего игрока.
-CMD_EXTHINGUISH_DESCRIPTION2: /extinguish или /extinguish <ник>
-CMD_EXTHINGUISH_SENDER: Вы успешно потушили себя
-CMD_EXTHINGUISH_SENDER_INFO: Игрок %1% потушил себя!
-CMD_EXTHINGUISH_PLAYER: Вы успешно потуишили игрока %1%!
-CMD_EXTHINGUISH_PLAYER_INFO: Игрок %1% потушил игрока %2%!
-CMD_EXTHINGUISH_PLAYER_MESSAGE: Вас успешно потушили!
+cmd_extinguish_description: Extinguish a player.
+cmd_extinguish_description2: /extinguish or /extinguish <player>
+cmd_extinguish_sender: Вы успешно потушили себя
+cmd_extinguish_sender_info: Игрок %1% потушил себя!
+cmd_extinguish_player: Вы успешно потуишили игрока %1%!
+cmd_extinguish_player_info: Игрок %1% потушил игрока %2%!
+cmd_extinguish_player_message: Вас успешно потушили!
 
-CMD_FLY_DESCRIPTION: Включает/выключает полет
-CMD_FLY_DESCRIPTION2: /fly или /fly <ник>
-CMD_FLY_SENDER_ENABLE: Вы успешно включили режим полета!
-CMD_FLY_SENDER_DISABLE: Вы успешно выключили режим полета!
-CMD_FLY_SENDER_ENABLE_INFO: Игрок %1% включил себе флай!
-CMD_FLY_SENDER_DISABLE_INFO: Игрок %1% выключил себе флай!
-CMD_FLY_PLAYER_ENABLE: Флай игроку %1% успешно включен!
-CMD_FLY_PLAYER_DISABLE: Флай игроку %1% успешно выключен!
-CMD_FLY_PLAYER_ENABLE_INFO: Игрок %1% включил флай игроку %2%!
-CMD_FLY_PLAYER_DISABLE_INFO: Игрок %1% выключил флай игроку %2%!
-CMD_FLY_PLAYER_ENABLE_MESSAGE: Вам включили режим полета!
-CMD_FLY_PLAYER_DISABLE_MESSAGE: Вам выключили режим полета!
+cmd_fly_description: Fly in Survival or Adventure mode.
+cmd_fly_description2: /fly or /fly <player>
+cmd_fly_sender_enable: Вы успешно включили режим полета!
+cmd_fly_sender_disable: Вы успешно выключили режим полета!
+cmd_fly_sender_enable_info: Игрок %1% включил себе флай!
+cmd_fly_sender_disable_info: Игрок %1% выключил себе флай!
+cmd_fly_player_enable: Флай игроку %1% успешно включен!
+cmd_fly_player_disable: Флай игроку %1% успешно выключен!
+cmd_fly_player_enable_info: Игрок %1% включил флай игроку %2%!
+cmd_fly_player_disable_info: Игрок %1% выключил флай игроку %2%!
+cmd_fly_player_enable_message: Вам включили режим полета!
+cmd_fly_player_disable_message: Вам выключили режим полета!
 
-CMD_GAMEMODE_DESCRIPTION: Изменияет игровой режим.
-CMD_GAMEMODE_DESCRIPTION2: /gm <игрокой режим>
-CMD_GAMEMODE_USAGE: Пожалуйста, используйте %1% для просмотра всех игровых режимов
-CMD_GAMEMODE_SENDER_ALREADY_IN_SURVIVAL_MODE: Вы уже в режиме выживания!
-CMD_GAMEMODE_SENDER_ALREADY_IN_CREATIVE_MODE: Вы уже в креативе!
-CMD_GAMEMODE_SENDER_ALREADY_IN_ADVENTURE_MODE: Вы уже в режиме приключения!
-CMD_GAMEMODE_SENDER_ALREADY_IN_SPECTATOR_MODE: Вы уже в режиме наблюдения!
-CMD_GAMEMODE_PLAYER_ALREADY_IN_SURVIVAL_MODE: Игрок %1% уже в режиме выживания!
-CMD_GAMEMODE_PLAYER_ALREADY_IN_CREATIVE_MODE: Игрок %1% уже в креативе!
-CMD_GAMEMODE_PLAYER_ALREADY_IN_ADVENTURE_MODE: Игрок %1% уже в режиме приключения!
-CMD_GAMEMODE_PLAYER_ALREADY_IN_SPECTATOR_MODE: Игрок %1% уже в режиме наблюдения!
-CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SURVIVAL: Вы успешно изменили игровой режим на выживание!
-CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_CREATIVE: Вы успешно изменили игровой режим на креатив!
-CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_ADVENTURE: Вы успешно изменили игровой режим на режим приключения!
-CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SPECTATOR: Вы успешно изменили игровой режим на режим наблюдения!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SURVIVAL: Вы успешно изменили игровой режим игроку %1% на выживание!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_CREATIVE: Вы успешно изменили игровой режим игроку %1% на креатив!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_ADVENTURE: Вы успешно изменили игровой режим игроку %1% на режим приключения!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SPECTATOR: Вы успешно изменили игровой режим игроку %1% на режим наблюдения!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SURVIVAL_MESSAGE: Ваш игровой режим успешно изменен на выживание!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_CREATIVE_MESSAGE: Ваш игровой режим успешно изменен на креатив!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_ADVENTURE_MESSAGE: Ваш игровой режим успешно изменен на режим приключения!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SPECTATOR_MESSAGE: Ваш игровой режим успешно изменен на режим наблюдения!
-CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO: Игрок %1% изменил свой игровой режим на выживание!
-CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO: Игрок %1% изменил свой игровой режим на креатив!
-CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO: Игрок %1% изменил свой игровой режим на режим приключений!
-CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO: Игрок %1% изменил свой игровой режим на режим наблюдения!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO: Игрок %1% изменил игровой режим игрока %2% на выживание!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO: Игрок %1% изменил игровой режим игрока %2% на креатив!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO: Игрок %1% изменил игровой режим игрока %2% на режим приключений!
-CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO: Игрок %1% изменил игровой режим игрока %2% на режим наблюдения!
-CMD_GAMEMODE_HELP1: 'Список игровых режимов&7:'
-CMD_GAMEMODE_HELP2: Изменяет игровой режим на выживание
-CMD_GAMEMODE_HELP3: Изменяет игровой режим на креатив
-CMD_GAMEMODE_HELP4: Изменяет игровой режим на режим приключений
-CMD_GAMEMODE_HELP5: Изменяет игровой режим на режим наблюдения
+cmd_gamemode_description: Change player gamemode.
+cmd_gamemode_description2: /gamemode <mode> <player>
+cmd_gamemode_usage: Пожалуйста, используйте %1% для просмотра всех игровых режимов
+cmd_gamemode_sender_already_in_survival_mode: Вы уже в режиме выживания!
+cmd_gamemode_sender_already_in_creative_mode: Вы уже в креативе!
+cmd_gamemode_sender_already_in_adventure_mode: Вы уже в режиме приключения!
+cmd_gamemode_sender_already_in_spectator_mode: Вы уже в режиме наблюдения!
+cmd_gamemode_player_already_in_survival_mode: Игрок %1% уже в режиме выживания!
+cmd_gamemode_player_already_in_creative_mode: Игрок %1% уже в креативе!
+cmd_gamemode_player_already_in_adventure_mode: Игрок %1% уже в режиме приключения!
+cmd_gamemode_player_already_in_spectator_mode: Игрок %1% уже в режиме наблюдения!
+cmd_gamemode_sender_successfully_changed_to_survival: Вы успешно изменили игровой режим на выживание!
+cmd_gamemode_sender_successfully_changed_to_creative: Вы успешно изменили игровой режим на креатив!
+cmd_gamemode_sender_successfully_changed_to_adventure: Вы успешно изменили игровой режим на режим приключения!
+cmd_gamemode_sender_successfully_changed_to_spectator: Вы успешно изменили игровой режим на режим наблюдения!
+cmd_gamemode_player_successfully_changed_to_survival: Вы успешно изменили игровой режим игроку %1% на выживание!
+cmd_gamemode_player_successfully_changed_to_creative: Вы успешно изменили игровой режим игроку %1% на креатив!
+cmd_gamemode_player_successfully_changed_to_adventure: Вы успешно изменили игровой режим игроку %1% на режим приключения!
+cmd_gamemode_player_successfully_changed_to_spectator: Вы успешно изменили игровой режим игроку %1% на режим наблюдения!
+cmd_gamemode_player_successfully_changed_to_survival_message: Ваш игровой режим успешно изменен на выживание!
+cmd_gamemode_player_successfully_changed_to_creative_message: Ваш игровой режим успешно изменен на креатив!
+cmd_gamemode_player_successfully_changed_to_adventure_message: Ваш игровой режим успешно изменен на режим приключения!
+cmd_gamemode_player_successfully_changed_to_spectator_message: Ваш игровой режим успешно изменен на режим наблюдения!
+cmd_gamemode_sender_successfully_changed_to_survival_info: Игрок %1% изменил свой игровой режим на выживание!
+cmd_gamemode_sender_successfully_changed_to_creative_info: Игрок %1% изменил свой игровой режим на креатив!
+cmd_gamemode_sender_successfully_changed_to_adventure_info: Игрок %1% изменил свой игровой режим на режим приключений!
+cmd_gamemode_sender_successfully_changed_to_spectator_info: Игрок %1% изменил свой игровой режим на режим наблюдения!
+cmd_gamemode_player_successfully_changed_to_survival_info: Игрок %1% изменил игровой режим игрока %2% на выживание!
+cmd_gamemode_player_successfully_changed_to_creative_info: Игрок %1% изменил игровой режим игрока %2% на креатив!
+cmd_gamemode_player_successfully_changed_to_adventure_info: Игрок %1% изменил игровой режим игрока %2% на режим приключений!
+cmd_gamemode_player_successfully_changed_to_spectator_info: Игрок %1% изменил игровой режим игрока %2% на режим наблюдения!
+cmd_gamemode_help1: 'Список игровых режимов&7:'
+cmd_gamemode_help2: Изменяет игровой режим на выживание
+cmd_gamemode_help3: Изменяет игровой режим на креатив
+cmd_gamemode_help4: Изменяет игровой режим на режим приключений
+cmd_gamemode_help5: Изменяет игровой режим на режим наблюдения
 
-LISTENER_JOIN_SURVIVAL: Ваш игровой режим был изменен на выживание!
+listener_join_survival: Your game mode has been changed to survival!
 
-CMD_GOD_DESCRIPTION: Включает/выключает режим бога.
-CMD_GOD_DESCRIPTION2: /god или /god <ник>
-CMD_GOD_SENDER_ENABLE: Вы успешно включили режим бога!
-CMD_GOD_SENDER_DISABLE: Вы успешно выключили режим бога!
-CMD_GOD_SENDER_ENABLE_INFO: Игрок %1% включил себе режим бога!
-CMD_GOD_SENDER_DISABLE_INFO: Игрок %1% выключил себе режим бога!
-CMD_GOD_PLAYER_ENABLE: Режим бога игроку %1% успешно включен!
-CMD_GOD_PLAYER_DISABLE: Режим бога игроку %1% успешно выключен!
-CMD_GOD_PLAYER_ENABLE_INFO: Игрок %1% включил режим бога игроку %2%!
-CMD_GOD_PLAYER_DISABLE_INFO: Игрок %1% выключил режим бога игроку %2%!
-CMD_GOD_PLAYER_ENABLE_MESSAGE: Вам включили режим бога!
-CMD_GOD_PLAYER_DISABLE_MESSAGE: Вам выключили режим бога!
+cmd_god_description: Prevent you to take any damage.
+cmd_god_description2: /god or /god <player>
+cmd_god_sender_enable: Вы успешно включили режим бога!
+cmd_god_sender_disable: Вы успешно выключили режим бога!
+cmd_god_sender_enable_info: Игрок %1% включил себе режим бога!
+cmd_god_sender_disable_info: Игрок %1% выключил себе режим бога!
+cmd_god_player_enable: Режим бога игроку %1% успешно включен!
+cmd_god_player_disable: Режим бога игроку %1% успешно выключен!
+cmd_god_player_enable_info: Игрок %1% включил режим бога игроку %2%!
+cmd_god_player_disable_info: Игрок %1% выключил режим бога игроку %2%!
+cmd_god_player_enable_message: Вам включили режим бога!
+cmd_god_player_disable_message: Вам выключили режим бога!
 
-CMD_HEALTH_DESCRIPTION: Восстанавливает жизни.
-CMD_HEALTH_DESCRIPTION2: /health или /health <ник>
-CMD_HEALTH_SENDER: Вы успешно вылечили себя!
-CMD_HEALTH_SENDER_MAX: У Вас полные жизни, лечение не требуется!
-CMD_HEALTH_SENDER_INFO: Игрок %1% вылечил себя!
-CMD_HEALTH_PLAYER: Вы успешно вылечили игрока %1%!
-CMD_HEALTH_PLAYER_MAX: У игрока %1% полные жизни, лечение не требуется!
-CMD_HEALTH_PLAYER_INFO: Игрок %1% вылечил игрока %2%!
-CMD_HEALTH_PLAYER_MESSAGE: Вас успешно вылечили!
+cmd_health_description: Heal yourself or other player.
+cmd_health_description2: /health or /health <player>
+cmd_health_sender: You have been healed!
+cmd_health_sender_max: У Вас полные жизни, лечение не требуется!
+cmd_health_sender_info: Игрок %1% вылечил себя!
+cmd_health_player: You healed the player %1%!
+cmd_health_player_max: У игрока %1% полные жизни, лечение не требуется!
+cmd_health_player_info: Игрок %1% вылечил игрока %2%!
+cmd_health_player_message: You have been healed!
 
-CMD_ITEMBAN_DESCRIPTION: Управляет списком заблокированных вещей.
-CMD_ITEMBAN_WRONGID: Пожалуйста, введите верный ID!
-CMD_ITEMBAN_ALREADYBAN: Предмет %1% (ID - %2%) уже заблокирован!
-CMD_ITEMBAN_ADDED: Предмет %1% (ID - %2%) добавлен в список
-CMD_ITEMBAN_BAN: Предмет %1% (ID - %2%) заблокирован!
-CMD_ITEMBAN_REMOVED: Предмет %1% (ID - %2%) удален из списка!
-CMD_ITEMBAN_USAGE: 'Используйте: /item <ban|unban> <ID>'
+cmd_itemban_description: Управляет списком заблокированных вещей.
+cmd_itemban_wrongid: Пожалуйста, введите верный ID!
+cmd_itemban_alreadyban: Предмет %1% (ID - %2%) уже заблокирован!
+cmd_itemban_added: Предмет %1% (ID - %2%) добавлен в список
+cmd_itemban_ban: Предмет %1% (ID - %2%) заблокирован!
+cmd_itemban_removed: Предмет %1% (ID - %2%) удален из списка!
+cmd_itemban_usage: 'Usage: /item <ban|unban> <ID>'
 
-LISTENER_ITEMBAN_TOUCH: Вы не можете использовать этот предмет!
-LISTENER_ITEMBAN_EAT: Вы не можете это съесть!
-LISTENER_ITEMBAN_PLACE: Вы не можете ставить этот блок!
-LISTENER_ITEMBAN_BREAK: Вы не можете сломать этот блок!
+listener_itemban_touch: You cannot use this item!
+listener_itemban_eat: You can't eat it!
+listener_itemban_place: You can't place this block!
+listener_itemban_break: You can't break this block!
 
-CMD_ITEMDB_DESCRIPTION: Отображает информацию о предмете, который находится в ваших руках.
-CMD_ITEMDB_DESCRIPTION2: /item db или /itemdb <name|id|metadata>
-CMD_ITEMDB_REPAIRABLE: 'Количество очков повреждения у предмета: %1%'
-CMD_ITEMDB_DATA: 'Значение meta-data у этого предмета: %1%'
-CMD_ITEMDB_NAMED: 'Название этого предмета: %1%'
-CMD_ITEMDB_ID: 'Идентификатор этого предмета: %1%'
+cmd_itemdb_description: Display the information attached to the item you hold.
+cmd_itemdb_description2: /item db or /itemdb <name|id|metadata>
+cmd_itemdb_repairable: 'Количество очков повреждения у предмета: %1%'
+cmd_itemdb_data: 'Значение meta-data у этого предмета: %1%'
+cmd_itemdb_named: 'This item is named: %1%'
+cmd_itemdb_id: 'This item ID is: %1%'
 
-CMD_JUMP_DESCRIPTION: Телепортирует вас на место которое вы укажите.
-CMD_JUMP_IS_NOT_A_REACHABLE_BLOCK: Блок, на который необходимо прыгнуть не найден!
+cmd_jump_description: Teleport you to the block you're looking at.
+cmd_jump_is_not_a_reachable_block: There isn't a reachable block!
 
-CMD_KICKALL_DESCRIPTION: Кикнает всех игроков с сервера.
-CMD_KICKALL_DESCRIPTION2: /kickall или /kickall <причина>
-CMD_KICKALL_NO_PLAYERS: На сервере нет ни одного игрока!
-CMD_KICKALL_NO_REASON: Вы были кикнуты с сервера!
-CMD_KICKALL_ALL_SUCCESSFULLY_KICKED: Все игроки были кикнуты с сервера!
+cmd_kickall_description: Kick all the players.
+cmd_kickall_description2: /kickall or /kickall <reason>
+cmd_kickall_no_players: There are no more players in the server!
+cmd_kickall_no_reason: You have been kicked from this server!
+cmd_kickall_all_successfully_kicked: Kicked all the players!
 
-CMD_MORE_DESCRIPTION: Увеличивает предмет в руке до стака.
-CMD_MORE_NO_AIR: Вы не можете использовать воздух!
-CMD_MORE_SUCCESSFULLY: Вы успешно увеличили предмет в руке до
+cmd_more_description: Get a stack of the item you're holding.
+cmd_more_no_air: You can't get a stack of AIR!
+cmd_more_successfully: Filled up the item stack to
 
-CMD_MUTE_DESCRIPTION: Блокирует чат игроку на определенное время.
-CMD_MUTE_DESCRIPTION2: /mute <ник> <время> <seconds|minutes|hours|days>
-CMD_MUTE_USAGE: 'Используйте: /mute <ник> <время> <seconds|minutes|hours|days>'
-CMD_MUTE_NO_MORE_30_DAY: Вы не можете замутить игрока больше чем на 30 дней!
-CMD_MUTE_SENDER: '%1% был замучен на %2%'
-CMD_MUTE_PLAYER_INFO: Игрок %1% замутил игрока %2% на %3%!
-CMD_MUTE_PLAYER_MESSAGE: Вы получили мут на %1% и теперь не можете писать в чат
+cmd_mute_description: Блокирует чат игроку на определенное время.
+cmd_mute_description2: /mute <player> <time> <seconds|minutes|hours|days>
+cmd_mute_usage: 'Usage: /mute <player> <time> <seconds|minutes|hours|days>'
+cmd_mute_no_more_30_day: Вы не можете замутить игрока больше чем на 30 дней!
+cmd_mute_sender: '%1% был замучен на %2%'
+cmd_mute_player_info: Игрок %1% замутил игрока %2% на %3%!
+cmd_mute_player_message: Вы получили мут на %1% и теперь не можете писать в чат
 
-LISTENER_MUTE_LINE1: Вы были замучены за нарушение правил чата!
-LISTENER_MUTE_LINE2: Размут через %1%
+listener_mute_line1: Вы были замучены за нарушение правил чата!
+listener_mute_line2: Размут через %1%
 
-CMD_REPAIR_DESCRIPTION: Починит инструмент, броню, зачарованный предмет.
-CMD_REPAIR_SUCCESSFULLY_REPAIRED: Предмет успешно отремонтирован!
-CMD_REPAIR_ALL_SUCCESSFULLY_REPAIRED: Все ваши предметы были успешно отремонтированы!
-CMD_REPAIR_SUCCESSFULLY_REPAIRED_INCLUDING_ARMOR: (Включая надетую броню)
-CMD_REPAIR_ERROR: 
+cmd_repair_description: Repair the item you're holding.
+cmd_repair_successfully_repaired: Item successfully repaired!
+cmd_repair_all_successfully_repaired: All the tools on your inventory were repaired!
+cmd_repair_successfully_repaired_including_armor: (Including the equipped Armor)
+cmd_repair_error: This item can't be repaired!
 
-CMD_SAVEINV_DESCRIPTION: Включает/выключает сохранение инвентаря.
-CMD_SAVEINV_DESCRIPTION2: /saveinv или /saveinv <ник>
-CMD_SAVEINV_SENDER_ENABLE: Вы успешно включили сохранение инвентаря!
-CMD_SAVEINV_SENDER_DISABLE: Вы успешно выключили сохранение инвентаря!
-CMD_SAVEINV_SENDER_ENABLE_INFO: Игрок %1% включил себе сохранение инвентаря!
-CMD_SAVEINV_SENDER_DISABLE_INFO: Игрок %1% выключил себе сохранение инвентаря!
-CMD_SAVEINV_PLAYER_ENABLE: Вы успешно включили сохранение инвентаря игроку %1%!
-CMD_SAVEINV_PLAYER_DISABLE: Вы успешно выключили сохранение инвентаря игроку %1%!
-CMD_SAVEINV_PLAYER_ENABLE_INFO: Игрок %1% включил сохранение инвентаря игроку %2%!
-CMD_SAVEINV_PLAYER_DISABLE_INFO: Игрок %1% выключил сохранение инвентаря игроку %2%!
-CMD_SAVEINV_PLAYER_ENABLE_MESSAGE: Вам включили сохранение инвентаря!
-CMD_SAVEINV_PLAYER_DISABLE_MESSAGE: Вам выключили сохранение инвентаря!
+cmd_saveinv_description: Включает/выключает сохранение инвентаря.
+cmd_saveinv_description2: /saveinv or /saveinv <player>
+cmd_saveinv_sender_enable: Вы успешно включили сохранение инвентаря!
+cmd_saveinv_sender_disable: Вы успешно выключили сохранение инвентаря!
+cmd_saveinv_sender_enable_info: Игрок %1% включил себе сохранение инвентаря!
+cmd_saveinv_sender_disable_info: Игрок %1% выключил себе сохранение инвентаря!
+cmd_saveinv_player_enable: Вы успешно включили сохранение инвентаря игроку %1%!
+cmd_saveinv_player_disable: Вы успешно выключили сохранение инвентаря игроку %1%!
+cmd_saveinv_player_enable_info: Игрок %1% включил сохранение инвентаря игроку %2%!
+cmd_saveinv_player_disable_info: Игрок %1% выключил сохранение инвентаря игроку %2%!
+cmd_saveinv_player_enable_message: Вам включили сохранение инвентаря!
+cmd_saveinv_player_disable_message: Вам выключили сохранение инвентаря!
 
-LISTENER_SAVEINV_JOIN_TO_SERVER: Сохранение инвентаря успешно включено!
-LISTENER_SAVEINV_DEATH: Все ваши вещи были успешно сохранены!
+listener_saveinv_join_to_server: Сохранение инвентаря успешно включено!
+listener_saveinv_death: Все ваши вещи были успешно сохранены!
 
-CMD_SETSPAWN_DESCRIPTION: Устанавливает спавн в данной локации.
-CMD_SETSPAWN: Точка спавна игроков успешно установлена!
-CMD_SETSPAWN_LOG: 'Игроком %1% задана новая точка спавна: %2%'
+cmd_setspawn_description: Change your server main spawn point.
+cmd_setspawn: Server's spawn point changed!
+cmd_setspawn_log: 'Игроком %1% задана новая точка спавна: %2%'
 
-CMD_SPAWNALL_DESCRIPTION: Телепортирует всех игроков на спавн.
-CMD_SPAWNALL_NO_PLAYERS: На сервере нет ни одного игрока!
-CMD_SPAWNALL_PLAYER_TP_TO_SPAWN: Вы были телепортированы на спавн!
+cmd_spawnall_description: Teleports all players to spawn.
+cmd_spawnall_no_players: There are no more players in the server!
+cmd_spawnall_player_tp_to_spawn: You have been teleported to spawn!
 
-CMD_SPAWN_DESCRIPTION: Телепортирует на спавн.
-CMD_SPAWN_TP_SENDER: Вы успешно телепортировали игрока %1% на спавн!
-CMD_SPAWN_TP_PLAYER_MESSAGE: Телепортация...
+cmd_spawn_description: Teleport to server's main spawn.
+cmd_spawn_tp_sender: You teleported player %1% to spawn!
+cmd_spawn_tp_player_message: Teleporting...
 
-CMD_SPEED_DESCRIPTION: Меняет скорость движения игрока.
-CMD_SPEED_DESCRIPTION2: /speed или /speed <число>
-CMD_SPEED: Ваша скорость была изменена на %1%
-CMD_SPEED_NORMAL: Вы успешно сбросили скорость на стандартную!
+cmd_speed_description: Change your speed limits.
+cmd_speed_description2: /speed or /speed <speed>
+cmd_speed: Speed amplified by %1%
+cmd_speed_normal: Вы успешно сбросили скорость на стандартную!
 
-CMD_SUICIDE_DESCRIPTION: Совершает самоубийство.
-CMD_SUICIDE_MESSAGE: Вы покончили жизнь самоубийством!
+cmd_suicide_description: Kill yourself.
+cmd_suicide_message: You have committed suicide!
 
-CMD_TOP_DESCRIPTION: Телепортирует вас на самый верхний блок над вашей позицией.
-CMD_TOP_TP_MESSAGE: Телепортация...
+cmd_top_description: Teleport to the highest block above you.
+cmd_top_tp_message: Teleporting...
 
-CMD_UNMUTE_DESCRIPTION: Убирает блокировку чата.
-CMD_UNMUTE_DESCRIPTION2: /unmute <ник>
-CMD_UNMUTE_USAGE: 'Используйте: /unmute <ник>'
-CMD_UNMUTE_SENDER: Вы успешно размутили игрока %1%!
-CMD_UNMUTE_PLAYER_INFO: Игрок Игрок %1% размутил игрока %2%!
-CMD_UNMUTE_PLAYER_MESSAGE: Вас размутили в чате и теперь можете писать в чат!
-CMD_UNMUTE_PLAYER_NOT_MUTED: Игрок %1% не был замучен!
+cmd_unmute_description: Убирает блокировку чата.
+cmd_unmute_description2: /unmute <player>
+cmd_unmute_usage: 'Usage: /unmute <player>'
+cmd_unmute_sender: Вы успешно размутили игрока %1%!
+cmd_unmute_player_info: Игрок Игрок %1% размутил игрока %2%!
+cmd_unmute_player_message: Вас размутили в чате и теперь можете писать в чат!
+cmd_unmute_player_not_muted: Игрок %1% не был замучен!
 
-CMD_VANISH_DESCRIPTION: Включает/выключает невидимость.
-CMD_VANISH_DESCRIPTION2: /vanish или /vanish <ник>
+cmd_vanish_description: Hide from other players.
+cmd_vanish_description2: /vanish or /vanish <player>
 
-SOUTH: Юг
-NORTH: Север
-WEST: Запад
-EAST: Восток
+south: South
+north: North
+west: West
+east: East
 
-SECONDS: ' секунд'
-MINUTES: ' минут ' 
-HOURS: ' часов '
-DAYS: ' дней '
-WEEKS: ' недель '
+seconds: ' секунд'
+minutes: ' минут ' 
+hours: ' часов '
+days: ' дней '
+weeks: ' недель '
 
-BLOCK_DAMAGE_CREATIVE: Вы не можете атаковать в креативе!
-BLOCK_DAMAGE_FLY: Вы не можете атаковать в режиме полета!
-BLOCK_DAMAGE_GOD: Вы не можете атаковать в режиме бога!
-BLOCK_DAMAGE_VANSIH: Вы не можете атаковать в режиме невидимости!
+block_damage_creative: You can't attack the player in creative mode!
+block_damage_fly: You can't attack the player in fly mode!
+block_damage_god: You can't attack the player in god mode!
+block_damage_vansih: You can't attack the player in invisibility!

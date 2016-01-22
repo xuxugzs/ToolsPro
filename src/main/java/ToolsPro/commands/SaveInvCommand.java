@@ -27,7 +27,7 @@ public class SaveInvCommand extends ToolsProCommand {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
                         if (p != null) {
                             if (p.getGamemode() != 0) {
-                                Message.PLAYER_NOT_SURVIVAL.print(sender, "prefix:&7[&aSaveInv&7]", 'c', 'b');
+                                Message.PLAYER_NOT_SURVIVAL.print(sender, "prefix:&7[&aSaveInv&7]", 'c', 'b', p.getName());
                             } else {
                                 if (this.plugin.isSaveInv(args[0])) {
                                     this.plugin.removeSaveInv(args[0]);

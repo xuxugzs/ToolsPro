@@ -36,14 +36,15 @@ public class GamemodeCommand extends ToolsProCommand {
                                 Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SURVIVAL.print(sender, "prefix:&7[&aGamemode&7]", 'a');
                                 this.plugin.info(sender, Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO.getText("prefix:&7[Gamemode]"));
                             }else{
-                                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
+                                Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                             }
                         }else{
                             if (sender.hasPermission("toolspro.gamemode.other")) {
-                                Player p = this.plugin.getServer().getPlayer(args[0]);
+                                Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null){
                                     if (p.getGamemode() == 0){
-                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_SURVIVAL_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c');
+                                        Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_SURVIVAL_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
+                                        return true;
                                     }
                                     p.setGamemode(0);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SURVIVAL.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
@@ -72,10 +73,10 @@ public class GamemodeCommand extends ToolsProCommand {
                             }
                         }else{
                             if (sender.hasPermission("toolspro.gamemode.other")) {
-                                Player p = this.plugin.getServer().getPlayer(args[0]);
+                                Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null){
                                     if (p.getGamemode() == 1){
-                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_CREATIVE_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c');
+                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_CREATIVE_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
                                     }
                                     p.setGamemode(1);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_CREATIVE.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
@@ -104,10 +105,10 @@ public class GamemodeCommand extends ToolsProCommand {
                             }
                         }else{
                             if (sender.hasPermission("toolspro.gamemode.other")) {
-                                Player p = this.plugin.getServer().getPlayer(args[0]);
+                                Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null){
                                     if (p.getGamemode() == 2){
-                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_ADVENTURE_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c');
+                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_ADVENTURE_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
                                     }
                                     p.setGamemode(2);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_ADVENTURE.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
@@ -136,10 +137,10 @@ public class GamemodeCommand extends ToolsProCommand {
                             }
                         }else{
                             if (sender.hasPermission("toolspro.gamemode.other")) {
-                                Player p = this.plugin.getServer().getPlayer(args[0]);
+                                Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null){
                                     if (p.getGamemode() == 3){
-                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_SPECTATOR_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c');
+                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_SPECTATOR_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
                                     }
                                     p.setGamemode(3);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SPECTATOR.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
