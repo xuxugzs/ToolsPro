@@ -46,7 +46,7 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("depth", new DepthCommand(this));
         this.getServer().getCommandMap().register("extinguish", new ExtinguishCommand(this));
         this.getServer().getCommandMap().register("fly", new FlyCommand(this));
-        this.getServer().getCommandMap().register("gm", new GMCommand(this));
+        this.getServer().getCommandMap().register("gamemode", new GamemodeCommand(this));
         this.getServer().getCommandMap().register("god", new GodCommand(this));
         this.getServer().getCommandMap().register("health", new HealthCommand(this));
         this.getServer().getCommandMap().register("itemban", new ItemBanCommand(this));
