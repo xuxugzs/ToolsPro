@@ -77,31 +77,31 @@ cmd_gamemode_player_already_in_survival_mode: Player %1% already in survival mod
 cmd_gamemode_player_already_in_creative_mode: Player %1% already in creative mode!
 cmd_gamemode_player_already_in_adventure_mode: Player %1% already in adventure mode!
 cmd_gamemode_player_already_in_spectator_mode: Player %1% already in spectator mode!
-cmd_gamemode_sender_successfully_changed_to_survival: Вы успешно изменили игровой режим на выживание!
-cmd_gamemode_sender_successfully_changed_to_creative: Вы успешно изменили игровой режим на креатив!
-cmd_gamemode_sender_successfully_changed_to_adventure: Вы успешно изменили игровой режим на режим приключения!
-cmd_gamemode_sender_successfully_changed_to_spectator: Вы успешно изменили игровой режим на режим наблюдения!
-cmd_gamemode_player_successfully_changed_to_survival: Вы успешно изменили игровой режим игроку %1% на выживание!
-cmd_gamemode_player_successfully_changed_to_creative: Вы успешно изменили игровой режим игроку %1% на креатив!
-cmd_gamemode_player_successfully_changed_to_adventure: Вы успешно изменили игровой режим игроку %1% на режим приключения!
-cmd_gamemode_player_successfully_changed_to_spectator: Вы успешно изменили игровой режим игроку %1% на режим наблюдения!
-cmd_gamemode_player_successfully_changed_to_survival_message: Ваш игровой режим успешно изменен на выживание!
-cmd_gamemode_player_successfully_changed_to_creative_message: Ваш игровой режим успешно изменен на креатив!
-cmd_gamemode_player_successfully_changed_to_adventure_message: Ваш игровой режим успешно изменен на режим приключения!
-cmd_gamemode_player_successfully_changed_to_spectator_message: Ваш игровой режим успешно изменен на режим наблюдения!
-cmd_gamemode_sender_successfully_changed_to_survival_info: Игрок %1% изменил свой игровой режим на выживание!
-cmd_gamemode_sender_successfully_changed_to_creative_info: Игрок %1% изменил свой игровой режим на креатив!
-cmd_gamemode_sender_successfully_changed_to_adventure_info: Игрок %1% изменил свой игровой режим на режим приключений!
-cmd_gamemode_sender_successfully_changed_to_spectator_info: Игрок %1% изменил свой игровой режим на режим наблюдения!
+cmd_gamemode_sender_successfully_changed_to_survival: You have successfully changed game mode to survival!
+cmd_gamemode_sender_successfully_changed_to_creative: You have successfully changed game mode to creative!
+cmd_gamemode_sender_successfully_changed_to_adventure: You have successfully changed game mode to adventure!
+cmd_gamemode_sender_successfully_changed_to_spectator: You have successfully changed game mode to spectator!
+cmd_gamemode_player_successfully_changed_to_survival: You have successfully changed the game mode the player %1% to survival!
+cmd_gamemode_player_successfully_changed_to_creative: You have successfully changed the game mode the player %1% to creative!
+cmd_gamemode_player_successfully_changed_to_adventure: You have successfully changed the game mode the player %1% to adventure!
+cmd_gamemode_player_successfully_changed_to_spectator: You have successfully changed the game mode the player %1% to spectator!
+cmd_gamemode_player_successfully_changed_to_survival_message: Your game mode is successfully changed to survival!
+cmd_gamemode_player_successfully_changed_to_creative_message: Your game mode is successfully changed to creative!
+cmd_gamemode_player_successfully_changed_to_adventure_message: Your game mode is successfully changed to adventure!
+cmd_gamemode_player_successfully_changed_to_spectator_message: Your game mode is successfully changed to spectator!
+cmd_gamemode_sender_successfully_changed_to_survival_info: Player %1% has changed game mode to survival!
+cmd_gamemode_sender_successfully_changed_to_creative_info: Player %1% has changed game mode to creative!
+cmd_gamemode_sender_successfully_changed_to_adventure_info: Player %1% has changed game mode to adventure!
+cmd_gamemode_sender_successfully_changed_to_spectator_info: Player %1% has changed game mode to spectator!
 cmd_gamemode_player_successfully_changed_to_survival_info: Игрок %1% изменил игровой режим игрока %2% на выживание!
 cmd_gamemode_player_successfully_changed_to_creative_info: Игрок %1% изменил игровой режим игрока %2% на креатив!
 cmd_gamemode_player_successfully_changed_to_adventure_info: Игрок %1% изменил игровой режим игрока %2% на режим приключений!
 cmd_gamemode_player_successfully_changed_to_spectator_info: Игрок %1% изменил игровой режим игрока %2% на режим наблюдения!
-cmd_gamemode_help1: 'Список игровых режимов&7:'
-cmd_gamemode_help2: Изменяет игровой режим на выживание
-cmd_gamemode_help3: Изменяет игровой режим на креатив
-cmd_gamemode_help4: Изменяет игровой режим на режим приключений
-cmd_gamemode_help5: Изменяет игровой режим на режим наблюдения
+cmd_gamemode_help1: 'All available game modes&7:'
+cmd_gamemode_help2: Changes gamemode to survival
+cmd_gamemode_help3: Changes gamemode to creative
+cmd_gamemode_help4: Changes gamemode to adventure
+cmd_gamemode_help5: Changes gamemode to spectator
 
 listener_join_survival: Your game mode has been changed to survival!
 
