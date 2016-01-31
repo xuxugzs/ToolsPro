@@ -27,7 +27,6 @@ public class SetSpawnCommand extends ToolsProCommand {
                 ((Player) sender).getServer().setDefaultLevel(((Player) sender).getLevel());
                 Message.CMD_SETSPAWN.print(sender, "prefix:&7[&aSpawn&7]", 'a');
                 Message.CMD_SETSPAWN_LOG.log(((Player) sender).getName(),((Player) sender).getLocation());
-                //this.plugin.getServer().getLogger().info("Server's spawn point set to " + ((Player) sender).getLevel().getName() + " by " + ((Player) sender).getName());
             } else {
                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aSpawn&7]", 'c');
             }

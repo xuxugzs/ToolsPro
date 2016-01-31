@@ -38,7 +38,7 @@ public class UnmuteCommand extends ToolsProCommand {
                         Message.CMD_UNMUTE_PLAYER_MESSAGE.print(p, "prefix:&7[&aMute&7]", 'c');
                     }
                     Message.CMD_UNMUTE_SENDER.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
-                    this.plugin.info(sender, Message.CMD_UNMUTE_PLAYER_INFO.getText("prefix:&7[Mute]", sender.getName(), p.getName()));
+                    this.plugin.info(sender, Message.CMD_UNMUTE_PLAYER_INFO.getText("prefix:&7[Mute]", '7', '7', sender.getName(), p.getName()));
                 }
             } else {
                 return Message.CMD_UNMUTE_USAGE.print(sender, "prefix:&7[&aMute&7]", 'c');

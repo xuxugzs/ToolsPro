@@ -29,7 +29,7 @@ public class ExtinguishCommand extends ToolsProCommand {
                     p.extinguish();
                     Message.CMD_EXTINGUISH_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'a', 'b', p.getName());
                     Message.CMD_EXTINGUISH_PLAYER_MESSAGE.print(p, "prefix:&7[&aExtinguish&7]", 'a');
-                    this.plugin.info(sender, Message.CMD_EXTINGUISH_PLAYER_INFO.getText("prefix:&7[Extinguish]", sender.getName(), p.getName()));
+                    this.plugin.info(sender, Message.CMD_EXTINGUISH_PLAYER_INFO.getText("prefix:&7[Extinguish]", '7', '7', sender.getName(), p.getName()));
                 } else {
                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
                 }
@@ -37,7 +37,7 @@ public class ExtinguishCommand extends ToolsProCommand {
                 if (sender instanceof Player) {
                     ((Player) sender).extinguish();
                     Message.CMD_EXTINGUISH_SENDER.print(sender, "prefix:&7[&aExtinguish&7]", 'a');
-                    this.plugin.info(sender, Message.CMD_EXTINGUISH_SENDER_INFO.getText("prefix:&7[Extinguish]"));
+                    this.plugin.info(sender, Message.CMD_EXTINGUISH_SENDER_INFO.getText("prefix:&7[Extinguish]", '7', '7', sender.getName()));
                 } else {
                     return Message.NEED_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
                 }

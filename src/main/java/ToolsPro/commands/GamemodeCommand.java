@@ -34,7 +34,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                 }
                                 ((Player) sender).setGamemode(0);
                                 Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SURVIVAL.print(sender, "prefix:&7[&aGamemode&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO.getText("prefix:&7[Gamemode]"));
+                                this.plugin.info(sender, Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName()));
                             }else{
                                 Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                             }
@@ -49,7 +49,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                     p.setGamemode(0);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SURVIVAL.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SURVIVAL_MESSAGE.print(p, "prefix:&7[&aGamemode&7]", 'a');
-                                    this.plugin.info(sender, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO.getText("prefix:&7[Gamemode]", sender.getName(), p.getName()));
+                                    this.plugin.info(sender, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SURVIVAL_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName(), p.getName()));
                                 }else{
                                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                                 }
@@ -67,7 +67,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                 }
                                 ((Player) sender).setGamemode(1);
                                 Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_CREATIVE.print(sender, "prefix:&7[&aGamemode&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO.getText("prefix:&7[Gamemode]"));
+                                this.plugin.info(sender, Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName()));
                             }else{
                                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                             }
@@ -81,7 +81,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                     p.setGamemode(1);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_CREATIVE.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_CREATIVE_MESSAGE.print(p, "prefix:&7[&aGamemode&7]", 'a');
-                                    this.plugin.info(sender, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO.getText("prefix:&7[Gamemode]", sender.getName(), p.getName()));
+                                    this.plugin.info(sender, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_CREATIVE_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName(), p.getName()));
                                 }else{
                                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                                 }
@@ -99,7 +99,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                 }
                                 ((Player) sender).setGamemode(2);
                                 Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_ADVENTURE.print(sender, "prefix:&7[&aGamemode&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO.getText("prefix:&7[Gamemode]"));
+                                this.plugin.info(sender, Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName()));
                             }else{
                                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                             }
@@ -113,7 +113,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                     p.setGamemode(2);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_ADVENTURE.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_ADVENTURE_MESSAGE.print(p, "prefix:&7[&aGamemode&7]", 'a');
-                                    this.plugin.info(sender, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO.getText("prefix:&7[Gamemode]", sender.getName(), p.getName()));
+                                    this.plugin.info(sender, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_ADVENTURE_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName(), p.getName()));
                                 }else{
                                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                                 }
@@ -131,7 +131,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                 }
                                 ((Player) sender).setGamemode(3);
                                 Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SPECTATOR.print(sender, "prefix:&7[&aGamemode&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO.getText("prefix:&7[Gamemode]"));
+                                this.plugin.info(sender, Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName()));
                             }else{
                                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                             }
@@ -145,7 +145,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                     p.setGamemode(3);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SPECTATOR.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SPECTATOR_MESSAGE.print(p, "prefix:&7[&aGamemode&7]", 'a');
-                                    this.plugin.info(sender, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO.getText("prefix:&7[Gamemode]", sender.getName(), p.getName()));
+                                    this.plugin.info(sender, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SPECTATOR_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName(), p.getName()));
                                 }else{
                                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                                 }

@@ -32,7 +32,7 @@ public class ClearInventoryCommand extends ToolsProCommand {
                         } else {
                             p.getInventory().clearAll();
                             Message.CMD_CLEARINVENTORY_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'a', 'b');
-                            this.plugin.info(sender, Message.CMD_CLEARINVENTORY_PLAYER_INFO.getText("prefix:&7[ClearInv]", sender.getName(), p.getName()));
+                            this.plugin.info(sender, Message.CMD_CLEARINVENTORY_PLAYER_INFO.getText("prefix:&7[ClearInv]", '7', '7', sender.getName(), p.getName()));
                         }
                     } else {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'c');
@@ -47,7 +47,7 @@ public class ClearInventoryCommand extends ToolsProCommand {
                     } else {
                         ((Player) sender).getInventory().clearAll();
                         Message.CMD_CLEARINVENTORY_SENDER.print(sender, "prefix:&7[&aClearInv&7]", 'a');
-                        this.plugin.info(sender, Message.CMD_CLEARINVENTORY_SENDER_INFO.getText("prefix:&7[ClearInv]"));
+                        this.plugin.info(sender, Message.CMD_CLEARINVENTORY_SENDER_INFO.getText("prefix:&7[ClearInv]", '7', '7', sender.getName()));
                     }
                 } else {
                     return Message.NEED_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'c');

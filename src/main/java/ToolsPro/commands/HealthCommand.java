@@ -33,7 +33,7 @@ public class HealthCommand extends ToolsProCommand {
                                 p.setHealth(20);
                                 Message.CMD_HEALTH_PLAYER.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
                                 Message.CMD_HEALTH_PLAYER_MESSAGE.print(p, "prefix:&7[&aHealth&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_HEALTH_PLAYER_INFO.getText("prefix:&7[Health]", sender.getName(), p.getName()));
+                                this.plugin.info(sender, Message.CMD_HEALTH_PLAYER_INFO.getText("prefix:&7[Health]", '7', '7', sender.getName(), p.getName()));
                             } else {
                                 Message.CMD_HEALTH_PLAYER_MAX.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
                             }
@@ -51,7 +51,7 @@ public class HealthCommand extends ToolsProCommand {
                     } else if (((Player) sender).getHealth() != 20) {
                         ((Player) sender).setHealth(20);
                         Message.CMD_HEALTH_SENDER.print(sender, "prefix:&7[&aHealth&7]", 'a');
-                        this.plugin.info(sender, Message.CMD_HEALTH_SENDER_INFO.getText("prefix:&7[Health]"));
+                        this.plugin.info(sender, Message.CMD_HEALTH_SENDER_INFO.getText("prefix:&7[Health]", '7', '7', sender.getName()));
                     } else {
                         Message.CMD_HEALTH_SENDER_MAX.print(sender, "prefix:&7[&aHealth&7]", 'a');
                     }

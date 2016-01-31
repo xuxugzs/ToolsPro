@@ -33,12 +33,12 @@ public class FlyCommand extends ToolsProCommand {
                                 p.setAllowFlight(false);
                                 Message.CMD_FLY_PLAYER_DISABLE.print(sender, "prefix:&7[&aFly&7]", 'a', 'b', p.getName());
                                 Message.CMD_FLY_PLAYER_DISABLE_MESSAGE.print(p, "prefix:&7[&aFly&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_FLY_PLAYER_DISABLE_INFO.getText("prefix:&7[Fly]", sender.getName(), p.getName()));
+                                this.plugin.info(sender, Message.CMD_FLY_PLAYER_DISABLE_INFO.getText("prefix:&7[Fly]", '7', '7', sender.getName(), p.getName()));
                             } else {
                                 p.setAllowFlight(true);
                                 Message.CMD_FLY_PLAYER_ENABLE.print(sender, "prefix:&7[&aFly&7]", 'a', 'b', p.getName());
                                 Message.CMD_FLY_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aFly&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_FLY_PLAYER_ENABLE_INFO.getText("prefix:&7[Fly]", sender.getName(), p.getName()));
+                                this.plugin.info(sender, Message.CMD_FLY_PLAYER_ENABLE_INFO.getText("prefix:&7[Fly]", '7', '7', sender.getName(), p.getName()));
                             }
                         }
                     } else {
@@ -54,11 +54,11 @@ public class FlyCommand extends ToolsProCommand {
                     } else if (((Player) sender).getAllowFlight()) {
                         ((Player) sender).setAllowFlight(false);
                         Message.CMD_FLY_SENDER_DISABLE.print(sender, "prefix:&7[&aFly&7]", 'a');
-                        this.plugin.info(sender, Message.CMD_FLY_SENDER_DISABLE_INFO.getText("prefix:&7[Fly]"));
+                        this.plugin.info(sender, Message.CMD_FLY_SENDER_DISABLE_INFO.getText("prefix:&7[Fly]", '7', '7', sender.getName()));
                     } else {
                         ((Player) sender).setAllowFlight(true);
                         Message.CMD_FLY_SENDER_ENABLE.print(sender, "prefix:&7[&aFly&7]", 'a');
-                        this.plugin.info(sender, Message.CMD_FLY_SENDER_ENABLE_INFO.getText("prefix:&7[Fly]"));
+                        this.plugin.info(sender, Message.CMD_FLY_SENDER_ENABLE_INFO.getText("prefix:&7[Fly]", '7', '7', sender.getName()));
                     }
                 } else {
                     return Message.NEED_PLAYER.print(sender, "prefix:&7[&aFly&7]", 'c');

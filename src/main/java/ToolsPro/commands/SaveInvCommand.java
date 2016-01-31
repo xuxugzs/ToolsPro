@@ -33,12 +33,12 @@ public class SaveInvCommand extends ToolsProCommand {
                                     this.plugin.removeSaveInv(args[0]);
                                     Message.CMD_SAVEINV_PLAYER_DISABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a', 'b', p.getName());
                                     Message.CMD_SAVEINV_PLAYER_DISABLE_MESSAGE.print(p, "prefix:&7[&aSaveInv&7]", 'a');
-                                    this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_DISABLE_INFO.getText("prefix:&7[SaveInv]", sender.getName(), p.getName()));
+                                    this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_DISABLE_INFO.getText("prefix:&7[SaveInv]", '7', '7', sender.getName(), p.getName()));
                                 } else {
                                     this.plugin.setSaveInv(args[0]);
                                     Message.CMD_SAVEINV_PLAYER_ENABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a', 'b', p.getName());
                                     Message.CMD_SAVEINV_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aSaveInv&7]", 'a');
-                                    this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_ENABLE_INFO.getText("prefix:&7[SaveInv]", sender.getName(), p.getName()));
+                                    this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_ENABLE_INFO.getText("prefix:&7[SaveInv]", '7', '7', sender.getName(), p.getName()));
                                 }
                             }
                         } else {
@@ -55,11 +55,11 @@ public class SaveInvCommand extends ToolsProCommand {
                         if (this.plugin.isSaveInv(sender.getName())) {
                             this.plugin.removeSaveInv(sender.getName());
                             Message.CMD_SAVEINV_SENDER_DISABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a');
-                            this.plugin.info(sender, Message.CMD_SAVEINV_SENDER_DISABLE_INFO.getText("prefix:&7[SaveInv]"));
+                            this.plugin.info(sender, Message.CMD_SAVEINV_SENDER_DISABLE_INFO.getText("prefix:&7[SaveInv]", '7', '7', sender.getName()));
                         } else {
                             this.plugin.setSaveInv(sender.getName());
                             Message.CMD_SAVEINV_SENDER_ENABLE.print(sender, "prefix:&7[&aSaveInv&7]", 'a');
-                            this.plugin.info(sender, Message.CMD_SAVEINV_SENDER_ENABLE_INFO.getText("prefix:&7[SaveInv]"));
+                            this.plugin.info(sender, Message.CMD_SAVEINV_SENDER_ENABLE_INFO.getText("prefix:&7[SaveInv]", '7', '7', sender.getName()));
                         }
                     }
                 } else {
