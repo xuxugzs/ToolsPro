@@ -1,14 +1,18 @@
 toolspro_loaded: ToolsPro successfully enabled!
 toolspro_disabled: ToolsPro successfully disabled!
 
+<<<<<<< HEAD
 you_dont_have_permission: You don't have permission to use this command!
 unknown_player: Такого игрока нет на сервере!
+=======
+unknown_player: There is not this player!
+>>>>>>> origin/master
 you_not_survival: Your game mode is not survival!
 player_not_survival: Game mode player %1% not survival!
 need_player: Please run this command in game!
-not_number: Пожалуйста, введите верное число!
-not_time: Пожалуйста, укажите верное значение времени!
-blocked_nick: Пожалуйста, измените ник и перезайдите на сервер!
+not_number: Please enter right number!
+not_time: Please enter right value of time!
+blocked_nick: Please change your nick and try to connect a server!
 
 cmd_break_description: Breaks the block you're looking at.
 cmd_break_no_break_bedrock: You can't break bedrock
@@ -24,19 +28,19 @@ cmd_burn_player: You set fire to the player %1%
 cmd_burn_player_info: Player %1% set fire to %2%!
 cmd_burn_usage: 'Usage: /burn <player> <seconds>'
 
-cmd_clearhotbar_description: Очищает хот-бар.
+cmd_clearhotbar_description: cleans a hot-bar.
 cmd_clearhotbar_description2: /clearhotbar or /clearhotbar <player>
-cmd_clearhotbar_sender: Ваш хот-бар был успешно очищен!
-cmd_clearhotbar_sender_info: Игрок %1% очистил себе хот бар!
-cmd_clearhotbar_player: Хот-бар игрока %1% очищен!
-cmd_clearhotbar_player_info: Игрок %1% очистил хот бар игроку %2%!
+cmd_clearhotbar_sender: Your hot-bar was cleaned off!
+cmd_clearhotbar_sender_info: Player %1% cleaned his hot-bar!
+cmd_clearhotbar_player: Hot-bar the player %1% cleaned!
+cmd_clearhotbar_player_info: Player %1% cleaned hot-bar of player %2%!
 
 cmd_clearinventory_description: Clear your/other's inventory.
 cmd_clearinventory_description2: /clearinventory or /clearinventory <player>
 cmd_clearinventory_sender: Your inventory was cleared!
-cmd_clearinventory_sender_info: Игрок %1% очистил себе инвентарь!
-cmd_clearinventory_player: Инвентарь игрока %1% очищен!
-cmd_clearinventory_player_info: Игрок %1% очистил инвентарь игроку %2%!
+cmd_clearinventory_sender_info: Player %1% cleaned his inventory!
+cmd_clearinventory_player: Inventory of Player %1% was cleaned!
+cmd_clearinventory_player_info: Player %1% cleaned inventory of Player %2%!
 
 cmd_compass_description: Display your current bearing direction.
 cmd_compass_wrongdir: Oops, there was an error while getting your face direction
@@ -122,11 +126,19 @@ cmd_god_player_disable_message: Вам выключили режим бога!
 cmd_health_description: Heal yourself or other player.
 cmd_health_description2: /health or /health <player>
 cmd_health_sender: You have been healed!
+<<<<<<< HEAD
 cmd_health_sender_max: You are full of life, healing is not required!
 cmd_health_sender_info: Player %1% healed yourself!
 cmd_health_player: You healed the player %1%!
 cmd_health_player_max: The player %1% are full of life, healing is not required!
 cmd_health_player_info: Player %1% healed player %2%!
+=======
+cmd_health_sender_max: You are healthy!
+cmd_health_sender_info: Player %1% healed himself!
+cmd_health_player: You healed the player %1%!
+cmd_health_player_max: Player %1% is healthy!
+cmd_health_player_info: Player %1% healed Player %2%!
+>>>>>>> origin/master
 cmd_health_player_message: You have been healed!
 
 cmd_itemban_description: Manages the list of blocked items and blocks.
@@ -166,9 +178,9 @@ cmd_mute_description: Mute a player.
 cmd_mute_description2: /mute <player> <time> <seconds|minutes|hours|days>
 cmd_mute_usage: 'Usage: /mute <player> <time> <seconds|minutes|hours|days>'
 cmd_mute_no_more_30_day: You can't mute the player more than 30 days!
-cmd_mute_sender: '%1% был замучен на %2%'
-cmd_mute_player_info: Игрок %1% замутил игрока %2% на %3%!
-cmd_mute_player_message: You have been muted on %1% and now I can't to write messages in chat!
+cmd_mute_sender: '%1% was muted for %2%'
+cmd_mute_player_info: Player %1% muted %2% for %3%!
+cmd_mute_player_message: You have been muted on %1% and now You can't to write messages in chat!
 
 listener_mute_line1: You have been muted for violation of the chat rules!
 listener_mute_line2: You have been unmuted after %1%
@@ -221,10 +233,10 @@ cmd_top_tp_message: Teleporting...
 cmd_unmute_description: Unmute a player.
 cmd_unmute_description2: /unmute <player>
 cmd_unmute_usage: 'Usage: /unmute <player>'
-cmd_unmute_sender: Вы успешно размутили игрока %1%!
-cmd_unmute_player_info: Игрок Игрок %1% размутил игрока %2%!
-cmd_unmute_player_message: Вас размутили в чате и теперь можете писать в чат!
-cmd_unmute_player_not_muted: Игрок %1% не был замучен!
+cmd_unmute_sender: You successful unmuted Player %1%!
+cmd_unmute_player_info: Player %1% unmuted Player %2%!
+cmd_unmute_player_message: You saw unmuted and now You can write in chat!
+cmd_unmute_player_not_muted: Player %1% has not been muted!
 
 cmd_vanish_description: Hide from other players.
 cmd_vanish_description2: /vanish or /vanish <player>
