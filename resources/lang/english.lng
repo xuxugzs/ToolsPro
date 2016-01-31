@@ -55,10 +55,10 @@ cmd_extinguish_player_message: Вас успешно потушили!
 
 cmd_fly_description: Fly in Survival or Adventure mode.
 cmd_fly_description2: /fly or /fly <player>
-cmd_fly_sender_enable: Вы успешно включили режим полета!
-cmd_fly_sender_disable: Вы успешно выключили режим полета!
-cmd_fly_sender_enable_info: Игрок %1% включил себе флай!
-cmd_fly_sender_disable_info: Игрок %1% выключил себе флай!
+cmd_fly_sender_enable: You have successfully enabled fly mode!
+cmd_fly_sender_disable: You have successfully disabled fly mode!
+cmd_fly_sender_enable_info: Player %1% enabled myself fly mode!
+cmd_fly_sender_disable_info: Player %1% disabled myself fly mode!
 cmd_fly_player_enable: Флай игроку %1% успешно включен!
 cmd_fly_player_disable: Флай игроку %1% успешно выключен!
 cmd_fly_player_enable_info: Игрок %1% включил флай игроку %2%!
@@ -68,15 +68,15 @@ cmd_fly_player_disable_message: Вам выключили режим полет�
 
 cmd_gamemode_description: Change player gamemode.
 cmd_gamemode_description2: /gamemode <mode> <player>
-cmd_gamemode_usage: Пожалуйста, используйте %1% для просмотра всех игровых режимов
-cmd_gamemode_sender_already_in_survival_mode: Вы уже в режиме выживания!
-cmd_gamemode_sender_already_in_creative_mode: Вы уже в креативе!
-cmd_gamemode_sender_already_in_adventure_mode: Вы уже в режиме приключения!
-cmd_gamemode_sender_already_in_spectator_mode: Вы уже в режиме наблюдения!
-cmd_gamemode_player_already_in_survival_mode: Игрок %1% уже в режиме выживания!
-cmd_gamemode_player_already_in_creative_mode: Игрок %1% уже в креативе!
-cmd_gamemode_player_already_in_adventure_mode: Игрок %1% уже в режиме приключения!
-cmd_gamemode_player_already_in_spectator_mode: Игрок %1% уже в режиме наблюдения!
+cmd_gamemode_usage: Please use %1% to see all game modes
+cmd_gamemode_sender_already_in_survival_mode: You are already in survival mode!
+cmd_gamemode_sender_already_in_creative_mode: You are already in creative mode!
+cmd_gamemode_sender_already_in_adventure_mode: You are already in adventure mode!
+cmd_gamemode_sender_already_in_spectator_mode: You are already in spectator mode!
+cmd_gamemode_player_already_in_survival_mode: Player %1% already in survival mode!
+cmd_gamemode_player_already_in_creative_mode: Player %1% already in creative mode!
+cmd_gamemode_player_already_in_adventure_mode: Player %1% already in adventure mode!
+cmd_gamemode_player_already_in_spectator_mode: Player %1% already in spectator mode!
 cmd_gamemode_sender_successfully_changed_to_survival: Вы успешно изменили игровой режим на выживание!
 cmd_gamemode_sender_successfully_changed_to_creative: Вы успешно изменили игровой режим на креатив!
 cmd_gamemode_sender_successfully_changed_to_adventure: Вы успешно изменили игровой режим на режим приключения!
@@ -161,16 +161,16 @@ cmd_more_description: Get a stack of the item you're holding.
 cmd_more_no_air: You can't get a stack of AIR!
 cmd_more_successfully: Filled up the item stack to
 
-cmd_mute_description: Блокирует чат игроку на определенное время.
+cmd_mute_description: Mute a player.
 cmd_mute_description2: /mute <player> <time> <seconds|minutes|hours|days>
 cmd_mute_usage: 'Usage: /mute <player> <time> <seconds|minutes|hours|days>'
-cmd_mute_no_more_30_day: Вы не можете замутить игрока больше чем на 30 дней!
+cmd_mute_no_more_30_day: You can't mute the player more than 30 days!
 cmd_mute_sender: '%1% был замучен на %2%'
 cmd_mute_player_info: Игрок %1% замутил игрока %2% на %3%!
-cmd_mute_player_message: Вы получили мут на %1% и теперь не можете писать в чат
+cmd_mute_player_message: You have been muted on %1% and now I can't to write messages in chat!
 
-listener_mute_line1: Вы были замучены за нарушение правил чата!
-listener_mute_line2: Размут через %1%
+listener_mute_line1: You have been muted for violation of the chat rules!
+listener_mute_line2: You have been unmuted after %1%
 
 cmd_repair_description: Repair the item you're holding.
 cmd_repair_successfully_repaired: Item successfully repaired!
@@ -217,7 +217,7 @@ cmd_suicide_message: You have committed suicide!
 cmd_top_description: Teleport to the highest block above you.
 cmd_top_tp_message: Teleporting...
 
-cmd_unmute_description: Убирает блокировку чата.
+cmd_unmute_description: Unmute a player.
 cmd_unmute_description2: /unmute <player>
 cmd_unmute_usage: 'Usage: /unmute <player>'
 cmd_unmute_sender: Вы успешно размутили игрока %1%!
@@ -233,11 +233,11 @@ north: North
 west: West
 east: East
 
-seconds: ' секунд'
-minutes: ' минут ' 
-hours: ' часов '
-days: ' дней '
-weeks: ' недель '
+seconds: ' seconds'
+minutes: ' minutes '
+hours: ' hours '
+days: ' days '
+weeks: ' weeks '
 
 block_damage_creative: You can't attack the player in creative mode!
 block_damage_fly: You can't attack the player in fly mode!

@@ -2,6 +2,7 @@ package ToolsPro;
 
 import ToolsPro.commands.*;
 import ToolsPro.listeners.*;
+import ToolsPro.listeners.EventListener;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
@@ -12,10 +13,7 @@ import cn.nukkit.item.Tool;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ToolsPro extends PluginBase {
 

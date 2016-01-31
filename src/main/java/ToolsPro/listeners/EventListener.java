@@ -3,7 +3,7 @@ package ToolsPro.listeners;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.entity.Effect;
+import cn.nukkit.potion.Effect;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
