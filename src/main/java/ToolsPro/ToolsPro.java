@@ -31,8 +31,7 @@ public class ToolsPro extends PluginBase {
     @Override
     public void onEnable() {
         instance = this;
-        this.saveResource("config.yml", false);
-        this.reloadConfig();
+        this.saveDefaultConfig();
         this.loadConfig();
         Message.init(this);
         this.getServer().getCommandMap().register("break", new BreakCommand(this));
@@ -61,14 +60,13 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("suicide", new SuicideCommand(this));
         this.getServer().getCommandMap().register("top", new TopCommand(this));
         this.getServer().getCommandMap().register("unmute", new UnmuteCommand(this));
-        this.getServer().getCommandMap().register("vanish", new VanishCommand(this));
-        this.getServer().getPluginManager().registerEvents(new PlayerAttackListener(this), this);
+        //this.getServer().getCommandMap().register("vanish", new VanishCommand(this));
+        this.getServer().getPluginManager().registerEvents(new DamageListener(this), this);
         this.getServer().getPluginManager().registerEvents(new EventListener(this), this);
         this.getServer().getPluginManager().registerEvents(new ItemBanListener(this), this);
         this.getServer().getPluginManager().registerEvents(new MuteListener(this), this);
         Message.TOOLSPRO_LOADED.log();
     }
-
 
     @Override
     public void onDisable() {

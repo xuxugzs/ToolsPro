@@ -31,22 +31,21 @@ public class EventListener implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
+    /*@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPreLogin(PlayerPreLoginEvent event) {
         String name = event.getPlayer().getName();
-        for (String s : plugin.forbiddenNames) {
+        for (String s : plugin.forbiddenNames) { Nukkit bug!? (saveDefaultConfig())
             if (s.equalsIgnoreCase(name)) {
                 event.setKickMessage(Message.BLOCKED_NICK.getText('c'));
                 event.setCancelled();
             }
         }
-    }
+    }*/
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPlayerJoin(PlayerJoinEvent event) {
         boolean JoinSurvival = this.plugin.getConfig().getNested("JoinSurvival", false);
         String name = event.getPlayer().getName();
-        Player p = this.plugin.getServer().getPlayer(name);
         if (event.getPlayer().hasPermission("toolspro.inv.save") && !this.plugin.isSaveInv(name)) {
             this.plugin.setSaveInv(name);
             Message.LISTENER_SAVEINV_JOIN_TO_SERVER.print(((Player) event.getPlayer()), "prefix:&7[&aSaveInv&7]", 'a');
@@ -64,12 +63,14 @@ public class EventListener implements Listener {
         if (p instanceof Player) {
             if (this.plugin.isGodMode(name)) this.plugin.removeGodMode(name);
             if (this.plugin.isSaveInv(name)) this.plugin.removeSaveInv(name);
+            /*
             if (this.plugin.isHide(name)) {
                 for (Effect effect : p.getEffects().values()) {
                     p.removeEffect(14);
                 }
                 this.plugin.removeHide(name);
             }
+            */
         }
     }
 
@@ -84,10 +85,12 @@ public class EventListener implements Listener {
                     Message.LISTENER_SAVEINV_DEATH.print(((Player) entity), "prefix:&7[&aSaveInv&7]", 'a');
                 }
             }
+            /*
             if (this.plugin.isHide(name)) {
                 this.plugin.removeHide(name);
                 event.getEntity().sendMessage(TextFormat.colorize("&7[&aVanish&7] &aНевидимость была успешно выключена!"));
             }
+            */
         }
     }
 }

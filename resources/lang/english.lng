@@ -1,6 +1,7 @@
 toolspro_loaded: ToolsPro successfully enabled!
 toolspro_disabled: ToolsPro successfully disabled!
 
+you_dont_have_permission: You don't have permission to use this command!
 unknown_player: Такого игрока нет на сервере!
 you_not_survival: Your game mode is not survival!
 player_not_survival: Game mode player %1% not survival!
@@ -121,19 +122,19 @@ cmd_god_player_disable_message: Вам выключили режим бога!
 cmd_health_description: Heal yourself or other player.
 cmd_health_description2: /health or /health <player>
 cmd_health_sender: You have been healed!
-cmd_health_sender_max: У Вас полные жизни, лечение не требуется!
-cmd_health_sender_info: Игрок %1% вылечил себя!
+cmd_health_sender_max: You are full of life, healing is not required!
+cmd_health_sender_info: Player %1% healed yourself!
 cmd_health_player: You healed the player %1%!
-cmd_health_player_max: У игрока %1% полные жизни, лечение не требуется!
-cmd_health_player_info: Игрок %1% вылечил игрока %2%!
+cmd_health_player_max: The player %1% are full of life, healing is not required!
+cmd_health_player_info: Player %1% healed player %2%!
 cmd_health_player_message: You have been healed!
 
-cmd_itemban_description: Управляет списком заблокированных вещей.
-cmd_itemban_wrongid: Пожалуйста, введите верный ID!
-cmd_itemban_alreadyban: Предмет %1% (ID - %2%) уже заблокирован!
-cmd_itemban_added: Предмет %1% (ID - %2%) добавлен в список
-cmd_itemban_ban: Предмет %1% (ID - %2%) заблокирован!
-cmd_itemban_removed: Предмет %1% (ID - %2%) удален из списка!
+cmd_itemban_description: Manages the list of blocked items and blocks.
+cmd_itemban_wrongid: Please enter a valid ID!
+cmd_itemban_alreadyban: Item %1% (ID - %2%) is already blocked!
+cmd_itemban_alreadyremoved: Item %1% (ID - %2%) wasn't blocked!
+cmd_itemban_added: Item %1% (ID - %2%) added to the list!
+cmd_itemban_removed: Item %1% (ID - %2%) removed from the list!
 cmd_itemban_usage: 'Usage: /item <ban|unban> <ID>'
 
 listener_itemban_touch: You cannot use this item!
@@ -196,7 +197,7 @@ listener_saveinv_death: Все ваши вещи были успешно сох�
 
 cmd_setspawn_description: Change your server main spawn point.
 cmd_setspawn: Server's spawn point changed!
-cmd_setspawn_log: 'Игроком %1% задана новая точка спавна: %2%'
+cmd_setspawn_log: 'Player %1% set a new spawn point: %2%'
 
 cmd_spawnall_description: Teleports all players to spawn.
 cmd_spawnall_no_players: There are no more players in the server!
@@ -209,7 +210,7 @@ cmd_spawn_tp_player_message: Teleporting...
 cmd_speed_description: Change your speed limits.
 cmd_speed_description2: /speed or /speed <speed>
 cmd_speed: Speed amplified by %1%
-cmd_speed_normal: Вы успешно сбросили скорость на стандартную!
+cmd_speed_normal: Your speed was changed to default!
 
 cmd_suicide_description: Kill yourself.
 cmd_suicide_message: You have committed suicide!

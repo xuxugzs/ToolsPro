@@ -10,11 +10,11 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 
-public class PlayerAttackListener implements Listener {
+public class DamageListener implements Listener {
 
     ToolsPro plugin;
 
-    public PlayerAttackListener(ToolsPro plugin) {
+    public DamageListener(ToolsPro plugin) {
         this.plugin = plugin;
     }
 

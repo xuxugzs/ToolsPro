@@ -21,7 +21,7 @@ public class ClearInventoryCommand extends ToolsProCommand {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(this.getPermissionMessage());
+            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.clearinventory.other")) {

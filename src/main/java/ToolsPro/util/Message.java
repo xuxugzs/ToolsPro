@@ -27,6 +27,7 @@ public enum Message {
 	TOOLSPRO_LOADED("ToolsPro успешно загружен!"),
 	TOOLSPRO_DISABLED("ToolsPro успешно выключен!"),
 	//Error
+	YOU_DONT_HAVE_PERMISSION("У Вас недостаточно прав для использования этой команды!"),
 	UNKNOWN_PLAYER("Такого игрока нет на сервере!"),
 	YOU_NOT_SURVIVAL("Ваш игрокой режим не выживание!"),
 	PLAYER_NOT_SURVIVAL("Игровой режим игрока %1% не выживание!"),
@@ -157,8 +158,8 @@ public enum Message {
 	CMD_ITEMBAN_DESCRIPTION("Управляет списком заблокированных вещей."),
 	CMD_ITEMBAN_WRONGID("Пожалуйста, введите верный ID!"),
 	CMD_ITEMBAN_ALREADYBAN("Предмет %1% (ID - %2%) уже заблокирован!"),
+	CMD_ITEMBAN_ALREADYREMOVED("Предмет %1% (ID - %2%) не заблокирован!"),
 	CMD_ITEMBAN_ADDED("Предмет %1% (ID - %2%) добавлен в список"),
-	CMD_ITEMBAN_BAN("Предмет %1% (ID - %2%) заблокирован!"),
 	CMD_ITEMBAN_REMOVED("Предмет %1% (ID - %2%) удален из списка!"),
 	CMD_ITEMBAN_USAGE("Используйте: /item <ban|unban> <ID>"),
 	//ItemBan Listener
