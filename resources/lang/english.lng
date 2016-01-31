@@ -1,12 +1,8 @@
 toolspro_loaded: ToolsPro successfully enabled!
 toolspro_disabled: ToolsPro successfully disabled!
 
-<<<<<<< HEAD
 you_dont_have_permission: You don't have permission to use this command!
-unknown_player: Такого игрока нет на сервере!
-=======
 unknown_player: There is not this player!
->>>>>>> origin/master
 you_not_survival: Your game mode is not survival!
 player_not_survival: Game mode player %1% not survival!
 need_player: Please run this command in game!
@@ -126,19 +122,11 @@ cmd_god_player_disable_message: Вам выключили режим бога!
 cmd_health_description: Heal yourself or other player.
 cmd_health_description2: /health or /health <player>
 cmd_health_sender: You have been healed!
-<<<<<<< HEAD
 cmd_health_sender_max: You are full of life, healing is not required!
 cmd_health_sender_info: Player %1% healed yourself!
 cmd_health_player: You healed the player %1%!
 cmd_health_player_max: The player %1% are full of life, healing is not required!
 cmd_health_player_info: Player %1% healed player %2%!
-=======
-cmd_health_sender_max: You are healthy!
-cmd_health_sender_info: Player %1% healed himself!
-cmd_health_player: You healed the player %1%!
-cmd_health_player_max: Player %1% is healthy!
-cmd_health_player_info: Player %1% healed Player %2%!
->>>>>>> origin/master
 cmd_health_player_message: You have been healed!
 
 cmd_itemban_description: Manages the list of blocked items and blocks.
