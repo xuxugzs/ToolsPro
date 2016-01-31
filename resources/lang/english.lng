@@ -24,19 +24,19 @@ cmd_burn_player: You set fire to the player %1%
 cmd_burn_player_info: Player %1% set fire to %2%!
 cmd_burn_usage: 'Usage: /burn <player> <seconds>'
 
-cmd_clearhotbar_description: cleans a hot-bar.
+cmd_clearhotbar_description: Clear your/other's hot-bar.
 cmd_clearhotbar_description2: /clearhotbar or /clearhotbar <player>
-cmd_clearhotbar_sender: Your hot-bar was cleaned off!
+cmd_clearhotbar_sender: Your hot-bar was cleared!
 cmd_clearhotbar_sender_info: Player %1% cleaned his hot-bar!
-cmd_clearhotbar_player: Hot-bar the player %1% cleaned!
+cmd_clearhotbar_player: Hot-bar of player %1% was cleaned!
 cmd_clearhotbar_player_info: Player %1% cleaned hot-bar of player %2%!
 
 cmd_clearinventory_description: Clear your/other's inventory.
 cmd_clearinventory_description2: /clearinventory or /clearinventory <player>
 cmd_clearinventory_sender: Your inventory was cleared!
 cmd_clearinventory_sender_info: Player %1% cleaned his inventory!
-cmd_clearinventory_player: Inventory of Player %1% was cleaned!
-cmd_clearinventory_player_info: Player %1% cleaned inventory of Player %2%!
+cmd_clearinventory_player: Inventory of player %1% was cleaned!
+cmd_clearinventory_player_info: Player %1% cleaned inventory of player %2%!
 
 cmd_compass_description: Display your current bearing direction.
 cmd_compass_wrongdir: Oops, there was an error while getting your face direction
@@ -48,11 +48,11 @@ cmd_depth_below: You're at %1% meters below the sea level.
 
 cmd_extinguish_description: Extinguish a player.
 cmd_extinguish_description2: /extinguish or /extinguish <player>
-cmd_extinguish_sender: Вы успешно потушили себя
-cmd_extinguish_sender_info: Игрок %1% потушил себя!
-cmd_extinguish_player: Вы успешно потуишили игрока %1%!
-cmd_extinguish_player_info: Игрок %1% потушил игрока %2%!
-cmd_extinguish_player_message: Вас успешно потушили!
+cmd_extinguish_sender: You have successfully extinguish myself!
+cmd_extinguish_sender_info: Player %1% extinguish myself!
+cmd_extinguish_player: You have successfully extinguish player %1%!
+cmd_extinguish_player_info: Player %1% extinguish player %2%!
+cmd_extinguish_player_message: You successfully extinguish!
 
 cmd_fly_description: Fly in Survival or Adventure mode.
 cmd_fly_description2: /fly or /fly <player>
@@ -60,12 +60,12 @@ cmd_fly_sender_enable: You have successfully enabled fly mode!
 cmd_fly_sender_disable: You have successfully disabled fly mode!
 cmd_fly_sender_enable_info: Player %1% enabled myself fly mode!
 cmd_fly_sender_disable_info: Player %1% disabled myself fly mode!
-cmd_fly_player_enable: Флай игроку %1% успешно включен!
-cmd_fly_player_disable: Флай игроку %1% успешно выключен!
-cmd_fly_player_enable_info: Игрок %1% включил флай игроку %2%!
-cmd_fly_player_disable_info: Игрок %1% выключил флай игроку %2%!
-cmd_fly_player_enable_message: Вам включили режим полета!
-cmd_fly_player_disable_message: Вам выключили режим полета!
+cmd_fly_player_enable: Fly mode is player %1% has been successfully enabled!
+cmd_fly_player_disable: Fly mode is player %1% has been successfully disabled!
+cmd_fly_player_enable_info: Player %1% has enabled fly mode player %2%!
+cmd_fly_player_disable_info: Player %1% has disabled fly mode player %2%!
+cmd_fly_player_enable_message: You have enabled fly mode!
+cmd_fly_player_disable_message: You have disabled fly mode!
 
 cmd_gamemode_description: Change player gamemode.
 cmd_gamemode_description2: /gamemode <mode> <player>
@@ -94,10 +94,10 @@ cmd_gamemode_sender_successfully_changed_to_survival_info: Player %1% has change
 cmd_gamemode_sender_successfully_changed_to_creative_info: Player %1% has changed game mode to creative!
 cmd_gamemode_sender_successfully_changed_to_adventure_info: Player %1% has changed game mode to adventure!
 cmd_gamemode_sender_successfully_changed_to_spectator_info: Player %1% has changed game mode to spectator!
-cmd_gamemode_player_successfully_changed_to_survival_info: Игрок %1% изменил игровой режим игрока %2% на выживание!
-cmd_gamemode_player_successfully_changed_to_creative_info: Игрок %1% изменил игровой режим игрока %2% на креатив!
-cmd_gamemode_player_successfully_changed_to_adventure_info: Игрок %1% изменил игровой режим игрока %2% на режим приключений!
-cmd_gamemode_player_successfully_changed_to_spectator_info: Игрок %1% изменил игровой режим игрока %2% на режим наблюдения!
+cmd_gamemode_player_successfully_changed_to_survival_info: Player %1% has changed game mode player %2% to survival!
+cmd_gamemode_player_successfully_changed_to_creative_info: Player %1% has changed game mode player %2% to creative!
+cmd_gamemode_player_successfully_changed_to_adventure_info: Player %1% has changed game mode player %2% to adventure!
+cmd_gamemode_player_successfully_changed_to_spectator_info: Player %1% has changed game mode player %2% to spectator!
 cmd_gamemode_help1: 'All available game modes&7:'
 cmd_gamemode_help2: Changes gamemode to survival
 cmd_gamemode_help3: Changes gamemode to creative
@@ -108,16 +108,16 @@ listener_join_survival: Your game mode has been changed to survival!
 
 cmd_god_description: Prevent you to take any damage.
 cmd_god_description2: /god or /god <player>
-cmd_god_sender_enable: Вы успешно включили режим бога!
-cmd_god_sender_disable: Вы успешно выключили режим бога!
-cmd_god_sender_enable_info: Игрок %1% включил себе режим бога!
-cmd_god_sender_disable_info: Игрок %1% выключил себе режим бога!
-cmd_god_player_enable: Режим бога игроку %1% успешно включен!
-cmd_god_player_disable: Режим бога игроку %1% успешно выключен!
-cmd_god_player_enable_info: Игрок %1% включил режим бога игроку %2%!
-cmd_god_player_disable_info: Игрок %1% выключил режим бога игроку %2%!
-cmd_god_player_enable_message: Вам включили режим бога!
-cmd_god_player_disable_message: Вам выключили режим бога!
+cmd_god_sender_enable: You have successfully enabled god mode!
+cmd_god_sender_disable: You have successfully disabled god mode!
+cmd_god_sender_enable_info: Player %1% enabled yourself god mode!
+cmd_god_sender_disable_info: Player %1% disabled yourself god mode!
+cmd_god_player_enable: God mode to player %1% has been successfully enabled!
+cmd_god_player_disable: God mode to player %1% has been successfully disabled!
+cmd_god_player_enable_info: Player %1% has enabled god mode to player %2%!
+cmd_god_player_disable_info: Player %1% has disabled god mode to player %2%!
+cmd_god_player_enable_message: You have enabled god mode!
+cmd_god_player_disable_message: You have disabled god mode!
 
 cmd_health_description: Heal yourself or other player.
 cmd_health_description2: /health or /health <player>
@@ -144,8 +144,10 @@ listener_itemban_break: You can't break this block!
 
 cmd_itemdb_description: Display the information attached to the item you hold.
 cmd_itemdb_description2: /item db or /itemdb <name|id|metadata>
-cmd_itemdb_repairable: 'Количество очков повреждения у предмета: %1%'
-cmd_itemdb_data: 'Значение meta-data у этого предмета: %1%'
+cmd_itemdb_message1: 'This item '
+cmd_itemdb_message2: 'has '
+cmd_itemdb_repairable: ' points of damage'
+cmd_itemdb_data: 'This item metadata is: '
 cmd_itemdb_named: 'This item is named: %1%'
 cmd_itemdb_id: 'This item ID is: %1%'
 
@@ -168,7 +170,7 @@ cmd_mute_usage: 'Usage: /mute <player> <time> <seconds|minutes|hours|days>'
 cmd_mute_no_more_30_day: You can't mute the player more than 30 days!
 cmd_mute_sender: '%1% was muted for %2%'
 cmd_mute_player_info: Player %1% muted %2% for %3%!
-cmd_mute_player_message: You have been muted on %1% and now You can't to write messages in chat!
+cmd_mute_player_message: You have been muted on %1% and now you can't to write messages in chat!
 
 listener_mute_line1: You have been muted for violation of the chat rules!
 listener_mute_line2: You have been unmuted after %1%
@@ -179,21 +181,21 @@ cmd_repair_all_successfully_repaired: All the tools on your inventory were repai
 cmd_repair_successfully_repaired_including_armor: (Including the equipped Armor)
 cmd_repair_error: This item can't be repaired!
 
-cmd_saveinv_description: Включает/выключает сохранение инвентаря.
+cmd_saveinv_description: Keep your inventory after death.
 cmd_saveinv_description2: /saveinv or /saveinv <player>
-cmd_saveinv_sender_enable: Вы успешно включили сохранение инвентаря!
-cmd_saveinv_sender_disable: Вы успешно выключили сохранение инвентаря!
-cmd_saveinv_sender_enable_info: Игрок %1% включил себе сохранение инвентаря!
-cmd_saveinv_sender_disable_info: Игрок %1% выключил себе сохранение инвентаря!
-cmd_saveinv_player_enable: Вы успешно включили сохранение инвентаря игроку %1%!
-cmd_saveinv_player_disable: Вы успешно выключили сохранение инвентаря игроку %1%!
-cmd_saveinv_player_enable_info: Игрок %1% включил сохранение инвентаря игроку %2%!
-cmd_saveinv_player_disable_info: Игрок %1% выключил сохранение инвентаря игроку %2%!
-cmd_saveinv_player_enable_message: Вам включили сохранение инвентаря!
-cmd_saveinv_player_disable_message: Вам выключили сохранение инвентаря!
+cmd_saveinv_sender_enable: You have successfully enabled saving inventory!
+cmd_saveinv_sender_disable: You have successfully disabled saving inventory!
+cmd_saveinv_sender_enable_info: Player %1% enabled yourself saving inventory!
+cmd_saveinv_sender_disable_info: Player %1% disable yourself saving inventory!
+cmd_saveinv_player_enable: You have successfully enabled saving of inventory player is %1%!
+cmd_saveinv_player_disable: You have successfully disabled saving of inventory player is %1%!
+cmd_saveinv_player_enable_info: Player %1% has enabled saving player inventory to %2%!
+cmd_saveinv_player_disable_info: Player %1% has disabled saving player inventory to %2%!
+cmd_saveinv_player_enable_message: You have enabled saving inventory!
+cmd_saveinv_player_disable_message: You have disabled saving inventory!
 
-listener_saveinv_join_to_server: Сохранение инвентаря успешно включено!
-listener_saveinv_death: Все ваши вещи были успешно сохранены!
+listener_saveinv_join_to_server: SaveInv successfully enabled!
+listener_saveinv_death: All your items have been saved successfully!
 
 cmd_setspawn_description: Change your server main spawn point.
 cmd_setspawn: Server's spawn point changed!

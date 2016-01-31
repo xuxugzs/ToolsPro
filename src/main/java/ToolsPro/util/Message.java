@@ -170,8 +170,10 @@ public enum Message {
 	//ItemDB Command
 	CMD_ITEMDB_DESCRIPTION("Отображает информацию о предмете, который находится в ваших руках."),
 	CMD_ITEMDB_DESCRIPTION2("/item db или /itemdb <name|id|metadata>"),
-	CMD_ITEMDB_REPAIRABLE("Количество очков повреждения у предмета: %1%"),
-	CMD_ITEMDB_DATA("Значение meta-data у этого предмета: %1%"),
+	CMD_ITEMDB_MESSAGE1("Этот предмет "),
+	CMD_ITEMDB_MESSAGE2("имеет "),
+	CMD_ITEMDB_REPAIRABLE(" очков урона"),
+	CMD_ITEMDB_DATA("Значение meta-data у этого предмета: "),
 	CMD_ITEMDB_NAMED("Название этого предмета: %1%"),
 	CMD_ITEMDB_ID("Идентификатор этого предмета: %1%"),
 	//Jump Command
