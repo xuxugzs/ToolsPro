@@ -1,7 +1,6 @@
 package ToolsPro.listeners;
 
 import ToolsPro.ToolsPro;
-import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
@@ -21,7 +20,7 @@ public class CommandListener implements Listener {
         Player player = event.getPlayer();
         String[] cmd = event.getMessage().split(" ");
         Player p = this.plugin.getServer().getPlayer(cmd[1]);
-        boolean TellNotice = this.plugin.getConfig().getNested("TellNotice", false);
+        boolean TellNotice = this.plugin.getConfig().getBoolean("TellNotice", false);
         if (cmd[0].equalsIgnoreCase("/tell") && cmd[1] != null && TellNotice){ // :D
             String msg = "";
             for (int i = 2; i < cmd.length; i++) {

@@ -75,7 +75,7 @@ public class ToolsPro extends PluginBase {
 
     private void loadConfig(){
         try {
-            this.forbiddenNames = this.getConfig().getNestedAs("fordbidden-player-names", List.class);
+            this.forbiddenNames = this.getConfig().getList("fordbidden-player-names");
         } catch (Exception e){
             this.forbiddenNames = new ArrayList<String>();
         }

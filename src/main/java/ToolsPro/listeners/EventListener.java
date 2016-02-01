@@ -3,14 +3,14 @@ package ToolsPro.listeners;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.potion.Effect;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageEvent;
-import cn.nukkit.event.player.*;
-import cn.nukkit.utils.TextFormat;
+import cn.nukkit.event.player.PlayerDeathEvent;
+import cn.nukkit.event.player.PlayerJoinEvent;
+import cn.nukkit.event.player.PlayerQuitEvent;
 
 public class EventListener implements Listener {
 
@@ -44,7 +44,7 @@ public class EventListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPlayerJoin(PlayerJoinEvent event) {
-        boolean JoinSurvival = this.plugin.getConfig().getNested("JoinSurvival", false);
+        boolean JoinSurvival = this.plugin.getConfig().getBoolean("JoinSurvival", false);
         String name = event.getPlayer().getName();
         if (event.getPlayer().hasPermission("toolspro.inv.save") && !this.plugin.isSaveInv(name)) {
             this.plugin.setSaveInv(name);
