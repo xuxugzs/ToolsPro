@@ -75,7 +75,7 @@ public class ToolsPro extends PluginBase {
 
     private void loadConfig(){
         try {
-            this.forbiddenNames = this.getConfig().getList("fordbidden-player-names");
+            this.forbiddenNames = this.getConfig().getList("forbidden-player-names");
         } catch (Exception e){
             this.forbiddenNames = new ArrayList<String>();
         }
@@ -85,6 +85,7 @@ public class ToolsPro extends PluginBase {
         return item instanceof Tool || item instanceof Armor;
     }
 
+    /*
     //Hide
     public boolean isHide(String name) {
         return HidePlayers.contains(name.toLowerCase());
@@ -97,6 +98,7 @@ public class ToolsPro extends PluginBase {
     public void removeHide(String name) {
         if (HidePlayers.contains(name.toLowerCase())) HidePlayers.remove(name.toLowerCase());
     }
+    */
 
     //SaveInv
     public boolean isSaveInv(String name) {
