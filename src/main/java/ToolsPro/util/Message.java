@@ -492,10 +492,7 @@ public enum Message {
 	public static void init(PluginBase plg){
 		plugin = plg;
 		language = plg.getConfig().getString("general.language","english");
-		plg.getConfig().set("general.language", language);
 		debugMode = plg.getConfig().getBoolean("general.debug-mode",false);
-		plg.getConfig().set("general.debug-mode",debugMode);
-		plg.saveConfig();
 		initMessages();
 		saveMessages();
 		LNG_CONFIG.debug(Message.values().length,language,true,debugMode);
