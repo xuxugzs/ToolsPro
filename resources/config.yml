@@ -2,9 +2,12 @@
 JoinSurvival: false
 TellNotice: false
 general:
-  language: russian
+# Set the default language for ToolsPro
+# - ru, en, c
+# English message resource by @Pub4Game, @fromgate and @mik2212 (GitHub)
+# Chinese message resource by @xuxugzs (GitHub)
+  language: english
   debug-mode: false
 fordbidden-player-names:
   - Steve
   - Notch
-...
