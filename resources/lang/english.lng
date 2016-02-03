@@ -1,111 +1,248 @@
-lng_load_fail: Failed to load languages from file. Default message used
-lng_save_fail: Failed to save lang file
-lng_print_fail: Failed to print message %1%. Sender object is null.
-lng_config: '[MESSAGES] Messages: %1% Language: %2% Save translate file: %3% Debug mode: %4%'
-enabled: enabled
-disabled: disabled
-word_unknown: Unknown
 toolspro_loaded: ToolsPro successfully enabled!
 toolspro_disabled: ToolsPro successfully disabled!
-unknown_player: Player not found on server!
-need_player: You can use this command in-game only!
-you_not_survival: You are not in survival game mode!
-player_not_survival: Game mode of player %1% is not survival!
-not_number: Please use namber!
-cmd_break_description: Breaks the block in you view direction
-cmd_broadcast_description: Sends a broadcast message
+
+you_dont_have_permission: You don't have permission to use this command!
+unknown_player: There is not this player!
+you_not_survival: Your game mode is not survival!
+player_not_survival: Game mode player %1% not survival!
+need_player: Please run this command in game!
+not_number: Please enter right number!
+not_time: Please enter right value of time!
+blocked_nick: Please change your nick and try to connect a server!
+
+cmd_break_description: Breaks the block you're looking at.
+cmd_break_no_break_bedrock: You can't break bedrock
+cmd_break_is_not_a_reachable_block: There isn't a reachable block
+
+cmd_broadcast_description: Broadcast a message.
 cmd_broadcast_description2: /broadcast <message>
 cmd_broadcast_usage: 'Usage: /broadcast <message>'
-cmd_burn_description: Burns defined player
-cmd_burn_description2: /burn <name> <time>
-cmd_burn_player: You set fire on player %1%
-cmd_burn_usage: 'Usage: /burn <name> <time>'
-cmd_clearhotbar_description: Clears hotbar
-cmd_clearhotbar_description2: /clearhotbar or /clearhotbar <name>
-cmd_clearhotbar_player_clear: Hotbar of player %1% cleared!
-cmd_clearhotbar_player_clear_log: '%1% clears hotbar of player %2%!'
-cmd_clearhotbar_sender_clear: Your hotbar was successfully cleared!
-cmd_clearhotbar_sender_clear_log: '%1% cleared his own hotbar!'
-cmd_clearinventory_description: Clears inventory
-cmd_clearinventory_description2: /clearinventory или /clearinventory <ник>
-cmd_clearinventory_player_clear: Инвентарь %1% очищен!
-cmd_clearinventory_sender_clear: Ваш инвентарь был успешно очищен!
-cmd_compass_description: Показывает ваше текущее направление.
-cmd_compass_wrongdir: Простите, но нам не удаось определить ваше местонахождение
-cmd_compass_view: Вы смотрите на %1%
-cmd_depth_description: Показывает ваше текущее направление.
-cmd_depth_above: Вы находитесь на высоте %1% выше уровня моря
-cmd_depth_below: Вы находитесь на высоте %1% ниже уровня моря
-cmd_exthinguish_description: Тушит горящего игрока.
-cmd_exthinguish_description2: /extinguish или /extinguish <ник>
-cmd_exthinguish_sender: Вы успешно потушили себя
-cmd_exthinguish_player_message: Вас успешно потушили!
-cmd_exthinguish_player: Вы успешно потуишили игрока %1%!
-cmd_fly_description: Включает/выключает полет
-cmd_fly_description2: /fly или /fly <ник>
-cmd_fly_player_enabled: Флай игроку %1% успешно включен!
-cmd_fly_player_disabled: Флай игроку %1% успешно выключен!
-cmd_fly_player_message_enabled: Вам включили режим полета!
-cmd_fly_player_message_disabled: Вам выключили режим полета!
-cmd_fly_sender_enabled: Вы успешно включили режим полета!
-cmd_fly_sender_disabled: Вы успешно выключили режим полета!
-cmd_gamemode_description: Изменияет игровой режим.
-cmd_gamemode_description2: /gm <игрокой режим>
-cmd_god_description: Включает/выключает режим бога
-cmd_god_description2: /god или /god <ник>
-cmd_health_description: Восстанавливает жизни.
-cmd_health_description2: /health или /health <ник>
-cmd_health_sender: Вы успешно вылечили себя!
-cmd_health_sender_max: У Вас полные жизни, лечение не требуется!
-cmd_health_player: Вы успешно вылечили игрока %1%!
-cmd_health_player_message: Вас успешно вылечили!
-cmd_itemban_description: Управляет списком заблокированных вещей
-cmd_itemban_wrongid: Пожалуйста, введите верный ID!
-cmd_itemban_alreadyban: Предмет %1% (ID - %2%) уже заблокирован!
-cmd_itemban_added: Предмет %1% (ID - %2%) добавлен в список
-cmd_itemban_ban: Предмет %1% (ID - %2%) заблокирован!
-cmd_itemban_removed: Предмет %1% (ID - %2%) удален из списка!
-cmd_itemban_usage: Используйте /item <ban|unban> <ID>
-cmd_itemdb_description: ''
-cmd_jump_description: Телепортирует вас на место которое вы укажите
-cmd_kickall_description: Кикнает всех игроков с сервера.
-cmd_kickall_description2: /kickall или /kickall <причина>
-cmd_kickall_no_players: На сервере нет ни одного игрока!
-cmd_kickall_no_reason: Вы были кикнуты с сервера!
-cmd_kickall_all_successfully_kicked: Все игроки были кикнуты с сервера!
-cmd_more_description: Увеличивает предмет в руке до стака.
-cmd_more_no_air: Вы не можете использовать воздух!
-cmd_more_successfully: Вы успешно увеличили предмет в руке до
-cmd_mute_description: ''
-cmd_mute_description2: /mute <ник> <время> <seconds|minutes|hours|days>
-cmd_repair_description: Починит инструмент, броню, зачарованный предмет.
-cmd_saveinv_description: Включает/выключает сохранение инвентаря.
-cmd_saveinv_description2: /saveinv или /saveinv <ник>
-cmd_setspawn_description: Устанавливает спавн в данной локации
-cmd_setspawn: Точка спавна игроков успешно установлена!
-cmd_setspawn_log: ''
-cmd_spawnall_description: Телепортирует всех игроков на спавн.
-cmd_spawnall_no_players: На сервере нет ни одного игрока!
-cmd_spawnall_player_tp_to_spawn: Вы были телепортированы на спавн!
-cmd_spawn_description: Телепортирует на спавн.
-cmd_spawn_tp_player_message: Телепортация...
-cmd_spawn_tp_sender_message: Вы успешно телепортировали игрока %1% на спавн!
-cmd_speed_description: Меняет скорость движения игрока.
-cmd_speed_description2: /speed или /speed <число>
-cmd_speed_normal: Вы успешно сбросили скорость на стандартную!
-cmd_suicide_description: Совершает самоубийство.
-cmd_suicide_message: Вы покончили жизнь самоубийством!
-cmd_top_description: Телепортирует вас на самый верхний блок над вашей позицией
-cmd_top_tp_message: Телепортация...
-cmd_unmute_description: ''
-cmd_unmute_description2: /unmute <ник>
-cmd_vanish_description: ''
-cmd_vanish_description2: /vanish или /vanish <ник>
-south: Юг
-north: Север
-west: Запад
-east: Восток
-block_damage_creative: Вы не можете атаковать в креативе!
-block_damage_fly: Вы не можете атаковать в режиме полета!
-block_damage_god: Вы не можете атаковать в режиме бога!
-block_damage_vansih: Вы не можете атаковать в режиме невидимости!
+
+cmd_burn_description: Set a player on fire.
+cmd_burn_description2: /burn <player> <seconds>
+cmd_burn_player: You set fire to the player %1%
+cmd_burn_player_info: Player %1% set fire to %2%!
+cmd_burn_usage: 'Usage: /burn <player> <seconds>'
+
+cmd_clearhotbar_description: Clear your/other's hot-bar.
+cmd_clearhotbar_description2: /clearhotbar or /clearhotbar <player>
+cmd_clearhotbar_sender: Your hot-bar was cleared!
+cmd_clearhotbar_sender_info: Player %1% cleaned his hot-bar!
+cmd_clearhotbar_player: Hot-bar of player %1% was cleaned!
+cmd_clearhotbar_player_info: Player %1% cleaned hot-bar of player %2%!
+
+cmd_clearinventory_description: Clear your/other's inventory.
+cmd_clearinventory_description2: /clearinventory or /clearinventory <player>
+cmd_clearinventory_sender: Your inventory was cleared!
+cmd_clearinventory_sender_info: Player %1% cleaned his inventory!
+cmd_clearinventory_player: Inventory of player %1% was cleaned!
+cmd_clearinventory_player_info: Player %1% cleaned inventory of player %2%!
+
+cmd_compass_description: Display your current bearing direction.
+cmd_compass_wrongdir: Oops, there was an error while getting your face direction
+cmd_compass_view: You're facing %1%
+
+cmd_depth_description: Display your depth related to sea-level.
+cmd_depth_above: You're at %1% meters above the sea level.
+cmd_depth_below: You're at %1% meters below the sea level.
+
+cmd_extinguish_description: Extinguish a player.
+cmd_extinguish_description2: /extinguish or /extinguish <player>
+cmd_extinguish_sender: You have successfully extinguish myself!
+cmd_extinguish_sender_info: Player %1% extinguish myself!
+cmd_extinguish_player: You have successfully extinguish player %1%!
+cmd_extinguish_player_info: Player %1% extinguish player %2%!
+cmd_extinguish_player_message: You successfully extinguish!
+
+cmd_fly_description: Fly in Survival or Adventure mode.
+cmd_fly_description2: /fly or /fly <player>
+cmd_fly_sender_enable: You have successfully enabled fly mode!
+cmd_fly_sender_disable: You have successfully disabled fly mode!
+cmd_fly_sender_enable_info: Player %1% enabled myself fly mode!
+cmd_fly_sender_disable_info: Player %1% disabled myself fly mode!
+cmd_fly_player_enable: Fly mode is player %1% has been successfully enabled!
+cmd_fly_player_disable: Fly mode is player %1% has been successfully disabled!
+cmd_fly_player_enable_info: Player %1% has enabled fly mode player %2%!
+cmd_fly_player_disable_info: Player %1% has disabled fly mode player %2%!
+cmd_fly_player_enable_message: You have enabled fly mode!
+cmd_fly_player_disable_message: You have disabled fly mode!
+
+cmd_gamemode_description: Change player gamemode.
+cmd_gamemode_description2: /gamemode <mode> <player>
+cmd_gamemode_usage: Please use %1% to see all game modes
+cmd_gamemode_sender_already_in_survival_mode: You are already in survival mode!
+cmd_gamemode_sender_already_in_creative_mode: You are already in creative mode!
+cmd_gamemode_sender_already_in_adventure_mode: You are already in adventure mode!
+cmd_gamemode_sender_already_in_spectator_mode: You are already in spectator mode!
+cmd_gamemode_player_already_in_survival_mode: Player %1% already in survival mode!
+cmd_gamemode_player_already_in_creative_mode: Player %1% already in creative mode!
+cmd_gamemode_player_already_in_adventure_mode: Player %1% already in adventure mode!
+cmd_gamemode_player_already_in_spectator_mode: Player %1% already in spectator mode!
+cmd_gamemode_sender_successfully_changed_to_survival: You have successfully changed game mode to survival!
+cmd_gamemode_sender_successfully_changed_to_creative: You have successfully changed game mode to creative!
+cmd_gamemode_sender_successfully_changed_to_adventure: You have successfully changed game mode to adventure!
+cmd_gamemode_sender_successfully_changed_to_spectator: You have successfully changed game mode to spectator!
+cmd_gamemode_player_successfully_changed_to_survival: You have successfully changed the game mode the player %1% to survival!
+cmd_gamemode_player_successfully_changed_to_creative: You have successfully changed the game mode the player %1% to creative!
+cmd_gamemode_player_successfully_changed_to_adventure: You have successfully changed the game mode the player %1% to adventure!
+cmd_gamemode_player_successfully_changed_to_spectator: You have successfully changed the game mode the player %1% to spectator!
+cmd_gamemode_player_successfully_changed_to_survival_message: Your game mode is successfully changed to survival!
+cmd_gamemode_player_successfully_changed_to_creative_message: Your game mode is successfully changed to creative!
+cmd_gamemode_player_successfully_changed_to_adventure_message: Your game mode is successfully changed to adventure!
+cmd_gamemode_player_successfully_changed_to_spectator_message: Your game mode is successfully changed to spectator!
+cmd_gamemode_sender_successfully_changed_to_survival_info: Player %1% has changed game mode to survival!
+cmd_gamemode_sender_successfully_changed_to_creative_info: Player %1% has changed game mode to creative!
+cmd_gamemode_sender_successfully_changed_to_adventure_info: Player %1% has changed game mode to adventure!
+cmd_gamemode_sender_successfully_changed_to_spectator_info: Player %1% has changed game mode to spectator!
+cmd_gamemode_player_successfully_changed_to_survival_info: Player %1% has changed game mode player %2% to survival!
+cmd_gamemode_player_successfully_changed_to_creative_info: Player %1% has changed game mode player %2% to creative!
+cmd_gamemode_player_successfully_changed_to_adventure_info: Player %1% has changed game mode player %2% to adventure!
+cmd_gamemode_player_successfully_changed_to_spectator_info: Player %1% has changed game mode player %2% to spectator!
+cmd_gamemode_help1: 'All available game modes&7:'
+cmd_gamemode_help2: Changes gamemode to survival
+cmd_gamemode_help3: Changes gamemode to creative
+cmd_gamemode_help4: Changes gamemode to adventure
+cmd_gamemode_help5: Changes gamemode to spectator
+
+listener_join_survival: Your game mode has been changed to survival!
+
+cmd_god_description: Prevent you to take any damage.
+cmd_god_description2: /god or /god <player>
+cmd_god_sender_enable: You have successfully enabled god mode!
+cmd_god_sender_disable: You have successfully disabled god mode!
+cmd_god_sender_enable_info: Player %1% enabled yourself god mode!
+cmd_god_sender_disable_info: Player %1% disabled yourself god mode!
+cmd_god_player_enable: God mode to player %1% has been successfully enabled!
+cmd_god_player_disable: God mode to player %1% has been successfully disabled!
+cmd_god_player_enable_info: Player %1% has enabled god mode to player %2%!
+cmd_god_player_disable_info: Player %1% has disabled god mode to player %2%!
+cmd_god_player_enable_message: You have enabled god mode!
+cmd_god_player_disable_message: You have disabled god mode!
+
+cmd_health_description: Heal yourself or other player.
+cmd_health_description2: /health or /health <player>
+cmd_health_sender: You have been healed!
+cmd_health_sender_max: You are full of life, healing is not required!
+cmd_health_sender_info: Player %1% healed yourself!
+cmd_health_player: You healed the player %1%!
+cmd_health_player_max: The player %1% are full of life, healing is not required!
+cmd_health_player_info: Player %1% healed player %2%!
+cmd_health_player_message: You have been healed!
+
+cmd_itemban_description: Manages the list of blocked items and blocks.
+cmd_itemban_wrongid: Please enter a valid ID!
+cmd_itemban_alreadyban: Item %1% (ID - %2%) is already blocked!
+cmd_itemban_alreadyremoved: Item %1% (ID - %2%) wasn't blocked!
+cmd_itemban_added: Item %1% (ID - %2%) added to the list!
+cmd_itemban_removed: Item %1% (ID - %2%) removed from the list!
+cmd_itemban_usage: 'Usage: /item <ban|unban> <ID>'
+
+listener_itemban_touch: You cannot use this item!
+listener_itemban_eat: You can't eat it!
+listener_itemban_place: You can't place this block!
+listener_itemban_break: You can't break this block!
+
+cmd_itemdb_description: Display the information attached to the item you hold.
+cmd_itemdb_description2: /item db or /itemdb <name|id|metadata>
+cmd_itemdb_message1: 'This item '
+cmd_itemdb_message2: 'has '
+cmd_itemdb_repairable: ' points of damage'
+cmd_itemdb_data: 'This item metadata is: '
+cmd_itemdb_named: 'This item is named: %1%'
+cmd_itemdb_id: 'This item ID is: %1%'
+
+cmd_jump_description: Teleport you to the block you're looking at.
+cmd_jump_is_not_a_reachable_block: There isn't a reachable block!
+
+cmd_kickall_description: Kick all the players.
+cmd_kickall_description2: /kickall or /kickall <reason>
+cmd_kickall_no_players: There are no more players in the server!
+cmd_kickall_no_reason: You have been kicked from this server!
+cmd_kickall_all_successfully_kicked: Kicked all the players!
+
+cmd_more_description: Get a stack of the item you're holding.
+cmd_more_no_air: You can't get a stack of AIR!
+cmd_more_successfully: Filled up the item stack to
+
+cmd_mute_description: Mute a player.
+cmd_mute_description2: /mute <player> <time> <seconds|minutes|hours|days>
+cmd_mute_usage: 'Usage: /mute <player> <time> <seconds|minutes|hours|days>'
+cmd_mute_no_more_30_day: You can't mute the player more than 30 days!
+cmd_mute_sender: '%1% was muted for %2%'
+cmd_mute_player_info: Player %1% muted %2% for %3%!
+cmd_mute_player_message: You have been muted on %1% and now you can't to write messages in chat!
+
+listener_mute_line1: You have been muted for violation of the chat rules!
+listener_mute_line2: You have been unmuted after %1%
+
+cmd_repair_description: Repair the item you're holding.
+cmd_repair_successfully_repaired: Item successfully repaired!
+cmd_repair_all_successfully_repaired: All the tools on your inventory were repaired!
+cmd_repair_successfully_repaired_including_armor: (Including the equipped Armor)
+cmd_repair_error: This item can't be repaired!
+
+cmd_saveinv_description: Keep your inventory after death.
+cmd_saveinv_description2: /saveinv or /saveinv <player>
+cmd_saveinv_sender_enable: You have successfully enabled saving inventory!
+cmd_saveinv_sender_disable: You have successfully disabled saving inventory!
+cmd_saveinv_sender_enable_info: Player %1% enabled yourself saving inventory!
+cmd_saveinv_sender_disable_info: Player %1% disable yourself saving inventory!
+cmd_saveinv_player_enable: You have successfully enabled saving of inventory player is %1%!
+cmd_saveinv_player_disable: You have successfully disabled saving of inventory player is %1%!
+cmd_saveinv_player_enable_info: Player %1% has enabled saving player inventory to %2%!
+cmd_saveinv_player_disable_info: Player %1% has disabled saving player inventory to %2%!
+cmd_saveinv_player_enable_message: You have enabled saving inventory!
+cmd_saveinv_player_disable_message: You have disabled saving inventory!
+
+listener_saveinv_join_to_server: SaveInv successfully enabled!
+listener_saveinv_death: All your items have been saved successfully!
+
+cmd_setspawn_description: Change your server main spawn point.
+cmd_setspawn: Server's spawn point changed!
+cmd_setspawn_log: 'Player %1% set a new spawn point: %2%'
+
+cmd_spawnall_description: Teleports all players to spawn.
+cmd_spawnall_no_players: There are no more players in the server!
+cmd_spawnall_player_tp_to_spawn: You have been teleported to spawn!
+
+cmd_spawn_description: Teleport to server's main spawn.
+cmd_spawn_tp_sender: You teleported player %1% to spawn!
+cmd_spawn_tp_player_message: Teleporting...
+
+cmd_speed_description: Change your speed limits.
+cmd_speed_description2: /speed or /speed <speed>
+cmd_speed: Speed amplified by %1%
+cmd_speed_normal: Your speed was changed to default!
+
+cmd_suicide_description: Kill yourself.
+cmd_suicide_message: You have committed suicide!
+
+cmd_top_description: Teleport to the highest block above you.
+cmd_top_tp_message: Teleporting...
+
+cmd_unmute_description: Unmute a player.
+cmd_unmute_description2: /unmute <player>
+cmd_unmute_usage: 'Usage: /unmute <player>'
+cmd_unmute_sender: You successful unmuted Player %1%!
+cmd_unmute_player_info: Player %1% unmuted Player %2%!
+cmd_unmute_player_message: You saw unmuted and now You can write in chat!
+cmd_unmute_player_not_muted: Player %1% has not been muted!
+
+cmd_vanish_description: Hide from other players.
+cmd_vanish_description2: /vanish or /vanish <player>
+
+south: South
+north: North
+west: West
+east: East
+
+seconds: ' seconds'
+minutes: ' minutes '
+hours: ' hours '
+days: ' days '
+weeks: ' weeks '
+
+block_damage_creative: You can't attack the player in creative mode!
+block_damage_fly: You can't attack the player in fly mode!
+block_damage_god: You can't attack the player in god mode!
+block_damage_vansih: You can't attack the player in invisibility!

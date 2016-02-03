@@ -23,7 +23,7 @@ public class ItemBanCommand extends ToolsProCommand {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(this.getPermissionMessage());
+            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length == 2) {
                 Config item = new Config(new File(this.plugin.getDataFolder(), "item.yml"), Config.YAML);
@@ -45,7 +45,7 @@ public class ItemBanCommand extends ToolsProCommand {
                             return true;
                         case "unban":
                             if (!(item.exists(ItemName))) {
-                                Message.CMD_ITEMBAN_BAN.print(sender, "prefix:&7[&aBanItem&7]", 'c', '9', ItemName, ItemID);
+                                Message.CMD_ITEMBAN_ALREADYREMOVED.print(sender, "prefix:&7[&aBanItem&7]", 'c', '9', ItemName, ItemID);
                             } else {
                                 item.remove(ItemName);
                                 item.save();

@@ -10,11 +10,11 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 
-public class PlayerAttackListener implements Listener {
+public class DamageListener implements Listener {
 
     ToolsPro plugin;
 
-    public PlayerAttackListener(ToolsPro plugin) {
+    public DamageListener(ToolsPro plugin) {
         this.plugin = plugin;
     }
 
@@ -38,11 +38,13 @@ public class PlayerAttackListener implements Listener {
                     event.setCancelled();
                     return;
                 }
+                /*
                 if (this.plugin.isHide(((Player) player).getName())) {
                     Message.BLOCK_DAMAGE_VANSIH.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
+                */
             }
         }
     }

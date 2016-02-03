@@ -5,6 +5,7 @@ import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.item.Item;
+import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
@@ -21,25 +22,25 @@ public class ItemDBCommand extends ToolsProCommand {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(this.getPermissionMessage());
+            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (sender instanceof Player) {
                 Item item = ((Player) sender).getInventory().getItemInHand();
                 String m;
-                m = this.plugin.isRepairable(item) ? Message.CMD_ITEMDB_REPAIRABLE.getText(item.getDamage()) : Message.CMD_ITEMDB_DATA.getText(item.getDamage());
+                m = TextFormat.GREEN + (this.plugin.isRepairable(item) ? Message.CMD_ITEMDB_MESSAGE1 + Message.CMD_ITEMDB_MESSAGE2.getText() + item.getDamage() + Message.CMD_ITEMDB_REPAIRABLE : Message.CMD_ITEMDB_DATA.getText() + item.getDamage());
                 if (args.length >= 1) {
                     switch (args[0]) {
                         case "name":
                             m = Message.CMD_ITEMDB_NAMED.getText(item.getName());
                             break;
                         case "id":
-                            m = Message.CMD_ITEMDB_ID.getText(item.getName());
+                            m = Message.CMD_ITEMDB_ID.getText(item.getId());
                             break;
                         case "durability":
                         case "dura":
                         case "metadata":
                         case "meta":
-                            m = this.plugin.isRepairable(item) ? Message.CMD_ITEMDB_REPAIRABLE.getText(item.getDamage()) : Message.CMD_ITEMDB_DATA.getText(item.getDamage());
+                            m = TextFormat.GREEN + (this.plugin.isRepairable(item) ? Message.CMD_ITEMDB_MESSAGE1 + Message.CMD_ITEMDB_MESSAGE2.getText() + item.getDamage() + Message.CMD_ITEMDB_REPAIRABLE : Message.CMD_ITEMDB_DATA.getText() + item.getDamage());
                             break;
                     }
                 }

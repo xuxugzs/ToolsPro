@@ -4,7 +4,7 @@ import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
-import cn.nukkit.entity.Effect;
+import cn.nukkit.potion.Effect;
 import cn.nukkit.inventory.Inventory;
 import cn.nukkit.utils.TextFormat;
 
@@ -24,7 +24,7 @@ public class VanishCommand extends ToolsProCommand {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(this.getPermissionMessage());
+            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.vanish.other")) {

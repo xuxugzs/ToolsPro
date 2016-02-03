@@ -3,14 +3,15 @@ package ToolsPro.listeners;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.entity.Effect;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageEvent;
-import cn.nukkit.event.player.*;
-import cn.nukkit.utils.TextFormat;
+import cn.nukkit.event.player.PlayerDeathEvent;
+import cn.nukkit.event.player.PlayerJoinEvent;
+import cn.nukkit.event.player.PlayerPreLoginEvent;
+import cn.nukkit.event.player.PlayerQuitEvent;
 
 public class EventListener implements Listener {
 
@@ -32,15 +33,25 @@ public class EventListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        boolean JoinSurvival = this.plugin.getConfig().getNested("JoinSurvival", false);
+    public void onPreLogin(PlayerPreLoginEvent event) {
         String name = event.getPlayer().getName();
-        Player p = this.plugin.getServer().getPlayer(name);
+        for (String s : plugin.forbiddenNames) {
+            if (s.equalsIgnoreCase(name)) {
+                event.setKickMessage(Message.BLOCKED_NICK.getText('c'));
+                event.setCancelled();
+            }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        boolean JoinSurvival = this.plugin.getConfig().getBoolean("JoinSurvival", false);
+        String name = event.getPlayer().getName();
         if (event.getPlayer().hasPermission("toolspro.inv.save") && !this.plugin.isSaveInv(name)) {
             this.plugin.setSaveInv(name);
             Message.LISTENER_SAVEINV_JOIN_TO_SERVER.print(((Player) event.getPlayer()), "prefix:&7[&aSaveInv&7]", 'a');
         }
-        if (!event.getPlayer().hasPermission("toolspro.savegamemode") && event.getPlayer().getGamemode() != 0 && JoinSurvival) {
+        if (!event.getPlayer().hasPermission("toolspro.savegamemode") && event.getPlayer().getGamemode() != 0 && JoinSurvival == true) {
             event.getPlayer().setGamemode(0);
             Message.LISTENER_JOIN_SURVIVAL.print(((Player) event.getPlayer()), "prefix:&7[&aGM&7]", 'a');
         }
@@ -53,12 +64,14 @@ public class EventListener implements Listener {
         if (p instanceof Player) {
             if (this.plugin.isGodMode(name)) this.plugin.removeGodMode(name);
             if (this.plugin.isSaveInv(name)) this.plugin.removeSaveInv(name);
+            /*
             if (this.plugin.isHide(name)) {
                 for (Effect effect : p.getEffects().values()) {
                     p.removeEffect(14);
                 }
                 this.plugin.removeHide(name);
             }
+            */
         }
     }
 
@@ -73,10 +86,12 @@ public class EventListener implements Listener {
                     Message.LISTENER_SAVEINV_DEATH.print(((Player) entity), "prefix:&7[&aSaveInv&7]", 'a');
                 }
             }
+            /*
             if (this.plugin.isHide(name)) {
                 this.plugin.removeHide(name);
                 event.getEntity().sendMessage(TextFormat.colorize("&7[&aVanish&7] &aНевидимость была успешно выключена!"));
             }
+            */
         }
     }
 }

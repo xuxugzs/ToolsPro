@@ -2,6 +2,7 @@ package ToolsPro;
 
 import ToolsPro.commands.*;
 import ToolsPro.listeners.*;
+import ToolsPro.listeners.EventListener;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
@@ -12,10 +13,7 @@ import cn.nukkit.item.Tool;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ToolsPro extends PluginBase {
 
@@ -33,9 +31,8 @@ public class ToolsPro extends PluginBase {
     @Override
     public void onEnable() {
         instance = this;
-        this.saveResource("config.yml", false);
-        this.reloadConfig();
-        loadCfg();
+        this.saveDefaultConfig();
+        this.loadConfig();
         Message.init(this);
         this.getServer().getCommandMap().register("break", new BreakCommand(this));
         this.getServer().getCommandMap().register("broadcast", new BroadcastCommand(this));
@@ -46,7 +43,7 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("depth", new DepthCommand(this));
         this.getServer().getCommandMap().register("extinguish", new ExtinguishCommand(this));
         this.getServer().getCommandMap().register("fly", new FlyCommand(this));
-        this.getServer().getCommandMap().register("gm", new GMCommand(this));
+        this.getServer().getCommandMap().register("gamemode", new GamemodeCommand(this));
         this.getServer().getCommandMap().register("god", new GodCommand(this));
         this.getServer().getCommandMap().register("health", new HealthCommand(this));
         this.getServer().getCommandMap().register("itemban", new ItemBanCommand(this));
@@ -63,26 +60,22 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("suicide", new SuicideCommand(this));
         this.getServer().getCommandMap().register("top", new TopCommand(this));
         this.getServer().getCommandMap().register("unmute", new UnmuteCommand(this));
-        this.getServer().getCommandMap().register("vanish", new VanishCommand(this));
-        this.getServer().getPluginManager().registerEvents(new PlayerAttackListener(this), this);
-        this.getServer().getPluginManager().registerEvents(new PlayerNameListener(this), this);
+        //this.getServer().getCommandMap().register("vanish", new VanishCommand(this));
+        this.getServer().getPluginManager().registerEvents(new DamageListener(this), this);
         this.getServer().getPluginManager().registerEvents(new EventListener(this), this);
         this.getServer().getPluginManager().registerEvents(new ItemBanListener(this), this);
-        this.getServer().getPluginManager().registerEvents(new MessageListener(this), this);
         this.getServer().getPluginManager().registerEvents(new MuteListener(this), this);
         Message.TOOLSPRO_LOADED.log();
     }
-
 
     @Override
     public void onDisable() {
         Message.TOOLSPRO_DISABLED.log('c');
     }
 
-    private void loadCfg(){
-        //Сюда можно будет добавлять остальные считывания переменных из конфига
+    private void loadConfig(){
         try {
-            this.forbiddenNames = this.getConfig().getNestedAs("fordbidden-player-names", List.class);
+            this.forbiddenNames = this.getConfig().getList("forbidden-player-names");
         } catch (Exception e){
             this.forbiddenNames = new ArrayList<String>();
         }
@@ -92,6 +85,8 @@ public class ToolsPro extends PluginBase {
         return item instanceof Tool || item instanceof Armor;
     }
 
+    /*
+    //Hide
     public boolean isHide(String name) {
         return HidePlayers.contains(name.toLowerCase());
     }
@@ -103,7 +98,9 @@ public class ToolsPro extends PluginBase {
     public void removeHide(String name) {
         if (HidePlayers.contains(name.toLowerCase())) HidePlayers.remove(name.toLowerCase());
     }
+    */
 
+    //SaveInv
     public boolean isSaveInv(String name) {
         return SaveInvPlayers.contains(name.toLowerCase());
     }
@@ -116,6 +113,7 @@ public class ToolsPro extends PluginBase {
         if (SaveInvPlayers.contains(name.toLowerCase())) SaveInvPlayers.remove(name.toLowerCase());
     }
 
+    //GodMode
     public boolean isGodMode(String name) {
         return GodPlayers.contains(name.toLowerCase());
     }

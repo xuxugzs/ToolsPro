@@ -4,7 +4,7 @@ import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
-import cn.nukkit.entity.Effect;
+import cn.nukkit.potion.Effect;
 
 /**
  * Created by Pub4Game on 19.12.2015.
@@ -21,7 +21,7 @@ public class SpeedCommand extends ToolsProCommand {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(this.getPermissionMessage());
+            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (sender instanceof Player) {
                 if (args.length != 0) {

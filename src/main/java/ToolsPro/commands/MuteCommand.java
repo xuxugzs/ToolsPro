@@ -25,7 +25,7 @@ public class MuteCommand extends ToolsProCommand {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(this.getPermissionMessage());
+            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length < 2) {
                 Message.CMD_MUTE_USAGE.print(sender, "prefix:&7[&aMute&7]", 'c');
@@ -70,7 +70,7 @@ public class MuteCommand extends ToolsProCommand {
                             Message.CMD_MUTE_PLAYER_MESSAGE.print(p, "prefix:&7[&aMute&7]", 'c', timemute);
                         }
                         Message.CMD_MUTE_SENDER.print(sender, "prefix:&7[&aMute&7]", 'a', 'b', args[0].toLowerCase(), timemute);
-                        this.plugin.info(sender, Message.CMD_MUTE_PLAYER_INFO.getText("prefix:&7[Mute]", sender.getName(), args[0].toLowerCase(), timemute));
+                        this.plugin.info(sender, Message.CMD_MUTE_PLAYER_INFO.getText("prefix:&7[Mute]", '7', '7', sender.getName(), args[0].toLowerCase(), timemute));
                     }
                 }
             }
