@@ -2,7 +2,7 @@
 # Set the default language for ToolsPro
 # Available languages: russian, english, chinese
 # English message resource by @Pub4Game, @fromgate and @mik2212 (GitHub)
-# Chinese message resource by @xuxugzs (GitHub)
+# Chinese message resource by @xuxugzs, @Angelic47 (GitHub)
 general:
   language: english
   debug-mode: false
