@@ -35,10 +35,10 @@ public enum Message {
 	NOT_NUMBER("Пожалуйста, введите верное число!"),
 	NOT_TIME("Пожалуйста, укажите верное значение времени!"),
 	BLOCKED_NICK("Пожалуйста, измените ник и перезайдите на сервер!"),
+	IS_NOT_A_REACHABLE_BLOCK("К сожалению, мы не можем определить блок на который вы смотрите!"),
 	//Break Command
 	CMD_BREAK_DESCRIPTION("Разрушает блок на который вы смотрите."),
 	CMD_BREAK_NO_BREAK_BEDROCK("Вы не можете сломать бедрок!"),
-	CMD_BREAK_IS_NOT_A_REACHABLE_BLOCK("Блок, который необходимо сломать не найден!"),
 	//Broadcast Command
 	CMD_BROADCAST_DESCRIPTION("Отправляет объявление всем игрокам на сервере."),
 	CMD_BROADCAST_DESCRIPTION2("/broadcast <сообщение>"),
@@ -46,9 +46,9 @@ public enum Message {
 	//Burn Command
 	CMD_BURN_DESCRIPTION("Поджигает определенного игрока"),
 	CMD_BURN_DESCRIPTION2("/burn <ник> <время>"),
+	CMD_BURN_USAGE("Используйте: /burn <ник> <время>"),
 	CMD_BURN_PLAYER("Вы подожгли игрока %1%"),
 	CMD_BURN_PLAYER_INFO("Игрок %1% поджег игрока %2%!"),
-	CMD_BURN_USAGE("Используйте: /burn <ник> <время>"),
 	//ClearHotBar Command
 	CMD_CLEARHOTBAR_DESCRIPTION("Очищает хот-бар."),
 	CMD_CLEARHOTBAR_DESCRIPTION2("/clearhotbar или /clearhotbar <ник>"),
@@ -131,6 +131,12 @@ public enum Message {
 	CMD_GAMEMODE_HELP5("Изменяет игровой режим на режим наблюдения"),
 	//Gamemode Listener
 	LISTENER_JOIN_SURVIVAL("Ваш игровой режим был изменен на выживание!"),
+	//GetPos Command
+	CMD_GETPOS_DESCRIPTION("Показывает вашу позицию."),
+	CMD_GETPOS_DESCRIPTION2("/getpos или /getpos <ник>"),
+	CMD_GETPOS_SENDER("Вы находитесь в мире: "),
+	CMD_GETPOS_PLAYER(" находится в мире: "),
+	CMD_GETPOS_COORDINATES("Координаты: "),
 	//God Command
 	CMD_GOD_DESCRIPTION("Включает/выключает режим бога."),
 	CMD_GOD_DESCRIPTION2("/god или /god <ник>"),
@@ -156,12 +162,12 @@ public enum Message {
 	CMD_HEALTH_PLAYER_MESSAGE("Вас успешно вылечили!"),
 	//ItemBan Command
 	CMD_ITEMBAN_DESCRIPTION("Управляет списком заблокированных вещей."),
+	CMD_ITEMBAN_USAGE("Используйте: /item <ban|unban> <ID>"),
 	CMD_ITEMBAN_WRONGID("Пожалуйста, введите верный ID!"),
 	CMD_ITEMBAN_ALREADYBAN("Предмет %1% (ID - %2%) уже заблокирован!"),
 	CMD_ITEMBAN_ALREADYREMOVED("Предмет %1% (ID - %2%) не заблокирован!"),
 	CMD_ITEMBAN_ADDED("Предмет %1% (ID - %2%) добавлен в список"),
 	CMD_ITEMBAN_REMOVED("Предмет %1% (ID - %2%) удален из списка!"),
-	CMD_ITEMBAN_USAGE("Используйте: /item <ban|unban> <ID>"),
 	//ItemBan Listener
 	LISTENER_ITEMBAN_TOUCH("Вы не можете использовать этот предмет!"),
 	LISTENER_ITEMBAN_EAT("Вы не можете это съесть!"),
@@ -178,7 +184,6 @@ public enum Message {
 	CMD_ITEMDB_ID("Идентификатор этого предмета: %1%"),
 	//Jump Command
 	CMD_JUMP_DESCRIPTION("Телепортирует вас на место которое вы укажите."),
-	CMD_JUMP_IS_NOT_A_REACHABLE_BLOCK("Блок, на который необходимо прыгнуть не найден!"),
 	//KickAll Command
 	CMD_KICKALL_DESCRIPTION("Кикнает всех игроков с сервера."),
 	CMD_KICKALL_DESCRIPTION2("/kickall или /kickall <причина>"),
@@ -239,6 +244,13 @@ public enum Message {
 	CMD_SPEED_DESCRIPTION2("/speed или /speed <число>"),
 	CMD_SPEED("Ваша скорость была изменена на %1%"),
 	CMD_SPEED_NORMAL("Вы успешно сбросили скорость на стандартную!"),
+	//Sudo Command
+	CMD_SUDO_DESCRIPTION("Выполняет команду или отправляет сообщение за другого игрока."),
+	CMD_SUDO_DESCRIPTION2("/sudo <ник> <команда> или /sudo <ник> <c:сообщение>"),
+	CMD_SUDO_USAGE("Используйте: /sudo <ник> <команда> или /sudo <ник> <c:сообщение>"),
+	CMD_SUDO_SEND_MESSAGE("Вы оправили сообщение за игрока %1%"),
+	CMD_SUDO_USE_COMMAND("Вы использовали команду за игрока %1%"),
+	CMD_SUDO_CANNOT_BE_SUDOED("Вы не можете выполнять команды или отправлять сообщения за игрока %1%!"),
 	//Suicide Command
 	CMD_SUICIDE_DESCRIPTION("Совершает самоубийство."),
 	CMD_SUICIDE_MESSAGE("Вы покончили жизнь самоубийством!"),
@@ -256,6 +268,17 @@ public enum Message {
 	//Vanish Command
 	CMD_VANISH_DESCRIPTION("Включает/выключает невидимость."),
 	CMD_VANISH_DESCRIPTION2("/vanish или /vanish <ник>"),
+	//World Command
+	CMD_WORLD_DESCRIPTION("Позволяет работать с мирами."),
+	CMD_WORLD_DESCRIPTION2("/world <create|tp> <название мира> <old|infinite|flat>"),
+	CMD_WORLD_USAGE("Используйте: /world <название мира> <old|infinite|flat>"),
+	CMD_WORLD_TP("Телепортация..."),
+	CMD_WORLD_TP_NO_PERMISSION("У Вас недостаточно прав для телепортации в этот мир!"),
+	CMD_WORLD_TP_NOT_FOUND("Мир с таким названием не найден!"),
+	CMD_WORLD_TP_NOT_LOADED("Мир еще не загружен. Загрузка..."),
+	CMD_WORLD_TP_ERROR_LOADING("Произошла ошибка при загрузке мира!"),
+	CMD_WORLD_CREATE("Генерация мира: %1%"),
+	CMD_WORLD_CREATE_ALREADY_EXISTS("Мир с таким названием уже существует!"),
 	//Directions
 	SOUTH("Юг"),
 	NORTH("Север"),
@@ -286,9 +309,9 @@ public enum Message {
 	 * Example:
 	 * Message.BC ("variable 1:",var1,"variable 2:",var2)
 	 */
-	public static void BC (Object... s){
+	public static void BC(Object... s){
 		if (!debugMode) return;
-		if (s.length==0) return;
+		if (s.length == 0) return;
 		StringBuilder sb = new StringBuilder("&3[").append(plugin.getDescription().getName()).append("]&f ");
 		for (Object str : s)
 			sb.append(str.toString()).append(" ");
@@ -327,7 +350,7 @@ public enum Message {
 	 * @param s
 	 * @return — always returns true.
 	 */
-	public boolean tip (int seconds, CommandSender sender, Object... s){
+	public boolean tip(int seconds, CommandSender sender, Object... s){
 		if (sender == null) return Message.LNG_PRINT_FAIL.log(this.name());
 		final Player player = sender instanceof Player ? (Player) sender : null;
 		final String message = getText(s);
@@ -346,7 +369,7 @@ public enum Message {
 	 * @param s
 	 * @return — always returns true.
 	 */
-	public boolean tip (CommandSender sender, Object... s){
+	public boolean tip(CommandSender sender, Object... s){
 		if (sender == null) return Message.LNG_PRINT_FAIL.log(this.name());
 		Player player = sender instanceof Player ? (Player) sender : null;
 		String message = getText(s);
@@ -361,7 +384,7 @@ public enum Message {
 	 * @param s
 	 * @return — always returns true.
 	 */
-	public boolean print (CommandSender sender, Object... s){
+	public boolean print(CommandSender sender, Object... s){
 		if (sender == null) return Message.LNG_PRINT_FAIL.log(this.name());
 		sender.sendMessage(getText(s));
 		return true;
@@ -377,7 +400,7 @@ public enum Message {
 	 * Message.MSG_BROADCAST.broadcast ("pluginname.broadcast"); // send message to all players with permission "pluginname.broadcast"
 	 * Message.MSG_BROADCAST.broadcast (null); // send message to all players
 	 */
-	public boolean broadcast (String permission, Object... s){
+	public boolean broadcast(String permission, Object... s){
 		for (Player player : plugin.getServer().getOnlinePlayers().values()){
 			if (permission==null || player.hasPermission(permission)) print (player,s);
 		}
@@ -411,7 +434,7 @@ public enum Message {
 	 *
 	 * @return
 	 */
-	public String getText (Object... keys){
+	public String getText(Object... keys){
 		char [] colors = new char[]{color1 == null ? c1 : color1 , color2 == null ? c2 : color2};
 		if (keys.length ==0) return TextFormat.colorize("&"+ colors[0] +this.message);
 		String str = this.message;
@@ -458,24 +481,24 @@ public enum Message {
 		return str;
 	}
 
-	private void initMessage (String message){
+	private void initMessage(String message){
 		this.message = message;
 	}
 
 	private String message;
 	private Character color1;
 	private Character color2;
-	Message (String msg){
+	Message(String msg){
 		message = msg;
 		this.color1 = null;
 		this.color2 = null;
 	}
-	Message (String msg, char color1, char color2){
+	Message(String msg, char color1, char color2){
 		this.message = msg;
 		this.color1 = color1;
 		this.color2 = color2;
 	}
-	Message (String msg, char color){
+	Message(String msg, char color){
 		this (msg,color,color);
 	}
 
@@ -502,7 +525,7 @@ public enum Message {
 	 * Enable debugMode
 	 * @param debug
 	 */
-	public static void setDebugMode (boolean debug){
+	public static void setDebugMode(boolean debug){
 		debugMode = debug;
 	}
 
@@ -544,8 +567,8 @@ public enum Message {
 	 * Send message (formed using join method) to server log if debug mode is enabled
 	 * @param s
 	 */
-	public static boolean debugMessage (Object... s){
-		if (debugMode) plugin.getLogger().info(TextFormat.clean(join (s)));
+	public static boolean debugMessage(Object... s){
+		if (debugMode) plugin.getLogger().info(TextFormat.clean(join(s)));
 		return true;
 	}
 
@@ -553,10 +576,10 @@ public enum Message {
 	 * Join object array to string (separated by space)
 	 * @param s
 	 */
-	public static String join (Object... s){
+	public static String join(Object... s){
 		StringBuilder sb = new StringBuilder();
 		for (Object o : s){
-			if (sb.length()>0) sb.append(" ");
+			if (sb.length() > 0) sb.append(" ");
 			sb.append(o.toString());
 		}
 		return sb.toString();

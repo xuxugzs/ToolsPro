@@ -1,7 +1,5 @@
 name: ToolsPro
 main: ToolsPro.ToolsPro
-version: "0.0.1"
+version: "0.0.2"
 api: ["1.0.0"]
-load: POSTWORLD
 author: Pub4Game
-description: Example plugin showing the API
