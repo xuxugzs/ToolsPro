@@ -38,11 +38,13 @@ public class DamageListener implements Listener {
                     event.setCancelled();
                     return;
                 }
+                /*
                 if (this.plugin.isHide(((Player) player).getName())) {
                     Message.BLOCK_DAMAGE_VANSIH.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
+                */
             }
         }
     }

@@ -10,6 +10,7 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.player.PlayerDeathEvent;
 import cn.nukkit.event.player.PlayerJoinEvent;
+import cn.nukkit.event.player.PlayerPreLoginEvent;
 import cn.nukkit.event.player.PlayerQuitEvent;
 
 public class EventListener implements Listener {
@@ -31,16 +32,16 @@ public class EventListener implements Listener {
         }
     }
 
-    /*@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
+    @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPreLogin(PlayerPreLoginEvent event) {
         String name = event.getPlayer().getName();
-        for (String s : plugin.forbiddenNames) { Nukkit bug!? (saveDefaultConfig())
+        for (String s : plugin.forbiddenNames) {
             if (s.equalsIgnoreCase(name)) {
                 event.setKickMessage(Message.BLOCKED_NICK.getText('c'));
                 event.setCancelled();
             }
         }
-    }*/
+    }
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPlayerJoin(PlayerJoinEvent event) {
@@ -50,7 +51,7 @@ public class EventListener implements Listener {
             this.plugin.setSaveInv(name);
             Message.LISTENER_SAVEINV_JOIN_TO_SERVER.print(((Player) event.getPlayer()), "prefix:&7[&aSaveInv&7]", 'a');
         }
-        if (!event.getPlayer().hasPermission("toolspro.savegamemode") && event.getPlayer().getGamemode() != 0 && JoinSurvival) {
+        if (!event.getPlayer().hasPermission("toolspro.savegamemode") && event.getPlayer().getGamemode() != 0 && JoinSurvival == true) {
             event.getPlayer().setGamemode(0);
             Message.LISTENER_JOIN_SURVIVAL.print(((Player) event.getPlayer()), "prefix:&7[&aGM&7]", 'a');
         }

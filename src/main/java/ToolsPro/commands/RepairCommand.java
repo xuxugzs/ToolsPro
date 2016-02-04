@@ -50,6 +50,7 @@ public class RepairCommand extends ToolsProCommand {
                             }
                             return true;
                         case "hand":
+                        default:
                             if (!this.plugin.isRepairable(((Player) sender).getInventory().getItemInHand())) {
                                 Message.CMD_REPAIR_ERROR.print(sender, "prefix:&7[&aRepair&7]", 'a');
                                 return false;
@@ -60,7 +61,7 @@ public class RepairCommand extends ToolsProCommand {
                             Message.CMD_REPAIR_SUCCESSFULLY_REPAIRED.print(sender, "prefix:&7[&aRepair&7]", 'a');
                             return true;
                     }
-                }else{
+                } else {
                     if (!this.plugin.isRepairable(((Player) sender).getInventory().getItemInHand())) {
                         Message.CMD_REPAIR_ERROR.print(sender, "prefix:&7[&aRepair&7]", 'a');
                         return false;

@@ -45,7 +45,7 @@ public class SaveInvCommand extends ToolsProCommand {
                             Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
                     }
                 } else {
-                    sender.sendMessage(this.getPermissionMessage());
+                    sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
                 }
             } else {
                 if (sender instanceof Player){

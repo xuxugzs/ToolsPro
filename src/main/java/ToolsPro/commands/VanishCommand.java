@@ -52,7 +52,7 @@ public class VanishCommand extends ToolsProCommand {
                         sender.sendMessage(TextFormat.colorize("&7[&aVanish&7] &cТакого игрока нет на сервере!"));
                     }
                 } else {
-                    sender.sendMessage(this.getPermissionMessage());
+                    sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
                 }
             } else {
                 if (sender instanceof Player) {

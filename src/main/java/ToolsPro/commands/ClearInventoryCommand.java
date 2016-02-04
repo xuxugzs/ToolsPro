@@ -38,7 +38,7 @@ public class ClearInventoryCommand extends ToolsProCommand {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'c');
                     }
                 } else {
-                    sender.sendMessage(this.getPermissionMessage());
+                    sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
                 }
             } else {
                 if (sender instanceof Player) {
