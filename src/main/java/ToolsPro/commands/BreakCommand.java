@@ -23,7 +23,7 @@ public class BreakCommand extends ToolsProCommand {
         this.plugin = plugin;
     }
 
-    Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
+    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
