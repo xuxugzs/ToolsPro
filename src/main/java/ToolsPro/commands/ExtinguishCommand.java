@@ -24,14 +24,18 @@ public class ExtinguishCommand extends ToolsProCommand {
             sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length != 0) {
-                Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (p != null) {
-                    p.extinguish();
-                    Message.CMD_EXTINGUISH_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'a', 'b', p.getName());
-                    Message.CMD_EXTINGUISH_PLAYER_MESSAGE.print(p, "prefix:&7[&aExtinguish&7]", 'a');
-                    this.plugin.info(sender, Message.CMD_EXTINGUISH_PLAYER_INFO.getText("prefix:&7[Extinguish]", '7', '7', sender.getName(), p.getName()));
+                if (sender.hasPermission("toolspro.extinguish.other")) {
+                    Player p = this.plugin.getServer().getPlayer(args[0]);
+                    if (p != null) {
+                        p.extinguish();
+                        Message.CMD_EXTINGUISH_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'a', 'b', p.getName());
+                        Message.CMD_EXTINGUISH_PLAYER_MESSAGE.print(p, "prefix:&7[&aExtinguish&7]", 'a');
+                        this.plugin.info(sender, Message.CMD_EXTINGUISH_PLAYER_INFO.getText("prefix:&7[Extinguish]", '7', '7', sender.getName(), p.getName()));
+                    } else {
+                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
+                    }
                 } else {
-                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
+                    sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
                 }
             } else {
                 if (sender instanceof Player) {

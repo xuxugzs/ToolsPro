@@ -41,7 +41,7 @@ public class CompassCommand extends ToolsProCommand {
                         Message.CMD_COMPASS_WRONGDIR.print(sender, "prefix:&7[&aCompass&7]", 'c');
                         return true;
                 }
-                Message.CMD_COMPASS_VIEW.print(sender, "prefix:&7[&aCompass&7]", 'a');
+                Message.CMD_COMPASS_VIEW.print(sender, "prefix:&7[&aCompass&7]", 'a', direction);
             } else {
                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aCompass&7]", 'c');
             }

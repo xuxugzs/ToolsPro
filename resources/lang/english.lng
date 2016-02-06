@@ -9,10 +9,14 @@ need_player: Please run this command in game!
 not_number: Please enter right number!
 not_time: Please enter right value of time!
 blocked_nick: Please change your nick and try to connect a server!
+is_not_a_reachable_block: There isn't a reachable block
+
+cmd_antioch_description: Holy hand grenade.
+cmd_antioch_grenade: Grenade threw!
+cmd_antioch_grenade_error: Cannot throw the grenade, there isn't a near valid block!
 
 cmd_break_description: Breaks the block you're looking at.
 cmd_break_no_break_bedrock: You can't break bedrock
-cmd_break_is_not_a_reachable_block: There isn't a reachable block
 
 cmd_broadcast_description: Broadcast a message.
 cmd_broadcast_description2: /broadcast <message>
@@ -20,9 +24,9 @@ cmd_broadcast_usage: 'Usage: /broadcast <message>'
 
 cmd_burn_description: Set a player on fire.
 cmd_burn_description2: /burn <player> <seconds>
+cmd_burn_usage: 'Usage: /burn <player> <seconds>'
 cmd_burn_player: You set fire to the player %1%
 cmd_burn_player_info: Player %1% set fire to %2%!
-cmd_burn_usage: 'Usage: /burn <player> <seconds>'
 
 cmd_clearhotbar_description: Clear your/other's hot-bar.
 cmd_clearhotbar_description2: /clearhotbar or /clearhotbar <player>
@@ -106,6 +110,12 @@ cmd_gamemode_help5: Changes gamemode to spectator
 
 listener_join_survival: Your game mode has been changed to survival!
 
+cmd_getpos_description: Get your/other's position
+cmd_getpos_description2: /getpos or /getpos <player>
+cmd_getpos_sender: 'You are is in world: '
+cmd_getpos_player: ' in world: '
+cmd_getpos_coordinates: 'Coordinates: '
+
 cmd_god_description: Prevent you to take any damage.
 cmd_god_description2: /god or /god <player>
 cmd_god_sender_enable: You have successfully enabled god mode!
@@ -130,12 +140,12 @@ cmd_health_player_info: Player %1% healed player %2%!
 cmd_health_player_message: You have been healed!
 
 cmd_itemban_description: Manages the list of blocked items and blocks.
+cmd_itemban_usage: 'Usage: /item <ban|unban> <ID>'
 cmd_itemban_wrongid: Please enter a valid ID!
 cmd_itemban_alreadyban: Item %1% (ID - %2%) is already blocked!
 cmd_itemban_alreadyremoved: Item %1% (ID - %2%) wasn't blocked!
 cmd_itemban_added: Item %1% (ID - %2%) added to the list!
 cmd_itemban_removed: Item %1% (ID - %2%) removed from the list!
-cmd_itemban_usage: 'Usage: /item <ban|unban> <ID>'
 
 listener_itemban_touch: You cannot use this item!
 listener_itemban_eat: You can't eat it!
@@ -152,7 +162,6 @@ cmd_itemdb_named: 'This item is named: %1%'
 cmd_itemdb_id: 'This item ID is: %1%'
 
 cmd_jump_description: Teleport you to the block you're looking at.
-cmd_jump_is_not_a_reachable_block: There isn't a reachable block!
 
 cmd_kickall_description: Kick all the players.
 cmd_kickall_description2: /kickall or /kickall <reason>
@@ -214,11 +223,21 @@ cmd_speed_description2: /speed or /speed <speed>
 cmd_speed: Speed amplified by %1%
 cmd_speed_normal: Your speed was changed to default!
 
+cmd_sudo_description: Run a command as another player.
+cmd_sudo_description2: '/sudo <player> <command> or /sudo <player> <c:message>'
+cmd_sudo_usage: 'Usage: /sudo <player> <command> or /sudo <player> <c:message>'
+cmd_sudo_send_message: Sending message as %1%
+cmd_sudo_use_command: Command ran as %1%
+cmd_sudo_cannot_be_sudoed: '%1% cannot be sudoed!'
+
 cmd_suicide_description: Kill yourself.
 cmd_suicide_message: You have committed suicide!
 
 cmd_top_description: Teleport to the highest block above you.
 cmd_top_tp_message: Teleporting...
+
+cmd_tree_description: Spawns a tree.
+cmd_tree_usage: 'Usage: /tree <oak|spruce|birch|jungle|acacia|darkoak>'
 
 cmd_unmute_description: Unmute a player.
 cmd_unmute_description2: /unmute <player>
@@ -230,6 +249,24 @@ cmd_unmute_player_not_muted: Player %1% has not been muted!
 
 cmd_vanish_description: Hide from other players.
 cmd_vanish_description2: /vanish or /vanish <player>
+
+cmd_world_description: Commands for working with the worlds
+cmd_world_description2: /world create <world> <old|infinite|flat> or /world tp <world> <player>
+cmd_world_usage: 'Usage: /world create <world> <old|infinite|flat> or /world tp <world> <player>'
+cmd_world_usage_tp: 'Usage: /world tp <world> <player>'
+cmd_world_usage_create: 'Usage: /world create <world> <old|infinite|flat>'
+cmd_world_tp: Teleporting...
+cmd_world_tp_sender: You have teleported player %1% in the world %2%
+cmd_world_tp_player_message: You were teleported to world %1%
+cmd_world_tp_sender_already_in_this_world: You are already in this world!
+cmd_world_tp_player_already_in_this_world: Player is already in this world!
+cmd_world_tp_sender_no_permission: You do not have permission to teleport to this world!
+cmd_world_tp_player_permission: You do not have permission to teleport to other players in this world!
+cmd_world_tp_not_found: World doesn't exist
+cmd_world_tp_not_loaded: Level is not loaded yet. Loading...
+cmd_world_tp_error_loading: The level couldn't be loaded
+cmd_world_create: 'Generation world: %1%'
+cmd_world_create_already_exists: World with this name already exists!
 
 south: South
 north: North

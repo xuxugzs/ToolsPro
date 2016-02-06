@@ -36,7 +36,7 @@ public class ClearHotBarCommand extends ToolsProCommand {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'c');
                     }
                 } else {
-                    sender.sendMessage(this.getPermissionMessage());
+                    sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
                 }
             } else {
                 if (sender instanceof Player) {
@@ -47,7 +47,7 @@ public class ClearHotBarCommand extends ToolsProCommand {
                     Message.CMD_CLEARHOTBAR_SENDER.print(sender, "prefix:&7[&aClearHotBar&7]", 'a');
                     this.plugin.info(sender, Message.CMD_CLEARHOTBAR_SENDER_INFO.getText("prefix:&7[ClearHotBar]", '7', '7', sender.getName()));
                 } else {
-                    return Message.NEED_PLAYER.print(sender, 'c');
+                    return Message.NEED_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'c');
                 }
             }
         }

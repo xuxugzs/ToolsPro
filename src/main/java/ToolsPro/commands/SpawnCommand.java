@@ -26,7 +26,7 @@ public class SpawnCommand extends ToolsProCommand {
             if (args.length != 0) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
                 if (!sender.hasPermission("toolspro.spawn.other")) {
-                    sender.sendMessage(this.getPermissionMessage());
+                    sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
                 } else if (p != null) {
                     ((Player) p).teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));
                     Message.CMD_SPAWN_TP_PLAYER_MESSAGE.print(p, "prefix:&7[&aSpawn&7]", 'a');

@@ -1,5 +1,6 @@
 toolspro_loaded: ToolsPro已经载入成功！
 toolspro_disabled: ToolsPro已经禁用！
+
 you_dont_have_permission: 您没有使用此命令的权限！
 unknown_player: 玩家未找到！
 you_not_survival: 您的游戏模式不是生存！
@@ -8,35 +9,47 @@ need_player: 请在游戏中运行这个命令！
 not_number: 请输入正确的数字！
 not_time: 请输入正确的时间！
 blocked_nick: 请更换名称后重新连接本服务器！
+is_not_a_reachable_block: 所面对的方块不可到达。
+
+cmd_antioch_description: Holy hand grenade.
+cmd_antioch_grenade: Grenade threw!
+cmd_antioch_grenade_error: Cannot throw the grenade, there isn't a near valid block!
+
 cmd_break_description: 打破你所面对的方块。
 cmd_break_no_break_bedrock: 你不能打破基岩
-cmd_break_is_not_a_reachable_block: 所面对的方块不可到达。
+
 cmd_broadcast_description: 广播一条消息。
 cmd_broadcast_description2: /broadcast <消息>
 cmd_broadcast_usage: 用法：/broadcast <信息>
+
 cmd_burn_description: 燃烧一个指定的玩家.
 cmd_burn_description2: /burn <玩家> <秒>
-cmd_burn_player: 你点燃了玩家 %1%
 cmd_burn_player_info: 玩家 %1% 点燃了 %2%!
+cmd_burn_player: 你点燃了玩家 %1%
 cmd_burn_usage: '使用方法: /burn <玩家> <秒>'
+
 cmd_clearhotbar_description: 清除你或其他人的物品栏.
 cmd_clearhotbar_description2: /clearhotbar 或 /clearhotbar <玩家>
 cmd_clearhotbar_sender: 你的物品栏已经清理!
 cmd_clearhotbar_sender_info: 玩家 %1% 清除了他的物品栏!
 cmd_clearhotbar_player: 玩家 %1% 的物品已被清除!
 cmd_clearhotbar_player_info: 玩家 %1% 清理了玩家 %2% 的物品栏!
+
 cmd_clearinventory_description: 清除您或其他人的背包.
 cmd_clearinventory_description2: /clearinventory 或 /clearinventory <玩家>
 cmd_clearinventory_sender: 您的背包已被清理!
 cmd_clearinventory_sender_info: 玩家 %1% 清理了他的背包!
 cmd_clearinventory_player: 玩家 %1% 的背包已被清理!
 cmd_clearinventory_player_info: 玩家 %1% 清理了玩家 %2% 的背包!
+
 cmd_compass_description: 显示您所面对的方向.
 cmd_compass_wrongdir: Oh no! 获取你的方位时出现错误
 cmd_compass_view: 您当前面对着 %1%
+
 cmd_depth_description: 显示您当前距离海平面的高度.
 cmd_depth_above: 您正在位于海拔 %1% 米的高度上.
 cmd_depth_below: 您正在位于低于海平面 %1% 米的高度上.
+
 cmd_extinguish_description: 扑灭某个玩家身上的火.
 cmd_extinguish_description2: /extinguish 或 /extinguish <玩家>
 cmd_extinguish_sender: 您已经成功扑灭自己身上的火.
@@ -44,6 +57,7 @@ cmd_extinguish_sender_info: 玩家 %1% 扑灭了自己身上的火!
 cmd_extinguish_player: 您已成功扑灭玩家 %1% 身上的火!
 cmd_extinguish_player_info: 玩家 %1% 已成功扑灭玩家 %2% 身上的火!
 cmd_extinguish_player_message: 已成功扑灭火.
+
 cmd_fly_description: 在生存或冒险模式下启用飞行
 cmd_fly_description2: /fly 或者 /fly <玩家>
 cmd_fly_sender_enable: 您已经成功进入飞行状态
@@ -56,6 +70,7 @@ cmd_fly_player_enable_info: 玩家 %1% 开启了 玩家 %2% 的飞行功能!
 cmd_fly_player_disable_info: 玩家 %1% 关闭了 玩家 %2% 的飞行功能!
 cmd_fly_player_enable_message: 您启用了飞行功能!
 cmd_fly_player_disable_message: 您关闭了飞行功能!
+
 cmd_gamemode_description: 改变 玩家 的游戏模式.
 cmd_gamemode_description2: /gamemode <模式> <玩家>
 cmd_gamemode_usage: 请使用 %1% 查看所有模式
@@ -92,7 +107,15 @@ cmd_gamemode_help2: 改变游戏模式到生存模式
 cmd_gamemode_help3: 改变游戏模式到创造模式
 cmd_gamemode_help4: 改变游戏模式到冒险模式
 cmd_gamemode_help5: 改变游戏模式到观察者模式
+
 listener_join_survival: 你的游戏模式被改变到生存模式
+
+cmd_getpos_description: Get your/other's position
+cmd_getpos_description2: /getpos or /getpos <player>
+cmd_getpos_sender: 'You are is in world: '
+cmd_getpos_player: ' in world: '
+cmd_getpos_coordinates: 'Coordinates: '
+
 cmd_god_description: 防止你受到伤害
 cmd_god_description2: /god or /god <玩家>
 cmd_god_sender_enable: 你已经成功启用上帝模式!
@@ -105,6 +128,7 @@ cmd_god_player_enable_info: 玩家 %1% 开启了 玩家 %2% 的上帝模式!
 cmd_god_player_disable_info: 玩家 %1% 关闭了 玩家 %2% 的上帝模式!
 cmd_god_player_enable_message: 你开启了上帝模式!
 cmd_god_player_disable_message: 你关闭了上帝模式!
+
 cmd_health_description: 恢复你或其他玩家的生命值.
 cmd_health_description2: /health or /health <玩家>
 cmd_health_sender: 你已经健康了
@@ -114,6 +138,7 @@ cmd_health_player: 你治疗了 玩家 %1%!
 cmd_health_player_max: 玩家 %1% 充满生机，不需要治疗!
 cmd_health_player_info: 玩家 %1% 治疗 玩家 %2%!
 cmd_health_player_message: 你已经治疗
+
 cmd_itemban_description: 管理是否允许使用某个物品.
 cmd_itemban_wrongid: 请输入正确的物品ID!
 cmd_itemban_alreadyban: 物品 %1% (ID - %2%) 已经被禁用了!
@@ -121,10 +146,12 @@ cmd_itemban_alreadyremoved: 物品 %1% (ID - %2%) 已经解除禁用了!
 cmd_itemban_added: 已将物品 %1% (ID - %2%) 加入了黑名单列表!
 cmd_itemban_removed: 已将物品 %1% (ID - %2%) 从黑名单物品中移除!
 cmd_itemban_usage: '使用方法: /item <ban|unban> <物品ID>'
+
 listener_itemban_touch: 你不能使用这个方块!
 listener_itemban_eat: 你不可食用这个物品!
 listener_itemban_place: 你不能放置这个方块!
 listener_itemban_break: 你不能破坏这个方块!
+
 cmd_itemdb_description: 显示你持有的物品的信息.
 cmd_itemdb_description2: /item db 或者 /itemdb <name|id|metadata>
 cmd_itemdb_message1: '这个物品'
@@ -133,16 +160,20 @@ cmd_itemdb_repairable: ' 损耗'
 cmd_itemdb_data: '这个物品数据是: '
 cmd_itemdb_named: '这个物品的名字是: %1%'
 cmd_itemdb_id: '这个物品的 ID 是: %1%'
+
 cmd_jump_description: 把你传送到你所面对的方块.
 cmd_jump_is_not_a_reachable_block: 你所面对的位置没有方块或远不可及!
+
 cmd_kickall_description: 踢出所有玩家.
 cmd_kickall_description2: /kickall 或者 /kickall <原因>
 cmd_kickall_no_players: 已没有玩家可以踢出!
 cmd_kickall_no_reason: 你已被请出这个服务器!
 cmd_kickall_all_successfully_kicked: 所有玩家已被踢出服务器!
+
 cmd_more_description: 给你一组你当前手拿的物品.
 cmd_more_no_air: 你不能获得一组空气!
 cmd_more_successfully: 已成功获得一组相应的物品.
+
 cmd_mute_description: 禁言一个玩家.
 cmd_mute_description2: /mute <玩家> <时间> <seconds|minutes|hours|days>
 cmd_mute_usage: '使用方法: /mute <玩家> <时间> <seconds|minutes|hours|days>'
@@ -150,13 +181,16 @@ cmd_mute_no_more_30_day: 你不能把一个玩家禁言30天以上!
 cmd_mute_sender: '%1% 被禁言 %2% '
 cmd_mute_player_info: 玩家 %1% 禁言了 %2% 时间 %3%!
 cmd_mute_player_message: 你已经被禁言 %1% 现在你不能说话!
+
 listener_mute_line1: 你由于违反聊天规则已被禁言!
 listener_mute_line2: 你将在 %1% 后被解除禁言
+
 cmd_repair_description: 修复你所手持的物品.
 cmd_repair_successfully_repaired: 所持物品修复成功!
 cmd_repair_all_successfully_repaired: 你当前背包中所有的物品都已成功修复!
 cmd_repair_successfully_repaired_including_armor: (包括已经装备的物品)
 cmd_repair_error: 这不是一个可以修复的物品!
+
 cmd_saveinv_description: 设置死亡不掉落
 cmd_saveinv_description2: /saveinv 或 /saveinv <玩家>
 cmd_saveinv_sender_enable: 你已开启死亡不掉落!
@@ -169,25 +203,43 @@ cmd_saveinv_player_enable_info: 玩家 %1% 启用了玩家 %2% 的死亡不掉�
 cmd_saveinv_player_disable_info: 玩家 %1% 启用了玩家 %2% 的死亡不掉落!
 cmd_saveinv_player_enable_message: 您已成功开启了自己的死亡不掉落功能!
 cmd_saveinv_player_disable_message: 你已成功关闭了自己的死亡不掉落功能!
+
 listener_saveinv_join_to_server: 死亡不掉落已经启动!
 listener_saveinv_death: 您的物品死亡不会掉落!
+
 cmd_setspawn_description: 更改您的服务器主要的重生点。
 cmd_setspawn: 已成功设置服务器的重生点！
 cmd_setspawn_log: '玩家 %1% 设置了新的重生点: %2%'
+
 cmd_spawnall_description: 将全部玩家传送到服务器的出生点.
 cmd_spawnall_no_players: 服务器中没有玩家.
 cmd_spawnall_player_tp_to_spawn: 所有玩家已被传送到服务器的出生点!
+
 cmd_spawn_description: 传送到服务器的出生点.
 cmd_spawn_tp_sender: 你把玩家 %1% 传送到了服务器的出生点!
 cmd_spawn_tp_player_message: 传送中...
+
 cmd_speed_description: 改变你的移动速度.
 cmd_speed_description2: /speed 或 /speed <速度>
 cmd_speed: 速度提升到了 %1%
 cmd_speed_normal: 你的速度变为了默认状态!
+
+cmd_sudo_description: Run a command as another player.
+cmd_sudo_description2: '/sudo <player> <command> or /sudo <player> <c:message>'
+cmd_sudo_usage: 'Usage: /sudo <player> <command> or /sudo <player> <c:message>'
+cmd_sudo_send_message: Sending message as %1%
+cmd_sudo_use_command: Command ran as %1%
+cmd_sudo_cannot_be_sudoed: '%1% cannot be sudoed!'
+
 cmd_suicide_description: 自杀!
 cmd_suicide_message: 你成功结束了自己...
+
 cmd_top_description: 将你传送到你头顶上的最高处.
 cmd_top_tp_message: 传送中...
+
+cmd_tree_description: Spawns a tree.
+cmd_tree_usage: 'Usage: /tree <oak|spruce|birch|jungle|acacia|darkoak>'
+
 cmd_unmute_description: 解除某个玩家的禁言.
 cmd_unmute_description2: /unmute <玩家>
 cmd_unmute_usage: '使用方法: /unmute <玩家>'
@@ -195,27 +247,40 @@ cmd_unmute_sender: 您已成功解除了玩家 %1% 的禁言!
 cmd_unmute_player_info: 玩家 %1% 成功解除了玩家 %2%!
 cmd_unmute_player_message: 您已被解除禁言并且可以说话了!
 cmd_unmute_player_not_muted: 玩家 %1% 并没有被禁言!
+
 cmd_vanish_description: 让自己或其他玩家隐身.
 cmd_vanish_description2: /vanish 或 /vanish <玩家>
+
+cmd_world_description: Commands for working with the worlds
+cmd_world_description2: /world create <world> <old|infinite|flat> or /world tp <world> <player>
+cmd_world_usage: 'Usage: /world create <world> <old|infinite|flat> or /world tp <world> <player>'
+cmd_world_usage_tp: 'Usage: /world tp <world> <player>'
+cmd_world_usage_create: 'Usage: /world create <world> <old|infinite|flat>'
+cmd_world_tp: Teleporting...
+cmd_world_tp_sender: You have teleported player %1% in the world %2%
+cmd_world_tp_player_message: You were teleported to world %1%
+cmd_world_tp_sender_already_in_this_world: You are already in this world!
+cmd_world_tp_player_already_in_this_world: Player is already in this world!
+cmd_world_tp_sender_no_permission: You do not have permission to teleport to this world!
+cmd_world_tp_player_permission: You do not have permission to teleport to other players in this world!
+cmd_world_tp_not_found: World doesn't exist
+cmd_world_tp_not_loaded: Level is not loaded yet. Loading...
+cmd_world_tp_error_loading: The level couldn't be loaded
+cmd_world_create: 'Generation world: %1%'
+cmd_world_create_already_exists: World with this name already exists!
+
 south: 南
 north: 北
 west: 西
 east: 东
-secme onds: ' 秒'
+
+seconds: ' 秒'
 minutes: ' 分钟 '
 hours: ' 时 '
 days: ' 日 '
 weeks: ' 周 '
+
 block_damage_creative: 你不可以在创造模式下攻击玩家!
 block_damage_fly: 你不能在飞行模式下攻击玩家!
 block_damage_god: 你不能在上帝模式下攻击玩家!
 block_damage_vansih: 你不能在隐行模式下攻击玩家!
-lng_load_fail: 语言文件加载失败. 将使用默认语言.
-lng_save_fail: 语言文件保存失败
-lng_print_fail: 输出 %1% 失败. Sender变量为空.
-lng_config: '[信息] 信息: %1% 语言: %2% 保存翻译文件: %1% 开发模式 模式: %3%'
-enabled: 启用
-disabled: 关闭
-word_unknown: 未知
-cmd_itemban_ban: 禁用物品 %1% (ID - %2%) 成功!
-seconds: ' 秒'
