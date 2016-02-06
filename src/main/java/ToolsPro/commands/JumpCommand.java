@@ -6,6 +6,9 @@ import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.command.CommandSender;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Pub4Game on 19.12.2015.
  */
@@ -19,13 +22,15 @@ public class JumpCommand extends ToolsProCommand {
         this.plugin = plugin;
     }
 
+    Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
+
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
             sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
-            /*
             if (sender instanceof Player) {
-                Block block = ((Player) sender).getTargetBlock(100, this.plugin.NON_SOLID_BLOCKS);
+                tblocks.put(0, this.plugin.NON_SOLID_BLOCKS);
+                Block block = ((Player) sender).getTargetBlock(100, tblocks);
                 if (block == null) {
                     Message.IS_NOT_A_REACHABLE_BLOCK.print(sender, "prefix:&7[&aJump&7]", 'c');
                     return false;
@@ -52,7 +57,6 @@ public class JumpCommand extends ToolsProCommand {
             } else {
                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aJump&7]", 'c');
             }
-            */
         }
         return true;
     }

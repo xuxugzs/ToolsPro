@@ -14,7 +14,6 @@ import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.Position;
-import cn.nukkit.math.AxisAlignedBB;
 import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -38,6 +37,7 @@ public class ToolsPro extends PluginBase {
     Set<String> SaveInvPlayers = new HashSet<String>();
     Set<String> HidePlayers = new HashSet<String>();
     public List<String> forbiddenNames;
+    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
 
     @Override
     public void onEnable() {
@@ -55,6 +55,7 @@ public class ToolsPro extends PluginBase {
     }
 
     private void registerCommands() {
+        this.getServer().getCommandMap().register("antioch", new AntiochCommand(this));
         this.getServer().getCommandMap().register("break", new BreakCommand(this));
         this.getServer().getCommandMap().register("broadcast", new BroadcastCommand(this));
         this.getServer().getCommandMap().register("burn", new BurnCommand(this));
@@ -70,6 +71,7 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("health", new HealthCommand(this));
         this.getServer().getCommandMap().register("itemban", new ItemBanCommand(this));
         this.getServer().getCommandMap().register("itemdb", new ItemDBCommand(this));
+        this.getServer().getCommandMap().register("jump", new JumpCommand(this));
         this.getServer().getCommandMap().register("kickall", new KickAllCommand(this));
         this.getServer().getCommandMap().register("more", new MoreCommand(this));
         this.getServer().getCommandMap().register("mute", new MuteCommand(this));
@@ -83,6 +85,7 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("sudo", new SudoCommand(this));
         this.getServer().getCommandMap().register("suicide", new SuicideCommand(this));
         this.getServer().getCommandMap().register("top", new TopCommand(this));
+        this.getServer().getCommandMap().register("tree", new TreeCommand(this));
         this.getServer().getCommandMap().register("unmute", new UnmuteCommand(this));
         //this.getServer().getCommandMap().register("vanish", new VanishCommand(this));
         this.getServer().getCommandMap().register("world", new WorldCommand(this));
@@ -176,6 +179,18 @@ public class ToolsPro extends PluginBase {
     public static final int [] NON_SOLID_BLOCKS = {Block.SAPLING, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA, Block.COBWEB, Block.TALL_GRASS, Block.BUSH, Block.DANDELION,
             Block.POPPY, Block.BROWN_MUSHROOM, Block.RED_MUSHROOM, Block.TORCH, Block.FIRE, Block.WHEAT_BLOCK, Block.SIGN_POST, Block.WALL_SIGN, Block.SUGARCANE_BLOCK,
             Block.PUMPKIN_STEM, Block.MELON_STEM, Block.VINE, Block.CARROT_BLOCK, Block.POTATO_BLOCK, Block.DOUBLE_PLANT};
+
+    public static final int [] ANTIOCH_BLOCKS = {Block.AIR, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA};
+
+    public boolean antioch(Player player){
+        tblocks.put(0, ANTIOCH_BLOCKS);
+        Block block = player.getTargetBlock(100, tblocks);
+        if(block == null){
+            return false;
+        }
+        this.createTNT(block.add(0, 1), player.getLevel());
+        return true;
+    }
 
     public void nuke(Player player){
         for (int x = -10; x <= 10; x += 5){
