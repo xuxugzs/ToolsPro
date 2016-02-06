@@ -188,7 +188,7 @@ public enum Message {
 	CMD_ITEMDB_NAMED("Название этого предмета: %1%"),
 	CMD_ITEMDB_ID("Идентификатор этого предмета: %1%"),
 	//Jump Command
-	CMD_JUMP_DESCRIPTION("Телепортирует вас на место которое вы укажите."),
+	CMD_JUMP_DESCRIPTION("Телепортирует вас на тот блок, на который вы смотрите."),
 	//KickAll Command
 	CMD_KICKALL_DESCRIPTION("Кикнает всех игроков с сервера."),
 	CMD_KICKALL_DESCRIPTION2("/kickall или /kickall <причина>"),
