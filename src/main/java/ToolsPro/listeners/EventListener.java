@@ -3,6 +3,7 @@ package ToolsPro.listeners;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
@@ -55,6 +56,12 @@ public class EventListener implements Listener {
             event.getPlayer().setGamemode(0);
             Message.LISTENER_JOIN_SURVIVAL.print(((Player) event.getPlayer()), "prefix:&7[&aGM&7]", 'a');
         }
+
+        for (Player p : Server.getInstance().getOnlinePlayers().values()){
+            if (plugin.isHide(p.getName())) event.getPlayer().hidePlayer(p);
+        }
+
+
     }
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
