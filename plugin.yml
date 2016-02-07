@@ -1,5 +1,5 @@
 name: ToolsPro
 main: ToolsPro.ToolsPro
-version: "0.0.2"
+version: "0.0.3"
 api: ["1.0.0"]
 author: Pub4Game

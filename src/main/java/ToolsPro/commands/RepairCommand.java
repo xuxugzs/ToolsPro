@@ -36,7 +36,7 @@ public class RepairCommand extends ToolsProCommand {
                                     }
                                 }
                             } else {
-                                sender.sendMessage(this.getPermissionMessage());
+                                sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
                             }
                             Message.CMD_REPAIR_ALL_SUCCESSFULLY_REPAIRED.print(sender, "prefix:&7[&aRepair&7]", 'a');
                             if (sender.hasPermission("toolspro.repair.armor")) {

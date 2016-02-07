@@ -11,6 +11,10 @@ not_time: Please enter right value of time!
 blocked_nick: Please change your nick and try to connect a server!
 is_not_a_reachable_block: There isn't a reachable block
 
+cmd_antioch_description: Holy hand grenade.
+cmd_antioch_grenade: Grenade threw!
+cmd_antioch_grenade_error: Cannot throw the grenade, there isn't a near valid block!
+
 cmd_break_description: Breaks the block you're looking at.
 cmd_break_no_break_bedrock: You can't break bedrock
 
@@ -232,6 +236,9 @@ cmd_suicide_message: You have committed suicide!
 cmd_top_description: Teleport to the highest block above you.
 cmd_top_tp_message: Teleporting...
 
+cmd_tree_description: Spawns a tree.
+cmd_tree_usage: 'Usage: /tree <oak|spruce|birch|jungle|acacia|darkoak>'
+
 cmd_unmute_description: Unmute a player.
 cmd_unmute_description2: /unmute <player>
 cmd_unmute_usage: 'Usage: /unmute <player>'
@@ -244,10 +251,17 @@ cmd_vanish_description: Hide from other players.
 cmd_vanish_description2: /vanish or /vanish <player>
 
 cmd_world_description: Commands for working with the worlds
-cmd_world_description2: /world <create|tp> <world> <old|infinite|flat>
-cmd_world_usage: 'Usage: /world <create|tp> <world> <old|infinite|flat>'
+cmd_world_description2: /world create <world> <old|infinite|flat> or /world tp <world> <player>
+cmd_world_usage: 'Usage: /world create <world> <old|infinite|flat> or /world tp <world> <player>'
+cmd_world_usage_tp: 'Usage: /world tp <world> <player>'
+cmd_world_usage_create: 'Usage: /world create <world> <old|infinite|flat>'
 cmd_world_tp: Teleporting...
-cmd_world_tp_no_permission: You do not have permission to teleport to this world!
+cmd_world_tp_sender: You have teleported player %1% in the world %2%
+cmd_world_tp_player_message: You were teleported to world %1%
+cmd_world_tp_sender_already_in_this_world: You are already in this world!
+cmd_world_tp_player_already_in_this_world: Player is already in this world!
+cmd_world_tp_sender_no_permission: You do not have permission to teleport to this world!
+cmd_world_tp_player_permission: You do not have permission to teleport to other players in this world!
 cmd_world_tp_not_found: World doesn't exist
 cmd_world_tp_not_loaded: Level is not loaded yet. Loading...
 cmd_world_tp_error_loading: The level couldn't be loaded

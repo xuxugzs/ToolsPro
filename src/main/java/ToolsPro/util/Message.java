@@ -36,6 +36,11 @@ public enum Message {
 	NOT_TIME("Пожалуйста, укажите верное значение времени!"),
 	BLOCKED_NICK("Пожалуйста, измените ник и перезайдите на сервер!"),
 	IS_NOT_A_REACHABLE_BLOCK("К сожалению, мы не можем определить блок на который вы смотрите!"),
+
+	//Antioch Command
+	CMD_ANTIOCH_DESCRIPTION("Бросает гранату."),
+	CMD_ANTIOCH_GRENADE("Вы бросили гранату!"),
+	CMD_ANTIOCH_GRENADE_ERROR("Вы не можете бросить гранату, потому что рядом нет действительного блока!"),
 	//Break Command
 	CMD_BREAK_DESCRIPTION("Разрушает блок на который вы смотрите."),
 	CMD_BREAK_NO_BREAK_BEDROCK("Вы не можете сломать бедрок!"),
@@ -183,7 +188,7 @@ public enum Message {
 	CMD_ITEMDB_NAMED("Название этого предмета: %1%"),
 	CMD_ITEMDB_ID("Идентификатор этого предмета: %1%"),
 	//Jump Command
-	CMD_JUMP_DESCRIPTION("Телепортирует вас на место которое вы укажите."),
+	CMD_JUMP_DESCRIPTION("Телепортирует вас на тот блок, на который вы смотрите."),
 	//KickAll Command
 	CMD_KICKALL_DESCRIPTION("Кикнает всех игроков с сервера."),
 	CMD_KICKALL_DESCRIPTION2("/kickall или /kickall <причина>"),
@@ -257,6 +262,9 @@ public enum Message {
 	//Top Command
 	CMD_TOP_DESCRIPTION("Телепортирует вас на самый верхний блок над вашей позицией."),
 	CMD_TOP_TP_MESSAGE("Телепортация..."),
+	//Tree Command
+	CMD_TREE_DESCRIPTION("Генерирует дерево."),
+	CMD_TREE_USAGE("Используйте: /tree <oak|spruce|birch|jungle|acacia|darkoak>"),
 	//Unmute Command
 	CMD_UNMUTE_DESCRIPTION("Убирает блокировку чата."),
 	CMD_UNMUTE_DESCRIPTION2("/unmute <ник>"),
@@ -270,10 +278,17 @@ public enum Message {
 	CMD_VANISH_DESCRIPTION2("/vanish или /vanish <ник>"),
 	//World Command
 	CMD_WORLD_DESCRIPTION("Позволяет работать с мирами."),
-	CMD_WORLD_DESCRIPTION2("/world <create|tp> <название мира> <old|infinite|flat>"),
-	CMD_WORLD_USAGE("Используйте: /world <название мира> <old|infinite|flat>"),
+	CMD_WORLD_DESCRIPTION2("/world create <название мира> <old|infinite|flat> или /world tp <название мира> <ник>"),
+	CMD_WORLD_USAGE("Используйте: /world create <название мира> <old|infinite|flat> или /world tp <название мира> <ник>"),
+	CMD_WORLD_USAGE_TP("Используйте: /world tp <название мира> <ник>"),
+	CMD_WORLD_USAGE_CREATE("Используйте: /world create <название мира> <old|infinite|flat>"),
 	CMD_WORLD_TP("Телепортация..."),
-	CMD_WORLD_TP_NO_PERMISSION("У Вас недостаточно прав для телепортации в этот мир!"),
+	CMD_WORLD_TP_SENDER("Вы телепортировали игрока %1% в мир %2%"),
+	CMD_WORLD_TP_PLAYER_MESSAGE("Вы были телепортированы в мир %1%"),
+	CMD_WORLD_TP_SENDER_ALREADY_IN_THIS_WORLD("Вы уже находитесь в этом мире!"),
+	CMD_WORLD_TP_PLAYER_ALREADY_IN_THIS_WORLD("Игрок уже находится в этом мире!"),
+	CMD_WORLD_TP_SENDER_NO_PERMISSION("У Вас недостаточно прав для телепортации в этот мир!"),
+	CMD_WORLD_TP_PLAYER_PERMISSION("У Вас недостаточно прав для телепортации других игроков в этот мир!"),
 	CMD_WORLD_TP_NOT_FOUND("Мир с таким названием не найден!"),
 	CMD_WORLD_TP_NOT_LOADED("Мир еще не загружен. Загрузка..."),
 	CMD_WORLD_TP_ERROR_LOADING("Произошла ошибка при загрузке мира!"),
