@@ -56,9 +56,8 @@ public class EventListener implements Listener {
             event.getPlayer().setGamemode(0);
             Message.LISTENER_JOIN_SURVIVAL.print(((Player) event.getPlayer()), "prefix:&7[&aGM&7]", 'a');
         }
-
         for (Player p : Server.getInstance().getOnlinePlayers().values()){
-            if (plugin.isHide(p.getName())) event.getPlayer().hidePlayer(p);
+            if (plugin.getPlayerVanish(p.getName())) event.getPlayer().hidePlayer(p);
         }
 
 
@@ -71,14 +70,6 @@ public class EventListener implements Listener {
         if (p instanceof Player) {
             if (this.plugin.getPlayerGodMode(name)) this.plugin.removePlayerGodMode(name);
             if (this.plugin.getPlayerSaveInv(name)) this.plugin.removePlayerSaveInv(name);
-            /*
-            if (this.plugin.isHide(name)) {
-                for (Effect effect : p.getEffects().values()) {
-                    p.removeEffect(14);
-                }
-                this.plugin.removeHide(name);
-            }
-            */
         }
     }
 
@@ -93,12 +84,6 @@ public class EventListener implements Listener {
                     Message.LISTENER_SAVEINV_DEATH.print(((Player) entity), "prefix:&7[&aSaveInv&7]", 'a');
                 }
             }
-            /*
-            if (this.plugin.isHide(name)) {
-                this.plugin.removeHide(name);
-                event.getEntity().sendMessage(TextFormat.colorize("&7[&aVanish&7] &aНевидимость была успешно выключена!"));
-            }
-            */
         }
     }
 }
