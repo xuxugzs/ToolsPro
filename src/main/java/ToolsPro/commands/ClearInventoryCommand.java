@@ -8,13 +8,13 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class ClearInventoryCommand extends ToolsProCommand {
+public class ClearInventoryCommand extends Commands {
 
     private ToolsPro plugin;
 
     public ClearInventoryCommand(ToolsPro plugin) {
         super("clearinventory", Message.CMD_CLEARINVENTORY_DESCRIPTION, Message.CMD_CLEARINVENTORY_DESCRIPTION2.toString());
-        this.setPermission("toolspro.commands.clearinventory");
+        this.setPermission("toolspro.commands.clearinventory.use");
         this.setAliases(new String[]{"ci"});
         this.plugin = plugin;
     }
@@ -24,11 +24,11 @@ public class ClearInventoryCommand extends ToolsProCommand {
             sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length != 0) {
-                if (sender.hasPermission("toolspro.clearinventory.other")) {
+                if (sender.hasPermission("toolspro.commands.clearinventory.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
                     if (p != null) {
-                        if (p.getGamemode() != 0) {
-                            Message.PLAYER_NOT_SURVIVAL.print(sender, "prefix:&7[&aClearInv&7]", 'c', 'b');
+                        if (p.getGamemode() == 1 || p.getGamemode() == 3) {
+                            Message.PLAYER_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aClearInv&7]", 'c', 'b');
                         } else {
                             p.getInventory().clearAll();
                             Message.CMD_CLEARINVENTORY_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'a', 'b');
@@ -42,8 +42,8 @@ public class ClearInventoryCommand extends ToolsProCommand {
                 }
             } else {
                 if (sender instanceof Player) {
-                    if (((Player) sender).getGamemode() != 0) {
-                        Message.YOU_NOT_SURVIVAL.print(sender, "prefix:&7[&aClearInv&7]", 'c');
+                    if (((Player) sender).getGamemode() == 1 || ((Player) sender).getGamemode() == 3) {
+                        Message.YOU_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aClearInv&7]", 'c');
                     } else {
                         ((Player) sender).getInventory().clearAll();
                         Message.CMD_CLEARINVENTORY_SENDER.print(sender, "prefix:&7[&aClearInv&7]", 'a');

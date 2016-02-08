@@ -8,7 +8,7 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 6.02.2015.
  */
-public class AntiochCommand extends ToolsProCommand {
+public class AntiochCommand extends Commands {
 
     private ToolsPro plugin;
 

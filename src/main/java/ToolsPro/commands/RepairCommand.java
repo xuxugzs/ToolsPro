@@ -10,13 +10,13 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class RepairCommand extends ToolsProCommand {
+public class RepairCommand extends Commands {
 
     private ToolsPro plugin;
 
     public RepairCommand(ToolsPro plugin) {
         super("repair", Message.CMD_REPAIR_DESCRIPTION, "/repair <all|hand>");
-        this.setPermission("toolspro.commands.repair");
+        this.setPermission("toolspro.commands.repair.use");
         this.plugin = plugin;
     }
 
@@ -28,7 +28,7 @@ public class RepairCommand extends ToolsProCommand {
                 if (args.length != 0) {
                     switch (args[0]) {
                         case "all":
-                            if (sender.hasPermission("toolspro.repair.all")) {
+                            if (sender.hasPermission("toolspro.commands.repair.all")) {
                                 for (Item item : ((Player) sender).getInventory().getContents().values()) {
                                     if (this.plugin.isRepairable(item)) {
                                         item.setDamage(0);
@@ -39,7 +39,7 @@ public class RepairCommand extends ToolsProCommand {
                                 sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
                             }
                             Message.CMD_REPAIR_ALL_SUCCESSFULLY_REPAIRED.print(sender, "prefix:&7[&aRepair&7]", 'a');
-                            if (sender.hasPermission("toolspro.repair.armor")) {
+                            if (sender.hasPermission("toolspro.commands.repair.armor")) {
                                 for (Item item : ((Player) sender).getInventory().getArmorContents()) {
                                     if (this.plugin.isRepairable(item)) {
                                         item.setDamage(0);

@@ -33,18 +33,16 @@ public class DamageListener implements Listener {
                     event.setCancelled();
                     return;
                 }
-                if ((this.plugin.isGodMode(((Player) player).getName()))) {
+                if ((this.plugin.getPlayerGodMode(((Player) player).getName()))) {
                     Message.BLOCK_DAMAGE_GOD.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                /*
-                if (this.plugin.isHide(((Player) player).getName())) {
-                    Message.BLOCK_DAMAGE_VANSIH.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
+                if (this.plugin.getPlayerVanish(((Player) player).getName())) {
+                    Message.BLOCK_DAMAGE_VANISH.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                */
             }
         }
     }

@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class JumpCommand extends ToolsProCommand {
+public class JumpCommand extends Commands {
 
     private ToolsPro plugin;
 

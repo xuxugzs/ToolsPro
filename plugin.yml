@@ -1,5 +1,246 @@
 name: ToolsPro
 main: ToolsPro.ToolsPro
-version: "0.0.3"
+version: "0.0.4"
 api: ["1.0.0"]
 author: Pub4Game
+website: https://github.com/NukkitRu/ToolsPro
+
+permissions:
+  toolspro:
+    description: "Allows use to all commands and features ToolsPro."
+    default: false
+    children:
+      toolspro.commands:
+        description: "Allows use to all commands of the plugin."
+        default: false
+        children:
+          toolspro.commands.antioch:
+            description: ""
+            default: op
+          toolspro.commands.break:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.break.use:
+                description: ""
+                default: op
+              toolspro.break.bedrock:
+                description: ""
+                default: op
+          toolspro.commands.broadcast:
+            description: ""
+            default: op
+          toolspro.commands.burn:
+            description: ""
+            default: op
+          toolspro.commands.clearhotbar:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.clearhotbar.use:
+                description: ""
+                default: op
+              toolspro.commands.clearhotbar.other:
+                description: ""
+                default: op
+          toolspro.commands.clearinventory:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.clearinventory.use:
+                description: ""
+                default: op
+              toolspro.commands.clearinventory.other:
+                description: ""
+                default: op
+          toolspro.commands.compass:
+            description: ""
+            default: op
+          toolspro.commands.depth:
+            description: ""
+            default: op
+          toolspro.commands.extinguish:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.extinguish.use:
+                description: ""
+                default: op
+              toolspro.commands.extinguish.other:
+                description: ""
+                default: op
+          toolspro.commands.fly:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.fly.use:
+                description: ""
+                default: op
+              toolspro.commands.fly.other:
+                description: ""
+                default: op
+          toolspro.commands.gamemode:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.gamemode.use:
+                description: ""
+                default: op
+              toolspro.commands.gamemode.other:
+                description: ""
+                default: op
+          toolspro.commands.getpos:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.getpos.use:
+                description: ""
+                default: op
+              toolspro.commands.getpos.other:
+                description: ""
+                default: op
+          toolspro.commands.god:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.god.use:
+                description: ""
+                default: op
+              toolspro.commands.god.other:
+                description: ""
+                default: op
+          toolspro.commands.heal:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.heal.use:
+                description: ""
+                default: op
+              toolspro.commands.heal.other:
+                description: ""
+                default: op
+          toolspro.commands.item:
+            description: ""
+            default: op
+          toolspro.commands.itemdb:
+            description: ""
+            default: op
+          toolspro.commands.jump:
+            description: ""
+            default: op
+          toolspro.commands.kickall:
+            description: ""
+            default: op
+          toolspro.commands.more:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.more.use:
+                description: ""
+                default: op
+              toolspro.commands.more.oversizedstacks:
+                description: ""
+                default: op
+          toolspro.commands.mute:
+            description: ""
+            default: op
+          toolspro.commands.nuke:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.nuke.use:
+                description: ""
+                default: op
+              toolspro.commands.nuke.other:
+                description: ""
+                default: op
+          toolspro.commands.repair:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.repair.use:
+                description: ""
+                default: op
+              toolspro.commands.repair.all:
+                description: ""
+                default: op
+              toolspro.commands.repair.armor:
+                description: ""
+                default: op
+          toolspro.commands.saveinv:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.saveinv.use:
+                description: ""
+                default: op
+              toolspro.commands.saveinv.other:
+                description: ""
+                default: op
+          toolspro.commands.setspawn:
+            description: ""
+            default: op
+          toolspro.commands.spawnall:
+            description: ""
+            default: op
+          toolspro.commands.spawn:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.spawn.use:
+                description: ""
+                default: true
+              toolspro.commands.spawn.other:
+                description: ""
+                default: op
+          toolspro.commands.speed:
+            description: ""
+            default: op
+          toolspro.commands.sudo:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.sudo.use:
+                description: ""
+                default: op
+              toolspro.commands.sudo.exempt:
+                description: ""
+                default: op
+          toolspro.commands.suicide:
+            description: ""
+            default: op
+          toolspro.commands.toolspro:
+            description: "Allows the player view information about the plugin."
+            default: true
+          toolspro.commands.top:
+            description: ""
+            default: op
+          toolspro.commands.tree:
+            description: ""
+            default: op
+          toolspro.commands.unmute:
+            description: ""
+            default: op
+          toolspro.commands.vanish:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.vanish.use:
+                description: ""
+                default: op
+              toolspro.commands.vanish.other:
+                description: ""
+                default: op
+          toolspro.commands.world:
+            description: ""
+            default: false
+            children:
+              toolspro.commands.world.use:
+                description: ""
+                default: op
+              toolspro.commands.world.other:
+                description: ""
+                default: op
+              toolspro.commands.world.create:
+                description: ""
+                default: op

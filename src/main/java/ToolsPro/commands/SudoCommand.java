@@ -9,13 +9,13 @@ import cn.nukkit.event.player.PlayerChatEvent;
 /**
  * Created by Pub4Game on 03.02.2016.
  */
-public class SudoCommand extends ToolsProCommand {
+public class SudoCommand extends Commands {
 
     private ToolsPro plugin;
 
     public SudoCommand(ToolsPro plugin) {
         super("sudo", Message.CMD_SUDO_DESCRIPTION, Message.CMD_SUDO_DESCRIPTION2.toString());
-        this.setPermission("toolspro.commands.sudo");
+        this.setPermission("toolspro.commands.sudo.use");
         this.plugin = plugin;
     }
 
@@ -26,7 +26,7 @@ public class SudoCommand extends ToolsProCommand {
             if (args.length >= 2) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
                 if (p != null) {
-                    if (p.hasPermission("toolspro.sudo.exempt")) {
+                    if (p.hasPermission("toolspro.commands.sudo.exempt")) {
                             String sudo = "";
                             for (int i = 1; i < args.length; i++) {
                                 sudo += args[i] + " ";
@@ -39,14 +39,14 @@ public class SudoCommand extends ToolsProCommand {
                                 PlayerChatEvent ev = new PlayerChatEvent(p, sudo.substring(2));
                                 this.plugin.getServer().getPluginManager().callEvent(ev);
                                 if (!ev.isCancelled()) {
-                                    this.plugin.getServer().broadcastMessage(String.format("<%2s> %3s", ev.getPlayer().getDisplayName(), ev.getMessage()), ev.getRecipients());
+                                    this.plugin.getServer().broadcastMessage(String.format(ev.getFormat(), ev.getPlayer().getDisplayName(), ev.getMessage()), ev.getRecipients());
                                 }
                             } else {
                                 Message.CMD_SUDO_USE_COMMAND.print(sender, "prefix:&7[&aSudo&7]", 'a', 'b', p.getDisplayName());
                                 this.plugin.getServer().dispatchCommand(p, sudo);
                             }
                         } else {
-                            Message.CMD_SUDO_CANNOT_BE_SUDOED.print(sender, "prefix:&7[&aSudo&7]", 'a', 'b', p.getName());
+                            Message.CMD_SUDO_CANNOT_BE_SUDOED.print(sender, "prefix:&7[&aSudo&7]", 'c', 'b', p.getName());
                         }
                     } else {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSudo&7]", 'c');

@@ -8,13 +8,13 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class GamemodeCommand extends ToolsProCommand {
+public class GamemodeCommand extends Commands {
 
     private ToolsPro plugin;
 
     public GamemodeCommand(ToolsPro plugin) {
         super("gamemode", Message.CMD_GAMEMODE_DESCRIPTION, Message.CMD_GAMEMODE_DESCRIPTION2.toString());
-        this.setPermission("toolspro.commands.gamemode");
+        this.setPermission("toolspro.commands.gamemode.use");
         this.setAliases(new String[]{"gm"});
         this.plugin = plugin;
     }
@@ -39,7 +39,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                 Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                             }
                         } else {
-                            if (sender.hasPermission("toolspro.gamemode.other")) {
+                            if (sender.hasPermission("toolspro.commands.gamemode.other")) {
                                 Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null) {
                                     if (p.getGamemode() == 0) {
@@ -72,7 +72,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                             }
                         } else {
-                            if (sender.hasPermission("toolspro.gamemode.other")) {
+                            if (sender.hasPermission("toolspro.commands.gamemode.other")) {
                                 Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null) {
                                     if (p.getGamemode() == 1) {
@@ -104,7 +104,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                             }
                         } else {
-                            if (sender.hasPermission("toolspro.gamemode.other")) {
+                            if (sender.hasPermission("toolspro.commands.gamemode.other")) {
                                 Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null) {
                                     if (p.getGamemode() == 2) {
@@ -136,7 +136,7 @@ public class GamemodeCommand extends ToolsProCommand {
                                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                             }
                         } else {
-                            if (sender.hasPermission("toolspro.gamemode.other")) {
+                            if (sender.hasPermission("toolspro.commands.gamemode.other")) {
                                 Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null) {
                                     if (p.getGamemode() == 3) {
@@ -158,10 +158,8 @@ public class GamemodeCommand extends ToolsProCommand {
                         Message.CMD_GAMEMODE_HELP1.print(sender,"prefix:&7[&aGamemode&7]",'9');
                         Message.CMD_GAMEMODE_HELP2.print(sender,"prefix:&e/gm 0 &7-",'a');
                         Message.CMD_GAMEMODE_HELP3.print(sender,"prefix:&e/gm 1 &7-",'a');
-                        if (sender.hasPermission("toolspro.gamemode.other")) {
-                            Message.CMD_GAMEMODE_HELP4.print(sender,"prefix:&e/gm 2 &7-",'a');
-                            Message.CMD_GAMEMODE_HELP4.print(sender,"prefix:&e/gm 3 &7-",'a');
-                        }
+                        Message.CMD_GAMEMODE_HELP4.print(sender,"prefix:&e/gm 2 &7-",'a');
+                        Message.CMD_GAMEMODE_HELP5.print(sender,"prefix:&e/gm 3 &7-",'a');
                         return true;
                     default:
                         return Message.CMD_GAMEMODE_USAGE.print(sender,"prefix:&7[&aGamemode&7]",'a','e',"/gm help");

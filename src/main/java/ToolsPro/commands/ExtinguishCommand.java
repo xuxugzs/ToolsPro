@@ -8,13 +8,13 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class ExtinguishCommand extends ToolsProCommand {
+public class ExtinguishCommand extends Commands {
 
     private ToolsPro plugin;
 
     public ExtinguishCommand(ToolsPro plugin) {
         super("extinguish", Message.CMD_EXTINGUISH_DESCRIPTION, Message.CMD_EXTINGUISH_DESCRIPTION2.toString());
-        this.setPermission("toolspro.commands.extinguish");
+        this.setPermission("toolspro.commands.extinguish.use");
         this.setAliases(new String[] {"ext"});
         this.plugin = plugin;
     }
@@ -24,7 +24,7 @@ public class ExtinguishCommand extends ToolsProCommand {
             sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length != 0) {
-                if (sender.hasPermission("toolspro.extinguish.other")) {
+                if (sender.hasPermission("toolspro.commands.extinguish.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
                     if (p != null) {
                         p.extinguish();

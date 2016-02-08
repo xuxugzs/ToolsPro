@@ -1,10 +1,20 @@
+version: 1
+
 toolspro_loaded: ToolsPro successfully enabled!
 toolspro_disabled: ToolsPro successfully disabled!
 
+toolspro_updater: You have the latest version ToolsPro!
+toolspro_updater_new_version: Available new version of the plugin! ToolsPro v%1%
+toolspro_updater_error: When you search for updates of the plugin's happened error!
+
+toolspro_check_language: Language file %1% is out of date, please update it.
+
+toolspro_check_config: ToolsPro configuration is outdated, please remove config.yml and restart the server!
+
 you_dont_have_permission: You don't have permission to use this command!
 unknown_player: There is not this player!
-you_not_survival: Your game mode is not survival!
-player_not_survival: Game mode player %1% not survival!
+you_not_survival_or_adventure: Your game mode not survival or adventure mode!
+player_not_survival_or_adventure: Game mode player %1% not survival or not adventure mode!
 need_player: Please run this command in game!
 not_number: Please enter right number!
 not_time: Please enter right value of time!
@@ -129,15 +139,15 @@ cmd_god_player_disable_info: Player %1% has disabled god mode to player %2%!
 cmd_god_player_enable_message: You have enabled god mode!
 cmd_god_player_disable_message: You have disabled god mode!
 
-cmd_health_description: Heal yourself or other player.
-cmd_health_description2: /health or /health <player>
-cmd_health_sender: You have been healed!
-cmd_health_sender_max: You are full of life, healing is not required!
-cmd_health_sender_info: Player %1% healed yourself!
-cmd_health_player: You healed the player %1%!
-cmd_health_player_max: The player %1% are full of life, healing is not required!
-cmd_health_player_info: Player %1% healed player %2%!
-cmd_health_player_message: You have been healed!
+cmd_heal_description: Heal yourself or other player.
+cmd_heal_description2: /heal or /heal <player>
+cmd_heal_sender: You have been healed!
+cmd_heal_sender_max: You are full of life, healing is not required!
+cmd_heal_sender_info: Player %1% healed yourself!
+cmd_heal_player: You healed the player %1%!
+cmd_heal_player_max: The player %1% are full of life, healing is not required!
+cmd_heal_player_info: Player %1% healed player %2%!
+cmd_heal_player_message: You have been healed!
 
 cmd_itemban_description: Manages the list of blocked items and blocks.
 cmd_itemban_usage: 'Usage: /item <ban|unban> <ID>'
@@ -183,6 +193,11 @@ cmd_mute_player_message: You have been muted on %1% and now you can't to write m
 
 listener_mute_line1: You have been muted for violation of the chat rules!
 listener_mute_line2: You have been unmuted after %1%
+
+cmd_realname_description: Check the realname of a player.
+cmd_realname_description2: /realname <name>
+cmd_realname_usage: 'Usage: /realname <name>'
+cmd_realname: 'Real name player %1%: %2%'
 
 cmd_repair_description: Repair the item you're holding.
 cmd_repair_successfully_repaired: Item successfully repaired!
@@ -233,6 +248,8 @@ cmd_sudo_cannot_be_sudoed: '%1% cannot be sudoed!'
 cmd_suicide_description: Kill yourself.
 cmd_suicide_message: You have committed suicide!
 
+cmd_toolspro_description: Shows information about the plugin.
+
 cmd_top_description: Teleport to the highest block above you.
 cmd_top_tp_message: Teleporting...
 
@@ -242,8 +259,8 @@ cmd_tree_usage: 'Usage: /tree <oak|spruce|birch|jungle|acacia|darkoak>'
 cmd_unmute_description: Unmute a player.
 cmd_unmute_description2: /unmute <player>
 cmd_unmute_usage: 'Usage: /unmute <player>'
-cmd_unmute_sender: You successful unmuted Player %1%!
-cmd_unmute_player_info: Player %1% unmuted Player %2%!
+cmd_unmute_sender: You successful unmuted player %1%!
+cmd_unmute_player_info: Player %1% unmuted player %2%!
 cmd_unmute_player_message: You saw unmuted and now You can write in chat!
 cmd_unmute_player_not_muted: Player %1% has not been muted!
 
@@ -282,4 +299,4 @@ weeks: ' weeks '
 block_damage_creative: You can't attack the player in creative mode!
 block_damage_fly: You can't attack the player in fly mode!
 block_damage_god: You can't attack the player in god mode!
-block_damage_vansih: You can't attack the player in invisibility!
+block_damage_vanish: You can't attack the player in invisibility!

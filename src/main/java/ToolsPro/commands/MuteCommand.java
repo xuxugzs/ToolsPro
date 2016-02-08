@@ -6,6 +6,7 @@ import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.math.NukkitMath;
 import cn.nukkit.utils.Config;
+import cn.nukkit.utils.TextFormat;
 
 import java.io.File;
 
@@ -13,7 +14,7 @@ import java.io.File;
  * Created by Pub4Game on 21.12.2015.
  */
 
-public class MuteCommand extends ToolsProCommand {
+public class MuteCommand extends Commands {
 
     private ToolsPro plugin;
 
@@ -30,7 +31,6 @@ public class MuteCommand extends ToolsProCommand {
             if (args.length < 2) {
                 Message.CMD_MUTE_USAGE.print(sender, "prefix:&7[&aMute&7]", 'c');
             } else {
-                Config mute = new Config(new File(this.plugin.getDataFolder(), "mute.yml"), Config.YAML);
                 Player p = this.plugin.getServer().getPlayer(args[0]);
                 if (!args[1].matches("^[1-9]+\\d*$")) {
                     Message.NOT_NUMBER.print(sender, "prefix:&7[&aMute&7]", 'c');
@@ -56,16 +56,15 @@ public class MuteCommand extends ToolsProCommand {
                     if (timings > (30 * 86400)) {
                         Message.CMD_MUTE_NO_MORE_30_DAY.print(sender, "prefix:[&aMute&7]", 'c');
                     } else {
-                        mute.set(args[0].toLowerCase(), System.currentTimeMillis() + Math.round(timings * 1000d));
-                        mute.save();
+                        this.plugin.setPlayerMute(args[0], timings);
                         int seconds = NukkitMath.floorDouble(timings % 60);
                         int minutes = NukkitMath.floorDouble((timings % 3600) / 60);
                         int hours = NukkitMath.floorDouble(timings % (3600 * 24) / 3600);
                         int days = NukkitMath.floorDouble(timings / (3600 * 24));
-                        String timemute = days + Message.DAYS.getText('c') +
-                                hours + Message.HOURS.getText('c') +
-                                minutes + Message.MINUTES.getText('c') +
-                                seconds + Message.SECONDS.getText('c');
+                        String timemute = TextFormat.RED + days + Message.DAYS +
+                                hours + Message.HOURS +
+                                minutes + Message.MINUTES +
+                                seconds + Message.SECONDS;
                         if (p instanceof Player) {
                             Message.CMD_MUTE_PLAYER_MESSAGE.print(p, "prefix:&7[&aMute&7]", 'c', timemute);
                         }

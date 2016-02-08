@@ -10,13 +10,13 @@ import cn.nukkit.level.generator.Generator;
  * Created by Pub4Game on 04.02.2016.
  */
 
-public class WorldCommand extends ToolsProCommand {
+public class WorldCommand extends Commands {
 
     private ToolsPro plugin;
 
     public WorldCommand(ToolsPro plugin) {
         super("world", Message.CMD_WORLD_DESCRIPTION, Message.CMD_WORLD_DESCRIPTION.toString());
-        this.setPermission("toolspro.commands.world");
+        this.setPermission("toolspro.commands.world.use");
         this.plugin = plugin;
     }
 
@@ -31,7 +31,7 @@ public class WorldCommand extends ToolsProCommand {
                             if (args.length >= 3){
                                 Player p = this.plugin.getServer().getPlayer(args[2]);
                                 if (p != null) {
-                                    if (sender.hasPermission("toolspro.world.*") && p.hasPermission("toolspro.world.*") || sender.hasPermission("toolspro.world.*") && p.hasPermission("toolspro.world." + args[1].toLowerCase()) || sender.hasPermission("toolspro.world.*")) {
+                                    if (sender.hasPermission("toolspro.commands.world") || sender.hasPermission("toolspro.commands.world.other")) {
                                         if (p.getLevel().getName().equalsIgnoreCase(args[1])) {
                                             Message.CMD_WORLD_TP_PLAYER_ALREADY_IN_THIS_WORLD.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                             return false;
@@ -56,7 +56,7 @@ public class WorldCommand extends ToolsProCommand {
                                 }
                             } else {
                                 if (sender instanceof Player) {
-                                    if (sender.hasPermission("toolspro.world.*") || sender.hasPermission("toolspro.world." + args[1].toLowerCase())) {
+                                    if (sender.hasPermission("toolspro.commands.world") || sender.hasPermission("toolspro.world." + args[1].toLowerCase())) {
                                         if (((Player) sender).getLevel().getName().equalsIgnoreCase(args[1])) {
                                             Message.CMD_WORLD_TP_SENDER_ALREADY_IN_THIS_WORLD.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                             return false;
@@ -84,7 +84,7 @@ public class WorldCommand extends ToolsProCommand {
                         }
                         return true;
                     case "create":
-                        if (sender.hasPermission("toolspro.world.create")) {
+                        if (sender.hasPermission("toolspro.commands.world.create")) {
                             if (args.length >= 2) {
                                 if (!sender.getServer().isLevelGenerated(args[1])) {
                                     long seed = System.currentTimeMillis();

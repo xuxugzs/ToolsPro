@@ -8,13 +8,13 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class ClearHotBarCommand extends ToolsProCommand {
+public class ClearHotBarCommand extends Commands {
 
     private ToolsPro plugin;
 
     public ClearHotBarCommand(ToolsPro plugin) {
         super("clearhotbar", Message.CMD_CLEARHOTBAR_DESCRIPTION, Message.CMD_CLEARHOTBAR_DESCRIPTION2.toString());
-        this.setPermission("toolspro.commands.clearhotbar");
+        this.setPermission("toolspro.commands.clearhotbar.use");
         this.setAliases(new String[]{"chb"});
         this.plugin = plugin;
     }
@@ -24,7 +24,7 @@ public class ClearHotBarCommand extends ToolsProCommand {
             sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length != 0) {
-                if (sender.hasPermission("toolspro.clearhotbar.other")) {
+                if (sender.hasPermission("toolspro.commands.clearhotbar.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
                     if (p != null) {
                         for (int i = 0; i < p.getInventory().getHotbarSize(); i++) {

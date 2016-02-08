@@ -8,13 +8,13 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class GodCommand extends ToolsProCommand {
+public class GodCommand extends Commands {
 
     private ToolsPro plugin;
 
     public GodCommand(ToolsPro plugin) {
         super("god", Message.CMD_GOD_DESCRIPTION, Message.CMD_GOD_DESCRIPTION2.toString());
-        this.setPermission("toolspro.commands.god");
+        this.setPermission("toolspro.commands.god.use");
         this.plugin = plugin;
     }
 
@@ -23,23 +23,21 @@ public class GodCommand extends ToolsProCommand {
             sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length != 0) {
-                if (sender.hasPermission("toolspro.god.other")) {
+                if (sender.hasPermission("toolspro.commands.god.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
                     if (p != null) {
-                        if (p.getGamemode() != 0) {
-                            Message.PLAYER_NOT_SURVIVAL.print(sender, "prefix:&7[&aGodMode&7]", 'c', 'b', p.getName());
+                        if (p.getGamemode() == 1 || p.getGamemode() == 3) {
+                            Message.PLAYER_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aGodMode&7]", 'c', 'b', p.getName());
+                        } else if (this.plugin.getPlayerGodMode(p.getName())) {
+                            this.plugin.removePlayerGodMode(p.getName());
+                            Message.CMD_GOD_PLAYER_DISABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a', 'b', p.getName());
+                            Message.CMD_GOD_PLAYER_DISABLE_MESSAGE.print(p, "prefix:&7[&aGodMode&7]", 'a');
+                            this.plugin.info(sender, Message.CMD_GOD_PLAYER_DISABLE_INFO.getText("prefix:&7[GodMode]", '7', '7', sender.getName(), p.getName()));
                         } else {
-                            if (this.plugin.isGodMode(p.getName())) {
-                                this.plugin.removeGodMode(p.getName());
-                                Message.CMD_GOD_PLAYER_DISABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a', 'b', p.getName());
-                                Message.CMD_GOD_PLAYER_DISABLE_MESSAGE.print(p, "prefix:&7[&aGodMode&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_GOD_PLAYER_DISABLE_INFO.getText("prefix:&7[GodMode]", '7', '7', sender.getName(), p.getName()));
-                            } else {
-                                this.plugin.setGodMode(p.getName());
-                                Message.CMD_GOD_PLAYER_ENABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a', 'b', p.getName());
-                                Message.CMD_GOD_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aGodMode&7]", 'a');
-                                this.plugin.info(sender, Message.CMD_GOD_PLAYER_ENABLE_INFO.getText("prefix:&7[GodMode]", '7', '7', sender.getName(), p.getName()));
-                            }
+                            this.plugin.setPlayerGodMode(p.getName());
+                            Message.CMD_GOD_PLAYER_ENABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a', 'b', p.getName());
+                            Message.CMD_GOD_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aGodMode&7]", 'a');
+                            this.plugin.info(sender, Message.CMD_GOD_PLAYER_ENABLE_INFO.getText("prefix:&7[GodMode]", '7', '7', sender.getName(), p.getName()));
                         }
                     } else {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGodMode&7]", 'c');
@@ -49,18 +47,16 @@ public class GodCommand extends ToolsProCommand {
                 }
             } else {
                 if (sender instanceof Player) {
-                    if (((Player) sender).getGamemode() != 0) {
-                        Message.YOU_NOT_SURVIVAL.print(sender, "prefix:&7[&aGodMode&7]", 'c');
+                    if (((Player) sender).getGamemode() == 1 || ((Player) sender).getGamemode() == 3) {
+                        Message.YOU_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aGodMode&7]", 'c');
+                    } else if (this.plugin.getPlayerGodMode(sender.getName())) {
+                        this.plugin.removePlayerGodMode(sender.getName());
+                        Message.CMD_GOD_SENDER_DISABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a');
+                        this.plugin.info(sender, Message.CMD_GOD_SENDER_DISABLE_INFO.getText("prefix:&7[GodMode]", '7', '7', sender.getName()));
                     } else {
-                        if (this.plugin.isGodMode(sender.getName())) {
-                            this.plugin.removeGodMode(sender.getName());
-                            Message.CMD_GOD_SENDER_DISABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a');
-                            this.plugin.info(sender, Message.CMD_GOD_SENDER_DISABLE_INFO.getText("prefix:&7[GodMode]", '7', '7', sender.getName()));
-                        } else {
-                            this.plugin.setGodMode(sender.getName());
-                            Message.CMD_GOD_SENDER_ENABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a');
-                            this.plugin.info(sender, Message.CMD_GOD_SENDER_ENABLE_INFO.getText("prefix:&7[GodMode]", '7', '7', sender.getName()));
-                        }
+                        this.plugin.setPlayerGodMode(sender.getName());
+                        Message.CMD_GOD_SENDER_ENABLE.print(sender, "prefix:&7[&aGodMode&7]", 'a');
+                        this.plugin.info(sender, Message.CMD_GOD_SENDER_ENABLE_INFO.getText("prefix:&7[GodMode]", '7', '7', sender.getName()));
                     }
                 } else {
                     return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGodMode&7]", 'c');

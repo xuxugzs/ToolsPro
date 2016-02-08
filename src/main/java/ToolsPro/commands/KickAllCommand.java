@@ -9,7 +9,7 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class KickAllCommand extends ToolsProCommand {
+public class KickAllCommand extends Commands {
 
     private ToolsPro plugin;
 

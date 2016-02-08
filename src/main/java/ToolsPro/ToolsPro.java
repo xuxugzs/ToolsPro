@@ -2,8 +2,8 @@ package ToolsPro;
 
 import ToolsPro.commands.*;
 import ToolsPro.listeners.*;
+import ToolsPro.util.*;
 import ToolsPro.listeners.EventListener;
-import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.command.CommandSender;
@@ -21,29 +21,36 @@ import cn.nukkit.nbt.tag.DoubleTag;
 import cn.nukkit.nbt.tag.FloatTag;
 import cn.nukkit.nbt.tag.ListTag;
 import cn.nukkit.plugin.PluginBase;
+import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 
+import java.io.File;
 import java.util.*;
 
 public class ToolsPro extends PluginBase {
 
     private static ToolsPro instance;
-
+    public List<String> forbiddenNames;
+    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
+    private static int LANG_VERSION = 1;
+    private static int CONFIG_VERSION = 1;
+    public Config mute;
     public static ToolsPro getPlugin() {
         return instance;
     }
 
     Set<String> GodPlayers = new HashSet<String>();
     Set<String> SaveInvPlayers = new HashSet<String>();
-    Set<String> HidePlayers = new HashSet<String>();
-    public List<String> forbiddenNames;
-    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
+    Set<String> VanishPlayers = new HashSet<String>();
 
     @Override
     public void onEnable() {
         instance = this;
         this.loadConfig();
         Message.init(this);
+        this.checkConfig();
+        this.checkLanguage();
+        this.checkVersion();
         this.registerCommands();
         this.registerEvents();
         Message.TOOLSPRO_LOADED.log();
@@ -68,13 +75,14 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("gamemode", new GamemodeCommand(this));
         this.getServer().getCommandMap().register("getpos", new GetPosCommand(this));
         this.getServer().getCommandMap().register("god", new GodCommand(this));
-        this.getServer().getCommandMap().register("health", new HealthCommand(this));
+        this.getServer().getCommandMap().register("heal", new HealCommand(this));
         this.getServer().getCommandMap().register("itemban", new ItemBanCommand(this));
         this.getServer().getCommandMap().register("itemdb", new ItemDBCommand(this));
         this.getServer().getCommandMap().register("jump", new JumpCommand(this));
         this.getServer().getCommandMap().register("kickall", new KickAllCommand(this));
         this.getServer().getCommandMap().register("more", new MoreCommand(this));
         this.getServer().getCommandMap().register("mute", new MuteCommand(this));
+        this.getServer().getCommandMap().register("realname", new RealNameCommand(this));
         this.getServer().getCommandMap().register("nuke", new NukeCommand(this));
         this.getServer().getCommandMap().register("repair", new RepairCommand(this));
         this.getServer().getCommandMap().register("saveinv", new SaveInvCommand(this));
@@ -84,10 +92,12 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("speed", new SpeedCommand(this));
         this.getServer().getCommandMap().register("sudo", new SudoCommand(this));
         this.getServer().getCommandMap().register("suicide", new SuicideCommand(this));
+        this.getServer().getCommandMap().register("toolspro", new ToolsProCommand(this));
         this.getServer().getCommandMap().register("top", new TopCommand(this));
         this.getServer().getCommandMap().register("tree", new TreeCommand(this));
         this.getServer().getCommandMap().register("unmute", new UnmuteCommand(this));
         //this.getServer().getCommandMap().register("vanish", new VanishCommand(this));
+        //this.getServer().getCommandMap().register("whois", new WhoIsCommand(this));
         this.getServer().getCommandMap().register("world", new WorldCommand(this));
     }
 
@@ -98,55 +108,126 @@ public class ToolsPro extends PluginBase {
         this.getServer().getPluginManager().registerEvents(new MuteListener(this), this);
     }
 
-    private void loadConfig(){
+    private void checkLanguage() {
+        String DefaultLang = this.getConfig().getString("general.language", "english");
+        Config lang = new Config(new File(this.getDataFolder(), DefaultLang + ".lng"), Config.YAML);
+        if (!DefaultLang.equalsIgnoreCase("russian") && lang.getInt("version") != LANG_VERSION) {
+            Message.TOOLSPRO_CHECK_LANGUAGE.log('c', 'b', DefaultLang + ".lng");
+        }
+    }
+
+    private void checkConfig() {
+        int config = this.getConfig().getInt("general.config-version");
+        if (config != CONFIG_VERSION) {
+            Message.TOOLSPRO_CHECK_CONFIG.log('c');
+        }
+    }
+
+    private void loadConfig() {
         this.saveDefaultConfig();
+        this.mute = new Config(new File(this.getDataFolder(), "mute.yml"));
         try {
             this.forbiddenNames = this.getConfig().getList("forbidden-player-names");
-        } catch (Exception e){
+        } catch (Exception e) {
             this.forbiddenNames = new ArrayList<String>();
         }
+    }
+
+    private void checkVersion() {
+        boolean checkVersion = this.getConfig().getBoolean("updater.enabled", false);
+        if (checkVersion == true) {
+            String version = HttpRequest.sendGet("http://play.surfacecraft.ru/ToolsPro/updater.txt", "");
+            if (!version.equals("") && version.equals(this.getToolsProVersion())) {
+                Message.TOOLSPRO_UPDATER.log();
+            } else if (!version.equals("") && !version.equals(this.getToolsProVersion())) {
+                Message.TOOLSPRO_UPDATER_NEW_VERSION.log('b', 'b', version);
+            } else {
+                Message.TOOLSPRO_UPDATER_ERROR.log('c');
+            }
+        }
+    }
+
+    public String getToolsProName() {
+        return this.getDescription().getName();
+    }
+
+    public String getToolsProVersion() {
+        return this.getDescription().getVersion();
+    }
+
+    public List getToolsProAuthors() {
+        return this.getDescription().getAuthors();
+    }
+
+    public String getToolsProWebSite() {
+        return this.getDescription().getWebsite();
     }
 
     public boolean isRepairable(Item item) {
         return item instanceof ItemTool || item instanceof ItemArmor;
     }
 
-    //Hide
-    public boolean isHide(String name) {
-        return HidePlayers.contains(name.toLowerCase());
+    public boolean getPlayerMute(String name) {
+        return mute.get(name.toLowerCase(), System.currentTimeMillis()) >= System.currentTimeMillis();
     }
 
-    public void setHide(String name) {
-        HidePlayers.add(name.toLowerCase());
+    public boolean existsPlayerMute(String name) {
+        return mute.exists(name.toLowerCase());
     }
 
-    public void removeHide(String name) {
-        if (HidePlayers.contains(name.toLowerCase())) HidePlayers.remove(name.toLowerCase());
+    public void setPlayerMute(String name, double timings) {
+        mute.set(name, System.currentTimeMillis() + Math.round(timings * 1000d));
+        mute.save();
     }
 
-    //SaveInv
-    public boolean isSaveInv(String name) {
+    public void removePlayerMute(String name) {
+        mute.remove(name.toLowerCase());
+        mute.save();
+    }
+
+    public boolean getPlayerVanish(String name) {
+        return VanishPlayers.contains(name.toLowerCase());
+    }
+
+    public void setPlayerVanish(String name) {
+        VanishPlayers.add(name.toLowerCase());
+        Player player = this.getServer().getPlayer(name);
+        for (Player p : this.getServer().getOnlinePlayers().values()){
+            p.hidePlayer(player);
+        }
+    }
+
+    public void removePlayerVanish(String name) {
+        if (VanishPlayers.contains(name.toLowerCase())) {
+            VanishPlayers.remove(name.toLowerCase());
+            Player player = this.getServer().getPlayer(name);
+            for (Player p : this.getServer().getOnlinePlayers().values()){
+                p.showPlayer(player);
+            }
+        }
+    }
+
+    public boolean getPlayerSaveInv(String name) {
         return SaveInvPlayers.contains(name.toLowerCase());
     }
 
-    public void setSaveInv(String name) {
+    public void setPlayerSaveInv(String name) {
         SaveInvPlayers.add(name.toLowerCase());
     }
 
-    public void removeSaveInv(String name) {
+    public void removePlayerSaveInv(String name) {
         if (SaveInvPlayers.contains(name.toLowerCase())) SaveInvPlayers.remove(name.toLowerCase());
     }
 
-    //GodMode
-    public boolean isGodMode(String name) {
+    public boolean getPlayerGodMode(String name) {
         return GodPlayers.contains(name.toLowerCase());
     }
 
-    public void setGodMode(String name) {
+    public void setPlayerGodMode(String name) {
         GodPlayers.add(name.toLowerCase());
     }
 
-    public void removeGodMode(String name) {
+    public void removePlayerGodMode(String name) {
         if (GodPlayers.contains(name.toLowerCase())) GodPlayers.remove(name.toLowerCase());
     }
 
@@ -169,7 +250,7 @@ public class ToolsPro extends PluginBase {
 
     public String join(String [] ln) {
         StringBuilder sb = null;
-        for (String str : ln){
+        for (String str : ln) {
             if (sb == null) sb = new StringBuilder(str);
             else sb.append(" ").append(str);
         }
@@ -182,27 +263,27 @@ public class ToolsPro extends PluginBase {
 
     public static final int [] ANTIOCH_BLOCKS = {Block.AIR, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA};
 
-    public boolean antioch(Player player){
+    public boolean antioch(Player player) {
         tblocks.put(0, ANTIOCH_BLOCKS);
         Block block = player.getTargetBlock(100, tblocks);
-        if(block == null){
+        if (block == null) {
             return false;
         }
         this.createTNT(block.add(0, 1), player.getLevel());
         return true;
     }
 
-    public void nuke(Player player){
-        for (int x = -10; x <= 10; x += 5){
-            for (int z = -10; z <= 10; z += 5){
+    public void nuke(Player player) {
+        for (int x = -10; x <= 10; x += 5) {
+            for (int z = -10; z <= 10; z += 5) {
                 this.createTNT(player.add(x, 0, z), player.getLevel());
             }
         }
     }
 
-    public void createTNT(Vector3 pos, Level level){
-        if (level == null){
-            if (pos instanceof Position){
+    public void createTNT(Vector3 pos, Level level) {
+        if (level == null) {
+            if (pos instanceof Position) {
                 level = ((Position) pos).getLevel();
             } else {
                 return;

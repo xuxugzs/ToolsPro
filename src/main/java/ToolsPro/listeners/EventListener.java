@@ -27,7 +27,7 @@ public class EventListener implements Listener {
         Entity entity = event.getEntity();
         if (entity instanceof Player) {
             String name = ((Player) entity).getName();
-            if (this.plugin.isGodMode(name.toLowerCase())) {
+            if (this.plugin.getPlayerGodMode(name.toLowerCase())) {
                 event.setCancelled();
             }
         }
@@ -48,8 +48,8 @@ public class EventListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         boolean JoinSurvival = this.plugin.getConfig().getBoolean("JoinSurvival", false);
         String name = event.getPlayer().getName();
-        if (event.getPlayer().hasPermission("toolspro.inv.save") && !this.plugin.isSaveInv(name)) {
-            this.plugin.setSaveInv(name);
+        if (event.getPlayer().hasPermission("toolspro.inv.save") && !this.plugin.getPlayerSaveInv(name)) {
+            this.plugin.setPlayerSaveInv(name);
             Message.LISTENER_SAVEINV_JOIN_TO_SERVER.print(((Player) event.getPlayer()), "prefix:&7[&aSaveInv&7]", 'a');
         }
         if (!event.getPlayer().hasPermission("toolspro.savegamemode") && event.getPlayer().getGamemode() != 0 && JoinSurvival == true) {
@@ -69,8 +69,8 @@ public class EventListener implements Listener {
         String name = event.getPlayer().getName();
         Player p = this.plugin.getServer().getPlayer(name);
         if (p instanceof Player) {
-            if (this.plugin.isGodMode(name)) this.plugin.removeGodMode(name);
-            if (this.plugin.isSaveInv(name)) this.plugin.removeSaveInv(name);
+            if (this.plugin.getPlayerGodMode(name)) this.plugin.removePlayerGodMode(name);
+            if (this.plugin.getPlayerSaveInv(name)) this.plugin.removePlayerSaveInv(name);
             /*
             if (this.plugin.isHide(name)) {
                 for (Effect effect : p.getEffects().values()) {
@@ -88,7 +88,7 @@ public class EventListener implements Listener {
         String name = event.getEntity().getName();
         if (entity instanceof Player) {
             if (event.getEntity().hasPermission("toolspro.inv.save")) {
-                if (this.plugin.isSaveInv(name.toLowerCase())) {
+                if (this.plugin.getPlayerSaveInv(name.toLowerCase())) {
                     event.setKeepInventory(true);
                     Message.LISTENER_SAVEINV_DEATH.print(((Player) entity), "prefix:&7[&aSaveInv&7]", 'a');
                 }

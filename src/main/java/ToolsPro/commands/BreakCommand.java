@@ -13,13 +13,13 @@ import java.util.Map;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class BreakCommand extends ToolsProCommand {
+public class BreakCommand extends Commands {
 
     private ToolsPro plugin;
 
     public BreakCommand(ToolsPro plugin) {
         super("break", Message.CMD_BREAK_DESCRIPTION, "/break");
-        this.setPermission("toolspro.commands.break");
+        this.setPermission("toolspro.commands.break.use");
         this.plugin = plugin;
     }
 

@@ -12,7 +12,7 @@ import java.io.File;
 /**
  * Created by Pub4Game on 21.12.2015.
  */
-public class UnmuteCommand extends ToolsProCommand {
+public class UnmuteCommand extends Commands {
 
     private ToolsPro plugin;
 
@@ -27,18 +27,16 @@ public class UnmuteCommand extends ToolsProCommand {
             sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length != 0) {
-                Config mute = new Config(new File(this.plugin.getDataFolder(), "mute.yml"), Config.YAML);
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (!mute.exists(args[0].toLowerCase())) {
-                    Message.CMD_UNMUTE_PLAYER_NOT_MUTED.print(sender, "prefix:&7[&aMute&7]", 'a', 'b', p.getName());
+                if (!this.plugin.existsPlayerMute(args[0])) {
+                    Message.CMD_UNMUTE_PLAYER_NOT_MUTED.print(sender, "prefix:&7[&aMute&7]", 'a', 'b', args[0]);
                 } else {
-                    mute.remove(args[0].toLowerCase());
-                    mute.save();
+                    this.plugin.removePlayerMute(args[0]);
                     if (p instanceof Player) {
                         Message.CMD_UNMUTE_PLAYER_MESSAGE.print(p, "prefix:&7[&aMute&7]", 'c');
                     }
-                    Message.CMD_UNMUTE_SENDER.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', p.getName());
-                    this.plugin.info(sender, Message.CMD_UNMUTE_PLAYER_INFO.getText("prefix:&7[Mute]", '7', '7', sender.getName(), p.getName()));
+                    Message.CMD_UNMUTE_SENDER.print(sender, "prefix:&7[&aHealth&7]", 'a', 'b', args[0]);
+                    this.plugin.info(sender, Message.CMD_UNMUTE_PLAYER_INFO.getText("prefix:&7[Mute]", '7', '7', sender.getName(), args[0]));
                 }
             } else {
                 return Message.CMD_UNMUTE_USAGE.print(sender, "prefix:&7[&aMute&7]", 'c');

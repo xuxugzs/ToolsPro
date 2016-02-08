@@ -6,8 +6,14 @@
 general:
   language: english
   debug-mode: false
+  config-version: 1
 forbidden-player-names:
   - Steve
   - Notch
 JoinSurvival: false
 TellNotice: false
+# Let you configure the size of a stack (/more), it is possible to exceed, if you have permission. (- toolspro.commands.oversizedstacks)
+oversized-stacks: 64
+# Check for a new version of the plugin at server startup
+updater:
+  enabled: true

@@ -9,7 +9,7 @@ import cn.nukkit.level.Location;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class SpawnAllCommand extends ToolsProCommand {
+public class SpawnAllCommand extends Commands {
 
     private ToolsPro plugin;
 

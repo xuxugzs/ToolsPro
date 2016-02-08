@@ -26,11 +26,19 @@ public enum Message {
 	//Default (plugin) message
 	TOOLSPRO_LOADED("ToolsPro успешно загружен!"),
 	TOOLSPRO_DISABLED("ToolsPro успешно выключен!"),
+	//Updater
+	TOOLSPRO_UPDATER("У Вас установлена самая новая версия ToolsPro!"),
+	TOOLSPRO_UPDATER_NEW_VERSION("Доступная новая версия плагина! ToolsPro v%1%"),
+	TOOLSPRO_UPDATER_ERROR("При поиске обновлений плагина произошла ошибка!"),
+	//Check Language
+	TOOLSPRO_CHECK_LANGUAGE("Языковой файл %1% устарел, пожалуйста, обновите его."),
+	//Check Config
+	TOOLSPRO_CHECK_CONFIG("Конфигурация ToolsPro устарела, пожалуйста, удалите config.yml и перезапустите сервер!"),
 	//Error
 	YOU_DONT_HAVE_PERMISSION("У Вас недостаточно прав для использования этой команды!"),
 	UNKNOWN_PLAYER("Такого игрока нет на сервере!"),
-	YOU_NOT_SURVIVAL("Ваш игрокой режим не выживание!"),
-	PLAYER_NOT_SURVIVAL("Игровой режим игрока %1% не выживание!"),
+	YOU_NOT_SURVIVAL_OR_ADVENTURE("Ваш игровой режим не выживание или не режим приключений!"),
+	PLAYER_NOT_SURVIVAL_OR_ADVENTURE("Игровой режим игрока %1% не выживание или не режим приключений!"),
 	NEED_PLAYER("Пожалуйста, используйте эту команду в игре!"),
 	NOT_NUMBER("Пожалуйста, введите верное число!"),
 	NOT_TIME("Пожалуйста, укажите верное значение времени!"),
@@ -155,16 +163,16 @@ public enum Message {
 	CMD_GOD_PLAYER_DISABLE_INFO("Игрок %1% выключил режим бога игроку %2%!"),
 	CMD_GOD_PLAYER_ENABLE_MESSAGE("Вам включили режим бога!"),
 	CMD_GOD_PLAYER_DISABLE_MESSAGE("Вам выключили режим бога!"),
-	//Health Command
-	CMD_HEALTH_DESCRIPTION("Восстанавливает жизни."),
-	CMD_HEALTH_DESCRIPTION2("/health или /health <ник>"),
-	CMD_HEALTH_SENDER("Вы успешно вылечили себя!"),
-	CMD_HEALTH_SENDER_MAX("У Вас полные жизни, лечение не требуется!"),
-	CMD_HEALTH_SENDER_INFO("Игрок %1% вылечил себя!"),
-	CMD_HEALTH_PLAYER("Вы успешно вылечили игрока %1%!"),
-	CMD_HEALTH_PLAYER_MAX("У игрока %1% полные жизни, лечение не требуется!"),
-	CMD_HEALTH_PLAYER_INFO("Игрок %1% вылечил игрока %2%!"),
-	CMD_HEALTH_PLAYER_MESSAGE("Вас успешно вылечили!"),
+	//Heal Command
+	CMD_HEAL_DESCRIPTION("Восстанавливает жизни."),
+	CMD_HEAL_DESCRIPTION2("/heal или /heal <ник>"),
+	CMD_HEAL_SENDER("Вы успешно вылечили себя!"),
+	CMD_HEAL_SENDER_MAX("У Вас полные жизни, лечение не требуется!"),
+	CMD_HEAL_SENDER_INFO("Игрок %1% вылечил себя!"),
+	CMD_HEAL_PLAYER("Вы успешно вылечили игрока %1%!"),
+	CMD_HEAL_PLAYER_MAX("У игрока %1% полные жизни, лечение не требуется!"),
+	CMD_HEAL_PLAYER_INFO("Игрок %1% вылечил игрока %2%!"),
+	CMD_HEAL_PLAYER_MESSAGE("Вас успешно вылечили!"),
 	//ItemBan Command
 	CMD_ITEMBAN_DESCRIPTION("Управляет списком заблокированных вещей."),
 	CMD_ITEMBAN_USAGE("Используйте: /item <ban|unban> <ID>"),
@@ -210,6 +218,11 @@ public enum Message {
 	//Mute Listener
 	LISTENER_MUTE_LINE1("Вы были замучены за нарушение правил чата!"),
 	LISTENER_MUTE_LINE2("Размут через %1%"),
+	//RealName Command
+	CMD_REALNAME_DESCRIPTION("Показывает реальное имя игрока."),
+	CMD_REALNAME_DESCRIPTION2("/realname <ник>"),
+	CMD_REALNAME_USAGE("Используйте: /realname <ник>"),
+	CMD_REALNAME("Реальное имя игрока %1%: %2%"),
 	//Repair Command
 	CMD_REPAIR_DESCRIPTION("Починит инструмент, броню, зачарованный предмет."),
 	CMD_REPAIR_SUCCESSFULLY_REPAIRED("Предмет успешно отремонтирован!"),
@@ -259,6 +272,8 @@ public enum Message {
 	//Suicide Command
 	CMD_SUICIDE_DESCRIPTION("Совершает самоубийство."),
 	CMD_SUICIDE_MESSAGE("Вы покончили жизнь самоубийством!"),
+	//ToolsPro Command
+	CMD_TOOLSPRO_DESCRIPTION("Показывает информацию о плагине."),
 	//Top Command
 	CMD_TOP_DESCRIPTION("Телепортирует вас на самый верхний блок над вашей позицией."),
 	CMD_TOP_TP_MESSAGE("Телепортация..."),
@@ -276,6 +291,9 @@ public enum Message {
 	//Vanish Command
 	CMD_VANISH_DESCRIPTION("Включает/выключает невидимость."),
 	CMD_VANISH_DESCRIPTION2("/vanish или /vanish <ник>"),
+	//WhoIs Command
+	CMD_WHOIS_ENABLED("Включен"),
+	CMD_WHOIS_DISABLED("Выключен"),
 	//World Command
 	CMD_WORLD_DESCRIPTION("Позволяет работать с мирами."),
 	CMD_WORLD_DESCRIPTION2("/world create <название мира> <old|infinite|flat> или /world tp <название мира> <ник>"),
@@ -309,7 +327,7 @@ public enum Message {
 	BLOCK_DAMAGE_CREATIVE("Вы не можете атаковать в креативе!"),
 	BLOCK_DAMAGE_FLY("Вы не можете атаковать в режиме полета!"),
 	BLOCK_DAMAGE_GOD("Вы не можете атаковать в режиме бога!"),
-	BLOCK_DAMAGE_VANSIH("Вы не можете атаковать в режиме невидимости!");
+	BLOCK_DAMAGE_VANISH("Вы не можете атаковать в режиме невидимости!");
 
 	private static boolean debugMode = false;
 	private static String language = "english";
@@ -324,12 +342,11 @@ public enum Message {
 	 * Example:
 	 * Message.BC ("variable 1:",var1,"variable 2:",var2)
 	 */
-	public static void BC(Object... s){
+	public static void BC(Object... s) {
 		if (!debugMode) return;
 		if (s.length == 0) return;
 		StringBuilder sb = new StringBuilder("&3[").append(plugin.getDescription().getName()).append("]&f ");
-		for (Object str : s)
-			sb.append(str.toString()).append(" ");
+		for (Object str : s)sb.append(str.toString()).append(" ");
 		plugin.getServer().broadcastMessage(TextFormat.colorize(sb.toString().trim()));
 	}
 
@@ -343,8 +360,8 @@ public enum Message {
 	 * Message.ERROR_MESSAGE.log(variable1); // just print in log
 	 * return Message.ERROR_MESSAGE.log(variable1); // print in log and return value true
 	 */
-	public boolean log(Object... s){
-		plugin.getLogger().info(getText (s));
+	public boolean log(Object... s) {
+		plugin.getLogger().info(getText(s));
 		return true;
 	}
 
@@ -353,8 +370,8 @@ public enum Message {
 	 * @param s
 	 * @return — always returns true.
 	 */
-	public boolean debug(Object... s){
-		if (debugMode) plugin.getLogger().info(TextFormat.clean(getText (s)));
+	public boolean debug(Object... s) {
+		if (debugMode) plugin.getLogger().info(TextFormat.clean(getText(s)));
 		return true;
 	}
 
@@ -365,16 +382,16 @@ public enum Message {
 	 * @param s
 	 * @return — always returns true.
 	 */
-	public boolean tip(int seconds, CommandSender sender, Object... s){
+	public boolean tip(int seconds, CommandSender sender, Object... s) {
 		if (sender == null) return Message.LNG_PRINT_FAIL.log(this.name());
 		final Player player = sender instanceof Player ? (Player) sender : null;
 		final String message = getText(s);
-		if (player==null) sender.sendMessage(message);
-		else for (int i=0;i<seconds;i++) Server.getInstance().getScheduler().scheduleDelayedTask(new Runnable() {
+		if (player == null) sender.sendMessage(message);
+		else for (int i = 0; i < seconds; i++) Server.getInstance().getScheduler().scheduleDelayedTask(new Runnable() {
 			public void run() {
 				if (player.isOnline()) player.sendTip(message);
 			}
-		},20*i);
+		}, 20*i);
 		return true;
 	}
 
@@ -384,11 +401,11 @@ public enum Message {
 	 * @param s
 	 * @return — always returns true.
 	 */
-	public boolean tip(CommandSender sender, Object... s){
+	public boolean tip(CommandSender sender, Object... s) {
 		if (sender == null) return Message.LNG_PRINT_FAIL.log(this.name());
 		Player player = sender instanceof Player ? (Player) sender : null;
 		String message = getText(s);
-		if (player==null) sender.sendMessage(message);
+		if (player == null) sender.sendMessage(message);
 		else player.sendTip(message);
 		return true;
 	}
@@ -399,7 +416,7 @@ public enum Message {
 	 * @param s
 	 * @return — always returns true.
 	 */
-	public boolean print(CommandSender sender, Object... s){
+	public boolean print(CommandSender sender, Object... s) {
 		if (sender == null) return Message.LNG_PRINT_FAIL.log(this.name());
 		sender.sendMessage(getText(s));
 		return true;
@@ -415,9 +432,9 @@ public enum Message {
 	 * Message.MSG_BROADCAST.broadcast ("pluginname.broadcast"); // send message to all players with permission "pluginname.broadcast"
 	 * Message.MSG_BROADCAST.broadcast (null); // send message to all players
 	 */
-	public boolean broadcast(String permission, Object... s){
-		for (Player player : plugin.getServer().getOnlinePlayers().values()){
-			if (permission==null || player.hasPermission(permission)) print (player,s);
+	public boolean broadcast(String permission, Object... s) {
+		for (Player player : plugin.getServer().getOnlinePlayers().values()) {
+			if (permission == null || player.hasPermission(permission)) print(player,s);
 		}
 		return true;
 	}
@@ -449,20 +466,20 @@ public enum Message {
 	 *
 	 * @return
 	 */
-	public String getText(Object... keys){
+	public String getText(Object... keys) {
 		char [] colors = new char[]{color1 == null ? c1 : color1 , color2 == null ? c2 : color2};
-		if (keys.length ==0) return TextFormat.colorize("&"+ colors[0] +this.message);
+		if (keys.length == 0) return TextFormat.colorize("&" + colors[0] + this.message);
 		String str = this.message;
 		boolean noColors = false;
 		boolean skipDefaultColors = false;
 		boolean fullFloat = false;
 		String prefix = "";
-		int count=1;
+		int count = 1;
 		int c = 0;
 		DecimalFormat fmt = new DecimalFormat("####0.##");
-		for (int i = 0; i<keys.length; i++){
+		for (int i = 0; i < keys.length; i++) {
 			String s = keys[i].toString();
-			if (c<2&&keys[i] instanceof Character){
+			if (c < 2 && keys[i] instanceof Character) {
 				colors[c] = (Character) keys[i];
 				c++;
 				continue;
@@ -472,7 +489,7 @@ public enum Message {
 			} else if (s.equals("SKIPCOLOR")) {
 				skipDefaultColors = true;
 				continue;
-			} else if (s.equals("NOCOLORS")||s.equals("NOCOLOR")) {
+			} else if (s.equals("NOCOLORS") || s.equals("NOCOLOR")) {
 				noColors = true;
 				continue;
 			} else if (s.equals("FULLFLOAT")) {
@@ -480,8 +497,8 @@ public enum Message {
 				continue;
 			} else if (keys[i] instanceof Location) {
 				Location loc = (Location) keys[i];
-				if (fullFloat) s = loc.getLevel().getName()+"["+loc.getX()+", "+loc.getY()+", "+loc.getZ()+"]";
-				else s = loc.getLevel().getName()+"["+fmt.format(loc.getX())+", "+fmt.format(loc.getY())+", "+fmt.format(loc.getZ())+"]";
+				if (fullFloat) s = loc.getLevel().getName() + "[" + loc.getX()+", " + loc.getY() + ", " + loc.getZ() + "]";
+				else s = loc.getLevel().getName() + "[" + fmt.format(loc.getX()) + ", " + fmt.format(loc.getY()) + ", " + fmt.format(loc.getZ()) + "]";
 			} else if (keys[i] instanceof Double || keys[i] instanceof Float) {
 				if (!fullFloat) s = fmt.format((Double) keys[i]);
 			}
@@ -492,33 +509,33 @@ public enum Message {
 			count++;
 		}
 		str = TextFormat.colorize(prefix.isEmpty() ? "&" + colors[0] + str : prefix + " " + "&" + colors[0] + str);
-		if (noColors) str = TextFormat.clean(str);
+		if (noColors)str = TextFormat.clean(str);
 		return str;
 	}
 
-	private void initMessage(String message){
+	private void initMessage(String message) {
 		this.message = message;
 	}
 
 	private String message;
 	private Character color1;
 	private Character color2;
-	Message(String msg){
+	Message(String msg) {
 		message = msg;
 		this.color1 = null;
 		this.color2 = null;
 	}
-	Message(String msg, char color1, char color2){
+	Message(String msg, char color1, char color2) {
 		this.message = msg;
 		this.color1 = color1;
 		this.color2 = color2;
 	}
-	Message(String msg, char color){
-		this (msg,color,color);
+	Message(String msg, char color) {
+		this (msg, color, color);
 	}
 
 	@Override
-	public String toString(){
+	public String toString() {
 		return this.getText("NOCOLOR");
 	}
 
@@ -527,53 +544,49 @@ public enum Message {
 	 * Call this file in onEnable method after initializing plugin configuration
 	 * @param plg
 	 */
-	public static void init(PluginBase plg){
+	public static void init(PluginBase plg) {
 		plugin = plg;
-		language = plg.getConfig().getString("general.language","english");
-		debugMode = plg.getConfig().getBoolean("general.debug-mode",false);
+		language = plg.getConfig().getString("general.language", "english");
+		debugMode = plg.getConfig().getBoolean("general.debug-mode", false);
 		initMessages();
 		saveMessages();
-		LNG_CONFIG.debug(Message.values().length,language,true,debugMode);
+		LNG_CONFIG.debug(Message.values().length, language, true, debugMode);
 	}
 
 	/**
 	 * Enable debugMode
 	 * @param debug
 	 */
-	public static void setDebugMode(boolean debug){
+	public static void setDebugMode(boolean debug) {
 		debugMode = debug;
 	}
 
-	private static boolean copyLanguage(){
-		return plugin.saveResource("lang/" +language+".lng",language+".lng",false);
+	private static boolean copyLanguage() {
+		return plugin.saveResource("lang/" + language + ".lng", language + ".lng", false);
 	}
 
-	private static void initMessages(){
+	private static void initMessages() {
 		copyLanguage();
-
 		Config lng = null;
 		try {
-			File f = new File (plugin.getDataFolder()+File.separator+language+".lng");
-			lng = new Config(f,Config.YAML);
-		} catch (Exception e){
+			lng = new Config(new File(plugin.getDataFolder() + File.separator + language + ".lng"), Config.YAML);
+		} catch (Exception e) {
 			LNG_LOAD_FAIL.log();
 			if (debugMode) e.printStackTrace();
 			return;
 		}
-		for (Message key : Message.values())
-			key.initMessage((String) lng.get(key.name().toLowerCase(), key.message));
+		for (Message key : Message.values()) key.initMessage((String)lng.get(key.name().toLowerCase(), key.message));
 	}
 
-	private static void saveMessages(){
-		File f = new File (plugin.getDataFolder()+File.separator+language+".lng");
-		Config lng = new Config(f,Config.YAML);
+	private static void saveMessages() {
+		Config lng = new Config(new File(plugin.getDataFolder() + File.separator + language + ".lng"), Config.YAML);
 		for (Message key : Message.values())
 			lng.set(key.name().toLowerCase(), key.message);
 		try {
 			lng.save();
-		} catch (Exception e){
+		} catch (Exception e) {
 			LNG_SAVE_FAIL.log();
-			if (debugMode) e.printStackTrace();
+			if (debugMode)e.printStackTrace();
 			return;
 		}
 	}
@@ -582,7 +595,7 @@ public enum Message {
 	 * Send message (formed using join method) to server log if debug mode is enabled
 	 * @param s
 	 */
-	public static boolean debugMessage(Object... s){
+	public static boolean debugMessage(Object... s) {
 		if (debugMode) plugin.getLogger().info(TextFormat.clean(join(s)));
 		return true;
 	}
@@ -591,10 +604,10 @@ public enum Message {
 	 * Join object array to string (separated by space)
 	 * @param s
 	 */
-	public static String join(Object... s){
+	public static String join(Object... s) {
 		StringBuilder sb = new StringBuilder();
-		for (Object o : s){
-			if (sb.length() > 0) sb.append(" ");
+		for (Object o : s) {
+			if (sb.length() > 0)sb.append(" ");
 			sb.append(o.toString());
 		}
 		return sb.toString();

@@ -9,13 +9,13 @@ import cn.nukkit.item.Item;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class MoreCommand extends ToolsProCommand {
+public class MoreCommand extends Commands {
 
     private ToolsPro plugin;
 
     public MoreCommand(ToolsPro plugin) {
         super("more", Message.CMD_MORE_DESCRIPTION, "/more");
-        this.setPermission("toolspro.commands.more");
+        this.setPermission("toolspro.commands.more.use");
         this.plugin = plugin;
     }
 
@@ -24,14 +24,18 @@ public class MoreCommand extends ToolsProCommand {
             sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (sender instanceof Player) {
-                Item item = ((Player) sender).getInventory().getItemInHand();
-                if (item.getId() == Item.AIR) {
-                    Message.CMD_MORE_NO_AIR.print(sender, "prefix:&7[&aMore&7]", 'c');
-                    return false;
+                if (((Player) sender).getGamemode() == 1 || ((Player) sender).getGamemode() == 3) {
+                    Message.YOU_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aMore&7]", 'c');
+                } else {
+                    Item item = ((Player) sender).getInventory().getItemInHand();
+                    if (item.getId() == Item.AIR) {
+                        Message.CMD_MORE_NO_AIR.print(sender, "prefix:&7[&aMore&7]", 'c');
+                        return false;
+                    }
+                    item.setCount(sender.hasPermission("toolspro.commands.more.oversizedstacks") ? (int) this.plugin.getConfig().get("oversized-stacks") : item.getMaxStackSize());
+                    ((Player) sender).getInventory().setItem(((Player) sender).getInventory().getHeldItemIndex(), item);
+                    Message.CMD_MORE_SUCCESSFULLY.print(sender, "prefix:&7[&aMore&7]", item.getCount(), 'a', 'b');
                 }
-                item.setCount(item.getMaxStackSize());
-                ((Player) sender).getInventory().setItem(((Player) sender).getInventory().getHeldItemIndex(), item);
-                Message.CMD_MORE_SUCCESSFULLY.print(sender, "prefix:&7[&aMore&7]", item.getCount(), 'a', 'b');
             } else {
                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aMore&7]", 'c');
             }

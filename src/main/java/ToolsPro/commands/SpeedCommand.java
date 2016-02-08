@@ -9,7 +9,7 @@ import cn.nukkit.potion.Effect;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class SpeedCommand extends ToolsProCommand {
+public class SpeedCommand extends Commands {
 
     private ToolsPro plugin;
 

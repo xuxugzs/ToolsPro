@@ -9,13 +9,13 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 04.02.2016.
  */
-public class GetPosCommand extends ToolsProCommand {
+public class GetPosCommand extends Commands {
 
     private ToolsPro plugin;
 
     public GetPosCommand(ToolsPro plugin) {
         super("getpos", Message.CMD_GETPOS_DESCRIPTION, Message.CMD_GETPOS_DESCRIPTION2.toString());
-        this.setPermission("toolspro.commands.getpos");
+        this.setPermission("toolspro.commands.getpos.use");
         this.plugin = plugin;
     }
 
@@ -24,7 +24,7 @@ public class GetPosCommand extends ToolsProCommand {
             sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
         } else {
             if (args.length != 0) {
-                if (sender.hasPermission("toolspro.getpos.other")) {
+                if (sender.hasPermission("toolspro.commands.getpos.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
                     if (p != null) {
                         sender.sendMessage(TextFormat.AQUA + p.getDisplayName() + TextFormat.GREEN +  Message.CMD_GETPOS_PLAYER + TextFormat.BLUE + p.getLevel().getName() + "\n" + TextFormat.YELLOW + Message.CMD_GETPOS_COORDINATES + TextFormat.GREEN + "X: " + p.getFloorX() + ", " + "Y: " + p.getFloorY() + ", " + "Z: " + p.getFloorZ());

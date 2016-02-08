@@ -9,13 +9,13 @@ import cn.nukkit.level.Location;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class SpawnCommand extends ToolsProCommand {
+public class SpawnCommand extends Commands {
 
     private ToolsPro plugin;
 
     public SpawnCommand(ToolsPro plugin) {
         super("spawn", Message.CMD_SPAWN_DESCRIPTION, "/spawn");
-        this.setPermission("toolspro.commands.spawn");
+        this.setPermission("toolspro.commands.spawn.use");
         this.plugin = plugin;
     }
 
@@ -25,7 +25,7 @@ public class SpawnCommand extends ToolsProCommand {
         } else {
             if (args.length != 0) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (!sender.hasPermission("toolspro.spawn.other")) {
+                if (!sender.hasPermission("toolspro.commands.spawn.other")) {
                     sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
                 } else if (p != null) {
                     ((Player) p).teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));

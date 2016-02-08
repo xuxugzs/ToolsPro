@@ -10,7 +10,7 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class ItemDBCommand extends ToolsProCommand {
+public class ItemDBCommand extends Commands {
 
     private ToolsPro plugin;
 

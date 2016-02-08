@@ -8,7 +8,7 @@ import cn.nukkit.command.CommandSender;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class TopCommand extends ToolsProCommand {
+public class TopCommand extends Commands {
 
     private ToolsPro plugin;
 

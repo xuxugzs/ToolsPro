@@ -16,7 +16,7 @@ import java.util.Map;
  * Created by Pub4Game on 03.02.2016.
  */
 
-public class TreeCommand extends ToolsProCommand {
+public class TreeCommand extends Commands {
 
     private ToolsPro plugin;
 

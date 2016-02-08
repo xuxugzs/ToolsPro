@@ -9,7 +9,7 @@ import cn.nukkit.event.entity.EntityDamageEvent;
 /**
  * Created by Pub4Game on 19.12.2015.
  */
-public class SuicideCommand extends ToolsProCommand {
+public class SuicideCommand extends Commands {
 
     private ToolsPro plugin;
 
