@@ -13,8 +13,8 @@ toolspro_check_config: ToolsPro configuration is outdated, please remove config.
 
 you_dont_have_permission: 您没有使用此命令的权限！
 unknown_player: 玩家未找到！
-you_not_survival_or_adventure: Your game mode not survival or adventure mode!
-player_not_survival_or_adventure: Game mode player %1% not survival or adventure mode!
+you_not_survival_or_adventure: Your game mode not survival or not adventure mode!
+player_not_survival_or_adventure: Game mode player %1% not survival or not adventure mode!
 need_player: 请在游戏中运行这个命令！
 not_number: 请输入正确的数字！
 not_time: 请输入正确的时间！

@@ -25,7 +25,7 @@ public class RealNameCommand extends Commands {
             if (args.length > 0) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
                 if (p != null) {
-                    Message.CMD_REALNAME.print(sender, "prefix:&7[&aRealName&7]", 'a', 'b', p.getDisplayName().endsWith("s") ? p.getDisplayName().substring(0, p.getDisplayName().length()-1) + "'s" : p.getDisplayName() + "'s", p.getName());
+                    Message.CMD_REALNAME.print(sender, "prefix:&7[&aRealName&7]", 'a', 'b', p.getDisplayName().endsWith("s") ? p.getDisplayName().substring(0, p.getDisplayName().length() - 1) + "'s" : p.getDisplayName() + "'s", p.getName());
                 } else {
                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aRealName&7]", 'c');
                 }

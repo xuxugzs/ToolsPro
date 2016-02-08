@@ -4,8 +4,6 @@ import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
-import cn.nukkit.potion.Effect;
-import cn.nukkit.inventory.Inventory;
 import cn.nukkit.utils.TextFormat;
 
 /**

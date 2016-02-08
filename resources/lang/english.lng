@@ -13,7 +13,7 @@ toolspro_check_config: ToolsPro configuration is outdated, please remove config.
 
 you_dont_have_permission: You don't have permission to use this command!
 unknown_player: There is not this player!
-you_not_survival_or_adventure: Your game mode not survival or adventure mode!
+you_not_survival_or_adventure: Your game mode not survival or not adventure mode!
 player_not_survival_or_adventure: Game mode player %1% not survival or not adventure mode!
 need_player: Please run this command in game!
 not_number: Please enter right number!
