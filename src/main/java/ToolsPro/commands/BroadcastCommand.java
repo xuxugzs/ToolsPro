@@ -21,7 +21,7 @@ public class BroadcastCommand extends Commands {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else if (args.length != 0) {
             sender.getServer().broadcastMessage(TextFormat.colorize("&d[Broadcast] &r" + this.plugin.join(args)));
         } else {

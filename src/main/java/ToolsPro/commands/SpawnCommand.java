@@ -21,12 +21,12 @@ public class SpawnCommand extends Commands {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             if (args.length != 0) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
                 if (!sender.hasPermission("toolspro.commands.spawn.other")) {
-                    sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+                    return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 } else if (p != null) {
                     ((Player) p).teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));
                     Message.CMD_SPAWN_TP_PLAYER_MESSAGE.print(p, "prefix:&7[&aSpawn&7]", 'a');

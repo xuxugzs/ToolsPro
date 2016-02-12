@@ -5,7 +5,6 @@ import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.item.Item;
-import cn.nukkit.utils.TextFormat;
 
 /**
  * Created by Pub4Game on 19.12.2015.
@@ -22,7 +21,7 @@ public class RepairCommand extends Commands {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             if (sender instanceof Player) {
                 if (args.length != 0) {
@@ -36,7 +35,7 @@ public class RepairCommand extends Commands {
                                     }
                                 }
                             } else {
-                                sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+                                return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                             }
                             Message.CMD_REPAIR_ALL_SUCCESSFULLY_REPAIRED.print(sender, "prefix:&7[&aRepair&7]", 'a');
                             if (sender.hasPermission("toolspro.commands.repair.armor")) {

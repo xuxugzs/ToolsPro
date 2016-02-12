@@ -20,7 +20,7 @@ public class SetSpawnCommand extends Commands {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             if (sender instanceof Player) {
                 ((Player) sender).getLevel().setSpawnLocation(((Player) sender));

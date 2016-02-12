@@ -26,8 +26,7 @@ public class EventListener implements Listener {
     public void onGodMode(EntityDamageEvent event) {
         Entity entity = event.getEntity();
         if (entity instanceof Player) {
-            String name = ((Player) entity).getName();
-            if (this.plugin.getPlayerGodMode(name.toLowerCase())) {
+            if (this.plugin.getPlayerGodMode((Player) entity)) {
                 event.setCancelled();
             }
         }
@@ -36,7 +35,7 @@ public class EventListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPreLogin(PlayerPreLoginEvent event) {
         String name = event.getPlayer().getName();
-        for (String s : plugin.forbiddenNames) {
+        for (String s : this.plugin.forbiddenNames) {
             if (s.equalsIgnoreCase(name)) {
                 event.setKickMessage(Message.BLOCKED_NICK.getText('c'));
                 event.setCancelled();
@@ -47,42 +46,33 @@ public class EventListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPlayerJoin(PlayerJoinEvent event) {
         boolean JoinSurvival = this.plugin.getConfig().getBoolean("JoinSurvival", false);
-        String name = event.getPlayer().getName();
-        if (event.getPlayer().hasPermission("toolspro.inv.save") && !this.plugin.getPlayerSaveInv(name)) {
-            this.plugin.setPlayerSaveInv(name);
-            Message.LISTENER_SAVEINV_JOIN_TO_SERVER.print(((Player) event.getPlayer()), "prefix:&7[&aSaveInv&7]", 'a');
+        Player player = event.getPlayer();
+        this.plugin.joinSession(player);
+        if (!player.hasPermission("toolspro.savegamemode") && player.getGamemode() != 0 && JoinSurvival == true) {
+            player.setGamemode(0);
+            Message.LISTENER_JOIN_SURVIVAL.print(((Player) player), "prefix:&7[&aGM&7]", 'a');
         }
-        if (!event.getPlayer().hasPermission("toolspro.savegamemode") && event.getPlayer().getGamemode() != 0 && JoinSurvival == true) {
-            event.getPlayer().setGamemode(0);
-            Message.LISTENER_JOIN_SURVIVAL.print(((Player) event.getPlayer()), "prefix:&7[&aGM&7]", 'a');
+        for (Player p : Server.getInstance().getOnlinePlayers().values()) {
+            if (this.plugin.getPlayerVanish(player)) p.hidePlayer(player);
+            if (this.plugin.getPlayerVanish(p)) player.hidePlayer(p);
         }
-        for (Player p : Server.getInstance().getOnlinePlayers().values()){
-            if (plugin.getPlayerVanish(p.getName())) event.getPlayer().hidePlayer(p);
-        }
-
-
     }
+
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPlayerQuit(PlayerQuitEvent event) {
         String name = event.getPlayer().getName();
         Player p = this.plugin.getServer().getPlayer(name);
-        if (p instanceof Player) {
-            if (this.plugin.getPlayerGodMode(name)) this.plugin.removePlayerGodMode(name);
-            if (this.plugin.getPlayerSaveInv(name)) this.plugin.removePlayerSaveInv(name);
-        }
+        this.plugin.quitSession(p);
     }
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPlayerDeath(PlayerDeathEvent event) {
         Entity entity = event.getEntity();
-        String name = event.getEntity().getName();
         if (entity instanceof Player) {
-            if (event.getEntity().hasPermission("toolspro.inv.save")) {
-                if (this.plugin.getPlayerSaveInv(name.toLowerCase())) {
-                    event.setKeepInventory(true);
-                    Message.LISTENER_SAVEINV_DEATH.print(((Player) entity), "prefix:&7[&aSaveInv&7]", 'a');
-                }
+            if (this.plugin.getPlayerSaveInv((Player) entity)) {
+                event.setKeepInventory(true);
+                Message.LISTENER_SAVEINV_DEATH.print(((Player) entity), "prefix:&7[&aSaveInv&7]", 'a');
             }
         }
     }

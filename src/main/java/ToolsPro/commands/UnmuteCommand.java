@@ -20,14 +20,14 @@ public class UnmuteCommand extends Commands {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             if (args.length != 0) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (!this.plugin.existsPlayerMute(args[0])) {
+                if (!this.plugin.existsPlayerMute(p)) {
                     Message.CMD_UNMUTE_PLAYER_NOT_MUTED.print(sender, "prefix:&7[&aMute&7]", 'a', 'b', args[0]);
                 } else {
-                    this.plugin.removePlayerMute(args[0]);
+                    this.plugin.removePlayerMute(p);
                     if (p instanceof Player) {
                         Message.CMD_UNMUTE_PLAYER_MESSAGE.print(p, "prefix:&7[&aMute&7]", 'c');
                     }

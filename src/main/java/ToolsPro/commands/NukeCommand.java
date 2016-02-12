@@ -20,7 +20,7 @@ public class NukeCommand extends Commands {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             Player p;
             if (args.length != 0){
@@ -30,7 +30,7 @@ public class NukeCommand extends Commands {
                         return Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aNuke&7]", 'c');
                     }
                 } else {
-                    sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+                    return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }
             } else {
                 p = this.plugin.getServer().getPlayer(sender.getName());

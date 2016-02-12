@@ -19,10 +19,10 @@ public class CommandListener implements Listener {
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
         Player player = event.getPlayer();
         String[] cmd = event.getMessage().split(" ");
-        Player p = this.plugin.getServer().getPlayer(cmd[1]);
         boolean TellNotice = this.plugin.getConfig().getBoolean("TellNotice", false);
-        if (cmd[0].equalsIgnoreCase("/tell") && cmd[1] != null && TellNotice == true){ // :D
+        if (cmd[0].equalsIgnoreCase("/tell") && cmd[1] != null && TellNotice){ // :D
             String msg = "";
+            Player p = this.plugin.getServer().getPlayer(cmd[1]);
             for (int i = 2; i < cmd.length; i++) {
                 msg += cmd[i] + " ";
             }

@@ -20,7 +20,7 @@ public class ToolsProCommand extends Commands {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             sender.sendMessage(TextFormat.colorize("&7[&aInfo&7] &a" + this.plugin.getToolsProName() + " &bv" + this.plugin.getToolsProVersion()));
             sender.sendMessage(TextFormat.colorize("&eAuthor: &c" + this.plugin.getToolsProAuthors()));

@@ -21,7 +21,7 @@ public class GamemodeCommand extends Commands {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             if (args.length != 0) {
                 switch (args[0]) {
@@ -44,7 +44,7 @@ public class GamemodeCommand extends Commands {
                                 if (p != null) {
                                     if (p.getGamemode() == 0) {
                                         Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_SURVIVAL_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
-                                        return true;
+                                        return false;
                                     }
                                     p.setGamemode(0);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SURVIVAL.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
@@ -54,7 +54,7 @@ public class GamemodeCommand extends Commands {
                                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                                 }
                             } else {
-                                sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+                                return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                             }
                         }
                         return true;
@@ -76,7 +76,8 @@ public class GamemodeCommand extends Commands {
                                 Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null) {
                                     if (p.getGamemode() == 1) {
-                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_CREATIVE_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
+                                        Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_CREATIVE_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
+                                        return false;
                                     }
                                     p.setGamemode(1);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_CREATIVE.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
@@ -86,7 +87,7 @@ public class GamemodeCommand extends Commands {
                                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                                 }
                             } else {
-                                sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+                                return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                             }
                         }
                         return true;
@@ -108,7 +109,8 @@ public class GamemodeCommand extends Commands {
                                 Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null) {
                                     if (p.getGamemode() == 2) {
-                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_ADVENTURE_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
+                                        Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_ADVENTURE_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
+                                        return false;
                                     }
                                     p.setGamemode(2);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_ADVENTURE.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
@@ -118,7 +120,7 @@ public class GamemodeCommand extends Commands {
                                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                                 }
                             } else {
-                                sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+                                return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                             }
                         }
                         return true;
@@ -140,7 +142,8 @@ public class GamemodeCommand extends Commands {
                                 Player p = this.plugin.getServer().getPlayer(args[1]);
                                 if (p != null) {
                                     if (p.getGamemode() == 3) {
-                                        return Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_SPECTATOR_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
+                                        Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_SPECTATOR_MODE.print(sender, "prefix:&7[&aGamemode&7]", 'c', 'b', p.getName());
+                                        return false;
                                     }
                                     p.setGamemode(3);
                                     Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_TO_SPECTATOR.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'b', p.getName());
@@ -150,7 +153,7 @@ public class GamemodeCommand extends Commands {
                                     Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
                                 }
                             } else {
-                                sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+                                return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                             }
                         }
                         return true;

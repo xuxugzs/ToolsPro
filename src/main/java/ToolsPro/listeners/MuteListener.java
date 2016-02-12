@@ -24,8 +24,8 @@ public class MuteListener implements Listener {
     public void onChat(PlayerChatEvent event) {
         Config mute = new Config(new File(this.plugin.getDataFolder(), "mute.yml"), Config.YAML);
         Player player = event.getPlayer();
-        if (this.plugin.existsPlayerMute(player.getName())) {
-            if (this.plugin.getPlayerMute(player.getName())) {
+        if (this.plugin.existsPlayerMute(player)) {
+            if (this.plugin.getPlayerMute(player)) {
                 long time = (mute.get(player.getName().toLowerCase(), System.currentTimeMillis()) - System.currentTimeMillis()) / 1000;
                 int seconds = NukkitMath.floorDouble(time % 60);
                 int minutes = NukkitMath.floorDouble((time % 3600) / 60);
@@ -39,7 +39,7 @@ public class MuteListener implements Listener {
                 Message.LISTENER_MUTE_LINE2.print(player, "prefix:&7[&aMute&7]", 'c', '4', timemute);
                 event.setCancelled();
             } else {
-               this.plugin.removePlayerMute(player.getName());
+               this.plugin.removePlayerMute(player);
             }
         }
     }

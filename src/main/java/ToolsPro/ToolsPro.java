@@ -39,6 +39,7 @@ public class ToolsPro extends PluginBase {
         return instance;
     }
 
+    Set<String> FlyPlayers = new HashSet<String>();
     Set<String> GodPlayers = new HashSet<String>();
     Set<String> SaveInvPlayers = new HashSet<String>();
     Set<String> VanishPlayers = new HashSet<String>();
@@ -96,12 +97,13 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("top", new TopCommand(this));
         this.getServer().getCommandMap().register("tree", new TreeCommand(this));
         this.getServer().getCommandMap().register("unmute", new UnmuteCommand(this));
-        //this.getServer().getCommandMap().register("vanish", new VanishCommand(this));
+        this.getServer().getCommandMap().register("vanish", new VanishCommand(this));
         //this.getServer().getCommandMap().register("whois", new WhoIsCommand(this));
         this.getServer().getCommandMap().register("world", new WorldCommand(this));
     }
 
     private void registerEvents() {
+        this.getServer().getPluginManager().registerEvents(new CommandListener(this), this);
         this.getServer().getPluginManager().registerEvents(new DamageListener(this), this);
         this.getServer().getPluginManager().registerEvents(new EventListener(this), this);
         this.getServer().getPluginManager().registerEvents(new ItemBanListener(this), this);
@@ -135,11 +137,11 @@ public class ToolsPro extends PluginBase {
 
     private void checkVersion() {
         boolean checkVersion = this.getConfig().getBoolean("updater.enabled", false);
-        if (checkVersion == true) {
+        if (checkVersion) {
             String version = HttpRequest.sendGet("http://play.surfacecraft.ru/ToolsPro/updater.txt", "");
-            if (!version.equals("") && version.equals(this.getToolsProVersion())) {
+            if (!version.isEmpty() && version.equals(this.getToolsProVersion())) {
                 Message.TOOLSPRO_UPDATER.log();
-            } else if (!version.equals("") && !version.equals(this.getToolsProVersion())) {
+            } else if (!version.isEmpty() && !version.equals(this.getToolsProVersion())) {
                 Message.TOOLSPRO_UPDATER_NEW_VERSION.log('b', 'b', version);
             } else {
                 Message.TOOLSPRO_UPDATER_ERROR.log('c');
@@ -167,68 +169,111 @@ public class ToolsPro extends PluginBase {
         return item instanceof ItemTool || item instanceof ItemArmor;
     }
 
-    public boolean getPlayerMute(String name) {
-        return mute.get(name.toLowerCase(), System.currentTimeMillis()) >= System.currentTimeMillis();
+    public boolean getPlayerFly(Player player) {
+        return FlyPlayers.contains(player.getName().toLowerCase());
     }
 
-    public boolean existsPlayerMute(String name) {
-        return mute.exists(name.toLowerCase());
+    public void setPlayerFly(Player player) {
+        FlyPlayers.add(player.getName().toLowerCase());
+        player.setAllowFlight(true);
     }
 
-    public void setPlayerMute(String name, double timings) {
-        mute.set(name, System.currentTimeMillis() + Math.round(timings * 1000d));
+    public void removePlayerFly(Player player) {
+        if (FlyPlayers.contains(player.getName().toLowerCase())) {
+            FlyPlayers.remove(player.getName().toLowerCase());
+            player.setAllowFlight(false);
+        }
+    }
+
+    public boolean getPlayerGodMode(Player player) {
+        return GodPlayers.contains(player.getName().toLowerCase());
+    }
+
+    public void setPlayerGodMode(Player player) {
+        GodPlayers.add(player.getName().toLowerCase());
+    }
+
+    public void removePlayerGodMode(Player player) {
+        if (GodPlayers.contains(player.getName().toLowerCase())) GodPlayers.remove(player.getName().toLowerCase());
+    }
+
+    public boolean getPlayerMute(Player player) {
+        return mute.get(player.getName().toLowerCase(), System.currentTimeMillis()) >= System.currentTimeMillis();
+    }
+
+    public boolean existsPlayerMute(Player player) {
+        return mute.exists(player.getName().toLowerCase());
+    }
+
+    public void setPlayerMute(Player player, double timings) {
+        mute.set(player.getName().toLowerCase(), System.currentTimeMillis() + Math.round(timings * 1000d));
         mute.save();
     }
 
-    public void removePlayerMute(String name) {
-        mute.remove(name.toLowerCase());
+    public void removePlayerMute(Player player) {
+        mute.remove(player.getName().toLowerCase());
         mute.save();
     }
 
-    public boolean getPlayerVanish(String name) {
-        return VanishPlayers.contains(name.toLowerCase());
+    public boolean getPlayerSaveInv(Player player) {
+        return SaveInvPlayers.contains(player.getName().toLowerCase());
     }
 
-    public void setPlayerVanish(String name) {
-        VanishPlayers.add(name.toLowerCase());
-        Player player = this.getServer().getPlayer(name);
+    public void setPlayerSaveInv(Player player) {
+        SaveInvPlayers.add(player.getName().toLowerCase());
+    }
+
+    public void removePlayerSaveInv(Player player) {
+        if (SaveInvPlayers.contains(player.getName().toLowerCase())) SaveInvPlayers.remove(player.getName().toLowerCase());
+    }
+
+    public boolean getPlayerVanish(Player player) {
+        return VanishPlayers.contains(player.getName().toLowerCase());
+    }
+
+    public void setPlayerVanish(Player player) {
+        VanishPlayers.add(player.getName().toLowerCase());
         for (Player p : this.getServer().getOnlinePlayers().values()){
             p.hidePlayer(player);
         }
     }
 
-    public void removePlayerVanish(String name) {
-        if (VanishPlayers.contains(name.toLowerCase())) {
-            VanishPlayers.remove(name.toLowerCase());
-            Player player = this.getServer().getPlayer(name);
+    public void removePlayerVanish(Player player) {
+        if (VanishPlayers.contains(player.getName().toLowerCase())) {
+            VanishPlayers.remove(player.getName().toLowerCase());
             for (Player p : this.getServer().getOnlinePlayers().values()){
                 p.showPlayer(player);
             }
         }
     }
 
-    public boolean getPlayerSaveInv(String name) {
-        return SaveInvPlayers.contains(name.toLowerCase());
+    public String joinMessage(boolean join, String msg, String fullmsg){
+        if (!join) return fullmsg;
+        return fullmsg.isEmpty() ? msg : fullmsg + ", " + msg;
     }
 
-    public void setPlayerSaveInv(String name) {
-        SaveInvPlayers.add(name.toLowerCase());
+    public void joinSession(Player player){
+        String msg;
+        if (this.getPlayerFly(player)) player.setAllowFlight(true);
+        msg = joinMessage(this.getPlayerFly(player), Message.JOIN_SESSION_FLY.getText('b'), "");
+        msg = joinMessage(this.getPlayerGodMode(player), Message.JOIN_SESSION_GOD.getText('c'), msg);
+        msg = joinMessage(this.getPlayerSaveInv(player), Message.JOIN_SESSION_SAVEINV.getText('6'), msg);
+        msg = joinMessage(this.getPlayerVanish(player), Message.JOIN_SESSION_VANISH.getText('e'), msg);
+        if (!msg.isEmpty()) Message.JOIN_SESSION.print(player, "prefix:&7[&aSession&7]", 'a', msg);
     }
 
-    public void removePlayerSaveInv(String name) {
-        if (SaveInvPlayers.contains(name.toLowerCase())) SaveInvPlayers.remove(name.toLowerCase());
+    private void Ana(Player player, String name) {
+        //I'M SORRY, BUT IT'S TOO HARD FOR ME.
     }
 
-    public boolean getPlayerGodMode(String name) {
-        return GodPlayers.contains(name.toLowerCase());
-    }
-
-    public void setPlayerGodMode(String name) {
-        GodPlayers.add(name.toLowerCase());
-    }
-
-    public void removePlayerGodMode(String name) {
-        if (GodPlayers.contains(name.toLowerCase())) GodPlayers.remove(name.toLowerCase());
+    public void quitSession(Player player){
+        boolean session = this.getConfig().getBoolean("session", false);
+        if (!session) {
+            if (this.getPlayerFly(player)) this.removePlayerFly(player);
+            if (this.getPlayerGodMode(player)) this.removePlayerGodMode(player);
+            if (this.getPlayerSaveInv(player)) this.removePlayerSaveInv(player);
+            if (this.getPlayerVanish(player)) this.removePlayerVanish(player);
+        }
     }
 
     public void info(CommandSender sender, String message) {

@@ -291,6 +291,16 @@ public enum Message {
 	//Vanish Command
 	CMD_VANISH_DESCRIPTION("Включает/выключает невидимость."),
 	CMD_VANISH_DESCRIPTION2("/vanish или /vanish <ник>"),
+	CMD_VANISH_SENDER_ENABLE("Вы успешно включили невидимость!"),
+	CMD_VANISH_SENDER_DISABLE("Вы успешно выключили невидимость!"),
+	CMD_VANISH_SENDER_ENABLE_INFO("Игрок %1% включил себе невидимость!"),
+	CMD_VANISH_SENDER_DISABLE_INFO("Игрок %1% выключил себе невидимость!"),
+	CMD_VANISH_PLAYER_ENABLE("Невидимость игроку %1% успешно включена!"),
+	CMD_VANISH_PLAYER_DISABLE("Невидимость игроку %1% успешно выключена!"),
+	CMD_VANISH_PLAYER_ENABLE_INFO("Игрок %1% включил невидимость игроку %2%!"),
+	CMD_VANISH_PLAYER_DISABLE_INFO("Игрок %1% выключил невидимость игроку %2%!"),
+	CMD_VANISH_PLAYER_ENABLE_MESSAGE("Вам включили невидимость!"),
+	CMD_VANISH_PLAYER_DISABLE_MESSAGE("Вам выключили невидимость!"),
 	//WhoIs Command
 	CMD_WHOIS_ENABLED("Включен"),
 	CMD_WHOIS_DISABLED("Выключен"),
@@ -323,11 +333,17 @@ public enum Message {
 	HOURS(" часов "),
 	DAYS(" дней "),
 	WEEKS(" недель "),
-	//Player Attack Listener
+	//Damage Listener
 	BLOCK_DAMAGE_CREATIVE("Вы не можете атаковать в креативе!"),
 	BLOCK_DAMAGE_FLY("Вы не можете атаковать в режиме полета!"),
 	BLOCK_DAMAGE_GOD("Вы не можете атаковать в режиме бога!"),
-	BLOCK_DAMAGE_VANISH("Вы не можете атаковать в режиме невидимости!");
+	BLOCK_DAMAGE_VANISH("Вы не можете атаковать в режиме невидимости!"),
+	//Session
+	JOIN_SESSION("У Вас включены следующие возможности: %1%"),
+	JOIN_SESSION_FLY("полет"),
+	JOIN_SESSION_GOD("режим бога"),
+	JOIN_SESSION_SAVEINV("сохранение инвентаря"),
+	JOIN_SESSION_VANISH("невидимость");
 
 	private static boolean debugMode = false;
 	private static String language = "english";

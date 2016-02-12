@@ -21,7 +21,7 @@ public class ClearHotBarCommand extends Commands {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.commands.clearhotbar.other")) {
@@ -36,7 +36,7 @@ public class ClearHotBarCommand extends Commands {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'c');
                     }
                 } else {
-                    sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+                    return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }
             } else {
                 if (sender instanceof Player) {

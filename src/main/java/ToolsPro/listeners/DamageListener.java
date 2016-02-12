@@ -28,17 +28,17 @@ public class DamageListener implements Listener {
                     event.setCancelled();
                     return;
                 }
-                if ((((Player) player).getAllowFlight() == true)) {
+                if (this.plugin.getPlayerFly((Player) player)) {
                     Message.BLOCK_DAMAGE_FLY.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                if ((this.plugin.getPlayerGodMode(((Player) player).getName()))) {
+                if (this.plugin.getPlayerGodMode((Player) player)) {
                     Message.BLOCK_DAMAGE_GOD.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                if (this.plugin.getPlayerVanish(((Player) player).getName())) {
+                if (this.plugin.getPlayerVanish((Player) player)) {
                     Message.BLOCK_DAMAGE_VANISH.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;

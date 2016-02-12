@@ -265,8 +265,18 @@ cmd_unmute_player_info: 玩家 %1% 成功解除了玩家 %2%!
 cmd_unmute_player_message: 您已被解除禁言并且可以说话了!
 cmd_unmute_player_not_muted: 玩家 %1% 并没有被禁言!
 
-cmd_vanish_description: 让自己或其他玩家隐身.
-cmd_vanish_description2: /vanish 或 /vanish <玩家>
+cmd_vanish_description: Hide from other players.
+cmd_vanish_description2: /vanish or /vanish <player>
+cmd_vanish_sender_enable: You have successfully enabled invisibility!
+cmd_vanish_sender_disable: You have successfully disabled invisibility!
+cmd_vanish_sender_enable_info: Player %1% enabled myself invisibility!
+cmd_vanish_sender_disable_info: Player %1% disabled myself invisibility!
+cmd_vanish_player_enable: Invisibility to the player %1% has been successfully enabled!
+cmd_vanish_player_disable: Invisibility to the player %1% has been successfully disabled!
+cmd_vanish_player_enable_info: Player %1% has enabled invisibility player %2%!
+cmd_vanish_player_disable_info: Player %1% has disabled invisibility player %2%!
+cmd_vanish_player_enable_message: You have enabled invisibility!
+cmd_vanish_player_disable_message: You have disabled invisibility!
 
 cmd_world_description: 多世界的相关控制命令.
 cmd_world_description2: /world create <世界名> <old|infinite|flat> 或 /world tp <世界名> <玩家名r>
@@ -301,3 +311,9 @@ block_damage_creative: 你不可以在创造模式下攻击玩家!
 block_damage_fly: 你不能在飞行模式下攻击玩家!
 block_damage_god: 你不能在上帝模式下攻击玩家!
 block_damage_vanish: 你不能在隐行模式下攻击玩家!
+
+join_session: 'You have the opportunities: %1%'
+join_session_fly: fly
+join_session_god: god mode
+join_session_saveinv: saveinv
+join_session_vanish: vanish

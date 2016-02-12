@@ -15,47 +15,47 @@ public class WorldCommand extends Commands {
     private ToolsPro plugin;
 
     public WorldCommand(ToolsPro plugin) {
-        super("world", Message.CMD_WORLD_DESCRIPTION, Message.CMD_WORLD_DESCRIPTION.toString());
+        super("world", Message.CMD_WORLD_DESCRIPTION, Message.CMD_WORLD_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.world.use");
         this.plugin = plugin;
     }
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {
-            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+            Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             if (args.length >= 1) {
                 switch (args[0]) {
                     case "tp":
-                        if (args.length >= 2) {
-                            if (args.length >= 3){
-                                Player p = this.plugin.getServer().getPlayer(args[2]);
-                                if (p != null) {
-                                    if (sender.hasPermission("toolspro.commands.world") || sender.hasPermission("toolspro.commands.world.other")) {
-                                        if (p.getLevel().getName().equalsIgnoreCase(args[1])) {
-                                            Message.CMD_WORLD_TP_PLAYER_ALREADY_IN_THIS_WORLD.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                        if (args.length == 3){
+                            Player p = this.plugin.getServer().getPlayer(args[2]);
+                            if (p != null) {
+                                if (sender.hasPermission("toolspro.commands.world") || sender.hasPermission("toolspro.commands.world.other")) {
+                                    if (p.getLevel().getName().equalsIgnoreCase(args[1])) {
+                                        Message.CMD_WORLD_TP_PLAYER_ALREADY_IN_THIS_WORLD.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                                        return false;
+                                    } else if (!p.getServer().isLevelGenerated(args[1])) {
+                                        Message.CMD_WORLD_TP_NOT_FOUND.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                                        return false;
+                                    } else if (!p.getServer().isLevelLoaded(args[1])) {
+                                        Message.CMD_WORLD_TP_NOT_LOADED.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                                        if (!p.getServer().loadLevel(args[1])) {
+                                            Message.CMD_WORLD_TP_ERROR_LOADING.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                             return false;
-                                        } else if (!p.getServer().isLevelGenerated(args[1])) {
-                                            Message.CMD_WORLD_TP_NOT_FOUND.print(sender, "prefix:&7[&aWorld&7]", 'c');
-                                            return false;
-                                        } else if (!p.getServer().isLevelLoaded(args[1])) {
-                                            Message.CMD_WORLD_TP_NOT_LOADED.print(sender, "prefix:&7[&aWorld&7]", 'c');
-                                            if (!p.getServer().loadLevel(args[1])) {
-                                                Message.CMD_WORLD_TP_ERROR_LOADING.print(sender, "prefix:&7[&aWorld&7]", 'c');
-                                                return false;
-                                            }
                                         }
-                                        p.teleport(this.plugin.getServer().getLevelByName(args[1]).getSafeSpawn());
-                                        Message.CMD_WORLD_TP_SENDER.print(sender, "prefix:&7[&aWorld&7]", 'a', 'b', p.getName(), args[1]);
-                                        Message.CMD_WORLD_TP_PLAYER_MESSAGE.print(p, "prefix:&7[&aWorld&7]", 'a', 'b', args[1]);
-                                    } else {
-                                        Message.CMD_WORLD_TP_PLAYER_PERMISSION.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                     }
+                                    p.teleport(this.plugin.getServer().getLevelByName(args[1]).getSafeSpawn());
+                                    Message.CMD_WORLD_TP_SENDER.print(sender, "prefix:&7[&aWorld&7]", 'a', 'b', p.getName(), args[1]);
+                                    Message.CMD_WORLD_TP_PLAYER_MESSAGE.print(p, "prefix:&7[&aWorld&7]", 'a', 'b', args[1]);
                                 } else {
-                                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                                    Message.CMD_WORLD_TP_PLAYER_PERMISSION.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                 }
                             } else {
-                                if (sender instanceof Player) {
+                                Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                            }
+                        } else {
+                            if (sender instanceof Player) {
+                                if (args.length == 2) {
                                     if (sender.hasPermission("toolspro.commands.world") || sender.hasPermission("toolspro.world." + args[1].toLowerCase())) {
                                         if (((Player) sender).getLevel().getName().equalsIgnoreCase(args[1])) {
                                             Message.CMD_WORLD_TP_SENDER_ALREADY_IN_THIS_WORLD.print(sender, "prefix:&7[&aWorld&7]", 'c');
@@ -72,15 +72,15 @@ public class WorldCommand extends Commands {
                                         }
                                         ((Player) sender).teleport(this.plugin.getServer().getLevelByName(args[1]).getSafeSpawn());
                                         Message.CMD_WORLD_TP.print(sender, "prefix:&7[&aWorld&7]", 'a');
-                                    } else  {
+                                    } else {
                                         Message.CMD_WORLD_TP_SENDER_NO_PERMISSION.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                     }
                                 } else {
-                                    Message.NEED_PLAYER.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                                    Message.CMD_WORLD_USAGE_TP.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                 }
+                            } else {
+                                Message.NEED_PLAYER.print(sender, "prefix:&7[&aWorld&7]", 'c');
                             }
-                        } else {
-                            return Message.CMD_WORLD_USAGE_TP.print(sender, "prefix:&7[&aWorld&7]", 'c');
                         }
                         return true;
                     case "create":
@@ -116,7 +116,7 @@ public class WorldCommand extends Commands {
                                 return Message.CMD_WORLD_USAGE_CREATE.print(sender, "prefix:&7[&aWorld&7]", 'c');
                             }
                         } else {
-                            sender.sendMessage(Message.YOU_DONT_HAVE_PERMISSION.getText('c'));
+                            return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                         }
                         return true;
                     default:
