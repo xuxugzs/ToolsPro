@@ -40,7 +40,7 @@ public class DamageListener implements Listener {
                     return;
                 }
                 if (this.plugin.getPlayerVanish((Player) damager)) {
-                    Message.BLOCK_DAMAGE_VANISH.print(((Player) damager), "prefix:&7[&aDamage&7]", 'c');
+                    Message.BLOCK_DAMAGE_VANISH.print(((Player) damager),  "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
