@@ -21,25 +21,26 @@ public class DamageListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onEntityDamage(EntityDamageEvent event) {
         if (event instanceof EntityDamageByEntityEvent) {
-            Entity player = ((EntityDamageByEntityEvent) event).getDamager();
-            if (player instanceof Player) {
-                if ((((Player) player).getGamemode() == 1)) {
-                    Message.BLOCK_DAMAGE_CREATIVE.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
+            Entity damager = ((EntityDamageByEntityEvent) event).getDamager();
+            Entity player = event.getEntity();
+            if (damager instanceof Player && player instanceof Player) {
+                if ((((Player) damager).getGamemode() == 1)) {
+                    Message.BLOCK_DAMAGE_CREATIVE.print(((Player) damager), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                if (this.plugin.getPlayerFly((Player) player)) {
-                    Message.BLOCK_DAMAGE_FLY.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
+                if (this.plugin.getPlayerFly((Player) damager)) {
+                    Message.BLOCK_DAMAGE_FLY.print(((Player) damager), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                if (this.plugin.getPlayerGodMode((Player) player)) {
-                    Message.BLOCK_DAMAGE_GOD.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
+                if (this.plugin.getPlayerGodMode((Player) damager)) {
+                    Message.BLOCK_DAMAGE_GOD.print(((Player) damager), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                if (this.plugin.getPlayerVanish((Player) player)) {
-                    Message.BLOCK_DAMAGE_VANISH.print(((Player) player), "prefix:&7[&aDamage&7]", 'c');
+                if (this.plugin.getPlayerVanish((Player) damager)) {
+                    Message.BLOCK_DAMAGE_VANISH.print(((Player) damager), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
