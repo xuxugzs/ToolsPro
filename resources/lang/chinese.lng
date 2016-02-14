@@ -84,34 +84,13 @@ cmd_fly_player_disable_message: 您关闭了飞行功能!
 cmd_gamemode_description: 改变 玩家 的游戏模式.
 cmd_gamemode_description2: /gamemode <模式> <玩家>
 cmd_gamemode_usage: 请使用 %1% 查看所有模式
-cmd_gamemode_sender_already_in_survival_mode: 你已经在生存模式!
-cmd_gamemode_sender_already_in_creative_mode: 你已经在创造模式!
-cmd_gamemode_sender_already_in_adventure_mode: 你已经在冒险模式!
-cmd_gamemode_sender_already_in_spectator_mode: 你已经在观察者模式!
-cmd_gamemode_player_already_in_survival_mode: 玩家 %1% 已经在生存模式!
-cmd_gamemode_player_already_in_creative_mode: 玩家 %1% 已经在创造模式!
-cmd_gamemode_player_already_in_adventure_mode: 玩家 %1% 已经在冒险模式!
-cmd_gamemode_player_already_in_spectator_mode: 玩家 %1% 已经在观察者模式!
-cmd_gamemode_sender_successfully_changed_to_survival: 您的游戏模式已成功改为生存模式!
-cmd_gamemode_sender_successfully_changed_to_creative: 您的游戏模式已成功改为创造模式!
-cmd_gamemode_sender_successfully_changed_to_adventure: 您的游戏模式已成功改为冒险模式!
-cmd_gamemode_sender_successfully_changed_to_spectator: 您的游戏模式已成功改为观察者模式!
-cmd_gamemode_player_successfully_changed_to_survival: 玩家 %1% 的游戏模式已成功改为生存模式!
-cmd_gamemode_player_successfully_changed_to_creative: 玩家 %1% 的游戏模式已成功改为创造模式!
-cmd_gamemode_player_successfully_changed_to_adventure: 玩家 %1% 的游戏模式已成功改为冒险模式!
-cmd_gamemode_player_successfully_changed_to_spectator: 玩家 %1% 的游戏模式已成功改为观察者模式!
-cmd_gamemode_player_successfully_changed_to_survival_message: 您的游戏模式已成功改为生存模式!
-cmd_gamemode_player_successfully_changed_to_creative_message: 您的游戏模式已成功改为创造模式!
-cmd_gamemode_player_successfully_changed_to_adventure_message: 您的游戏模式已成功改为冒险模式!
-cmd_gamemode_player_successfully_changed_to_spectator_message: 您的游戏模式已成功改为观察者模式!
-cmd_gamemode_sender_successfully_changed_to_survival_info: 玩家 %1% 已修改游戏模式为生存模式!
-cmd_gamemode_sender_successfully_changed_to_creative_info: 玩家 %1% 已修改游戏模式为创造模式!
-cmd_gamemode_sender_successfully_changed_to_adventure_info: 玩家 %1% 已修改游戏模式为冒险模式!
-cmd_gamemode_sender_successfully_changed_to_spectator_info: 玩家 %1% 已修改游戏模式为观察者模式!
-cmd_gamemode_player_successfully_changed_to_survival_info: 玩家 %1% 已修改玩家 %2% 的游戏模式为生存模式!
-cmd_gamemode_player_successfully_changed_to_creative_info: 玩家 %1% 已修改玩家 %2% 的游戏模式为创造模式!
-cmd_gamemode_player_successfully_changed_to_adventure_info: 玩家 %1% 已修改玩家 %2% 的游戏模式为冒险模式!
-cmd_gamemode_player_successfully_changed_to_spectator_info: 玩家 %1% 已修改玩家 %2% 的游戏模式为观察者模式!
+cmd_gamemode_sender_already_in_gamemode: You are already in %1%!
+cmd_gamemode_sender_successfully_changed_gamemode: You have successfully changed game mode to %1%!
+cmd_gamemode_sender_successfully_changed_gamemode_info: Player %1% has changed game mode to %2%!
+cmd_gamemode_player_already_in_gamemode: Player %1% already in %2%
+cmd_gamemode_player_successfully_changed_gamemode: You have successfully changed the game mode the player %1% to %2%!
+cmd_gamemode_player_successfully_changed_gamemode_message: Your game mode is successfully changed to %1%!
+cmd_gamemode_player_successfully_changed_gamemode_info: Player %1% has changed game mode player %2% to %3%!
 cmd_gamemode_help1: '全部游戏模式&7:'
 cmd_gamemode_help2: 改变游戏模式到生存模式
 cmd_gamemode_help3: 改变游戏模式到创造模式

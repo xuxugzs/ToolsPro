@@ -6,7 +6,7 @@ import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
 /**
- * Created by Pub4Game on 07.02.2015.
+ * Created by Pub4Game on 07.02.2016.
  */
 public class RealNameCommand extends Commands {
 

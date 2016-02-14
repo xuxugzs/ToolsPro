@@ -6,7 +6,7 @@ import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
 /**
- * Created by Pub4Game on 6.02.2015.
+ * Created by Pub4Game on 6.02.2016.
  */
 public class AntiochCommand extends Commands {
 

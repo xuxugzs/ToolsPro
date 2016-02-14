@@ -84,34 +84,13 @@ cmd_fly_player_disable_message: You have disabled fly mode!
 cmd_gamemode_description: Change player gamemode.
 cmd_gamemode_description2: /gamemode <mode> <player>
 cmd_gamemode_usage: Please use %1% to see all game modes
-cmd_gamemode_sender_already_in_survival_mode: You are already in survival mode!
-cmd_gamemode_sender_already_in_creative_mode: You are already in creative mode!
-cmd_gamemode_sender_already_in_adventure_mode: You are already in adventure mode!
-cmd_gamemode_sender_already_in_spectator_mode: You are already in spectator mode!
-cmd_gamemode_player_already_in_survival_mode: Player %1% already in survival mode!
-cmd_gamemode_player_already_in_creative_mode: Player %1% already in creative mode!
-cmd_gamemode_player_already_in_adventure_mode: Player %1% already in adventure mode!
-cmd_gamemode_player_already_in_spectator_mode: Player %1% already in spectator mode!
-cmd_gamemode_sender_successfully_changed_to_survival: You have successfully changed game mode to survival!
-cmd_gamemode_sender_successfully_changed_to_creative: You have successfully changed game mode to creative!
-cmd_gamemode_sender_successfully_changed_to_adventure: You have successfully changed game mode to adventure!
-cmd_gamemode_sender_successfully_changed_to_spectator: You have successfully changed game mode to spectator!
-cmd_gamemode_player_successfully_changed_to_survival: You have successfully changed the game mode the player %1% to survival!
-cmd_gamemode_player_successfully_changed_to_creative: You have successfully changed the game mode the player %1% to creative!
-cmd_gamemode_player_successfully_changed_to_adventure: You have successfully changed the game mode the player %1% to adventure!
-cmd_gamemode_player_successfully_changed_to_spectator: You have successfully changed the game mode the player %1% to spectator!
-cmd_gamemode_player_successfully_changed_to_survival_message: Your game mode is successfully changed to survival!
-cmd_gamemode_player_successfully_changed_to_creative_message: Your game mode is successfully changed to creative!
-cmd_gamemode_player_successfully_changed_to_adventure_message: Your game mode is successfully changed to adventure!
-cmd_gamemode_player_successfully_changed_to_spectator_message: Your game mode is successfully changed to spectator!
-cmd_gamemode_sender_successfully_changed_to_survival_info: Player %1% has changed game mode to survival!
-cmd_gamemode_sender_successfully_changed_to_creative_info: Player %1% has changed game mode to creative!
-cmd_gamemode_sender_successfully_changed_to_adventure_info: Player %1% has changed game mode to adventure!
-cmd_gamemode_sender_successfully_changed_to_spectator_info: Player %1% has changed game mode to spectator!
-cmd_gamemode_player_successfully_changed_to_survival_info: Player %1% has changed game mode player %2% to survival!
-cmd_gamemode_player_successfully_changed_to_creative_info: Player %1% has changed game mode player %2% to creative!
-cmd_gamemode_player_successfully_changed_to_adventure_info: Player %1% has changed game mode player %2% to adventure!
-cmd_gamemode_player_successfully_changed_to_spectator_info: Player %1% has changed game mode player %2% to spectator!
+cmd_gamemode_sender_already_in_gamemode: You are already in %1%!
+cmd_gamemode_sender_successfully_changed_gamemode: You have successfully changed game mode to %1%!
+cmd_gamemode_sender_successfully_changed_gamemode_info: Player %1% has changed game mode to %2%!
+cmd_gamemode_player_already_in_gamemode: Player %1% already in %2%
+cmd_gamemode_player_successfully_changed_gamemode: You have successfully changed the game mode the player %1% to %2%!
+cmd_gamemode_player_successfully_changed_gamemode_message: Your game mode is successfully changed to %1%!
+cmd_gamemode_player_successfully_changed_gamemode_info: Player %1% has changed game mode player %2% to %3%!
 cmd_gamemode_help1: 'All available game modes&7:'
 cmd_gamemode_help2: Changes gamemode to survival
 cmd_gamemode_help3: Changes gamemode to creative
