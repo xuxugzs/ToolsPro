@@ -13,6 +13,8 @@ forbidden-player-names:
   - Notch
 JoinSurvival: false
 TellNotice: false
+spawn:
+  cooldown: 5
 # Let you configure the size of a stack (/more), it is possible to exceed, if you have permission. (- toolspro.commands.oversizedstacks)
 oversized-stacks: 64
 session: true

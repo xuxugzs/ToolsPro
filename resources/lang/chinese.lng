@@ -212,6 +212,7 @@ cmd_spawnall_no_players: 服务器中没有玩家.
 cmd_spawnall_player_tp_to_spawn: 所有玩家已被传送到服务器的出生点!
 
 cmd_spawn_description: 传送到服务器的出生点.
+cmd_spawn_cooldown: You need to wait %1% second(s) before doing that
 cmd_spawn_tp_sender: 你把玩家 %1% 传送到了服务器的出生点!
 cmd_spawn_tp_player_message: 传送中...
 

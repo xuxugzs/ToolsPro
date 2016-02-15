@@ -19,14 +19,13 @@ import java.util.Map;
 public class TreeCommand extends Commands {
 
     private ToolsPro plugin;
+    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
 
     public TreeCommand(ToolsPro plugin) {
         super("tree", Message.CMD_TOP_DESCRIPTION, "/tree <oak|spruce|birch|jungle|acacia|darkoak>");
         this.setPermission("toolspro.commands.tree");
         this.plugin = plugin;
     }
-
-    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {

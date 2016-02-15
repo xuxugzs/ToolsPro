@@ -236,6 +236,7 @@ public enum Message {
 	CMD_SPAWNALL_PLAYER_TP_TO_SPAWN("Вы были телепортированы на спавн!"),
 	//Spawn Command
 	CMD_SPAWN_DESCRIPTION("Телепортирует на спавн."),
+	CMD_SPAWN_COOLDOWN("Вы должны подождать %1% секунд(ы) перед использованием этой команды!"),
 	CMD_SPAWN_TP_SENDER("Вы успешно телепортировали игрока %1% на спавн!"),
 	CMD_SPAWN_TP_PLAYER_MESSAGE("Телепортация..."),
 	//Speed Command

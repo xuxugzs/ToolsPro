@@ -15,14 +15,13 @@ import java.util.Map;
 public class JumpCommand extends Commands {
 
     private ToolsPro plugin;
+    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
 
     public JumpCommand(ToolsPro plugin) {
         super("jump", Message.CMD_JUMP_DESCRIPTION, "/jump");
         this.setPermission("toolspro.commands.jump");
         this.plugin = plugin;
     }
-
-    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {

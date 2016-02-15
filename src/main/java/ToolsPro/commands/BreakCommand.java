@@ -16,14 +16,13 @@ import java.util.Map;
 public class BreakCommand extends Commands {
 
     private ToolsPro plugin;
+    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
 
     public BreakCommand(ToolsPro plugin) {
         super("break", Message.CMD_BREAK_DESCRIPTION, "/break");
         this.setPermission("toolspro.commands.break.use");
         this.plugin = plugin;
     }
-
-    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.hasPermission(this.getPermission())) {

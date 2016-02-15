@@ -211,6 +211,7 @@ cmd_spawnall_no_players: There are no more players in the server!
 cmd_spawnall_player_tp_to_spawn: You have been teleported to spawn!
 
 cmd_spawn_description: Teleport to server's main spawn.
+cmd_spawn_cooldown: You need to wait %1% second(s) before doing that
 cmd_spawn_tp_sender: You teleported player %1% to spawn!
 cmd_spawn_tp_player_message: Teleporting...
 
