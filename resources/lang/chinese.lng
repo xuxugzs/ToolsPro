@@ -38,6 +38,8 @@ cmd_burn_player_info: 玩家 %1% 点燃了 %2%!
 cmd_burn_player: 你点燃了玩家 %1%
 cmd_burn_usage: '使用方法: /burn <玩家> <秒>'
 
+cmd_clearchat_description: Clear your chat window.
+
 cmd_clearhotbar_description: 清除你或其他人的物品栏.
 cmd_clearhotbar_description2: /clearhotbar 或 /clearhotbar <玩家>
 cmd_clearhotbar_sender: 你的物品栏已经清理!

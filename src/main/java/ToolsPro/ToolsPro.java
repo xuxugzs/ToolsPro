@@ -43,6 +43,7 @@ public class ToolsPro extends PluginBase {
     Set<String> GodPlayers = new HashSet<String>();
     Set<String> SaveInvPlayers = new HashSet<String>();
     Set<String> VanishPlayers = new HashSet<String>();
+    Set<String> OPPlayers = new HashSet<String>();
 
     @Override
     public void onEnable() {
@@ -52,6 +53,7 @@ public class ToolsPro extends PluginBase {
         this.checkConfig();
         this.checkLanguage();
         this.checkVersion();
+        this.removeCommands();
         this.registerCommands();
         this.registerEvents();
         Message.TOOLSPRO_LOADED.log();
@@ -62,11 +64,16 @@ public class ToolsPro extends PluginBase {
         Message.TOOLSPRO_DISABLED.log('c');
     }
 
+    private void removeCommands() {
+        this.getServer().getCommandMap().getCommands().remove("gamemode");
+    }
+
     private void registerCommands() {
         this.getServer().getCommandMap().register("antioch", new AntiochCommand(this));
         this.getServer().getCommandMap().register("break", new BreakCommand(this));
         this.getServer().getCommandMap().register("broadcast", new BroadcastCommand(this));
         this.getServer().getCommandMap().register("burn", new BurnCommand(this));
+        this.getServer().getCommandMap().register("clearchat", new ClearChatCommand(this));
         this.getServer().getCommandMap().register("clearhotbar", new ClearHotBarCommand(this));
         this.getServer().getCommandMap().register("clearinventory", new ClearInventoryCommand(this));
         this.getServer().getCommandMap().register("compass", new CompassCommand(this));
@@ -83,9 +90,11 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("kickall", new KickAllCommand(this));
         this.getServer().getCommandMap().register("more", new MoreCommand(this));
         this.getServer().getCommandMap().register("mute", new MuteCommand(this));
+        //this.getServer().getCommandMap().register("nick", new NickCommand(this));
         this.getServer().getCommandMap().register("realname", new RealNameCommand(this));
         this.getServer().getCommandMap().register("nuke", new NukeCommand(this));
         this.getServer().getCommandMap().register("repair", new RepairCommand(this));
+        //this.getServer().getCommandMap().register("returnop", new ReturnOPCommand(this));
         this.getServer().getCommandMap().register("saveinv", new SaveInvCommand(this));
         this.getServer().getCommandMap().register("setspawn", new SetSpawnCommand(this));
         this.getServer().getCommandMap().register("spawnall", new SpawnAllCommand(this));
@@ -215,6 +224,18 @@ public class ToolsPro extends PluginBase {
         mute.save();
     }
 
+    public boolean getPlayerOP(Player player) {
+        return OPPlayers.contains(player.getName().toLowerCase());
+    }
+
+    public void setPlayerOP(Player player) {
+        OPPlayers.add(player.getName().toLowerCase());
+    }
+
+    public void removePlayerOP(Player player) {
+        if (OPPlayers.contains(player.getName().toLowerCase())) OPPlayers.remove(player.getName().toLowerCase());
+    }
+
     public boolean getPlayerSaveInv(Player player) {
         return SaveInvPlayers.contains(player.getName().toLowerCase());
     }
@@ -273,6 +294,10 @@ public class ToolsPro extends PluginBase {
             if (this.getPlayerGodMode(player)) this.removePlayerGodMode(player);
             if (this.getPlayerSaveInv(player)) this.removePlayerSaveInv(player);
             if (this.getPlayerVanish(player)) this.removePlayerVanish(player);
+        }
+        if (this.getPlayerOP(player)) {
+            this.removePlayerOP(player);
+            if (!player.isOp()) player.setOp(true);
         }
     }
 

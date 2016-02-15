@@ -62,6 +62,8 @@ public enum Message {
 	CMD_BURN_USAGE("Используйте: /burn <ник> <время>"),
 	CMD_BURN_PLAYER("Вы подожгли игрока %1%"),
 	CMD_BURN_PLAYER_INFO("Игрок %1% поджег игрока %2%!"),
+	//ClearChat Command
+	CMD_CLEARCHAT_DESCRIPTION("Очищает чат от сообщений."),
 	//ClearHotBar Command
 	CMD_CLEARHOTBAR_DESCRIPTION("Очищает хот-бар."),
 	CMD_CLEARHOTBAR_DESCRIPTION2("/clearhotbar или /clearhotbar <ник>"),
