@@ -18,28 +18,28 @@ public class DamageListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = false)
     public void onEntityDamage(EntityDamageEvent event) {
         if (event instanceof EntityDamageByEntityEvent) {
             Entity damager = ((EntityDamageByEntityEvent) event).getDamager();
             Entity player = event.getEntity();
             if (damager instanceof Player && player instanceof Player) {
-                if ((((Player) damager).getGamemode() == 1)) {
+                if ((((Player) damager).getGamemode() == 1) && !((Player) damager).hasPermission("toolspro.damage.creative")) {
                     Message.BLOCK_DAMAGE_CREATIVE.print(((Player) damager), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                if (this.plugin.getPlayerFly((Player) damager)) {
+                if (this.plugin.getPlayerFly((Player) damager) && !((Player) damager).hasPermission("toolspro.damage.fly")) {
                     Message.BLOCK_DAMAGE_FLY.print(((Player) damager), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                if (this.plugin.getPlayerGodMode((Player) damager)) {
+                if (this.plugin.getPlayerGodMode((Player) damager) && !((Player) damager).hasPermission("toolspro.damage.god")) {
                     Message.BLOCK_DAMAGE_GOD.print(((Player) damager), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;
                 }
-                if (this.plugin.getPlayerVanish((Player) damager)) {
+                if (this.plugin.getPlayerVanish((Player) damager) && !((Player) damager).hasPermission("toolspro.damage.vanish")) {
                     Message.BLOCK_DAMAGE_VANISH.print(((Player) damager), "prefix:&7[&aDamage&7]", 'c');
                     event.setCancelled();
                     return;

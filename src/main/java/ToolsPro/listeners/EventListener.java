@@ -68,12 +68,16 @@ public class EventListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = false)
     public void onPlayerDeath(PlayerDeathEvent event) {
+        Player player = event.getEntity();
         Entity entity = event.getEntity();
         if (entity instanceof Player) {
-            if (this.plugin.getPlayerSaveInv((Player) entity)) {
+            if (this.plugin.getPlayerSaveInv(player)) {
                 event.setKeepInventory(true);
-                Message.LISTENER_SAVEINV_DEATH.print(((Player) entity), "prefix:&7[&aSaveInv&7]", 'a');
+                Message.LISTENER_SAVEINV_DEATH.print(player, "prefix:&7[&aSaveInv&7]", 'a');
             }
+        }
+        if (player.hasPermission("toolspro.commands.back")) {
+            this.plugin.setPlayerDeaths(player);
         }
     }
 }
