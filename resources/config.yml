@@ -7,16 +7,41 @@ general:
   language: english
   debug-mode: false
   # DO NOT EDIT THIS PROPERTY! For internal use ONLY
-  config-version: 1
+  config-version: 2
+# Here you can write nicknames you want to ban on the server
 forbidden-player-names:
   - Steve
   - Notch
+# Changes game mode of a player to survival when you log on to the server. If you have permission, you can bypass this setting (- toolspro.savegamemode)
 JoinSurvival: false
+# Displays private messages to players in chat (/tell)
 TellNotice: false
+# Here you can set a delay before re-using commands.
 spawn:
   cooldown: 5
 # Let you configure the size of a stack (/more), it is possible to exceed, if you have permission. (- toolspro.commands.oversizedstacks)
 oversized-stacks: 64
+# Limits some features of the player in creative mode
+limited-creative:
+  enable: true
+  use-block:
+    enable: true
+    chest: true
+    trapped_chest: true
+    workbench: true
+    furnace: true
+    brewing_stand: true
+    enchant_table: true
+  pickup-item: true
+  drop-item: true
+# Prohibits to attack other players if you included a specific mode. If you have permission, you can bypass this setting (- toolspro.damage or - toolspro.damage.SPECIFIC-MODE)
+block-damage:
+  enable: true
+  cretive: true
+  fly: true
+  god: true
+  vanish: true
+# Saves your settings if you exit the server.
 session: true
 # Check for a new version of the plugin at server startup
 updater:

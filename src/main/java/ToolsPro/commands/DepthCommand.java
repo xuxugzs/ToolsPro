@@ -27,7 +27,7 @@ public class DepthCommand extends Commands {
                 if (pos > 0) Message.CMD_DEPTH_ABOVE.print(sender, Math.abs(pos));
                 else Message.CMD_DEPTH_BELOW.print(sender, Math.abs(pos));
             } else {
-               return Message.NEED_PLAYER.print(sender, "prefix:&7[&aDepth&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aDepth&7]", 'c');
             }
         }
         return true;

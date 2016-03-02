@@ -32,7 +32,7 @@ public class MuteCommand extends Commands {
                 if (!args[1].matches("^[1-9]+\\d*$")) {
                     Message.NOT_NUMBER.print(sender, "prefix:&7[&aMute&7]", 'c');
                 } else {
-                    Double times = this.plugin.round(Integer.parseInt(args[1]), 2);
+                    Double times = ToolsPro.round(Integer.parseInt(args[1]), 2);
                     Double timings;
                     if (args.length == 3) {
                         if (args[2].matches("(?i)seconds|sec|s")) {
@@ -53,7 +53,7 @@ public class MuteCommand extends Commands {
                     if (timings > (30 * 86400)) {
                         Message.CMD_MUTE_NO_MORE_30_DAY.print(sender, "prefix:[&aMute&7]", 'c');
                     } else {
-                        this.plugin.setPlayerMute(p, timings);
+                        this.plugin.setPlayerMute(args[0], timings);
                         int seconds = NukkitMath.floorDouble(timings % 60);
                         int minutes = NukkitMath.floorDouble((timings % 3600) / 60);
                         int hours = NukkitMath.floorDouble(timings % (3600 * 24) / 3600);
@@ -62,11 +62,11 @@ public class MuteCommand extends Commands {
                                 hours + Message.HOURS +
                                 minutes + Message.MINUTES +
                                 seconds + Message.SECONDS;
-                        if (p instanceof Player) {
+                        if (p != null) {
                             Message.CMD_MUTE_PLAYER_MESSAGE.print(p, "prefix:&7[&aMute&7]", 'c', timemute);
                         }
                         Message.CMD_MUTE_SENDER.print(sender, "prefix:&7[&aMute&7]", 'a', 'b', args[0].toLowerCase(), timemute);
-                        this.plugin.info(sender, Message.CMD_MUTE_PLAYER_INFO.getText("prefix:&7[Mute]", '7', '7', sender.getName(), args[0].toLowerCase(), timemute));
+                        this.plugin.info(sender, Message.CMD_MUTE_PLAYER_INFO.getText("prefix:&7[Mute]", '7', '7', sender.getName(), p != null ? p.getName() : args[0].toLowerCase(), TextFormat.clean(timemute)));
                     }
                 }
             }

@@ -15,7 +15,7 @@ public class ExtinguishCommand extends Commands {
     public ExtinguishCommand(ToolsPro plugin) {
         super("extinguish", Message.CMD_EXTINGUISH_DESCRIPTION, Message.CMD_EXTINGUISH_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.extinguish.use");
-        this.setAliases(new String[] {"ext"});
+        this.setAliases(new String[]{"ext"});
         this.plugin = plugin;
     }
 
@@ -35,7 +35,7 @@ public class ExtinguishCommand extends Commands {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
                     }
                 } else {
-                   return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
+                    return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }
             } else {
                 if (sender instanceof Player) {

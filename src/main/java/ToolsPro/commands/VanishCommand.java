@@ -56,7 +56,7 @@ public class VanishCommand extends Commands {
                         this.plugin.info(sender, Message.CMD_VANISH_SENDER_ENABLE_INFO.getText("prefix:&7[Vanish]", '7', '7', sender.getName()));
                     }
                 } else {
-                   return Message.NEED_PLAYER.print(sender, "prefix:&7[&aVanish&7]", 'c');
+                    return Message.NEED_PLAYER.print(sender, "prefix:&7[&aVanish&7]", 'c');
                 }
             }
         }

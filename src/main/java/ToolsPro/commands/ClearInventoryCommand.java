@@ -27,13 +27,9 @@ public class ClearInventoryCommand extends Commands {
                 if (sender.hasPermission("toolspro.commands.clearinventory.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
                     if (p != null) {
-                        if (p.getGamemode() == 1 || p.getGamemode() == 3) {
-                            Message.PLAYER_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aClearInv&7]", 'c', 'b');
-                        } else {
-                            p.getInventory().clearAll();
-                            Message.CMD_CLEARINVENTORY_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'a', 'b');
-                            this.plugin.info(sender, Message.CMD_CLEARINVENTORY_PLAYER_INFO.getText("prefix:&7[ClearInv]", '7', '7', sender.getName(), p.getName()));
-                        }
+                        p.getInventory().clearAll();
+                        Message.CMD_CLEARINVENTORY_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'a', 'b', p.getName());
+                        this.plugin.info(sender, Message.CMD_CLEARINVENTORY_PLAYER_INFO.getText("prefix:&7[ClearInv]", '7', '7', sender.getName(), p.getName()));
                     } else {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'c');
                     }
@@ -42,13 +38,9 @@ public class ClearInventoryCommand extends Commands {
                 }
             } else {
                 if (sender instanceof Player) {
-                    if (((Player) sender).getGamemode() == 1 || ((Player) sender).getGamemode() == 3) {
-                        Message.YOU_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aClearInv&7]", 'c');
-                    } else {
-                        ((Player) sender).getInventory().clearAll();
-                        Message.CMD_CLEARINVENTORY_SENDER.print(sender, "prefix:&7[&aClearInv&7]", 'a');
-                        this.plugin.info(sender, Message.CMD_CLEARINVENTORY_SENDER_INFO.getText("prefix:&7[ClearInv]", '7', '7', sender.getName()));
-                    }
+                    ((Player) sender).getInventory().clearAll();
+                    Message.CMD_CLEARINVENTORY_SENDER.print(sender, "prefix:&7[&aClearInv&7]", 'a');
+                    this.plugin.info(sender, Message.CMD_CLEARINVENTORY_SENDER_INFO.getText("prefix:&7[ClearInv]", '7', '7', sender.getName()));
                 } else {
                     return Message.NEED_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'c');
                 }

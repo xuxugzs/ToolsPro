@@ -3,8 +3,8 @@ package ToolsPro.commands;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
-import cn.nukkit.block.BlockAir;
 import cn.nukkit.block.Block;
+import cn.nukkit.block.BlockAir;
 import cn.nukkit.command.CommandSender;
 
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class BreakCommand extends Commands {
                 tblocks.put(0, Block.AIR);
                 Block block = ((Player) sender).getTargetBlock(100, tblocks);
                 if (block == null) {
-                     Message.IS_NOT_A_REACHABLE_BLOCK.print(sender, "prefix:&7[&aBreak&7]", 'c');
+                    Message.IS_NOT_A_REACHABLE_BLOCK.print(sender, "prefix:&7[&aBreak&7]", 'c');
                     return false;
                 } else if (block.getId() == Block.BEDROCK && !sender.hasPermission("toolspro.break.bedrock")) {
                     Message.CMD_BREAK_NO_BREAK_BEDROCK.print(sender, "prefix:&7[&aBreak&7]", 'c');

@@ -3,6 +3,7 @@ package ToolsPro.commands;
 import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.command.CommandSender;
 
 /**
@@ -73,7 +74,7 @@ public class GamemodeCommand extends Commands {
                         }
                     }
                 } else {
-                    switch(commandLabel){
+                    switch (commandLabel) {
                         case "survival":
                         case "gms":
                             gm = Player.SURVIVAL;
@@ -95,7 +96,7 @@ public class GamemodeCommand extends Commands {
                             return false;
                     }
                 }
-                String gmstring = this.plugin.getServer().getGamemodeString(gm);
+                String gmstring = Server.getGamemodeString(gm);
                 if (args.length >= 2 || args.length > 0 && !command) {
                     if (sender.hasPermission("toolspro.commands.gamemode.other")) {
                         Player p;
@@ -120,7 +121,7 @@ public class GamemodeCommand extends Commands {
                         return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                     }
                 } else {
-                    if (sender instanceof Player){
+                    if (sender instanceof Player) {
                         if (((Player) sender).getGamemode() != gm) {
                             ((Player) sender).setGamemode(gm);
                             Message.CMD_GAMEMODE_SENDER_SUCCESSFULLY_CHANGED_GAMEMODE.print(sender, 'a', 'b', gmstring);
@@ -133,7 +134,7 @@ public class GamemodeCommand extends Commands {
                     }
                 }
             } else {
-                return Message.CMD_GAMEMODE_USAGE.print(sender,"prefix:&7[&aGamemode&7]",'a','e',"/gamemode help");
+                return Message.CMD_GAMEMODE_USAGE.print(sender, "prefix:&7[&aGamemode&7]", 'a', 'e', "/gamemode help");
             }
         }
         return true;

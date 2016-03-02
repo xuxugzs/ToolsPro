@@ -1,4 +1,4 @@
-version: 1
+version: 2
 
 toolspro_loaded: ToolsPro successfully enabled!
 toolspro_disabled: ToolsPro successfully disabled!
@@ -39,6 +39,7 @@ cmd_burn_player: You set fire to the player %1%
 cmd_burn_player_info: Player %1% set fire to %2%!
 
 cmd_clearchat_description: Clear your chat window.
+cmd_clearchat_description2: /clearchat or /clearchat <message>
 
 cmd_clearhotbar_description: Clear your/other's hot-bar.
 cmd_clearhotbar_description2: /clearhotbar or /clearhotbar <player>
@@ -131,7 +132,7 @@ cmd_heal_player_info: Player %1% healed player %2%!
 cmd_heal_player_message: You have been healed!
 
 cmd_itemban_description: Manages the list of blocked items and blocks.
-cmd_itemban_usage: 'Usage: /item <ban|unban> <ID>'
+cmd_itemban_usage: 'Usage: /itemban <ban|unban> <ID>'
 cmd_itemban_wrongid: Please enter a valid ID!
 cmd_itemban_alreadyban: Item %1% (ID - %2%) is already blocked!
 cmd_itemban_alreadyremoved: Item %1% (ID - %2%) wasn't blocked!
@@ -139,12 +140,14 @@ cmd_itemban_added: Item %1% (ID - %2%) added to the list!
 cmd_itemban_removed: Item %1% (ID - %2%) removed from the list!
 
 listener_itemban_touch: You cannot use this item!
+listener_itemban_touch_block: You cannot interact with this block
 listener_itemban_eat: You can't eat it!
 listener_itemban_place: You can't place this block!
 listener_itemban_break: You can't break this block!
+listener_itemban_tip: This item has been banned!
 
 cmd_itemdb_description: Display the information attached to the item you hold.
-cmd_itemdb_description2: /item db or /itemdb <name|id|metadata>
+cmd_itemdb_description2: /itemdb or /itemdb <name|id|metadata>
 cmd_itemdb_message1: 'This item '
 cmd_itemdb_message2: 'has '
 cmd_itemdb_repairable: ' points of damage'
@@ -185,6 +188,12 @@ cmd_repair_successfully_repaired: Item successfully repaired!
 cmd_repair_all_successfully_repaired: All the tools on your inventory were repaired!
 cmd_repair_successfully_repaired_including_armor: (Including the equipped Armor)
 cmd_repair_error: This item can't be repaired!
+
+cmd_returnop_description: Temporarily deops administrators.
+cmd_returnop_enable: You are no longer op!
+cmd_returnop_disable: You are now op!
+cmd_returnop_enable_info: Player %1% is no longer op
+cmd_returnop_disable_info: Player %1% are now op
 
 cmd_saveinv_description: Keep your inventory after death.
 cmd_saveinv_description2: /saveinv or /saveinv <player>

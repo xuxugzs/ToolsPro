@@ -14,10 +14,8 @@ public class HttpRequest {
     /**
      * Send a http requset, using method GET
      *
-     * @param url
-     *            the target URL
-     * @param param
-     *            GET param, example: name1=value1&name2=value2
+     * @param url   the target URL
+     * @param param GET param, example: name1=value1&name2=value2
      * @return The result of http reponsed data.
      */
     public static String sendGet(String url, String param) {
@@ -41,8 +39,7 @@ public class HttpRequest {
             }
         } catch (Exception e) {
             //todo when error
-        }
-        finally {
+        } finally {
             try {
                 if (in != null) {
                     in.close();
@@ -57,10 +54,8 @@ public class HttpRequest {
     /**
      * Send a http requset, using method POST
      *
-     * @param url
-     *            the target URL
-     * @param param
-     *            POST param, example: name1=value1&name2=value2
+     * @param url   the target URL
+     * @param param POST param, example: name1=value1&name2=value2
      * @return The result of http reponsed data.
      */
     public static String sendPost(String url, String param) {
@@ -84,14 +79,12 @@ public class HttpRequest {
             }
         } catch (Exception e) {
             //todo: when error
-        }
-        finally {
+        } finally {
             try {
                 if (in != null) {
                     in.close();
                 }
-            }
-            catch(IOException ex) {
+            } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }

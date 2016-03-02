@@ -37,7 +37,7 @@ public class HealCommand extends Commands {
                             Message.CMD_HEAL_PLAYER_MAX.print(sender, "prefix:&7[&aHeal&7]", 'a', 'b', p.getName());
                         }
                     } else {
-                       Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aHeal&7]", 'c');
+                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aHeal&7]", 'c');
                     }
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');

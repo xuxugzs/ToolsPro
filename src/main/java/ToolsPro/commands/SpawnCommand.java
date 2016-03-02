@@ -32,7 +32,7 @@ public class SpawnCommand extends Commands {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 } else if (p != null) {
                     if (this.spawnCooldown((Player) sender)) return true;
-                    ((Player) p).teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));
+                    p.teleport(Location.fromObject(this.plugin.getServer().getDefaultLevel().getSpawnLocation(), this.plugin.getServer().getDefaultLevel()));
                     Message.CMD_SPAWN_TP_PLAYER_MESSAGE.print(p, "prefix:&7[&aSpawn&7]", 'a');
                     Message.CMD_SPAWN_TP_SENDER.print(sender, "prefix:&7[&aSpawn&7]", 'a', 'b', p.getName());
                 } else {

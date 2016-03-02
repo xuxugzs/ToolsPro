@@ -33,7 +33,7 @@ public class TreeCommand extends Commands {
         } else {
             if (sender instanceof Player) {
                 if (args.length >= 1) {
-                    tblocks.put(0, this.plugin.NON_SOLID_BLOCKS);
+                    tblocks.put(0, ToolsPro.NON_SOLID_BLOCKS);
                     Block block = ((Player) sender).getTargetBlock(100, tblocks);
                     if (block == null) {
                         Message.IS_NOT_A_REACHABLE_BLOCK.print(sender, "prefix:&7[&aTree&7]", 'c');

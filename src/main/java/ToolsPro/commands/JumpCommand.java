@@ -15,11 +15,12 @@ import java.util.Map;
 public class JumpCommand extends Commands {
 
     private ToolsPro plugin;
-    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
+    private Map<Integer, Object> tblocks = new HashMap<>();
 
     public JumpCommand(ToolsPro plugin) {
         super("jump", Message.CMD_JUMP_DESCRIPTION, "/jump");
         this.setPermission("toolspro.commands.jump");
+        this.setAliases(new String[]{"j"});
         this.plugin = plugin;
     }
 
@@ -28,7 +29,7 @@ public class JumpCommand extends Commands {
             Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
         } else {
             if (sender instanceof Player) {
-                tblocks.put(0, this.plugin.NON_SOLID_BLOCKS);
+                tblocks.put(0, ToolsPro.NON_SOLID_BLOCKS);
                 Block block = ((Player) sender).getTargetBlock(100, tblocks);
                 if (block == null) {
                     Message.IS_NOT_A_REACHABLE_BLOCK.print(sender, "prefix:&7[&aJump&7]", 'c');

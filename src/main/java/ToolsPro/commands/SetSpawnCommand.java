@@ -24,9 +24,9 @@ public class SetSpawnCommand extends Commands {
         } else {
             if (sender instanceof Player) {
                 ((Player) sender).getLevel().setSpawnLocation(((Player) sender));
-                ((Player) sender).getServer().setDefaultLevel(((Player) sender).getLevel());
+                sender.getServer().setDefaultLevel(((Player) sender).getLevel());
                 Message.CMD_SETSPAWN.print(sender, "prefix:&7[&aSpawn&7]", 'a');
-                Message.CMD_SETSPAWN_LOG.log(((Player) sender).getName(),((Player) sender).getLocation());
+                Message.CMD_SETSPAWN_LOG.log(sender.getName(), ((Player) sender).getLocation());
             } else {
                 return Message.NEED_PLAYER.print(sender, "prefix:&7[&aSpawn&7]", 'c');
             }

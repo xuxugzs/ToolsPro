@@ -14,9 +14,9 @@ public class ClearChatCommand extends Commands {
     private ToolsPro plugin;
 
     public ClearChatCommand(ToolsPro plugin) {
-        super("clearchat", Message.CMD_CLEARCHAT_DESCRIPTION, "/clearchat");
+        super("clearchat", Message.CMD_CLEARCHAT_DESCRIPTION, Message.CMD_CLEARCHAT_DESCRIPTION2.toString());
         this.setPermission("toolspro.commands.clearchat");
-        this.setAliases(new String[] {"cc", "cls", "clearscreen"});
+        this.setAliases(new String[]{"cc", "cls", "clearscreen"});
         this.plugin = plugin;
     }
 
@@ -26,7 +26,7 @@ public class ClearChatCommand extends Commands {
         } else {
             if (sender instanceof Player) {
                 for (int i = 0; i < 25; i++) sender.sendMessage(" ");
-                if (args.length > 0){
+                if (args.length > 0) {
                     String msg = "";
                     for (int i = 0; i < args.length; i++) {
                         msg += args[i] + " ";

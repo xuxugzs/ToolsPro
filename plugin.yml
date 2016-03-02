@@ -4,6 +4,7 @@ version: "0.0.4"
 api: ["1.0.0"]
 author: Pub4Game
 website: https://github.com/NukkitRu/ToolsPro
+load: STARTUP
 
 permissions:
   toolspro:
@@ -119,7 +120,7 @@ permissions:
               toolspro.commands.heal.other:
                 description: ""
                 default: op
-          toolspro.commands.item:
+          toolspro.commands.itemban:
             description: ""
             default: op
           toolspro.commands.itemdb:
@@ -167,6 +168,9 @@ permissions:
               toolspro.commands.repair.armor:
                 description: ""
                 default: op
+          toolspro.commands.returnop:
+            description: ""
+            default: op
           toolspro.commands.saveinv:
             description: ""
             default: false
@@ -191,6 +195,9 @@ permissions:
                 description: ""
                 default: true
               toolspro.commands.spawn.other:
+                description: ""
+                default: op
+              toolspro.commands.spawn.cooldown:
                 description: ""
                 default: op
           toolspro.commands.speed:
@@ -242,5 +249,34 @@ permissions:
                 description: ""
                 default: op
               toolspro.commands.world.create:
+                description: ""
+                default: op
+          toolspro.damage:
+            description: ""
+            default: false
+            children:
+              toolspro.damage.creative:
+                description: ""
+                default: op
+              toolspro.damage.fly:
+                description: ""
+                default: op
+              toolspro.damage.god:
+                description: ""
+                default: op
+              toolspro.damage.vanish:
+                description: ""
+                default: op
+          toolspro.limited-creative:
+            description: ""
+            default: false
+            children:
+              toolspro.limited-creative.drop-item:
+                description: ""
+                default: op
+              toolspro.limited-creative.pickup-item:
+                description: ""
+                default: op
+              toolspro.limited-creative.use-block:
                 description: ""
                 default: op

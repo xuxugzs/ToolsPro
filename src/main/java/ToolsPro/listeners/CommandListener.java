@@ -19,8 +19,8 @@ public class CommandListener implements Listener {
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
         Player player = event.getPlayer();
         String[] cmd = event.getMessage().split(" ");
-        boolean TellNotice = this.plugin.getConfig().getBoolean("TellNotice", false);
-        if (cmd[0].equalsIgnoreCase("/tell") && cmd[1] != null && TellNotice){ // :D
+        boolean TellNotice = this.plugin.getConfig().getBoolean("TellNotice");
+        if (cmd[0].equalsIgnoreCase("/tell") && cmd[1] != null && TellNotice) {
             String msg = "";
             Player p = this.plugin.getServer().getPlayer(cmd[1]);
             for (int i = 2; i < cmd.length; i++) {

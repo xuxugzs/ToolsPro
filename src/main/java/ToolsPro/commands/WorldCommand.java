@@ -4,6 +4,7 @@ import ToolsPro.ToolsPro;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
+import cn.nukkit.level.Level;
 import cn.nukkit.level.generator.Generator;
 
 /**
@@ -27,10 +28,10 @@ public class WorldCommand extends Commands {
             if (args.length >= 1) {
                 switch (args[0]) {
                     case "tp":
-                        if (args.length == 3){
+                        if (args.length == 3) {
                             Player p = this.plugin.getServer().getPlayer(args[2]);
                             if (p != null) {
-                                if (sender.hasPermission("toolspro.commands.world") || sender.hasPermission("toolspro.commands.world.other")) {
+                                if (sender.hasPermission("toolspro.commands.world") || sender.hasPermission("toolspro.commands.world.other") || sender.hasPermission("toolspro.commands.world." + args[1])) {
                                     if (p.getLevel().getName().equalsIgnoreCase(args[1])) {
                                         Message.CMD_WORLD_TP_PLAYER_ALREADY_IN_THIS_WORLD.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                         return false;

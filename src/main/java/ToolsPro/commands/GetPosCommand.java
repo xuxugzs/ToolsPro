@@ -27,7 +27,7 @@ public class GetPosCommand extends Commands {
                 if (sender.hasPermission("toolspro.commands.getpos.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
                     if (p != null) {
-                        sender.sendMessage(TextFormat.AQUA + p.getDisplayName() + TextFormat.GREEN +  Message.CMD_GETPOS_PLAYER + TextFormat.BLUE + p.getLevel().getName() + "\n" + TextFormat.YELLOW + Message.CMD_GETPOS_COORDINATES + TextFormat.GREEN + "X: " + p.getFloorX() + ", " + "Y: " + p.getFloorY() + ", " + "Z: " + p.getFloorZ());
+                        sender.sendMessage(TextFormat.AQUA + p.getDisplayName() + TextFormat.GREEN + Message.CMD_GETPOS_PLAYER + TextFormat.BLUE + p.getLevel().getName() + "\n" + TextFormat.YELLOW + Message.CMD_GETPOS_COORDINATES + TextFormat.GREEN + "X: " + p.getFloorX() + ", " + "Y: " + p.getFloorY() + ", " + "Z: " + p.getFloorZ());
                     } else {
                         Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGetPos&7]", 'c');
                     }
@@ -36,7 +36,7 @@ public class GetPosCommand extends Commands {
                 }
             } else {
                 if (sender instanceof Player) {
-                    sender.sendMessage(TextFormat.GREEN + Message.CMD_GETPOS_SENDER + TextFormat.BLUE + ((Player) sender).getLevel().getName() + "\n" + TextFormat.YELLOW + Message.CMD_GETPOS_COORDINATES +  TextFormat.GREEN + "X: " + ((Player) sender).getFloorX() + ", " + "Y: " + ((Player) sender).getFloorY() + ", " + "Z: " + ((Player) sender).getFloorZ());
+                    sender.sendMessage(TextFormat.GREEN + Message.CMD_GETPOS_SENDER + TextFormat.BLUE + ((Player) sender).getLevel().getName() + "\n" + TextFormat.YELLOW + Message.CMD_GETPOS_COORDINATES + TextFormat.GREEN + "X: " + ((Player) sender).getFloorX() + ", " + "Y: " + ((Player) sender).getFloorY() + ", " + "Z: " + ((Player) sender).getFloorZ());
                 } else {
                     return Message.NEED_PLAYER.print(sender, "prefix:&7[&aGetPos&7]", 'c');
                 }

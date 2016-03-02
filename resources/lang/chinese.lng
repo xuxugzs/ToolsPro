@@ -1,4 +1,4 @@
-version: 1
+version: 2
 
 toolspro_loaded: ToolsPro已经载入成功！
 toolspro_disabled: ToolsPro已经禁用！
@@ -39,6 +39,7 @@ cmd_burn_player: 你点燃了玩家 %1%
 cmd_burn_usage: '使用方法: /burn <玩家> <秒>'
 
 cmd_clearchat_description: Clear your chat window.
+cmd_clearchat_description2: /clearchat or /clearchat <message>
 
 cmd_clearhotbar_description: 清除你或其他人的物品栏.
 cmd_clearhotbar_description2: /clearhotbar 或 /clearhotbar <玩家>
@@ -136,15 +137,17 @@ cmd_itemban_alreadyban: 物品 %1% (ID - %2%) 已经被禁用了!
 cmd_itemban_alreadyremoved: 物品 %1% (ID - %2%) 已经解除禁用了!
 cmd_itemban_added: 已将物品 %1% (ID - %2%) 加入了黑名单列表!
 cmd_itemban_removed: 已将物品 %1% (ID - %2%) 从黑名单物品中移除!
-cmd_itemban_usage: '使用方法: /item <ban|unban> <物品ID>'
+cmd_itemban_usage: '使用方法: /itemban <ban|unban> <物品ID>'
 
 listener_itemban_touch: 你不能使用这个方块!
+listener_itemban_touch_block: You cannot interact with this block
 listener_itemban_eat: 你不可食用这个物品!
 listener_itemban_place: 你不能放置这个方块!
 listener_itemban_break: 你不能破坏这个方块!
+listener_itemban_tip: This item has been banned!
 
 cmd_itemdb_description: 显示你持有的物品的信息.
-cmd_itemdb_description2: /item db 或者 /itemdb <name|id|metadata>
+cmd_itemdb_description2: /itemdb 或者 /itemdb <name|id|metadata>
 cmd_itemdb_message1: '这个物品'
 cmd_itemdb_message2: '有 '
 cmd_itemdb_repairable: ' 损耗'
@@ -186,6 +189,12 @@ cmd_repair_successfully_repaired: 所持物品修复成功!
 cmd_repair_all_successfully_repaired: 你当前背包中所有的物品都已成功修复!
 cmd_repair_successfully_repaired_including_armor: (包括已经装备的物品)
 cmd_repair_error: 这不是一个可以修复的物品!
+
+cmd_returnop_description: Temporarily deops administrators.
+cmd_returnop_enable: You are no longer op!
+cmd_returnop_disable: You are now op!
+cmd_returnop_enable_info: Player %1% is no longer op
+cmd_returnop_disable_info: Player %1% are now op
 
 cmd_saveinv_description: 设置死亡不掉落
 cmd_saveinv_description2: /saveinv 或 /saveinv <玩家>

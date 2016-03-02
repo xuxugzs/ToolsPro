@@ -39,7 +39,7 @@ public class MuteListener implements Listener {
                 Message.LISTENER_MUTE_LINE2.print(player, "prefix:&7[&aMute&7]", 'c', '4', timemute);
                 event.setCancelled();
             } else {
-               this.plugin.removePlayerMute(player);
+                this.plugin.removePlayerMute(player);
             }
         }
     }

@@ -72,7 +72,7 @@ public class RepairCommand extends Commands {
                     return true;
                 }
             } else {
-               return Message.NEED_PLAYER.print(sender, "prefix:&7[&aRepair&7]", 'c');
+                return Message.NEED_PLAYER.print(sender, "prefix:&7[&aRepair&7]", 'c');
             }
         }
         return true;

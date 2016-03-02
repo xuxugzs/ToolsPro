@@ -2,15 +2,16 @@ package ToolsPro;
 
 import ToolsPro.commands.*;
 import ToolsPro.listeners.*;
-import ToolsPro.util.*;
 import ToolsPro.listeners.EventListener;
+import ToolsPro.util.HttpRequest;
+import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.item.EntityPrimedTNT;
-import cn.nukkit.item.ItemArmor;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemArmor;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.Position;
@@ -31,23 +32,30 @@ public class ToolsPro extends PluginBase {
 
     private static ToolsPro instance;
     public List<String> forbiddenNames;
-    private Map<Integer, Object> tblocks = new HashMap<Integer, Object>();
-    private static int LANG_VERSION = 1;
-    private static int CONFIG_VERSION = 1;
+    public List<Integer> itembanList;
+    private Map<Integer, Object> tblocks = new HashMap<>();
+    private static int LANG_VERSION = 2;
+    private static int CONFIG_VERSION = 2;
     public Config mute;
+    public Config itemban;
+
+    Set<String> FlyPlayers = new HashSet<>();
+    Set<String> GodPlayers = new HashSet<>();
+    Set<String> SaveInvPlayers = new HashSet<>();
+    Set<String> VanishPlayers = new HashSet<>();
+    Set<String> OPPlayers = new HashSet<>();
+
+    @Override
+    public void onLoad() {
+        instance = this;
+    }
+
     public static ToolsPro getPlugin() {
         return instance;
     }
 
-    Set<String> FlyPlayers = new HashSet<String>();
-    Set<String> GodPlayers = new HashSet<String>();
-    Set<String> SaveInvPlayers = new HashSet<String>();
-    Set<String> VanishPlayers = new HashSet<String>();
-    Set<String> OPPlayers = new HashSet<String>();
-
     @Override
     public void onEnable() {
-        instance = this;
         this.loadConfig();
         Message.init(this);
         this.checkConfig();
@@ -90,11 +98,10 @@ public class ToolsPro extends PluginBase {
         this.getServer().getCommandMap().register("kickall", new KickAllCommand(this));
         this.getServer().getCommandMap().register("more", new MoreCommand(this));
         this.getServer().getCommandMap().register("mute", new MuteCommand(this));
-        //this.getServer().getCommandMap().register("nick", new NickCommand(this));
         this.getServer().getCommandMap().register("realname", new RealNameCommand(this));
         this.getServer().getCommandMap().register("nuke", new NukeCommand(this));
         this.getServer().getCommandMap().register("repair", new RepairCommand(this));
-        //this.getServer().getCommandMap().register("returnop", new ReturnOPCommand(this));
+        this.getServer().getCommandMap().register("returnop", new ReturnOPCommand(this));
         this.getServer().getCommandMap().register("saveinv", new SaveInvCommand(this));
         this.getServer().getCommandMap().register("setspawn", new SetSpawnCommand(this));
         this.getServer().getCommandMap().register("spawnall", new SpawnAllCommand(this));
@@ -136,21 +143,24 @@ public class ToolsPro extends PluginBase {
 
     private void loadConfig() {
         this.saveDefaultConfig();
-        this.mute = new Config(new File(this.getDataFolder(), "mute.yml"));
+        this.mute = new Config(new File(this.getDataFolder(), "mute.yml"), Config.YAML);
+        this.itemban = new Config(new File(this.getDataFolder(), "item.yml"), Config.YAML);
         try {
             this.forbiddenNames = this.getConfig().getList("forbidden-player-names");
+            this.itembanList = itemban.getIntegerList("item-ban");
         } catch (Exception e) {
-            this.forbiddenNames = new ArrayList<String>();
+            this.forbiddenNames = new ArrayList<>();
+            this.itembanList = new ArrayList<>();
         }
     }
 
     private void checkVersion() {
         boolean checkVersion = this.getConfig().getBoolean("updater.enabled", false);
         if (checkVersion) {
-            String version = HttpRequest.sendGet("http://play.surfacecraft.ru/ToolsPro/updater.txt", "");
+            String version = HttpRequest.sendGet("http://forum.darkando.com/lol/Updater.txt", "");
             if (!version.isEmpty() && version.equals(this.getToolsProVersion())) {
                 Message.TOOLSPRO_UPDATER.log();
-            } else if (!version.isEmpty() && !version.equals(this.getToolsProVersion())) {
+            } else if (!version.isEmpty() && Integer.parseInt(version) > Integer.parseInt(this.getToolsProVersion())) {
                 Message.TOOLSPRO_UPDATER_NEW_VERSION.log('b', 'b', version);
             } else {
                 Message.TOOLSPRO_UPDATER_ERROR.log('c');
@@ -206,6 +216,28 @@ public class ToolsPro extends PluginBase {
         if (GodPlayers.contains(player.getName().toLowerCase())) GodPlayers.remove(player.getName().toLowerCase());
     }
 
+    public boolean getItemBan(int item) {
+        for (int itembanList : this.itembanList) {
+            if (itembanList == item) return true;
+        }
+        return false;
+    }
+
+    public void setItemBan(int item) {
+        itembanList.add(item);
+        itemban.set("item-ban", itembanList);
+        itemban.save();
+    }
+
+    public void removeItemBan(int item) {
+        Iterator<Integer> it = itembanList.iterator();
+        while (it.hasNext()) {
+            if (it.next() == item) it.remove();
+        }
+        itemban.set("item-ban", itembanList);
+        itemban.save();
+    }
+
     public boolean getPlayerMute(Player player) {
         return mute.get(player.getName().toLowerCase(), System.currentTimeMillis()) >= System.currentTimeMillis();
     }
@@ -214,8 +246,8 @@ public class ToolsPro extends PluginBase {
         return mute.exists(player.getName().toLowerCase());
     }
 
-    public void setPlayerMute(Player player, double timings) {
-        mute.set(player.getName().toLowerCase(), System.currentTimeMillis() + Math.round(timings * 1000d));
+    public void setPlayerMute(String player, double timings) {
+        mute.set(player.toLowerCase(), System.currentTimeMillis() + Math.round(timings * 1000d));
         mute.save();
     }
 
@@ -245,7 +277,8 @@ public class ToolsPro extends PluginBase {
     }
 
     public void removePlayerSaveInv(Player player) {
-        if (SaveInvPlayers.contains(player.getName().toLowerCase())) SaveInvPlayers.remove(player.getName().toLowerCase());
+        if (SaveInvPlayers.contains(player.getName().toLowerCase()))
+            SaveInvPlayers.remove(player.getName().toLowerCase());
     }
 
     public boolean getPlayerVanish(Player player) {
@@ -254,7 +287,7 @@ public class ToolsPro extends PluginBase {
 
     public void setPlayerVanish(Player player) {
         VanishPlayers.add(player.getName().toLowerCase());
-        for (Player p : this.getServer().getOnlinePlayers().values()){
+        for (Player p : this.getServer().getOnlinePlayers().values()) {
             p.hidePlayer(player);
         }
     }
@@ -262,18 +295,18 @@ public class ToolsPro extends PluginBase {
     public void removePlayerVanish(Player player) {
         if (VanishPlayers.contains(player.getName().toLowerCase())) {
             VanishPlayers.remove(player.getName().toLowerCase());
-            for (Player p : this.getServer().getOnlinePlayers().values()){
+            for (Player p : this.getServer().getOnlinePlayers().values()) {
                 p.showPlayer(player);
             }
         }
     }
 
-    public String joinMessage(boolean join, String msg, String fullmsg){
+    public String joinMessage(boolean join, String msg, String fullmsg) {
         if (!join) return fullmsg;
         return fullmsg.isEmpty() ? msg : fullmsg + ", " + msg;
     }
 
-    public void joinSession(Player player){
+    public void joinSession(Player player) {
         String msg;
         if (this.getPlayerFly(player)) player.setAllowFlight(true);
         msg = joinMessage(this.getPlayerFly(player), Message.JOIN_SESSION_FLY.getText('b'), "");
@@ -287,8 +320,8 @@ public class ToolsPro extends PluginBase {
         //I'M SORRY, BUT IT'S TOO HARD FOR ME.
     }
 
-    public void quitSession(Player player){
-        boolean session = this.getConfig().getBoolean("session", false);
+    public void quitSession(Player player) {
+        boolean session = this.getConfig().getBoolean("session");
         if (!session) {
             if (this.getPlayerFly(player)) this.removePlayerFly(player);
             if (this.getPlayerGodMode(player)) this.removePlayerGodMode(player);
@@ -311,14 +344,13 @@ public class ToolsPro extends PluginBase {
 
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
-
         long factor = (long) Math.pow(10, places);
         value = value * factor;
         long tmp = Math.round(value);
         return (double) tmp / factor;
     }
 
-    public String join(String [] ln) {
+    public String join(String[] ln) {
         StringBuilder sb = null;
         for (String str : ln) {
             if (sb == null) sb = new StringBuilder(str);
@@ -327,11 +359,11 @@ public class ToolsPro extends PluginBase {
         return sb.toString();
     }
 
-    public static final int [] NON_SOLID_BLOCKS = {Block.SAPLING, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA, Block.COBWEB, Block.TALL_GRASS, Block.BUSH, Block.DANDELION,
+    public static final int[] NON_SOLID_BLOCKS = {Block.SAPLING, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA, Block.COBWEB, Block.TALL_GRASS, Block.BUSH, Block.DANDELION,
             Block.POPPY, Block.BROWN_MUSHROOM, Block.RED_MUSHROOM, Block.TORCH, Block.FIRE, Block.WHEAT_BLOCK, Block.SIGN_POST, Block.WALL_SIGN, Block.SUGARCANE_BLOCK,
             Block.PUMPKIN_STEM, Block.MELON_STEM, Block.VINE, Block.CARROT_BLOCK, Block.POTATO_BLOCK, Block.DOUBLE_PLANT};
 
-    public static final int [] ANTIOCH_BLOCKS = {Block.AIR, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA};
+    public static final int[] ANTIOCH_BLOCKS = {Block.AIR, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA};
 
     public boolean antioch(Player player) {
         tblocks.put(0, ANTIOCH_BLOCKS);
