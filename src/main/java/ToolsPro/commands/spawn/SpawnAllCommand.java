@@ -1,6 +1,7 @@
-package ToolsPro.commands;
+package ToolsPro.commands.spawn;
 
 import ToolsPro.ToolsPro;
+import ToolsPro.commands.Commands;
 import ToolsPro.util.Message;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;

@@ -105,7 +105,13 @@ public class GamemodeCommand extends Commands {
                         } else {
                             p = this.plugin.getServer().getPlayer(args[0]);
                         }
-                        if (p != null) {
+                        if (p == null) {
+                            p = this.plugin.sortedListPlayers(args[0]);
+                            if (p == null) {
+                                Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
+                                return true;
+                            }
+                        }
                             if (p.getGamemode() != gm) {
                                 p.setGamemode(gm);
                                 Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_GAMEMODE.print(sender, 'a', 'b', p.getName(), gmstring);
@@ -114,9 +120,7 @@ public class GamemodeCommand extends Commands {
                             } else {
                                 Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_GAMEMODE.print(sender, 'c', 'b', p.getName(), gmstring);
                             }
-                        } else {
-                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGamemode&7]", 'c');
-                        }
+
                     } else {
                         return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                     }

@@ -26,14 +26,17 @@ public class ExtinguishCommand extends Commands {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.commands.extinguish.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
-                    if (p != null) {
+                    if (p == null) {
+                        p = this.plugin.sortedListPlayers(args[0]);
+                        if (p == null) {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
+                            return true;
+                        }
+                    }
                         p.extinguish();
                         Message.CMD_EXTINGUISH_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'a', 'b', p.getName());
                         Message.CMD_EXTINGUISH_PLAYER_MESSAGE.print(p, "prefix:&7[&aExtinguish&7]", 'a');
                         this.plugin.info(sender, Message.CMD_EXTINGUISH_PLAYER_INFO.getText("prefix:&7[Extinguish]", '7', '7', sender.getName(), p.getName()));
-                    } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aExtinguish&7]", 'c');
-                    }
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }

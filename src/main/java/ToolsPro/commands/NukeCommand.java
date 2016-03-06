@@ -27,7 +27,11 @@ public class NukeCommand extends Commands {
                 p = this.plugin.getServer().getPlayer(args[0]);
                 if (p.hasPermission("toolspro.commands.nuke.other")) {
                     if (p == null) {
-                        return Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aNuke&7]", 'c');
+                        p = this.plugin.sortedListPlayers(args[0]);
+                        if (p == null) {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aNuke&7]", 'c');
+                            return true;
+                        }
                     }
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');

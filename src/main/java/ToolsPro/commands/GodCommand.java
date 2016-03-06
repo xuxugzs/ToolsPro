@@ -25,7 +25,13 @@ public class GodCommand extends Commands {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.commands.god.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
-                    if (p != null) {
+                    if (p == null) {
+                        p = this.plugin.sortedListPlayers(args[0]);
+                        if (p == null) {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGodMode&7]", 'c');
+                            return true;
+                        }
+                    }
                         if (p.getGamemode() == 1 || p.getGamemode() == 3) {
                             Message.PLAYER_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aGodMode&7]", 'c', 'b', p.getName());
                         } else if (this.plugin.getPlayerGodMode(p)) {
@@ -39,9 +45,6 @@ public class GodCommand extends Commands {
                             Message.CMD_GOD_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aGodMode&7]", 'a');
                             this.plugin.info(sender, Message.CMD_GOD_PLAYER_ENABLE_INFO.getText("prefix:&7[GodMode]", '7', '7', sender.getName(), p.getName()));
                         }
-                    } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGodMode&7]", 'c');
-                    }
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }

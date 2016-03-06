@@ -26,13 +26,17 @@ public class ClearInventoryCommand extends Commands {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.commands.clearinventory.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
-                    if (p != null) {
+                    if (p == null) {
+                        p = this.plugin.sortedListPlayers(args[0]);
+                        if (p == null) {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'c');
+                            return true;
+                        }
+                    }
                         p.getInventory().clearAll();
                         Message.CMD_CLEARINVENTORY_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'a', 'b', p.getName());
                         this.plugin.info(sender, Message.CMD_CLEARINVENTORY_PLAYER_INFO.getText("prefix:&7[ClearInv]", '7', '7', sender.getName(), p.getName()));
-                    } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'c');
-                    }
+
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }

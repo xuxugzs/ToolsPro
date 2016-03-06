@@ -26,20 +26,23 @@ public class VanishCommand extends Commands {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.commands.vanish.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
-                    if (p != null) {
-                        if (this.plugin.getPlayerVanish(p)) {
-                            this.plugin.removePlayerVanish(p);
-                            Message.CMD_VANISH_PLAYER_DISABLE.print(sender, "prefix:&7[&aVanish&7]", 'a', 'b', p.getName());
-                            Message.CMD_VANISH_PLAYER_DISABLE_MESSAGE.print(p, "prefix:&7[&aVanish&7]", 'a');
-                            this.plugin.info(sender, Message.CMD_VANISH_PLAYER_DISABLE_INFO.getText("prefix:&7[Vanish]", '7', '7', sender.getName(), p.getName()));
-                        } else {
-                            this.plugin.setPlayerVanish(p);
-                            Message.CMD_VANISH_PLAYER_ENABLE.print(sender, "prefix:&7[&aVanish&7]", 'a', 'b', p.getName());
-                            Message.CMD_VANISH_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aVanish&7]", 'a');
-                            this.plugin.info(sender, Message.CMD_VANISH_PLAYER_ENABLE_INFO.getText("prefix:&7[Vanish]", '7', '7', sender.getName(), p.getName()));
+                    if (p == null) {
+                        p = this.plugin.sortedListPlayers(args[0]);
+                        if (p == null) {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aVanish&7]", 'c');
+                            return true;
                         }
+                    }
+                    if (this.plugin.getPlayerVanish(p)) {
+                        this.plugin.removePlayerVanish(p);
+                        Message.CMD_VANISH_PLAYER_DISABLE.print(sender, "prefix:&7[&aVanish&7]", 'a', 'b', p.getName());
+                        Message.CMD_VANISH_PLAYER_DISABLE_MESSAGE.print(p, "prefix:&7[&aVanish&7]", 'a');
+                        this.plugin.info(sender, Message.CMD_VANISH_PLAYER_DISABLE_INFO.getText("prefix:&7[Vanish]", '7', '7', sender.getName(), p.getName()));
                     } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aVanish&7]", 'c');
+                        this.plugin.setPlayerVanish(p);
+                        Message.CMD_VANISH_PLAYER_ENABLE.print(sender, "prefix:&7[&aVanish&7]", 'a', 'b', p.getName());
+                        Message.CMD_VANISH_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aVanish&7]", 'a');
+                        this.plugin.info(sender, Message.CMD_VANISH_PLAYER_ENABLE_INFO.getText("prefix:&7[Vanish]", '7', '7', sender.getName(), p.getName()));
                     }
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');

@@ -25,7 +25,13 @@ public class HealCommand extends Commands {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.commands.heal.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
-                    if (p != null) {
+                    if (p == null) {
+                        p = this.plugin.sortedListPlayers(args[0]);
+                        if (p == null) {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aHeal&7]", 'c');
+                            return true;
+                        }
+                    }
                         if (p.getGamemode() == 1 || p.getGamemode() == 3) {
                             Message.PLAYER_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aHeal&7]", 'c', 'b', p.getName());
                         } else if (p.getHealth() != 20) {
@@ -36,9 +42,6 @@ public class HealCommand extends Commands {
                         } else {
                             Message.CMD_HEAL_PLAYER_MAX.print(sender, "prefix:&7[&aHeal&7]", 'a', 'b', p.getName());
                         }
-                    } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aHeal&7]", 'c');
-                    }
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }

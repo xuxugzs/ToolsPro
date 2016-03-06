@@ -26,11 +26,15 @@ public class GetPosCommand extends Commands {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.commands.getpos.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
-                    if (p != null) {
-                        sender.sendMessage(TextFormat.AQUA + p.getDisplayName() + TextFormat.GREEN + Message.CMD_GETPOS_PLAYER + TextFormat.BLUE + p.getLevel().getName() + "\n" + TextFormat.YELLOW + Message.CMD_GETPOS_COORDINATES + TextFormat.GREEN + "X: " + p.getFloorX() + ", " + "Y: " + p.getFloorY() + ", " + "Z: " + p.getFloorZ());
-                    } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGetPos&7]", 'c');
+                    if (p == null) {
+                        p = this.plugin.sortedListPlayers(args[0]);
+                        if (p == null) {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aGetPos&7]", 'c');
+                            return true;
+                        }
                     }
+                        sender.sendMessage(TextFormat.AQUA + p.getDisplayName() + TextFormat.GREEN + Message.CMD_GETPOS_PLAYER + TextFormat.BLUE + p.getLevel().getName() + "\n" + TextFormat.YELLOW + Message.CMD_GETPOS_COORDINATES + TextFormat.GREEN + "X: " + p.getFloorX() + ", " + "Y: " + p.getFloorY() + ", " + "Z: " + p.getFloorZ());
+
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }

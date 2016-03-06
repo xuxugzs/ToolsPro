@@ -24,7 +24,13 @@ public class BurnCommand extends Commands {
         } else {
             if (args.length == 2) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (p != null) {
+                if (p == null) {
+                    p = this.plugin.sortedListPlayers(args[0]);
+                    if (p == null) {
+                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aBurn&7]", 'c');
+                        return true;
+                    }
+                }
                     if (args[1].matches("^[1-9]+\\d*$")) {
                         p.setOnFire(Integer.parseInt(args[1]));
                         Message.CMD_BURN_PLAYER.print(sender, 'a', 'b', p.getName(), "prefix:&7[&aBurn&7]");
@@ -32,9 +38,6 @@ public class BurnCommand extends Commands {
                     } else {
                         Message.NOT_NUMBER.print(sender, "prefix:&7[&aBurn&7]", 'c');
                     }
-                } else {
-                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aBurn&7]", 'c');
-                }
             } else {
                 Message.CMD_BURN_USAGE.print(sender, "prefix:&7[&aBurn&7]", 'c');
             }

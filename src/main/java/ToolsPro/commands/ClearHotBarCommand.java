@@ -26,15 +26,18 @@ public class ClearHotBarCommand extends Commands {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.commands.clearhotbar.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
-                    if (p != null) {
+                    if (p == null) {
+                        p = this.plugin.sortedListPlayers(args[0]);
+                        if (p == null) {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'c');
+                            return true;
+                        }
+                    }
                         for (int i = 0; i < p.getInventory().getHotbarSize(); i++) {
                             p.getInventory().setHotbarSlotIndex(i, -1);
                         }
                         Message.CMD_CLEARHOTBAR_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'a', 'b', p.getName());
                         this.plugin.info(sender, Message.CMD_CLEARHOTBAR_PLAYER_INFO.getText("prefix:&7[ClearHotBar]", '7', '7', sender.getName(), p.getName()));
-                    } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'c');
-                    }
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }

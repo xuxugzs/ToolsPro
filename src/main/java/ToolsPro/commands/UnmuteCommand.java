@@ -24,10 +24,10 @@ public class UnmuteCommand extends Commands {
         } else {
             if (args.length != 0) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (!this.plugin.existsPlayerMute(p)) {
+                if (!this.plugin.existsPlayerMute(args[0])) {
                     Message.CMD_UNMUTE_PLAYER_NOT_MUTED.print(sender, "prefix:&7[&aMute&7]", 'a', 'b', args[0]);
                 } else {
-                    this.plugin.removePlayerMute(p);
+                    this.plugin.removePlayerMute(args[0]);
                     if (p != null) {
                         Message.CMD_UNMUTE_PLAYER_MESSAGE.print(p, "prefix:&7[&aMute&7]", 'c');
                     }

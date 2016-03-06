@@ -1,6 +1,9 @@
 package ToolsPro;
 
 import ToolsPro.commands.*;
+import ToolsPro.commands.spawn.SetSpawnCommand;
+import ToolsPro.commands.spawn.SpawnAllCommand;
+import ToolsPro.commands.spawn.SpawnCommand;
 import ToolsPro.listeners.*;
 import ToolsPro.listeners.EventListener;
 import ToolsPro.util.HttpRequest;
@@ -15,6 +18,7 @@ import cn.nukkit.item.ItemArmor;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.Position;
+import cn.nukkit.level.sound.TNTPrimeSound;
 import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -26,6 +30,7 @@ import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.util.*;
 
 public class ToolsPro extends PluginBase {
@@ -188,6 +193,15 @@ public class ToolsPro extends PluginBase {
         return item instanceof ItemTool || item instanceof ItemArmor;
     }
 
+    public Player sortedListPlayers(String name){
+        SortedMap<String, Player> players = new TreeMap<>(this.getServer().getOnlinePlayers());
+        for (Map.Entry<String, Player> player : players.entrySet()) {
+            if (!player.getValue().getName().substring(0, name.length()).equalsIgnoreCase(name)) continue;
+            return player.getValue();
+        }
+        return null;
+    }
+
     public boolean getPlayerFly(Player player) {
         return FlyPlayers.contains(player.getName().toLowerCase());
     }
@@ -242,8 +256,8 @@ public class ToolsPro extends PluginBase {
         return mute.get(player.getName().toLowerCase(), System.currentTimeMillis()) >= System.currentTimeMillis();
     }
 
-    public boolean existsPlayerMute(Player player) {
-        return mute.exists(player.getName().toLowerCase());
+    public boolean existsPlayerMute(String player) {
+        return mute.exists(player.toLowerCase());
     }
 
     public void setPlayerMute(String player, double timings) {
@@ -251,8 +265,8 @@ public class ToolsPro extends PluginBase {
         mute.save();
     }
 
-    public void removePlayerMute(Player player) {
-        mute.remove(player.getName().toLowerCase());
+    public void removePlayerMute(String player) {
+        mute.remove(player.toLowerCase());
         mute.save();
     }
 
@@ -407,5 +421,6 @@ public class ToolsPro extends PluginBase {
                 .putByte("Fuse", (byte) 80);
         Entity tnt = new EntityPrimedTNT(level.getChunk(pos.getFloorX() >> 4, pos.getFloorZ() >> 4), nbt);
         tnt.spawnToAll();
+        level.addSound(new TNTPrimeSound(tnt));
     }
 }

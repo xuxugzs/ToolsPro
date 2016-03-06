@@ -25,7 +25,13 @@ public class SaveInvCommand extends Commands {
             if (args.length != 0) {
                 if (sender.hasPermission("toolspro.commands.saveinv.other")) {
                     Player p = this.plugin.getServer().getPlayer(args[0]);
-                    if (p != null) {
+                    if (p == null) {
+                        p = this.plugin.sortedListPlayers(args[0]);
+                        if (p == null) {
+                            Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
+                            return true;
+                        }
+                    }
                         if (p.getGamemode() == 1 || p.getGamemode() == 3) {
                             Message.PLAYER_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aSaveInv&7]", 'c', 'b', p.getName());
                         } else if (this.plugin.getPlayerSaveInv(p)) {
@@ -39,9 +45,6 @@ public class SaveInvCommand extends Commands {
                             Message.CMD_SAVEINV_PLAYER_ENABLE_MESSAGE.print(p, "prefix:&7[&aSaveInv&7]", 'a');
                             this.plugin.info(sender, Message.CMD_SAVEINV_PLAYER_ENABLE_INFO.getText("prefix:&7[SaveInv]", '7', '7', sender.getName(), p.getName()));
                         }
-                    } else {
-                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSaveInv&7]", 'c');
-                    }
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }

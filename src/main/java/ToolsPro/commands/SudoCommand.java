@@ -25,7 +25,13 @@ public class SudoCommand extends Commands {
         } else {
             if (args.length >= 2) {
                 Player p = this.plugin.getServer().getPlayer(args[0]);
-                if (p != null) {
+                if (p == null) {
+                    p = this.plugin.sortedListPlayers(args[0]);
+                    if (p == null) {
+                        Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSudo&7]", 'c');
+                        return true;
+                    }
+                }
                     if (p.hasPermission("toolspro.commands.sudo.exempt")) {
                         String sudo = "";
                         for (int i = 1; i < args.length; i++) {
@@ -48,9 +54,6 @@ public class SudoCommand extends Commands {
                     } else {
                         Message.CMD_SUDO_CANNOT_BE_SUDOED.print(sender, "prefix:&7[&aSudo&7]", 'c', 'b', p.getName());
                     }
-                } else {
-                    Message.UNKNOWN_PLAYER.print(sender, "prefix:&7[&aSudo&7]", 'c');
-                }
             } else {
                 return Message.CMD_SUDO_USAGE.print(sender, "prefix:&7[&aSudo&7]", 'c');
             }
