@@ -36,26 +36,26 @@ public class WorldCommand extends Commands {
                                     return true;
                                 }
                             }
-                                if (sender.hasPermission("toolspro.commands.world") || sender.hasPermission("toolspro.commands.world.other") || sender.hasPermission("toolspro.commands.world." + args[1])) {
-                                    if (p.getLevel().getName().equalsIgnoreCase(args[1])) {
-                                        Message.CMD_WORLD_TP_PLAYER_ALREADY_IN_THIS_WORLD.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                            if (sender.hasPermission("toolspro.commands.world") || sender.hasPermission("toolspro.commands.world.other") || sender.hasPermission("toolspro.commands.world." + args[1])) {
+                                if (p.getLevel().getName().equalsIgnoreCase(args[1])) {
+                                    Message.CMD_WORLD_TP_PLAYER_ALREADY_IN_THIS_WORLD.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                                    return false;
+                                } else if (!p.getServer().isLevelGenerated(args[1])) {
+                                    Message.CMD_WORLD_TP_NOT_FOUND.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                                    return false;
+                                } else if (!p.getServer().isLevelLoaded(args[1])) {
+                                    Message.CMD_WORLD_TP_NOT_LOADED.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                                    if (!p.getServer().loadLevel(args[1])) {
+                                        Message.CMD_WORLD_TP_ERROR_LOADING.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                         return false;
-                                    } else if (!p.getServer().isLevelGenerated(args[1])) {
-                                        Message.CMD_WORLD_TP_NOT_FOUND.print(sender, "prefix:&7[&aWorld&7]", 'c');
-                                        return false;
-                                    } else if (!p.getServer().isLevelLoaded(args[1])) {
-                                        Message.CMD_WORLD_TP_NOT_LOADED.print(sender, "prefix:&7[&aWorld&7]", 'c');
-                                        if (!p.getServer().loadLevel(args[1])) {
-                                            Message.CMD_WORLD_TP_ERROR_LOADING.print(sender, "prefix:&7[&aWorld&7]", 'c');
-                                            return false;
-                                        }
                                     }
-                                    p.teleport(this.plugin.getServer().getLevelByName(args[1]).getSafeSpawn());
-                                    Message.CMD_WORLD_TP_SENDER.print(sender, "prefix:&7[&aWorld&7]", 'a', 'b', p.getName(), args[1]);
-                                    Message.CMD_WORLD_TP_PLAYER_MESSAGE.print(p, "prefix:&7[&aWorld&7]", 'a', 'b', args[1]);
-                                } else {
-                                    Message.CMD_WORLD_TP_PLAYER_PERMISSION.print(sender, "prefix:&7[&aWorld&7]", 'c');
                                 }
+                                p.teleport(this.plugin.getServer().getLevelByName(args[1]).getSafeSpawn());
+                                Message.CMD_WORLD_TP_SENDER.print(sender, "prefix:&7[&aWorld&7]", 'a', 'b', p.getName(), args[1]);
+                                Message.CMD_WORLD_TP_PLAYER_MESSAGE.print(p, "prefix:&7[&aWorld&7]", 'a', 'b', args[1]);
+                            } else {
+                                Message.CMD_WORLD_TP_PLAYER_PERMISSION.print(sender, "prefix:&7[&aWorld&7]", 'c');
+                            }
                         } else {
                             if (sender instanceof Player) {
                                 if (args.length == 2) {

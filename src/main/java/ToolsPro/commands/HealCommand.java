@@ -32,16 +32,16 @@ public class HealCommand extends Commands {
                             return true;
                         }
                     }
-                        if (p.getGamemode() == 1 || p.getGamemode() == 3) {
-                            Message.PLAYER_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aHeal&7]", 'c', 'b', p.getName());
-                        } else if (p.getHealth() != 20) {
-                            p.setHealth(20);
-                            Message.CMD_HEAL_PLAYER.print(sender, "prefix:&7[&aHeal&7]", 'a', 'b', p.getName());
-                            Message.CMD_HEAL_PLAYER_MESSAGE.print(p, "prefix:&7[&aHeal&7]", 'a');
-                            this.plugin.info(sender, Message.CMD_HEAL_PLAYER_INFO.getText("prefix:&7[Heal]", '7', '7', sender.getName(), p.getName()));
-                        } else {
-                            Message.CMD_HEAL_PLAYER_MAX.print(sender, "prefix:&7[&aHeal&7]", 'a', 'b', p.getName());
-                        }
+                    if (p.getGamemode() == 1 || p.getGamemode() == 3) {
+                        Message.PLAYER_NOT_SURVIVAL_OR_ADVENTURE.print(sender, "prefix:&7[&aHeal&7]", 'c', 'b', p.getName());
+                    } else if (p.getHealth() != 20) {
+                        p.setHealth(20);
+                        Message.CMD_HEAL_PLAYER.print(sender, "prefix:&7[&aHeal&7]", 'a', 'b', p.getName());
+                        Message.CMD_HEAL_PLAYER_MESSAGE.print(p, "prefix:&7[&aHeal&7]", 'a');
+                        this.plugin.info(sender, Message.CMD_HEAL_PLAYER_INFO.getText("prefix:&7[Heal]", '7', '7', sender.getName(), p.getName()));
+                    } else {
+                        Message.CMD_HEAL_PLAYER_MAX.print(sender, "prefix:&7[&aHeal&7]", 'a', 'b', p.getName());
+                    }
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }

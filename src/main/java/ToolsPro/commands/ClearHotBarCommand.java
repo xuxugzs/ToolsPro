@@ -33,11 +33,11 @@ public class ClearHotBarCommand extends Commands {
                             return true;
                         }
                     }
-                        for (int i = 0; i < p.getInventory().getHotbarSize(); i++) {
-                            p.getInventory().setHotbarSlotIndex(i, -1);
-                        }
-                        Message.CMD_CLEARHOTBAR_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'a', 'b', p.getName());
-                        this.plugin.info(sender, Message.CMD_CLEARHOTBAR_PLAYER_INFO.getText("prefix:&7[ClearHotBar]", '7', '7', sender.getName(), p.getName()));
+                    for (int i = 0; i < p.getInventory().getHotbarSize(); i++) {
+                        p.getInventory().setHotbarSlotIndex(i, -1);
+                    }
+                    Message.CMD_CLEARHOTBAR_PLAYER.print(sender, "prefix:&7[&aClearHotBar&7]", 'a', 'b', p.getName());
+                    this.plugin.info(sender, Message.CMD_CLEARHOTBAR_PLAYER_INFO.getText("prefix:&7[ClearHotBar]", '7', '7', sender.getName(), p.getName()));
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
                 }

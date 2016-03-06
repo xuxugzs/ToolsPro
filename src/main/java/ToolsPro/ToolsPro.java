@@ -30,33 +30,45 @@ import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 
 import java.io.File;
-import java.nio.file.Files;
 import java.util.*;
 
 public class ToolsPro extends PluginBase {
 
+    public static final int[] NON_SOLID_BLOCKS = {Block.SAPLING, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA, Block.COBWEB, Block.TALL_GRASS, Block.BUSH, Block.DANDELION,
+            Block.POPPY, Block.BROWN_MUSHROOM, Block.RED_MUSHROOM, Block.TORCH, Block.FIRE, Block.WHEAT_BLOCK, Block.SIGN_POST, Block.WALL_SIGN, Block.SUGARCANE_BLOCK,
+            Block.PUMPKIN_STEM, Block.MELON_STEM, Block.VINE, Block.CARROT_BLOCK, Block.POTATO_BLOCK, Block.DOUBLE_PLANT};
+
+    public static final int[] ANTIOCH_BLOCKS = {Block.AIR, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA};
+
     private static ToolsPro instance;
-    public List<String> forbiddenNames;
-    public List<Integer> itembanList;
-    private Map<Integer, Object> tblocks = new HashMap<>();
     private static int LANG_VERSION = 2;
     private static int CONFIG_VERSION = 2;
+    public List<String> forbiddenNames;
+    public List<Integer> itembanList;
     public Config mute;
     public Config itemban;
-
     Set<String> FlyPlayers = new HashSet<>();
     Set<String> GodPlayers = new HashSet<>();
     Set<String> SaveInvPlayers = new HashSet<>();
     Set<String> VanishPlayers = new HashSet<>();
     Set<String> OPPlayers = new HashSet<>();
+    private Map<Integer, Object> tblocks = new HashMap<>();
+
+    public static ToolsPro getPlugin() {
+        return instance;
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
+    }
 
     @Override
     public void onLoad() {
         instance = this;
-    }
-
-    public static ToolsPro getPlugin() {
-        return instance;
     }
 
     @Override
@@ -193,7 +205,7 @@ public class ToolsPro extends PluginBase {
         return item instanceof ItemTool || item instanceof ItemArmor;
     }
 
-    public Player sortedListPlayers(String name){
+    public Player sortedListPlayers(String name) {
         SortedMap<String, Player> players = new TreeMap<>(this.getServer().getOnlinePlayers());
         for (Map.Entry<String, Player> player : players.entrySet()) {
             if (!player.getValue().getName().substring(0, name.length()).equalsIgnoreCase(name)) continue;
@@ -356,14 +368,6 @@ public class ToolsPro extends PluginBase {
         }
     }
 
-    public static double round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
-        long factor = (long) Math.pow(10, places);
-        value = value * factor;
-        long tmp = Math.round(value);
-        return (double) tmp / factor;
-    }
-
     public String join(String[] ln) {
         StringBuilder sb = null;
         for (String str : ln) {
@@ -372,12 +376,6 @@ public class ToolsPro extends PluginBase {
         }
         return sb.toString();
     }
-
-    public static final int[] NON_SOLID_BLOCKS = {Block.SAPLING, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA, Block.COBWEB, Block.TALL_GRASS, Block.BUSH, Block.DANDELION,
-            Block.POPPY, Block.BROWN_MUSHROOM, Block.RED_MUSHROOM, Block.TORCH, Block.FIRE, Block.WHEAT_BLOCK, Block.SIGN_POST, Block.WALL_SIGN, Block.SUGARCANE_BLOCK,
-            Block.PUMPKIN_STEM, Block.MELON_STEM, Block.VINE, Block.CARROT_BLOCK, Block.POTATO_BLOCK, Block.DOUBLE_PLANT};
-
-    public static final int[] ANTIOCH_BLOCKS = {Block.AIR, Block.WATER, Block.STILL_WATER, Block.LAVA, Block.STILL_LAVA};
 
     public boolean antioch(Player player) {
         tblocks.put(0, ANTIOCH_BLOCKS);

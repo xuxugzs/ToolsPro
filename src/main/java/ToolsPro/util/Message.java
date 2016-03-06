@@ -342,6 +342,25 @@ public enum Message {
     private static char c2 = '2';
 
     private static PluginBase plugin = null;
+    private String message;
+    private Character color1;
+    private Character color2;
+
+    Message(String msg) {
+        message = msg;
+        this.color1 = null;
+        this.color2 = null;
+    }
+
+    Message(String msg, char color1, char color2) {
+        this.message = msg;
+        this.color1 = color1;
+        this.color2 = color2;
+    }
+
+    Message(String msg, char color) {
+        this(msg, color, color);
+    }
 
     /**
      * This is my favorite debug routine :) I use it everywhere to print out variable values
@@ -358,6 +377,83 @@ public enum Message {
         plugin.getServer().broadcastMessage(TextFormat.colorize(sb.toString().trim()));
     }
 
+    /**
+     * Initialize current class, load messages, etc.
+     * Call this file in onEnable method after initializing plugin configuration
+     *
+     * @param plg
+     */
+    public static void init(PluginBase plg) {
+        plugin = plg;
+        language = plg.getConfig().getString("general.language", "english");
+        debugMode = plg.getConfig().getBoolean("general.debug-mode", false);
+        initMessages();
+        saveMessages();
+        LNG_CONFIG.debug(Message.values().length, language, true, debugMode);
+    }
+
+    /**
+     * Enable debugMode
+     *
+     * @param debug
+     */
+    public static void setDebugMode(boolean debug) {
+        debugMode = debug;
+    }
+
+    private static boolean copyLanguage() {
+        return plugin.saveResource("lang/" + language + ".lng", language + ".lng", false);
+    }
+
+    private static void initMessages() {
+        copyLanguage();
+        Config lng = null;
+        try {
+            lng = new Config(new File(plugin.getDataFolder() + File.separator + language + ".lng"), Config.YAML);
+        } catch (Exception e) {
+            LNG_LOAD_FAIL.log();
+            if (debugMode) e.printStackTrace();
+            return;
+        }
+        for (Message key : Message.values()) key.initMessage((String) lng.get(key.name().toLowerCase(), key.message));
+    }
+
+    private static void saveMessages() {
+        Config lng = new Config(new File(plugin.getDataFolder() + File.separator + language + ".lng"), Config.YAML);
+        for (Message key : Message.values())
+            lng.set(key.name().toLowerCase(), key.message);
+        try {
+            lng.save();
+        } catch (Exception e) {
+            LNG_SAVE_FAIL.log();
+            if (debugMode) e.printStackTrace();
+            return;
+        }
+    }
+
+    /**
+     * Send message (formed using join method) to server log if debug mode is enabled
+     *
+     * @param s
+     */
+    public static boolean debugMessage(Object... s) {
+        if (debugMode) plugin.getLogger().info(TextFormat.clean(join(s)));
+        return true;
+    }
+
+    /**
+     * Join object array to string (separated by space)
+     *
+     * @param s
+     */
+    public static String join(Object... s) {
+        StringBuilder sb = new StringBuilder();
+        for (Object o : s) {
+            if (sb.length() > 0) sb.append(" ");
+            sb.append(o.toString());
+        }
+        return sb.toString();
+    }
 
     /**
      * Send current message to log files
@@ -453,7 +549,6 @@ public enum Message {
         return true;
     }
 
-
     /**
      * Get formated text.
      *
@@ -531,106 +626,8 @@ public enum Message {
         this.message = message;
     }
 
-    private String message;
-    private Character color1;
-    private Character color2;
-
-    Message(String msg) {
-        message = msg;
-        this.color1 = null;
-        this.color2 = null;
-    }
-
-    Message(String msg, char color1, char color2) {
-        this.message = msg;
-        this.color1 = color1;
-        this.color2 = color2;
-    }
-
-    Message(String msg, char color) {
-        this(msg, color, color);
-    }
-
     @Override
     public String toString() {
         return this.getText("NOCOLOR");
-    }
-
-    /**
-     * Initialize current class, load messages, etc.
-     * Call this file in onEnable method after initializing plugin configuration
-     *
-     * @param plg
-     */
-    public static void init(PluginBase plg) {
-        plugin = plg;
-        language = plg.getConfig().getString("general.language", "english");
-        debugMode = plg.getConfig().getBoolean("general.debug-mode", false);
-        initMessages();
-        saveMessages();
-        LNG_CONFIG.debug(Message.values().length, language, true, debugMode);
-    }
-
-    /**
-     * Enable debugMode
-     *
-     * @param debug
-     */
-    public static void setDebugMode(boolean debug) {
-        debugMode = debug;
-    }
-
-    private static boolean copyLanguage() {
-        return plugin.saveResource("lang/" + language + ".lng", language + ".lng", false);
-    }
-
-    private static void initMessages() {
-        copyLanguage();
-        Config lng = null;
-        try {
-            lng = new Config(new File(plugin.getDataFolder() + File.separator + language + ".lng"), Config.YAML);
-        } catch (Exception e) {
-            LNG_LOAD_FAIL.log();
-            if (debugMode) e.printStackTrace();
-            return;
-        }
-        for (Message key : Message.values()) key.initMessage((String) lng.get(key.name().toLowerCase(), key.message));
-    }
-
-    private static void saveMessages() {
-        Config lng = new Config(new File(plugin.getDataFolder() + File.separator + language + ".lng"), Config.YAML);
-        for (Message key : Message.values())
-            lng.set(key.name().toLowerCase(), key.message);
-        try {
-            lng.save();
-        } catch (Exception e) {
-            LNG_SAVE_FAIL.log();
-            if (debugMode) e.printStackTrace();
-            return;
-        }
-    }
-
-    /**
-     * Send message (formed using join method) to server log if debug mode is enabled
-     *
-     * @param s
-     */
-    public static boolean debugMessage(Object... s) {
-        if (debugMode) plugin.getLogger().info(TextFormat.clean(join(s)));
-        return true;
-    }
-
-    /**
-     * Join object array to string (separated by space)
-     *
-     * @param s
-     */
-    public static String join(Object... s) {
-        StringBuilder sb = new StringBuilder();
-        for (Object o : s) {
-            if (sb.length() > 0) sb.append(" ");
-            sb.append(o.toString());
-        }
-        return sb.toString();
     }
 }

@@ -33,7 +33,7 @@ public class GetPosCommand extends Commands {
                             return true;
                         }
                     }
-                        sender.sendMessage(TextFormat.AQUA + p.getDisplayName() + TextFormat.GREEN + Message.CMD_GETPOS_PLAYER + TextFormat.BLUE + p.getLevel().getName() + "\n" + TextFormat.YELLOW + Message.CMD_GETPOS_COORDINATES + TextFormat.GREEN + "X: " + p.getFloorX() + ", " + "Y: " + p.getFloorY() + ", " + "Z: " + p.getFloorZ());
+                    sender.sendMessage(TextFormat.AQUA + p.getDisplayName() + TextFormat.GREEN + Message.CMD_GETPOS_PLAYER + TextFormat.BLUE + p.getLevel().getName() + "\n" + TextFormat.YELLOW + Message.CMD_GETPOS_COORDINATES + TextFormat.GREEN + "X: " + p.getFloorX() + ", " + "Y: " + p.getFloorY() + ", " + "Z: " + p.getFloorZ());
 
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');

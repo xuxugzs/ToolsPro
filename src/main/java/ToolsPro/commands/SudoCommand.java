@@ -32,28 +32,28 @@ public class SudoCommand extends Commands {
                         return true;
                     }
                 }
-                    if (p.hasPermission("toolspro.commands.sudo.exempt")) {
-                        String sudo = "";
-                        for (int i = 1; i < args.length; i++) {
-                            sudo += args[i] + " ";
-                        }
-                        if (sudo.length() > 0) {
-                            sudo = sudo.substring(0, sudo.length() - 1);
-                        }
-                        if (sudo.substring(0, 2).equals("c:")) {
-                            Message.CMD_SUDO_SEND_MESSAGE.print(sender, "prefix:&7[&aSudo&7]", 'a', 'b', p.getDisplayName());
-                            PlayerChatEvent ev = new PlayerChatEvent(p, sudo.substring(2));
-                            this.plugin.getServer().getPluginManager().callEvent(ev);
-                            if (!ev.isCancelled()) {
-                                this.plugin.getServer().broadcastMessage(String.format(ev.getFormat(), ev.getPlayer().getDisplayName(), ev.getMessage()), ev.getRecipients());
-                            }
-                        } else {
-                            Message.CMD_SUDO_USE_COMMAND.print(sender, "prefix:&7[&aSudo&7]", 'a', 'b', p.getDisplayName());
-                            this.plugin.getServer().dispatchCommand(p, sudo);
+                if (p.hasPermission("toolspro.commands.sudo.exempt")) {
+                    String sudo = "";
+                    for (int i = 1; i < args.length; i++) {
+                        sudo += args[i] + " ";
+                    }
+                    if (sudo.length() > 0) {
+                        sudo = sudo.substring(0, sudo.length() - 1);
+                    }
+                    if (sudo.substring(0, 2).equals("c:")) {
+                        Message.CMD_SUDO_SEND_MESSAGE.print(sender, "prefix:&7[&aSudo&7]", 'a', 'b', p.getDisplayName());
+                        PlayerChatEvent ev = new PlayerChatEvent(p, sudo.substring(2));
+                        this.plugin.getServer().getPluginManager().callEvent(ev);
+                        if (!ev.isCancelled()) {
+                            this.plugin.getServer().broadcastMessage(String.format(ev.getFormat(), ev.getPlayer().getDisplayName(), ev.getMessage()), ev.getRecipients());
                         }
                     } else {
-                        Message.CMD_SUDO_CANNOT_BE_SUDOED.print(sender, "prefix:&7[&aSudo&7]", 'c', 'b', p.getName());
+                        Message.CMD_SUDO_USE_COMMAND.print(sender, "prefix:&7[&aSudo&7]", 'a', 'b', p.getDisplayName());
+                        this.plugin.getServer().dispatchCommand(p, sudo);
                     }
+                } else {
+                    Message.CMD_SUDO_CANNOT_BE_SUDOED.print(sender, "prefix:&7[&aSudo&7]", 'c', 'b', p.getName());
+                }
             } else {
                 return Message.CMD_SUDO_USAGE.print(sender, "prefix:&7[&aSudo&7]", 'c');
             }

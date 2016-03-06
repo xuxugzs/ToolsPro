@@ -112,14 +112,14 @@ public class GamemodeCommand extends Commands {
                                 return true;
                             }
                         }
-                            if (p.getGamemode() != gm) {
-                                p.setGamemode(gm);
-                                Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_GAMEMODE.print(sender, 'a', 'b', p.getName(), gmstring);
-                                Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_GAMEMODE_MESSAGE.print(p, 'a', 'b', gmstring);
-                                this.plugin.info(p, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_GAMEMODE_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName(), p.getName(), gmstring));
-                            } else {
-                                Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_GAMEMODE.print(sender, 'c', 'b', p.getName(), gmstring);
-                            }
+                        if (p.getGamemode() != gm) {
+                            p.setGamemode(gm);
+                            Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_GAMEMODE.print(sender, 'a', 'b', p.getName(), gmstring);
+                            Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_GAMEMODE_MESSAGE.print(p, 'a', 'b', gmstring);
+                            this.plugin.info(p, Message.CMD_GAMEMODE_PLAYER_SUCCESSFULLY_CHANGED_GAMEMODE_INFO.getText("prefix:&7[Gamemode]", '7', '7', sender.getName(), p.getName(), gmstring));
+                        } else {
+                            Message.CMD_GAMEMODE_PLAYER_ALREADY_IN_GAMEMODE.print(sender, 'c', 'b', p.getName(), gmstring);
+                        }
 
                     } else {
                         return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');

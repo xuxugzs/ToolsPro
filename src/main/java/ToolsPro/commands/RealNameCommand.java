@@ -31,7 +31,7 @@ public class RealNameCommand extends Commands {
                         return true;
                     }
                 }
-                    Message.CMD_REALNAME.print(sender, "prefix:&7[&aRealName&7]", 'a', 'b', p.getDisplayName().endsWith("s") ? p.getDisplayName().substring(0, p.getDisplayName().length() - 1) + "'s" : p.getDisplayName() + "'s", p.getName());
+                Message.CMD_REALNAME.print(sender, "prefix:&7[&aRealName&7]", 'a', 'b', p.getDisplayName().endsWith("s") ? p.getDisplayName().substring(0, p.getDisplayName().length() - 1) + "'s" : p.getDisplayName() + "'s", p.getName());
             } else {
                 return Message.CMD_REALNAME_USAGE.print(sender, "prefix:&7[&aRealName&7]", 'c');
             }

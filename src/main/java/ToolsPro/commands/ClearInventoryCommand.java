@@ -33,9 +33,9 @@ public class ClearInventoryCommand extends Commands {
                             return true;
                         }
                     }
-                        p.getInventory().clearAll();
-                        Message.CMD_CLEARINVENTORY_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'a', 'b', p.getName());
-                        this.plugin.info(sender, Message.CMD_CLEARINVENTORY_PLAYER_INFO.getText("prefix:&7[ClearInv]", '7', '7', sender.getName(), p.getName()));
+                    p.getInventory().clearAll();
+                    Message.CMD_CLEARINVENTORY_PLAYER.print(sender, "prefix:&7[&aClearInv&7]", 'a', 'b', p.getName());
+                    this.plugin.info(sender, Message.CMD_CLEARINVENTORY_PLAYER_INFO.getText("prefix:&7[ClearInv]", '7', '7', sender.getName(), p.getName()));
 
                 } else {
                     return Message.YOU_DONT_HAVE_PERMISSION.print(sender, 'c');
