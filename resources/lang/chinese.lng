@@ -1,20 +1,20 @@
-version: 2
+version: 3
 
 toolspro_loaded: ToolsPro已经载入成功！
 toolspro_disabled: ToolsPro已经禁用！
 
-toolspro_updater: You have the latest version ToolsPro!
-toolspro_updater_new_version: Available new version of the plugin! ToolsPro v%1%
-toolspro_updater_error: When you search for updates of the plugin's happened error!
+toolspro_updater: 你在使用新版本的ToolsPro!
+toolspro_updater_new_version: 有新版本了! ToolsPro v%1%
+toolspro_updater_error: 更新失败,或许有个步骤出问题!
 
-toolspro_check_language: Language file %1% is out of date, please update it.
+toolspro_check_language: 语言文件 %1% 已经过期,请更新.
 
-toolspro_check_config: ToolsPro configuration is outdated, please remove config.yml and restart the server!
+toolspro_check_config: ToolsPro 的配置文件过期了,请删除config.yml并重启服务器
 
 you_dont_have_permission: 您没有使用此命令的权限！
 unknown_player: 玩家未找到！
-you_not_survival_or_adventure: Your game mode not survival or not adventure mode!
-player_not_survival_or_adventure: Game mode player %1% not survival or not adventure mode!
+you_not_survival_or_adventure: 你没有在生存或冒险模式！
+player_not_survival_or_adventure: 玩家 %1% 没有在生存或冒险模式！
 need_player: 请在游戏中运行这个命令！
 not_number: 请输入正确的数字！
 not_time: 请输入正确的时间！
@@ -38,8 +38,8 @@ cmd_burn_player_info: 玩家 %1% 点燃了 %2%!
 cmd_burn_player: 你点燃了玩家 %1%
 cmd_burn_usage: '使用方法: /burn <玩家> <秒>'
 
-cmd_clearchat_description: Clear your chat window.
-cmd_clearchat_description2: /clearchat or /clearchat <message>
+cmd_clearchat_description: 清除你的聊天窗口
+cmd_clearchat_description2: /clearchat 或 /clearchat <聊天信息>
 
 cmd_clearhotbar_description: 清除你或其他人的物品栏.
 cmd_clearhotbar_description2: /clearhotbar 或 /clearhotbar <玩家>
@@ -87,13 +87,13 @@ cmd_fly_player_disable_message: 您关闭了飞行功能!
 cmd_gamemode_description: 改变 玩家 的游戏模式.
 cmd_gamemode_description2: /gamemode <模式> <玩家>
 cmd_gamemode_usage: 请使用 %1% 查看所有模式
-cmd_gamemode_sender_already_in_gamemode: You are already in %1%!
-cmd_gamemode_sender_successfully_changed_gamemode: You have successfully changed game mode to %1%!
-cmd_gamemode_sender_successfully_changed_gamemode_info: Player %1% has changed game mode to %2%!
-cmd_gamemode_player_already_in_gamemode: Player %1% already in %2%
-cmd_gamemode_player_successfully_changed_gamemode: You have successfully changed the game mode the player %1% to %2%!
-cmd_gamemode_player_successfully_changed_gamemode_message: Your game mode is successfully changed to %1%!
-cmd_gamemode_player_successfully_changed_gamemode_info: Player %1% has changed game mode player %2% to %3%!
+cmd_gamemode_sender_already_in_gamemode: 你处在 %1%!
+cmd_gamemode_sender_successfully_changed_gamemode: 你成功改变模式到 %1%!
+cmd_gamemode_sender_successfully_changed_gamemode_info: 玩家 %1% 改变他的模式到 %2%!
+cmd_gamemode_player_already_in_gamemode: 玩家 %1% 的模式处在 %2%
+cmd_gamemode_player_successfully_changed_gamemode: 你成功改变玩家 %1% 的模式到 %2%!
+cmd_gamemode_player_successfully_changed_gamemode_message: 你的游戏模式成功改变到 %1%!
+cmd_gamemode_player_successfully_changed_gamemode_info: 玩家 %1% 改变玩家 %2% 的游戏模式到 %3%!
 cmd_gamemode_help1: '全部游戏模式&7:'
 cmd_gamemode_help2: 改变游戏模式到生存模式
 cmd_gamemode_help3: 改变游戏模式到创造模式
@@ -140,14 +140,14 @@ cmd_itemban_removed: 已将物品 %1% (ID - %2%) 从黑名单物品中移除!
 cmd_itemban_usage: '使用方法: /itemban <ban|unban> <物品ID>'
 
 listener_itemban_touch: 你不能使用这个方块!
-listener_itemban_touch_block: You cannot interact with this block
+listener_itemban_touch_block: 你不能使用这个方块!
 listener_itemban_eat: 你不可食用这个物品!
 listener_itemban_place: 你不能放置这个方块!
 listener_itemban_break: 你不能破坏这个方块!
-listener_itemban_tip: This item has been banned!
+listener_itemban_tip: 物品被禁用!
 
 cmd_itemdb_description: 显示你持有的物品的信息.
-cmd_itemdb_description2: /itemdb 或者 /itemdb <name|id|metadata>
+cmd_itemdb_description2: /itemdb 或者 /itemdb <name|id|matedata>
 cmd_itemdb_message1: '这个物品'
 cmd_itemdb_message2: '有 '
 cmd_itemdb_repairable: ' 损耗'
@@ -179,10 +179,10 @@ cmd_mute_player_message: 你已经被禁言 %1% 现在你不能说话!
 listener_mute_line1: 你由于违反聊天规则已被禁言!
 listener_mute_line2: 你将在 %1% 后被解除禁言
 
-cmd_realname_description: Check the realname of a player.
+cmd_realname_description: 检查玩家真实名字
 cmd_realname_description2: /realname <name>
 cmd_realname_usage: 'Usage: /realname <name>'
-cmd_realname: 'Real name player %1%: %2%'
+cmd_realname: '玩家 %1% 真实名字: %2%'
 
 cmd_repair_description: 修复你所手持的物品.
 cmd_repair_successfully_repaired: 所持物品修复成功!
@@ -190,11 +190,11 @@ cmd_repair_all_successfully_repaired: 你当前背包中所有的物品都已成
 cmd_repair_successfully_repaired_including_armor: (包括已经装备的物品)
 cmd_repair_error: 这不是一个可以修复的物品!
 
-cmd_returnop_description: Temporarily deops administrators.
-cmd_returnop_enable: You are no longer op!
-cmd_returnop_disable: You are now op!
-cmd_returnop_enable_info: Player %1% is no longer op
-cmd_returnop_disable_info: Player %1% are now op
+cmd_returnop_description: 去除管理员
+cmd_returnop_enable: 你不在是OP
+cmd_returnop_disable: 你是OP了
+cmd_returnop_enable_info: 玩家 %1% 不再是OP
+cmd_returnop_disable_info: 玩家 %1% 成为OP
 
 cmd_saveinv_description: 设置死亡不掉落
 cmd_saveinv_description2: /saveinv 或 /saveinv <玩家>
@@ -221,7 +221,7 @@ cmd_spawnall_no_players: 服务器中没有玩家.
 cmd_spawnall_player_tp_to_spawn: 所有玩家已被传送到服务器的出生点!
 
 cmd_spawn_description: 传送到服务器的出生点.
-cmd_spawn_cooldown: You need to wait %1% second(s) before doing that
+cmd_spawn_cooldown: 你必须等待 %1% 秒才可以传送
 cmd_spawn_tp_sender: 你把玩家 %1% 传送到了服务器的出生点!
 cmd_spawn_tp_player_message: 传送中...
 
@@ -240,7 +240,7 @@ cmd_sudo_cannot_be_sudoed: '你不可以使用 %1% 的身份!'
 cmd_suicide_description: 自杀!
 cmd_suicide_message: 你成功结束了自己...
 
-cmd_toolspro_description: Shows information about the plugin.
+cmd_toolspro_description: 显示插件信息
 
 cmd_top_description: 将你传送到你头顶上的最高处.
 cmd_top_tp_message: 传送中...
@@ -256,18 +256,18 @@ cmd_unmute_player_info: 玩家 %1% 成功解除了玩家 %2%!
 cmd_unmute_player_message: 您已被解除禁言并且可以说话了!
 cmd_unmute_player_not_muted: 玩家 %1% 并没有被禁言!
 
-cmd_vanish_description: Hide from other players.
-cmd_vanish_description2: /vanish or /vanish <player>
-cmd_vanish_sender_enable: You have successfully enabled invisibility!
-cmd_vanish_sender_disable: You have successfully disabled invisibility!
-cmd_vanish_sender_enable_info: Player %1% enabled myself invisibility!
-cmd_vanish_sender_disable_info: Player %1% disabled myself invisibility!
-cmd_vanish_player_enable: Invisibility to the player %1% has been successfully enabled!
-cmd_vanish_player_disable: Invisibility to the player %1% has been successfully disabled!
-cmd_vanish_player_enable_info: Player %1% has enabled invisibility player %2%!
-cmd_vanish_player_disable_info: Player %1% has disabled invisibility player %2%!
-cmd_vanish_player_enable_message: You have enabled invisibility!
-cmd_vanish_player_disable_message: You have disabled invisibility!
+cmd_vanish_description: 隐藏玩家
+cmd_vanish_description2: /vanish 或 /vanish <玩家>
+cmd_vanish_sender_enable: 你成功隐形!
+cmd_vanish_sender_disable: 你取消隐形形态!
+cmd_vanish_sender_enable_info: 玩家 %1% 使自己隐身！
+cmd_vanish_sender_disable_info: 玩家 %1% 使自己显现!
+cmd_vanish_player_enable: 隐形玩家 %1% 成功!
+cmd_vanish_player_disable: 取消隐形玩家 %1% 成功!
+cmd_vanish_player_enable_info: 玩家 %1% 开启玩家 %2% 的隐形!
+cmd_vanish_player_disable_info: 玩家 %1% 关闭玩家 %2% 的隐形!
+cmd_vanish_player_enable_message: 你启用隐形
+cmd_vanish_player_disable_message: 你关闭隐形
 
 cmd_world_description: 多世界的相关控制命令.
 cmd_world_description2: /world create <世界名> <old|infinite|flat> 或 /world tp <世界名> <玩家名r>
@@ -303,8 +303,8 @@ block_damage_fly: 你不能在飞行模式下攻击玩家!
 block_damage_god: 你不能在上帝模式下攻击玩家!
 block_damage_vanish: 你不能在隐行模式下攻击玩家!
 
-join_session: 'You have the opportunities: %1%'
-join_session_fly: fly
-join_session_god: god mode
-join_session_saveinv: saveinv
-join_session_vanish: vanish
+join_session: '你的状态: %1%'
+join_session_fly: 飞行
+join_session_god: 上帝模式
+join_session_saveinv: 保存背包
+join_session_vanish: 隐身
